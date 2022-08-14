@@ -1,10 +1,25 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import CoreFormRenderer from "@manojadams/metaforms-core";
+import { IFormRenderer } from "@manojadams/metaforms-core/dist/constants/common-interface";
+import React from "react";
+import FormControl from "./forms/FormControl";
+import FormGroup from "./forms/FormGroup";
+import { FormStepper } from "./forms/FormStepper";
+class FormRenderer extends React.Component<IFormRenderer> {
 
-interface Props {
-  text: string
+  constructor(props: IFormRenderer) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <CoreFormRenderer 
+        {...this.props} 
+        baseFormControl={FormControl}
+        baseFormGroup={FormGroup}
+        baseFormStepper={FormStepper}
+      />
+    )
+  }
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export default FormRenderer;
