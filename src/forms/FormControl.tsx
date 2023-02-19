@@ -1,72 +1,78 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import TextField from "@mui/material/TextField";
-import MFormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import FormLabel from '@mui/material/FormLabel';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import Radio from '@mui/material/Radio';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import {BaseFormControl} from '@manojadams/metaforms-core';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { IRenderField } from '@manojadams/metaforms-core/dist/constants/common-interface';
-import enLocale from 'date-fns/locale/en-US';
-import { Button, Checkbox, FormGroup, FormHelperText } from '@mui/material';
-import MuiSearch from './Search';
-import { MandatoryLabel } from "@manojadams/metaforms-core/dist/core/form-controls/common";
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
-import { MSGS } from '@manojadams/metaforms-core/dist/constants';
+import MFormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormLabel from "@mui/material/FormLabel";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import Radio from "@mui/material/Radio";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import CONSTANTS, { BaseFormControl , IRenderField , FormUtils } from "@manojadams/metaforms-core";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import enLocale from "date-fns/locale/en-US";
+import { Button, Checkbox, FormGroup, FormHelperText } from "@mui/material";
+import MuiSearch from "./Search";
+import MandatoryLabel from "./../common/MandatoryLabel";
+import Constants from "@manojadams/metaforms-core/dist/constants";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
     size: any;
-    constructor(props: IRenderField){
+    constructor(props: IRenderField) {
         super(props);
-        this.variant = 'standard';
+        this.variant = "standard";
     }
+
     render(): JSX.Element {
-        const muiVariant = this.context.getThemeProp('mui','variant');
-        const muiSize = this.context.getThemeProp('mui','size');
-        this.variant = muiVariant ? muiVariant : 'standard';
-        this.size = muiSize ? muiSize : undefined;
+        const muiVariant = this.context.getThemeProp("mui", "variant");
+        const muiSize = this.context.getThemeProp("mui", "size");
+        this.variant = muiVariant || "standard";
+        this.size = muiSize;
         return super.render();
     }
+
     getVariant() {
-        return this.field.meta?.mui?.variant ? this.field.meta.mui.variant : this.variant;
-        
+        return this.field.meta?.mui?.variant || this.variant;
     }
+
     getDisplayLabel() {
-        return this.props.form.validation?.required ? this.props.form.displayName + ' *' : this.props.form.displayName;
+        return this.props.form.validation?.required
+            ? this.props.form.displayName + " *"
+            : this.props.form.displayName;
     }
+
     label() {
         const meta = this.props.form;
-        const fieldClassName = meta?.displayProps?.fieldLayout === 'row' ? 'd-md-flex flex-md-row justify-content-md-between': '';
-        const wrapperClassName = 'meta-form-control-' + this.field.name + ' '+ fieldClassName;
+        const fieldClassName =
+            meta?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "";
+        const wrapperClassName = "meta-form-control-" + this.field.name + " " + fieldClassName;
         let hasStartIcon = false;
         let hasEndIcon = false;
-        let startIcon = <Fragment></Fragment>;
-        let endIcon = <Fragment></Fragment>;
+        let startIcon = <Fragment />;
+        let endIcon = <Fragment />;
         if (this.props.form.icons) {
             const allIcons = Object.keys(this.props.form.icons);
-            allIcons && allIcons.forEach(icon => {
-                const actualIcon = this.props.form.icons && this.props.form.icons[icon] ? this.props.form.icons[icon] : undefined;
-                if (actualIcon?.type === 'start') {
-                    hasStartIcon = true;
-                    startIcon = this.context.getIcon(actualIcon.type);
-                }
-                if (hasEndIcon = actualIcon?.type === 'end') {
-                    hasEndIcon = true;
-                    endIcon = this.context.getIcon(icon);
-                }
-            });
+            allIcons &&
+                allIcons.forEach((icon) => {
+                    const actualIcon =
+                        this.props.form.icons && this.props.form.icons[icon] ? this.props.form.icons[icon] : undefined;
+                    if (actualIcon?.type === "start") {
+                        hasStartIcon = true;
+                        startIcon = this.context.getIcon(actualIcon.type) || <Fragment />;
+                    }
+                    if ((hasEndIcon = actualIcon?.type === "end")) {
+                        hasEndIcon = true;
+                        endIcon = this.context.getIcon(icon) || <Fragment />;
+                    }
+                });
         }
         return (
             <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className='field-label'>{meta.displayName}</FormLabel>
-                <span className='field-value'>
+                <FormLabel className="field-label">{meta.displayName}</FormLabel>
+                <span className="field-value">
                     {hasStartIcon && startIcon}
                     {meta.value}
                     {hasEndIcon && endIcon}
@@ -74,19 +80,20 @@ export default class FormControl extends BaseFormControl {
             </MFormControl>
         )
     }
+
     date(props?: any) {
         const label = this.getDisplayLabel();
-        const dateString = this.props.form?.value ?  this.props.form.value + '' : ''; 
-        let value = this.props.form?.value? new Date(dateString) : null;
+        const dateString = this.props.form?.value ? this.props.form.value + "" : "";
+        const value = this.props.form?.value ? new Date(dateString) : null;
         const variant = this.getVariant();
-        const min = this.props.form.validation?.min? new Date(this.props.form.validation.min) : undefined;
-        const max = this.props.form.validation?.max? new Date(this.props.form.validation.max) : undefined;
+        const min = this.props.form.validation?.min ? new Date(this.props.form.validation.min) : undefined;
+        const max = this.props.form.validation?.max ? new Date(this.props.form.validation.max) : undefined;
         const openTo = this.props.form?.config?.openTo || undefined;
         const inputFormat = this.props.form?.config?.inputFormat || "dd/MM/yyyy";
         const views = this.props.form?.config?.views || undefined;
-        const subProps = props ? props : {};
-        let localValue = undefined;
-        const wrapperClassName = 'meta-form-control-' + this.field.name;
+        const subProps = props || {};
+        let localValue;
+        const wrapperClassName = "meta-form-control-" + this.field.name;
         const placeholder = this.props.form.placeholder || inputFormat;
         return (
             <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
@@ -102,18 +109,18 @@ export default class FormControl extends BaseFormControl {
                     minDate={min}
                     maxDate={max}
                     PopperProps={{
-                        className: 'meta-form-date-picker'
+                        className: "meta-form-date-picker"
                     }}
                     onChange={(val: Date | null, inputString: string) => {
                         if (val === null && inputString === undefined) {
                             // input field is cleared
-                            this.handleChange(null, '');
+                            this.handleChange(null, "");
                         } else if (inputString === undefined) {
                             // popup is used
                             if (val) {
                                 this.handleChange(null, FormUtils.getDateString(val));
                             } else {
-                                this.handleChange(null, '');
+                                this.handleChange(null, "");
                             }
                         } else {
                             // input field is used
@@ -121,7 +128,7 @@ export default class FormControl extends BaseFormControl {
                             if (val && inputString && inputString.length === inputFormat.length) {
                                 const inputDate = Date.parse(inputString);
                                 if (isNaN(inputDate)) {
-                                    this.setError(true, MSGS.ERROR_MSG.DATE_INVALID);
+                                    this.setError(true, Constants.MSGS.ERROR_MSG.DATE_INVALID);
                                 } else {
                                     this.handleChange(null, FormUtils.getDateString(new Date(inputDate)));
                                 }
@@ -130,21 +137,30 @@ export default class FormControl extends BaseFormControl {
                             }
                         }
                     }}
+                    // eslint-disable-next-line react/jsx-no-bind
                     onClose={this.handleValidation.bind(this)}
-                    renderInput={(params) => <TextField {...params} variant={variant}
-                        className={wrapperClassName}
-                        helperText={this.state.error.errorMsg||undefined} 
-                        inputProps={{
-                            ...params.inputProps,
-                            placeholder: placeholder
-                        }}
-                        onBlur={this.handleValidation.bind(this)}
-                        size={this.size}
-                        error={this.state.error?.hasError?true:undefined} fullWidth/>}
+                    renderInput={(params) => (
+                        <TextField
+                            {...params}
+                            variant={variant}
+                            className={wrapperClassName}
+                            helperText={this.state.error.errorMsg || undefined}
+                            inputProps={{
+                                ...params.inputProps,
+                                placeholder
+                            }}
+                            // eslint-disable-next-line react/jsx-no-bind
+                            onBlur={this.handleValidation.bind(this)}
+                            size={this.size}
+                            error={this.state.error?.hasError ? true : undefined}
+                            fullWidth
+                        />
+                    )}
                 />
             </LocalizationProvider>
-        ) 
+        )
     }
+
     month() {
         const dateString = this.props.form?.value ?  this.props.form.value + '' : ''; 
         let value = this.props.form?.value? new Date(dateString) : null;
@@ -216,16 +232,21 @@ export default class FormControl extends BaseFormControl {
             </LocalizationProvider>
         ) 
     }
+
     input(type: string, props?: any) {
         const label = this.getDisplayLabel();
         const variant = this.getVariant();
-        const infoText = this.props.form?.validation?.info_detail?.infoMsg;
-        const wrapperClassName = 'meta-form-control-' + this.field.name;
+        const infoText = this.props.form?.validation?.infoDetail?.infoMsg;
+        const wrapperClassName = "meta-form-control-" + this.field.name;
         const extraProps = props || {};
         // const max
         return (
-            <TextField className={wrapperClassName}
-                type={type} label={label} variant={variant} fullWidth
+            <TextField
+                className={wrapperClassName}
+                type={type}
+                label={label}
+                variant={variant}
+                fullWidth
                 disabled={this.props.form.isDisabled}
                 inputProps={{
                     readOnly: this.props.form.isReadonly,
@@ -233,14 +254,17 @@ export default class FormControl extends BaseFormControl {
                 }}
                 placeholder={this.props.form?.placeholder}
                 value={this.props.form?.value}
-                error={this.state.error?.hasError?true:undefined}
-                helperText={this.state.error.errorMsg||infoText||undefined}
+                error={this.state.error?.hasError ? true : undefined}
+                helperText={this.state.error.errorMsg || infoText || undefined}
+                // eslint-disable-next-line react/jsx-no-bind
                 onChange={this.handleChange.bind(this)}
+                // eslint-disable-next-line react/jsx-no-bind
                 onBlur={this.handleValidation.bind(this)}
                 size={this.size}
             />
-        )
+        );
     }
+
     text() {
         const maxLength = this.props.form.validation?.max || '';
         let extraProps;
@@ -251,15 +275,19 @@ export default class FormControl extends BaseFormControl {
         }
         return this.input('text', extraProps);
     }
+
     password() {
         return this.input('password');
     }
+
     email() {
         return this.input('email');
     }
+
     number() {
         return this.input('number');
     }
+
     radio() {
         const meta = this.props.form;
         const isRow = this.props.form?.displayProps?.optionsLayout === 'row' ? true : undefined;
@@ -296,6 +324,7 @@ export default class FormControl extends BaseFormControl {
             </MFormControl>
         )
     }
+
     radioButton(): JSX.Element {
         const meta = this.props.form;
         const isRow = this.props.form?.displayProps?.optionsLayout === 'row' ? true : undefined;
@@ -339,6 +368,7 @@ export default class FormControl extends BaseFormControl {
             </MFormControl>
         )
     }
+
     checkbox(): JSX.Element {
         const meta = this.props.form;
         const wrapperClassName = 'meta-form-control-' + this.field.name
@@ -363,13 +393,14 @@ export default class FormControl extends BaseFormControl {
             </FormGroup>
         )
     }
+
     select() {
         const meta = this.props.form;
         const options = this.props.form.options || [];
         const variant = this.getVariant();
         const label = this.getDisplayLabel();
-        const wrapperClassName = 'meta-form-control-' + this.field.name;
-        const infoText = this.props.form?.validation?.info_detail?.infoMsg;
+        const wrapperClassName = "meta-form-control-" + this.field.name;
+        const infoText = this.props.form?.validation?.infoDetail?.infoMsg;
         return (
             <MFormControl size={this.size} fullWidth error={this.state.error.hasError ? true: undefined} 
                 variant={variant}
@@ -381,7 +412,7 @@ export default class FormControl extends BaseFormControl {
                     disabled={this.props.form.isDisabled}
                     onOpen={(e) => {
                         if (this.props.form.events?.open) {
-                            this.handleOpen(e);
+                            this.handleOpen();
                         }
                     }}
                     onChange={(e) => {
@@ -401,6 +432,7 @@ export default class FormControl extends BaseFormControl {
             </MFormControl>
         )
     }
+
     multiselect(): JSX.Element {
         const meta = this.props.form;
         const options = this.props.form.options || [];
@@ -419,7 +451,7 @@ export default class FormControl extends BaseFormControl {
                     disabled={this.props.form.isDisabled}
                     onOpen={(e) => {
                         if (this.props.form.events?.open) {
-                            this.handleOpen(e);
+                            this.handleOpen();
                         }
                     }}
                     onChange={(e) => {
@@ -439,11 +471,13 @@ export default class FormControl extends BaseFormControl {
             </MFormControl>
         )
     }
+
     button() {
         return (
             <Button variant="contained">Contained</Button>
         )
     }
+
     search() {
         const restConfig = this.context.getRestConfig();
         return (
@@ -461,16 +495,29 @@ export default class FormControl extends BaseFormControl {
             />
         )
     }
+
+    file() {
+        return <Fragment />;
+    }
+
+    hint() {
+        return <Fragment />;
+    }
+
+    phone() {
+        return <Fragment />;
+    }
+
     showValidation(infoMsg?: string) {
         let className = '';
-        let icon = '';
+        let icon = <Fragment />;
         if (this.state.error.hasError) {
             className = 'meta-validation-error';
-            icon = this.context.getIcon('error');
+            icon = this.context.getIcon('error') || <Fragment />;
         } else {
             if (infoMsg) {
                 className = 'meta-validation-info';
-                icon = this.context.getIcon('info');
+                icon = this.context.getIcon('info') || <Fragment />;
             }
         }
         return (

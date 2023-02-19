@@ -1,5 +1,5 @@
 import CoreFormRenderer from "@manojadams/metaforms-core";
-import { IFormRenderer } from "@manojadams/metaforms-core/dist/constants/common-interface";
+import { IFormRenderer } from "@manojadams/metaforms-core";
 import React from "react";
 import FormControl from "./forms/FormControl";
 import FormGroup from "./forms/FormGroup";

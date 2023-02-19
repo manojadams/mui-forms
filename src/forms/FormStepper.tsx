@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import FormFieldRenderer from "@manojadams/metaforms-core/dist/core/form-field-renderer";
+import {FormFieldRenderer} from "@manojadams/metaforms-core";
 import Stepper, { Orientation } from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { Box } from '@mui/material';
-import { IField } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
-import { IEventPayload } from '@manojadams/metaforms-core/dist/constants/common-interface';
+import { IField } from '@manojadams/metaforms-core';
+import { IEventPayload } from '@manojadams/metaforms-core';
 import { BaseFormStepper } from '@manojadams/metaforms-core';
 
 export class FormStepper extends BaseFormStepper {

@@ -1,9 +1,9 @@
 import { Autocomplete, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { IError } from '@manojadams/metaforms-core/dist/constants/common-interface';
-import MetaForm from '@manojadams/metaforms-core/dist/constants/MetaForm';
-import { IConfig, IMeta, IOption } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
+import { IError } from '@manojadams/metaforms-core';
+import { MetaForm } from '@manojadams/metaforms-core';
+import { IConfig, IMeta, IOption } from '@manojadams/metaforms-core';
+import {FormUtils} from '@manojadams/metaforms-core';
 
 export default function Search(props: IProps) {
     const [loading, setLoading] = useState(false);

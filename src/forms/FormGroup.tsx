@@ -2,10 +2,10 @@ import React from 'react';
 import {BaseFormGroup} from "@manojadams/metaforms-core";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Sections from "@manojadams/metaforms-core/dist/core/form-group/common/Sections";
+import {Sections} from "@manojadams/metaforms-core";
 import { Box } from '@mui/material';
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
-import { IField } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
+import {FormUtils} from '@manojadams/metaforms-core';
+import { IField } from '@manojadams/metaforms-core';
 
 export default class FormGroup extends BaseFormGroup {
     tabs(): JSX.Element {
