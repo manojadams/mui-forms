@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { ChangeEvent, Fragment } from "react";
 import TextField from "@mui/material/TextField";
 import MFormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -9,14 +9,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import CONSTANTS, { BaseFormControl , IRenderField , FormUtils } from "@manojadams/metaforms-core";
+import { BaseFormControl, IRenderField, FormUtils, MSGS } from "@manojadams/metaforms-core";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import enLocale from "date-fns/locale/en-US";
 import { Button, Checkbox, FormGroup, FormHelperText } from "@mui/material";
 import MuiSearch from "./Search";
 import MandatoryLabel from "./../common/MandatoryLabel";
-import Constants from "@manojadams/metaforms-core/dist/constants";
+import { TVariant } from "./ constants";
+import { CalendarPickerView } from "@mui/x-date-pickers";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -27,7 +28,7 @@ export default class FormControl extends BaseFormControl {
     }
 
     render(): JSX.Element {
-        const muiVariant = this.context.getThemeProp("mui", "variant");
+        const muiVariant = this.context.getThemeProp("config", "variant");
         const muiSize = this.context.getThemeProp("mui", "size");
         this.variant = muiVariant || "standard";
         this.size = muiSize;
@@ -35,13 +36,11 @@ export default class FormControl extends BaseFormControl {
     }
 
     getVariant() {
-        return this.field.meta?.mui?.variant || this.variant;
+        return (this.field.meta?.themeConfig?.variant || this.variant) as TVariant;
     }
 
     getDisplayLabel() {
-        return this.props.form.validation?.required
-            ? this.props.form.displayName + " *"
-            : this.props.form.displayName;
+        return this.props.form.validation?.required ? this.props.form.displayName + " *" : this.props.form.displayName;
     }
 
     label() {
@@ -78,19 +77,21 @@ export default class FormControl extends BaseFormControl {
                     {hasEndIcon && endIcon}
                 </span>
             </MFormControl>
-        )
+        );
     }
 
-    date(props?: any) {
+    date(props?: IRenderField) {
         const label = this.getDisplayLabel();
         const dateString = this.props.form?.value ? this.props.form.value + "" : "";
         const value = this.props.form?.value ? new Date(dateString) : null;
         const variant = this.getVariant();
         const min = this.props.form.validation?.min ? new Date(this.props.form.validation.min) : undefined;
         const max = this.props.form.validation?.max ? new Date(this.props.form.validation.max) : undefined;
-        const openTo = this.props.form?.config?.openTo || undefined;
+        const openTo: CalendarPickerView = (this.props.form?.config?.openTo as CalendarPickerView | undefined) || "day";
         const inputFormat = this.props.form?.config?.inputFormat || "dd/MM/yyyy";
-        const views = this.props.form?.config?.views || undefined;
+        const views: [CalendarPickerView] = (this.props.form?.config?.views as [CalendarPickerView] | undefined) || [
+            "day"
+        ];
         const subProps = props || {};
         let localValue;
         const wrapperClassName = "meta-form-control-" + this.field.name;
@@ -128,7 +129,7 @@ export default class FormControl extends BaseFormControl {
                             if (val && inputString && inputString.length === inputFormat.length) {
                                 const inputDate = Date.parse(inputString);
                                 if (isNaN(inputDate)) {
-                                    this.setError(true, Constants.MSGS.ERROR_MSG.DATE_INVALID);
+                                    this.setError(true, MSGS.ERROR_MSG.DATE_INVALID);
                                 } else {
                                     this.handleChange(null, FormUtils.getDateString(new Date(inputDate)));
                                 }
@@ -138,7 +139,7 @@ export default class FormControl extends BaseFormControl {
                         }
                     }}
                     // eslint-disable-next-line react/jsx-no-bind
-                    onClose={this.handleValidation.bind(this)}
+                    onClose={this.handleValidation}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -150,7 +151,7 @@ export default class FormControl extends BaseFormControl {
                                 placeholder
                             }}
                             // eslint-disable-next-line react/jsx-no-bind
-                            onBlur={this.handleValidation.bind(this)}
+                            onBlur={this.handleValidation}
                             size={this.size}
                             error={this.state.error?.hasError ? true : undefined}
                             fullWidth
@@ -158,20 +159,20 @@ export default class FormControl extends BaseFormControl {
                     )}
                 />
             </LocalizationProvider>
-        )
+        );
     }
 
     month() {
-        const dateString = this.props.form?.value ?  this.props.form.value + '' : ''; 
-        let value = this.props.form?.value? new Date(dateString) : null;
+        const dateString = this.props.form?.value ? this.props.form.value + "" : "";
+        const value = this.props.form?.value ? new Date(dateString) : null;
         const label = this.getDisplayLabel();
         const variant = this.getVariant();
-        const max = this.props.form.validation?.max? new Date(this.props.form.validation.max) : undefined;
-        const min = this.props.form.validation?.min? new Date(this.props.form.validation.min) : undefined;
-        const wrapperClassName = 'meta-form-control-' + this.field.name;
-        const inputFormat = 'MMM yyyy';
+        const max = this.props.form.validation?.max ? new Date(this.props.form.validation.max) : undefined;
+        const min = this.props.form.validation?.min ? new Date(this.props.form.validation.min) : undefined;
+        const wrapperClassName = "meta-form-control-" + this.field.name;
+        const inputFormat = "MMM yyyy";
         const placeholder = this.props.form.placeholder || inputFormat;
-        let localValue = undefined;
+        let localValue;
         return (
             <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
                 <DatePicker
@@ -183,7 +184,7 @@ export default class FormControl extends BaseFormControl {
                     minDate={min}
                     maxDate={max}
                     PopperProps={{
-                        className: 'meta-form-date-picker'
+                        className: "meta-form-date-picker"
                     }}
                     onChange={(val, inputString) => {
                         if (inputString) {
@@ -209,28 +210,31 @@ export default class FormControl extends BaseFormControl {
                                     this.handleChange(null, dateString);
                                 }
                             } else {
-                                this.handleChange(null, '');
+                                this.handleChange(null, "");
                             }
                         }
                     }}
-                    onClose={this.handleValidation.bind(this)}
-                    renderInput={(params) => 
-                        <TextField {...params} 
+                    onClose={this.handleValidation}
+                    renderInput={(params) => (
+                        <TextField
+                            {...params}
                             className={wrapperClassName}
                             variant={variant}
-                            helperText={this.state.error.errorMsg||undefined} 
+                            helperText={this.state.error.errorMsg || undefined}
                             placeholder={this.props.form.placeholder}
                             inputProps={{
                                 ...params.inputProps,
                                 placeholder: placeholder
                             }}
-                            onBlur={this.handleValidation.bind(this)}
+                            onBlur={this.handleValidation}
                             size={this.size}
-                            error={this.state.error?.hasError?true:undefined}
-                            fullWidth/>}
+                            error={this.state.error?.hasError ? true : undefined}
+                            fullWidth
+                        />
+                    )}
                 />
             </LocalizationProvider>
-        ) 
+        );
     }
 
     input(type: string, props?: any) {
@@ -257,141 +261,193 @@ export default class FormControl extends BaseFormControl {
                 error={this.state.error?.hasError ? true : undefined}
                 helperText={this.state.error.errorMsg || infoText || undefined}
                 // eslint-disable-next-line react/jsx-no-bind
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChange}
                 // eslint-disable-next-line react/jsx-no-bind
-                onBlur={this.handleValidation.bind(this)}
+                onBlur={this.handleValidation}
                 size={this.size}
             />
         );
     }
 
     text() {
-        const maxLength = this.props.form.validation?.max || '';
+        const maxLength = this.props.form.validation?.max || "";
         let extraProps;
         if (maxLength) {
             extraProps = {
                 maxLength: maxLength
-            }
+            };
         }
-        return this.input('text', extraProps);
+        return this.input("text", extraProps);
     }
 
     password() {
-        return this.input('password');
+        return this.input("password");
     }
 
     email() {
-        return this.input('email');
+        return this.input("email");
     }
 
     number() {
-        return this.input('number');
+        return this.input("number");
     }
 
     radio() {
         const meta = this.props.form;
-        const isRow = this.props.form?.displayProps?.optionsLayout === 'row' ? true : undefined;
-        const wrapperClassName = 'meta-form-control-' + this.field.name
-            + (this.props.form?.displayProps?.fieldLayout === 'row' ? 'd-md-flex flex-md-row justify-content-md-between': '');
-        const fieldLabelClassname = wrapperClassName ? 'field-label d-md-flex align-items-md-center': 'field-label';
+        const isRow = this.props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
+        const wrapperClassName =
+            "meta-form-control-" +
+            this.field.name +
+            (this.props.form?.displayProps?.fieldLayout === "row"
+                ? "d-md-flex flex-md-row justify-content-md-between"
+                : "");
+        const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
         const labelPlacement: any = this.props.form?.labelPlacement;
         return (
             <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className={fieldLabelClassname}>{meta.displayName}{this.validation.required&&<MandatoryLabel/>}</FormLabel>
-                <RadioGroup row={isRow} value={this.props.form?.value} onChange={(e) => {
-                    const parentLabel = e.target.closest('label')
-                    const datatype = parentLabel ? parentLabel.getAttribute('datatype') : '';
-                    if (datatype) {
-                        switch (datatype) {
-                            case 'boolean':
-                                const val = e.target.value === 'true' ? true : false;
-                                this.handleChange(e, val);
-                                break;
-                            default:
-                                this.handleChange(e);
+                <FormLabel className={fieldLabelClassname}>
+                    {meta.displayName}
+                    {this.validation.required && <MandatoryLabel />}
+                </FormLabel>
+                <RadioGroup
+                    row={isRow}
+                    value={this.props.form?.value}
+                    onChange={(e) => {
+                        const parentLabel = e.target.closest("label");
+                        const datatype = parentLabel ? parentLabel.getAttribute("datatype") : "";
+                        if (datatype) {
+                            switch (datatype) {
+                                case "boolean":
+                                    {
+                                        const val = e.target.value === "true";
+                                        this.handleChange(e, val);
+                                    }
+                                    break;
+                                default:
+                                    this.handleChange(e);
+                            }
+                        } else {
+                            this.handleChange(e);
                         }
-                    } else {
-                        this.handleChange(e)
-                    }
-                }}>
-                    {
-                        meta.options && meta.options.map(option=>{
+                    }}
+                >
+                    {meta.options &&
+                        meta.options.map((option, idx) => {
                             const datatype = typeof option.value;
-                            return (<FormControlLabel datatype={datatype} labelPlacement={labelPlacement} key={option.value} value={option.value} control={<Radio />} label={option.label} />)
-                        })
-                    }
+                            return (
+                                <FormControlLabel
+                                    datatype={datatype}
+                                    labelPlacement={labelPlacement}
+                                    key={idx}
+                                    value={option.value}
+                                    control={<Radio />}
+                                    label={option.label}
+                                />
+                            );
+                        })}
                 </RadioGroup>
             </MFormControl>
-        )
+        );
     }
 
     radioButton(): JSX.Element {
         const meta = this.props.form;
-        const isRow = this.props.form?.displayProps?.optionsLayout === 'row' ? true : undefined;
-        const wrapperClassName = 'meta-form-control-' + this.field.name
-            + (this.props.form?.displayProps?.fieldLayout === 'row' ? 'd-md-flex flex-md-row justify-content-md-between': '');
-        const fieldLabelClassname = wrapperClassName ? 'field-label d-md-flex align-items-md-center': 'field-label';
+        const isRow = this.props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
+        const wrapperClassName =
+            "meta-form-control-" +
+            this.field.name +
+            (this.props.form?.displayProps?.fieldLayout === "row"
+                ? "d-md-flex flex-md-row justify-content-md-between"
+                : "");
+        const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
         const labelPlacement: any = this.props.form?.labelPlacement;
 
         return (
             <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className={fieldLabelClassname}>{meta.displayName}{this.validation.required&&<MandatoryLabel/>}</FormLabel>
-                <div className='row' onClick={(e)=>{
-                    const button = e.target;
-                    const datatype = button && button['getAttribute'] ? button['getAttribute']('datatype') : '';
-                    if (datatype) {
-                        switch (datatype) {
-                            case 'boolean':
-                                const val = e.target['value'] === 'true' ? true : false;
-                                this.handleChange(e, val);
-                                break;
-                            default:
-                                this.handleChange(e);
+                <FormLabel className={fieldLabelClassname}>
+                    {meta.displayName}
+                    {this.validation.required && <MandatoryLabel />}
+                </FormLabel>
+                <div
+                    className="row"
+                    onClick={(e) => {
+                        const button = e.target as HTMLButtonElement;
+                        const datatype = button && button.getAttribute ? button.getAttribute("datatype") : "";
+                        if (datatype) {
+                            switch (datatype) {
+                                case "boolean":
+                                    {
+                                        // eslint-disable-next-line dot-notation
+                                        const val = e.target["value"] === "true";
+                                        this.handleChange(e, val);
+                                    }
+                                    break;
+                                default:
+                                    this.handleChange(e);
+                            }
+                        } else {
+                            this.handleChange(e);
                         }
-                    } else {
-                        this.handleChange(e)
-                    }
-                }}>
-                {
-                    meta.options && meta.options.map(option => {
-                        const datatype = typeof option.value;
-                        const className = option.value === meta.value ? 'selected' : '';
-                        return (<div className='col' key={option.value}>
-                            <Button className={className} datatype={datatype} value={option.value} 
-                                variant="outlined" size="large" sx={{
-                                padding: '1.4rem'
-                            }} fullWidth>{option.label}</Button>
-                        </div>)
-                    })
-                }
+                    }}
+                >
+                    {meta.options &&
+                        meta.options.map((option, idx) => {
+                            const datatype = typeof option.value;
+                            const className = option.value === meta.value ? "selected" : "";
+                            return (
+                                <div className="col" key={idx}>
+                                    <Button
+                                        className={className}
+                                        // component={null}
+                                        datatype={datatype}
+                                        value={option.value as string}
+                                        variant="outlined"
+                                        size="large"
+                                        sx={{
+                                            padding: "1.4rem"
+                                        }}
+                                        fullWidth
+                                    >
+                                        {option.label}
+                                    </Button>
+                                </div>
+                            );
+                        })}
                 </div>
             </MFormControl>
-        )
+        );
     }
 
     checkbox(): JSX.Element {
         const meta = this.props.form;
-        const wrapperClassName = 'meta-form-control-' + this.field.name
+        const wrapperClassName = "meta-form-control-" + this.field.name;
         return (
             <FormGroup>
-                {
-                    meta.options && meta.options.map((option: {label: string, value: any}) => {
+                {meta.options &&
+                    meta.options.map((option: { label: string; value: any }) => {
                         return (
-                            <FormControlLabel className={wrapperClassName} key={option.value} value={option.value} control={<Checkbox checked={option.value === this.props.form.value} 
-                                onChange={(e) => {
-                                    const checked = e.target.checked;
-                                    this.handleChange(e, checked ? option.value : '');
-                                    this.handleValidation();
-                                }}
-                                disabled={this.props.form.isDisabled}
-                            />} label={option.label}
+                            <FormControlLabel
+                                className={wrapperClassName}
+                                key={option.value}
+                                value={option.value}
+                                control={
+                                    <Checkbox
+                                        checked={option.value === this.props.form.value}
+                                        onChange={(e) => {
+                                            const checked = e.target.checked;
+                                            this.handleChange(e, checked ? option.value : "");
+                                            this.handleValidation();
+                                        }}
+                                        disabled={this.props.form.isDisabled}
+                                    />
+                                }
+                                label={option.label}
                             />
-                        )
-                    })
-                }
+                        );
+                    })}
                 {this.showValidation()}
             </FormGroup>
-        )
+        );
     }
 
     select() {
@@ -402,35 +458,43 @@ export default class FormControl extends BaseFormControl {
         const wrapperClassName = "meta-form-control-" + this.field.name;
         const infoText = this.props.form?.validation?.infoDetail?.infoMsg;
         return (
-            <MFormControl size={this.size} fullWidth error={this.state.error.hasError ? true: undefined} 
+            <MFormControl
+                size={this.size}
+                fullWidth
+                error={this.state.error.hasError ? true : undefined}
                 variant={variant}
-                className={wrapperClassName}>
+                className={wrapperClassName}
+            >
                 <InputLabel className="meta-select-label">{label}</InputLabel>
                 <Select
                     label={meta.displayName}
                     value={this.props.form?.value}
                     disabled={this.props.form.isDisabled}
-                    onOpen={(e) => {
+                    onOpen={() => {
                         if (this.props.form.events?.open) {
                             this.handleOpen();
                         }
                     }}
                     onChange={(e) => {
                         const val = e.target.value;
-                        const ref = options.find(o => o.value === val);
-                        this.handleChange(e,undefined,ref);
+                        const ref = options.find((o) => o.value === val);
+                        this.handleChange(e as ChangeEvent, undefined, ref);
                     }}
-                    onBlur={this.handleValidation.bind(this)}>
-                    {
-                        options && options.map((option: {label: string, value: string})=>{
+                    onBlur={this.handleValidation}
+                >
+                    {options &&
+                        options.map((option: { label: string; value: string }) => {
                             const datatype = typeof option.value;
-                            return (<MenuItem key={option.value} datatype={datatype} value={option.value}>{option.label}</MenuItem>)
-                        })
-                    }
+                            return (
+                                <MenuItem key={option.value} datatype={datatype} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            );
+                        })}
                 </Select>
                 {this.showValidation(infoText)}
             </MFormControl>
-        )
+        );
     }
 
     multiselect(): JSX.Element {
@@ -438,62 +502,69 @@ export default class FormControl extends BaseFormControl {
         const options = this.props.form.options || [];
         const variant = this.getVariant();
         const label = this.getDisplayLabel();
-        const wrapperClassName = 'meta-form-control-' + this.field.name;
+        const wrapperClassName = "meta-form-control-" + this.field.name;
         return (
-            <MFormControl size={this.size} fullWidth error={this.state.error.hasError ? true: undefined} 
+            <MFormControl
+                size={this.size}
+                fullWidth
+                error={this.state.error.hasError ? true : undefined}
                 variant={variant}
-                className={wrapperClassName}>
+                className={wrapperClassName}
+            >
                 <InputLabel className="meta-select-label">{label}</InputLabel>
                 <Select
                     multiple
                     label={meta.displayName}
                     value={this.props.form?.value}
                     disabled={this.props.form.isDisabled}
-                    onOpen={(e) => {
+                    onOpen={() => {
                         if (this.props.form.events?.open) {
                             this.handleOpen();
                         }
                     }}
                     onChange={(e) => {
                         const val = e.target.value;
-                        const ref = options.find(o => o.value === val);
-                        this.handleChange(e,undefined,ref);
+                        const ref = options.find((o) => o.value === val);
+                        this.handleChange(e as ChangeEvent, undefined, ref);
                     }}
-                    onBlur={this.handleValidation.bind(this)}>
-                    {
-                        options && options.map((option: {label: string, value: string})=>{
+                    onBlur={this.handleValidation}
+                >
+                    {options &&
+                        options.map((option: { label: string; value: string }) => {
                             const datatype = typeof option.value;
-                            return (<MenuItem key={option.value} datatype={datatype} value={option.value}>{option.label}</MenuItem>)
-                        })
-                    }
+                            return (
+                                <MenuItem key={option.value} datatype={datatype} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            );
+                        })}
                 </Select>
                 {this.showValidation()}
             </MFormControl>
-        )
+        );
     }
 
     button() {
-        return (
-            <Button variant="contained">Contained</Button>
-        )
+        return <Button variant="contained">Contained</Button>;
     }
 
     search() {
         const restConfig = this.context.getRestConfig();
         return (
-            <MuiSearch name={this.field.name}
-                form={this.props.form} 
-                label={this.getDisplayLabel()||""}
-                variant={this.getVariant()} 
+            <MuiSearch
+                name={this.field.name}
+                form={this.props.form}
+                label={this.getDisplayLabel() || ""}
+                variant={this.getVariant()}
                 config={restConfig}
-                handleChange={this.handleChange.bind(this)}
-                handleValidation={this.handleValidation.bind(this)}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
                 context={this.context}
                 section={this.section}
                 error={this.state.error}
                 loading={this.state.loading}
             />
-        )
+        );
     }
 
     file() {
@@ -509,15 +580,15 @@ export default class FormControl extends BaseFormControl {
     }
 
     showValidation(infoMsg?: string) {
-        let className = '';
+        let className = "";
         let icon = <Fragment />;
         if (this.state.error.hasError) {
-            className = 'meta-validation-error';
-            icon = this.context.getIcon('error') || <Fragment />;
+            className = "meta-validation-error";
+            icon = this.context.getIcon("error") || <Fragment />;
         } else {
             if (infoMsg) {
-                className = 'meta-validation-info';
-                icon = this.context.getIcon('info') || <Fragment />;
+                className = "meta-validation-info";
+                icon = this.context.getIcon("info") || <Fragment />;
             }
         }
         return (
@@ -525,6 +596,6 @@ export default class FormControl extends BaseFormControl {
                 {icon}
                 {this.state.error.errorMsg || infoMsg}
             </FormHelperText>
-        )
+        );
     }
 }

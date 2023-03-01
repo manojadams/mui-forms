@@ -7,6 +7,7 @@
     "prettier/standard",
     "prettier/react",
     "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "env": {
@@ -21,7 +22,7 @@
   },
   "settings": {
     "react": {
-      "version": "16"
+      "version": "18"
     }
   },
   "rules": {
@@ -30,6 +31,8 @@
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
-    "import/export": 0
+    "import/export": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    // "@typescript-eslint/interface-name-prefix": [ "error", { "prefixWithI": "always" }]
   }
 }
