@@ -1,6 +1,6 @@
 {
   "name": "@manojadams/metaforms-mui",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "Material UI with metaforms",
   "author": "manojgetwealthy",
   "license": "MIT",
@@ -12,34 +12,36 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --no-compress --format modern,cjs -css",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
-    "test:lint": "eslint .",
+    "test:lint": "eslint src/",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "doc": "typedoc src/index.tsx --excludeInternal"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^18.0.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/eslint": "^8.21.1",
     "@types/jest": "^25.1.4",
-    "@types/node": "^12.12.38",
-    "@types/react": "^16.9.27",
-    "@types/react-dom": "^16.9.7",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "microbundle-crl": "^0.13.10",
+    "@types/node": "^16.18.12",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
+    "eslint": "^8.34.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
@@ -47,23 +49,28 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
-    "typescript": "^3.7.5"
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "typedoc": "^0.23.25",
+    "typescript": "^4.9.5"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@manojadams/metaforms-core": "^1.0.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@manojadams/metaforms-core": "^2.0.4",
     "@mui/material": "^5.10.0",
-    "@mui/x-date-pickers": "^5.0.0-beta.5",
+    "@mui/x-date-pickers": "^5.0.19",
     "date-fns": "^2.29.1"
   }
 }

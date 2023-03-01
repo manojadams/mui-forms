@@ -1,83 +1,89 @@
-import { Autocomplete, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { IError } from '@manojadams/metaforms-core/dist/constants/common-interface';
-import MetaForm from '@manojadams/metaforms-core/dist/constants/MetaForm';
-import { IConfig, IMeta, IOption } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
+import { Autocomplete, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { IError, MetaForm, IConfig, IMeta, IOption, FormUtils } from "@manojadams/metaforms-core";
+import { TVariant } from "./ constants";
+import { TValue } from "@manojadams/metaforms-core/dist/constants/types";
+
+interface IProps {
+    name: string;
+    form: IMeta;
+    variant: TVariant;
+    config: IConfig;
+    label: string;
+    loading: boolean;
+    handleChange: (e: React.SyntheticEvent, val1: TValue, val2: IOption | undefined) => void;
+    handleValidation: () => void;
+    context: MetaForm;
+    section: string;
+    error: IError;
+}
 
 export default function Search(props: IProps) {
     const [loading, setLoading] = useState(false);
     const [options, setOptions] = useState(props.form.options || []);
     const [value, setValue] = useState<IOption | null>(null);
     const inputEv = props.form.events?.input;
-    const wrapperClassName = 'meta-form-control-' + props.name;
+    const wrapperClassName = "meta-form-control-" + props.name;
 
     useEffect(() => {
         if (props.form.options && props.form.options.length > 0) {
             const value = FormUtils.getSearchValue(props.form.options, props.form.value);
             setOptions(props.form.options);
             if (value) {
-                setValue(value);
+                setValue(value as IOption);
             }
         }
-    },[props.form.options]);
-    
+    }, [props.form.options]);
+
     useEffect(() => {
         setLoading(props.loading);
-    },[props.loading]);
+    }, [props.loading]);
 
     return (
-        <Autocomplete 
+        <Autocomplete
             value={value}
             options={options}
             loading={loading}
             className={wrapperClassName}
             isOptionEqualToValue={(option, value) => value && value.value === option.value}
             onChange={(e, val) => {
-                const actualValue = val?.value ? val.value : inputEv?.value && val && val[inputEv.value]
-                    ? val[inputEv.value] : '';
-                props.handleChange(e, actualValue, val);
+                const actualValue = val?.value
+                    ? val.value
+                    : inputEv?.value && val && val[inputEv.value]
+                    ? val[inputEv.value]
+                    : "";
+                props.handleChange(e, actualValue, val !== null ? val : undefined);
                 if (val) {
                     setValue(val);
                 }
             }}
-            onBlur={()=> props.handleValidation()}
-            onInputChange={(e:any, val:string) => {
+            onBlur={() => props.handleValidation()}
+            onInputChange={(e, val: string) => {
                 const config = props.form.events?.input || props.form.config;
                 if (config) {
                     setLoading(true);
-                    props.context.getData(config, val, props.section, '$input')
+                    props.context
+                        .getData(config, val, props.section, "$input")
                         .then((results: Array<IOption>) => {
                             setOptions(results);
                             setLoading(false);
-                        }).catch(error => {
+                        })
+                        .catch((error) => {
                             setOptions([]);
                             setLoading(false);
                             props.context.handleError(error, props.section, props.name);
-                            
                         });
                 }
             }}
-            renderInput={(params:any) => <TextField {...params} 
+            renderInput={(params) => (
+                <TextField
+                    {...params}
                     label={props.label}
                     variant={props.variant}
                     error={props.error.hasError}
                     helperText={props.error.errorMsg}
-                />}
+                />
+            )}
         />
-    )
-}
-
-interface IProps {
-    name: string;
-    form: IMeta;
-    variant: string;
-    config: IConfig;
-    label: string;
-    loading: boolean;
-    handleChange: Function;
-    handleValidation: Function;
-    context: MetaForm;
-    section: string;
-    error: IError;
+    );
 }
