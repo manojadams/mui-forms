@@ -18,6 +18,7 @@ import MuiSearch from "./Search";
 import MandatoryLabel from "./../common/MandatoryLabel";
 import { TVariant } from "./ constants";
 import { CalendarPickerView } from "@mui/x-date-pickers";
+import { Row } from "layout-emotions";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -352,7 +353,6 @@ export default class FormControl extends BaseFormControl {
 
     radioButton(): JSX.Element {
         const meta = this.props.form;
-        const isRow = this.props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
         const wrapperClassName =
             "meta-form-control-" +
             this.field.name +
@@ -368,8 +368,7 @@ export default class FormControl extends BaseFormControl {
                     {meta.displayName}
                     {this.validation.required && <MandatoryLabel />}
                 </FormLabel>
-                <div
-                    className="row"
+                <Row
                     onClick={(e) => {
                         const button = e.target as HTMLButtonElement;
                         const datatype = button && button.getAttribute ? button.getAttribute("datatype") : "";
@@ -395,17 +394,14 @@ export default class FormControl extends BaseFormControl {
                             const datatype = typeof option.value;
                             const className = option.value === meta.value ? "selected" : "";
                             return (
-                                <div className="col" key={idx}>
+                                <div className="mcol" key={idx}>
                                     <Button
                                         className={className}
                                         // component={null}
                                         datatype={datatype}
                                         value={option.value as string}
-                                        variant="outlined"
-                                        size="large"
-                                        sx={{
-                                            padding: "1.4rem"
-                                        }}
+                                        variant={option.value === meta.value ? "contained" : "outlined"}
+                                        size="small"
                                         fullWidth
                                     >
                                         {option.label}
@@ -413,7 +409,7 @@ export default class FormControl extends BaseFormControl {
                                 </div>
                             );
                         })}
-                </div>
+                </Row>
             </MFormControl>
         );
     }
