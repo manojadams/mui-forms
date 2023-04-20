@@ -46,9 +46,7 @@ export default class FormControl extends BaseFormControl {
 
     label() {
         const meta = this.props.form;
-        const fieldClassName =
-            meta?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "";
-        const wrapperClassName = "meta-form-control-" + this.field.name + " " + fieldClassName;
+        const wrapperClassName = this.getWrapperClassName();
         let hasStartIcon = false;
         let hasEndIcon = false;
         let startIcon = <Fragment />;
