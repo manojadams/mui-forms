@@ -3,7 +3,8 @@ import React from "react";
 import FormControl from "./forms/FormControl";
 import FormGroup from "./forms/FormGroup";
 import { FormStepper } from "./forms/FormStepper";
-import { Button } from "@mui/material"
+import { Button } from "@mui/material";
+import FormWizard from "./forms/FormWizard";
 
 /**
  * Dynamically render forms using `metaforms schema` and `mui components`
@@ -21,6 +22,7 @@ class FormRenderer extends React.Component<IFormRenderer> {
                 baseFormControl={FormControl}
                 baseFormGroup={FormGroup}
                 baseFormStepper={FormStepper}
+                baseFormWizard={FormWizard}
             />
         );
     }
