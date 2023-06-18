@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BaseFormWizard, FormFieldRenderer } from "@manojadams/metaforms-core";
+import { Row } from "layout-emotions";
 
 class FormWizard extends BaseFormWizard {
     screens(): JSX.Element {
@@ -7,9 +8,9 @@ class FormWizard extends BaseFormWizard {
         const fn = () => false;
         const form = this.context.form[field?.name ? field.name : "default"];
         return (
-            <Fragment>
+            <Row>
                 {field && <FormFieldRenderer {...field} key={field.name} section={field.name} sync={fn} form={form} />}
-            </Fragment>
+            </Row>
         );
     }
 }

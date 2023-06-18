@@ -4,6 +4,7 @@ import Stepper, { Orientation } from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Box } from "@mui/material";
+import { Row } from "layout-emotions";
 
 export class FormStepper extends BaseFormStepper {
     orientation: Orientation | undefined;
@@ -85,12 +86,12 @@ export class FormStepper extends BaseFormStepper {
         const form = this.context.form[field?.name ? field.name : "default"];
         const sync = () => false;
         return (
-            <Fragment>
+            <Row>
                 {field && (
                     <FormFieldRenderer {...field} key={field.name} section={field.name} form={form} sync={sync} />
                 )}
                 {this.footer()}
-            </Fragment>
+            </Row>
         );
     }
 
