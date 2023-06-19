@@ -68,7 +68,7 @@
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@manojadams/metaforms-core": "^2.0.15",
+    "@manojadams/metaforms-core": "^2.0.16",
     "@mui/material": "^5.10.0",
     "@mui/x-date-pickers": "^5.0.19",
     "date-fns": "^2.29.1",
