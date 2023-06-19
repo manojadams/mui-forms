@@ -16,6 +16,7 @@ class FormRenderer extends React.Component<IFormRenderer> {
                 buttons={{
                     submit: <Button variant="contained">Submit</Button>,
                     next: <Button variant="contained">Next</Button>,
+                    previous: <Button variant="text">Previous</Button>,
                     cancel: <Button variant="text">Cancel</Button>
                 }}
                 {...this.props}
