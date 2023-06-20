@@ -562,7 +562,84 @@ export default class FormControl extends BaseFormControl {
     }
 
     file() {
-        return <Fragment />;
+        const meta = this.props.form;
+        const fileUploadedIcon = this.context.getIcon("fileUploaded");
+        const fileDeleteIcon = this.context.getIcon("fileDelete");
+        const uploadIcon = this.context.getIcon("uploadIcon");
+        const fileWidthClass = meta.value ? "w-80" : "w-100";
+        const handleFileChange = (e: any) => {
+            let value = e.target.value;
+            if (value) {
+                const valParts = value.split("\\");
+                if (valParts && valParts.length > 0) {
+                    value = valParts[valParts.length - 1];
+                }
+                this.handleChange(e, value);
+                this.context.setFieldProp(this.section, this.field.name, "files", e.target.files);
+                this.handleValidation();
+            }
+        };
+        return (
+            <MFormControl
+                className={this.getWrapperClassName()}
+                size={this.size}
+                fullWidth
+                error={this.state.error.hasError ? true : undefined}
+            >
+                <Button
+                    className="meta-file-upload-btn"
+                    variant="outlined"
+                    size="large"
+                    onClick={(e) => {
+                        let target: any;
+                        target = e.target;
+                        const fileInput = target.parentElement.querySelector("input[type=file]");
+                        fileInput && fileInput.click();
+                    }}
+                    sx={{
+                        padding: "1.4rem"
+                    }}
+                    fullWidth
+                >
+                    {meta.value ? (
+                        <div className="d-flex">
+                            {uploadIcon}
+                            <span className="meta-file-value"> {meta.value}</span>
+                            {fileUploadedIcon}
+                            <span
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    // delete file
+                                    this.context.setFieldProp(this.section, this.field.name, "files", "");
+                                    this.handleChange(e, "");
+                                    this.handleValidation();
+                                    // let target: any;
+                                    // target = e.target;
+                                    // const inputElement = FormUtils.createFileInput(fileWidthClass, this.field.name, meta.config?.accept, this.getDisplayLabel(), handleFileChange);
+                                }}
+                            >
+                                {fileDeleteIcon}
+                            </span>
+                        </div>
+                    ) : (
+                        <Fragment>
+                            {uploadIcon}
+                            {this.getDisplayLabel()}
+                        </Fragment>
+                    )}
+                </Button>
+                <input
+                    accept={meta.config?.accept}
+                    className={`position-absolute opacity-0 ${fileWidthClass} h-100`}
+                    type="file"
+                    name={this.field.name}
+                    title={this.getDisplayLabel()}
+                    onChange={handleFileChange}
+                />
+                {this.showValidation()}
+            </MFormControl>
+        );
     }
 
     hint() {
