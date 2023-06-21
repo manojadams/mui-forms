@@ -1,0 +1,16 @@
+{
+    "theme": {
+        "config": {
+            "variant": "filled"
+        }
+    },
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field"
+            }
+        }
+    ]
+}

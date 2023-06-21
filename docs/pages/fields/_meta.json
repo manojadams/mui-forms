@@ -1,0 +1,9 @@
+{
+    "fields": "About",
+    "common-properties": "Common properties",
+    "displayType-properties": "DisplayType properties",
+    "text-field": "Text Field",
+    "number-field": "Number Field",
+    "email-field": "Email Field",
+    "date-field": "Date Field"
+}

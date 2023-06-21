@@ -1,0 +1,99 @@
+import TextField from "../../components/fields/TextField";
+import schema from "../../components/fields/TextField/schema.json";
+import schemaPlaceholder from "../../components/fields/TextField/schema-placeholder.json";
+import schemaReadonly from "../../components/fields/TextField/schema-readonly.json";
+import schemaDisabled from "../../components/fields/TextField/schema-disabled.json";
+import schemaFilled from "../../components/fields/TextField/schema-filled.json";
+import schemaRequired from "../../components/fields/TextField/schema-required.json";
+import schemaPattern from "../../components/fields/TextField/schema-pattern.json";
+import schemaMinMax from "../../components/fields/TextField/schema-minmax.json";
+import schemaInfo from "../../components/fields/TextField/schema-info.json";
+import MaterialForms from "@manojadams/metaforms-mui";
+import Field from "../../components/fields/Field";
+import SchemaViewer from "../../components/SchemaViewer";
+import CommonProperties from "./common-properties.mdx";
+
+# Text field
+
+<TextField />
+
+**Schema:**
+
+<SchemaViewer value={schema} />
+
+## Field properties
+
+Properties used by this field (inside meta field in schema)
+| Name | Description | Type |
+|------|-------------|------|
+| placeholder | The hint shown in the text field | String |
+| isReadonly | A readonly field is not editable and value cannot be changed | Boolean |
+| isDisabled | Shows the field as disabled.<br/> This is also not editable and value cannot be changed | Boolean |
+| variant | Contains the field variant to be used. <br/>Allowed values: **standard**, **filled**, **outlined**. Default is _standard_.|
+
+<CommonProperties />
+
+## Field with placeholder
+
+<MaterialForms schema={schemaPlaceholder} />
+
+**Schema:**
+
+<SchemaViewer value={schemaPlaceholder} />
+
+## Readonly field
+
+<MaterialForms schema={schemaReadonly} />
+
+**Schema:**
+
+<SchemaViewer value={schemaReadonly} />
+
+## Disabled field
+
+<MaterialForms schema={schemaDisabled} />
+
+**Schema:**
+
+<SchemaViewer value={schemaDisabled} />
+
+## Required field
+
+Click on `Submit` with and without value.
+
+<MaterialForms schema={schemaRequired} />
+
+**Schema:**
+
+<SchemaViewer value={schemaRequired} />
+
+## Field with pattern
+
+Only supports alphanumeric characters. Special characters are not supported.
+
+<br />
+Enter any special character (!@#$%^&*) and click on `Submit`.
+
+<MaterialForms schema={schemaPattern} />
+
+**Schema:**
+
+<SchemaViewer value={schemaPattern} />
+
+## Validation with minimum and maximum characters
+
+Try to enter more than 10 characters.
+
+<MaterialForms schema={schemaMinMax} />
+
+**Schema:**
+
+<SchemaViewer value={schemaMinMax} />
+
+## Schema with info msg
+
+<MaterialForms schema={schemaInfo} />
+
+**Schema:**
+
+<SchemaViewer value={schemaInfo} />

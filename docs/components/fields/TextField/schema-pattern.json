@@ -1,0 +1,17 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field",
+                "validation": {
+                    "pattern": "^[a-zA-Z0-9]+$",
+                    "pattern_detail": {
+                        "errorMsg": "Please enter alphanumeric characters only"
+                    }
+                }
+            }
+        }
+    ]
+}

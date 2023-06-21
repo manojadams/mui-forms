@@ -1,0 +1,45 @@
+import NumberField from "../../components/fields/NumberField";
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/fields/NumberField/schema.json";
+import schemaMax from "../../components/fields/NumberField/schema-max.json";
+import schemaMin from "../../components/fields/NumberField/schema-min.json";
+import schemaPlaceholder from "../../components/fields/NumberField/schema-placeholder.json";
+import MaterialForms from "@manojadams/metaforms-mui";
+import CommonProperties from "./common-properties.mdx";
+
+# Number field
+
+<NumberField />
+
+**Schema:**
+
+<SchemaViewer value={schema} />
+
+## Properties
+
+| Name        | Description                                                                                                                | Type    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | ------- |
+| placeholder | The hint shown in the text field                                                                                           | String  |
+| isReadonly  | A readonly field is not editable and value cannot be changed                                                               | Boolean |
+| isDisabled  | Shows the field as disabled.<br/> This is also not editable and value cannot be changed                                    | Boolean |
+| variant     | Contains the field variant to be used. <br/>Allowed values: **standard**, **filled**, **outlined**. Default is _standard_. |
+
+<CommonProperties />
+
+## Max. allowed number
+
+Enter an age greater than 100 years and click on `Submit`.
+
+<MaterialForms schema={schemaMax} />
+
+**Schema:**
+
+<SchemaViewer value={schemaMax} />
+
+## Placeholder
+
+<MaterialForms schema={schemaPlaceholder} />
+
+**Schema:**
+
+<SchemaViewer value={schemaPlaceholder} />

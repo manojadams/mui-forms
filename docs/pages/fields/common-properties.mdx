@@ -1,0 +1,28 @@
+## Common field properties
+
+These are the common properties of a field ( inside `meta` field)
+
+| Field        | Data type                         | Default Value | Description                                                                                                                |
+| ------------ | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| className    | String                            | None          | Pass classname for custom styling or reference                                                                             |
+| displayName  | String                            | None          | It is used to display name of the field in the form                                                                        |
+| displayType  | String                            | None          | It is used to determine the field type to be displayed. Supported options:                                                 |
+| displayProps | Object                            | None          | It is used for field layouting. Refer for details: [DisplayType](/layouting/about)                                         |
+| value        | String <br/> Boolean <br/> Number | None          | It is value of the field                                                                                                   |
+| type         | String                            | None          | Used for hidden fields and field section. <br/>Value for hidden field: `hidden`. <br/> Value for section: `section`        |
+| validation   | Object                            |               | For field validation                                                                                                       |
+| dependencies | Object                            |               | Defines relationships and dependencies between various fields. Refer here for details: [Dependencies](/dependencies/about) |
+| events       | Object                            |               | Defines field level events                                                                                                 |
+
+## Common `validation` properties
+
+| Field           | Description                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| required        | Marks a field as mandatory                                                                                                                  |
+| pattern         | Adds a pattern validation for the field. For `email`, pattern is supported by default                                                       |
+| min             | For Textbox fields, it is the minimum number of characters required for the field, <br/> For number fields, it is the minimum value allowed |
+| max             | For Textbox fields it is the maximum number of characters allowed. <br/> For number fields, it is the maximum value allowed                 |
+| min_detail      | Contains error and info msg for min validation property                                                                                     |
+| max_detail      | Contains error and info msg for max validation property                                                                                     |
+| infoDetail      | Contains general info msg about the field                                                                                                   |
+| required_detail | Contains info msgs about the required validation property                                                                                   |

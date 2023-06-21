@@ -1,0 +1,13 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field",
+                "isReadonly": true,
+                "value": "Godzilla"
+            }
+        }
+    ]
+}

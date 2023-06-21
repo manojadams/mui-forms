@@ -1,0 +1,59 @@
+# Fields supported:
+
+## Form fields
+
+Following fields are generally associated with forms and contains a value generally
+
+-   Text field
+-   Number field
+-   Email
+-   Phone
+-   Date
+-   Month
+-   Password
+-   Radio
+-   Radio Button
+-   Checkbox
+-   Select
+-   File
+-   Search
+-   Currency
+-   Custom
+
+## Display fields
+
+    These following two fields are used for display only and does not contain any value:
+
+-   Header
+-   Label
+
+## Special fields
+
+-   Hidden
+
+## Field Properties
+
+Each field can contain the following properties:
+
+-   name
+-   prop
+-   meta
+    -   displayName
+    -   displayType
+    -   displayProps
+    -   config
+    -   type
+    -   options
+    -   validation
+    -   dependencies
+    -   events
+-   fields
+
+## General properties
+
+| Field  | Type      | Data type                 | Default Value | Description                                                              |
+| ------ | --------- | ------------------------- | ------------- | ------------------------------------------------------------------------ |
+| name   | Mandatory | String                    | N/A           | The name of the field. Should ideally contain letters and underscore     |
+| prop   | Optional  | String or null            | null          | The parent property key it be must be part while submitting form         |
+| meta   | Mandatory | Object                    | N/A           | It contain details about the field                                       |
+| fields | Optional  | Array of field properties | None          | It is used in grouped fields to contain the data belonging to each group |

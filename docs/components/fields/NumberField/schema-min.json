@@ -1,0 +1,14 @@
+{
+    "fields": [
+        {
+            "name": "age",
+            "meta": {
+                "displayName": "Age",
+                "displayType": "number",
+                "validation": {
+                    "min": 18
+                }
+            }
+        }
+    ]
+}

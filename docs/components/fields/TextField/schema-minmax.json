@@ -1,0 +1,15 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field",
+                "validation": {
+                    "min": 5,
+                    "max": 10
+                }
+            }
+        }
+    ]
+}

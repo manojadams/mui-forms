@@ -1,0 +1,39 @@
+# Select
+
+This field selects an option from a list of options.
+
+import SelectField from "../../components/fields/SelectField";
+
+<SelectField />
+
+## Schema
+
+import { JsonViewer } from "@textea/json-viewer";
+import schema from "../../components/fields/SelectField/schema.json";
+
+<JsonViewer value={schema} />
+
+## Field Properties
+
+| Name        | Description                                |
+| ----------- | ------------------------------------------ |
+| displayType | The displayType for this field (`select`)  |
+| displayName | The display name used for this field       |
+| options     | An list of available options for the field |
+| value       | The value used by this field               |
+| placeholder | The hint value used for this field         |
+| isDisabled  | Marks the field as disabled                |
+| isReadonly  | Marks the field as readonly                |
+
+## With url dependency:
+
+```json
+"config": {
+        "type": "url_loader",
+        "url": "/pincode/",
+        "pathParams": [["state"]],
+        "queryParams": [["pincode", {"type": "fieldValue", "ref": "pincode"}]],
+        "valueKey": "state#id",
+        "labelKey": "state#name"
+    },
+```

@@ -1,0 +1,12 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field",
+                "placeholder": "Enter your name"
+            }
+        }
+    ]
+}

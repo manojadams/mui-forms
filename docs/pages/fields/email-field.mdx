@@ -1,0 +1,23 @@
+import EmailField from "../../components/fields/EmailField";
+import { JsonViewer } from "@textea/json-viewer";
+import schema from "../../components/fields/EmailField/schema.json";
+import CommonProperties from "./common-properties.mdx";
+
+# Email field
+
+<EmailField />
+
+**Schema:**
+
+<JsonViewer value={schema} />
+
+## Properties
+
+| Name        | Description                                                                                                                | Type    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | ------- |
+| placeholder | The hint shown in the text field                                                                                           | String  |
+| isReadonly  | A readonly field is not editable and value cannot be changed                                                               | Boolean |
+| isDisabled  | Shows the field as disabled.<br/> This is also not editable and value cannot be changed                                    | Boolean |
+| variant     | Contains the field variant to be used. <br/>Allowed values: **standard**, **filled**, **outlined**. Default is _standard_. |
+
+<CommonProperties />

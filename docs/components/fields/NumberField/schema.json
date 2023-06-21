@@ -1,0 +1,11 @@
+{
+    "fields": [
+        {
+            "name": "age",
+            "meta": {
+                "displayName": "Age",
+                "displayType": "number"
+            }
+        }
+    ]
+}

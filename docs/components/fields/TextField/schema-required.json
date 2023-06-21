@@ -1,0 +1,18 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "text_field",
+                "value": "",
+                "validation": {
+                    "required": true,
+                    "required_detail": {
+                        "errorMsg": "Please enter name"
+                    }
+                }
+            }
+        }
+    ]
+}

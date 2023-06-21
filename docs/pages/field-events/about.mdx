@@ -1,0 +1,37 @@
+## Events
+
+These define field events and actions.
+
+## Properties
+
+| Name   | Description                                                               | Value                                                     |
+| ------ | ------------------------------------------------------------------------- | --------------------------------------------------------- |
+| change | This indicates a change event                                             | 'change' object <br/> OR <br/> a list of 'change' objects |
+| click  | This is called on click over the field                                    | 'click' object <br/> OR <br/> list of 'click' object      |
+| open   | This is applicable to 'select' field and triggers when dropdown is opened | 'open' object <br/> OR <br/> list of 'open' objects       |
+| input  | This is applicable to text boxes and triggered when input is entered      | 'input' object <br/> OR <br/> list of 'input' objects     |
+
+### `change` event properties
+
+This event is emitted whenever there is a change in the value of the field
+
+| Name     | Description                                                                                                                                                                                    |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | It refers to the type of action to perform on this event                                                                                                                                       |
+| ref      | reference to the name of another field where action is to be performed. <br/>Not required if the action needs to be performed on the same field                                                |
+| section  | refers to the form section name (in case of grouped form)                                                                                                                                      |
+| name     | The name of the property to be used                                                                                                                                                            |
+| value    | The value to be used                                                                                                                                                                           |
+| valueFn  | A function to be used to get the value of the field                                                                                                                                            |
+| valueMap | A map of values to be used                                                                                                                                                                     |
+| valueKey | Used for select field which fetches data from remote and contains the data of the response in the memory.<br/> valueKey here refers to one the value from the response key to be used as value |
+| payload  | This is payload data used for type `event_emitter`                                                                                                                                             |
+
+### `type` properties
+
+| Name            | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| propSetter      | Used to set a property of the field                        |
+| setter          | Used to set the value of the field                         |
+| eventEmitter    | Used to emit a global event                                |
+| setterCondition | Used to set the value of the field based on some condition |

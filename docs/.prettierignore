@@ -1,0 +1,9 @@
+/.github
+README.md
+.eslintrc.json
+*.config*.js
+*.config*.json
+package.json
+package-lock.json
+/.next
+node_modules/

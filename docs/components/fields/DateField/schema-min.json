@@ -1,0 +1,14 @@
+{
+    "fields": [
+        {
+            "name": "dob",
+            "meta": {
+                "displayName": "Your DOB",
+                "displayType": "date",
+                "validation": {
+                    "min": "2010/12/12"
+                }
+            }
+        }
+    ]
+}

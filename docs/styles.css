@@ -1,0 +1,4 @@
+input[data-focus-visible-added],
+input:focus-visible {
+    box-shadow: none;
+}

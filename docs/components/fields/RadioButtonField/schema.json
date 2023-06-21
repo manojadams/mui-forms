@@ -1,0 +1,25 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Fruits",
+                "displayType": "radio-button",
+                "options": [
+                    {
+                        "label": "Apple",
+                        "value": "apple"
+                    },
+                    {
+                        "label": "Banana",
+                        "value": "banana"
+                    },
+                    {
+                        "label": "Mango",
+                        "value": "mango"
+                    }
+                ]
+            }
+        }
+    ]
+}

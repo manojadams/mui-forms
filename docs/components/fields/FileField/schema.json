@@ -1,0 +1,11 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "displayName": "Name",
+                "displayType": "file"
+            }
+        }
+    ]
+}

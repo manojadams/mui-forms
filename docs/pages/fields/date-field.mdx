@@ -1,0 +1,50 @@
+import DateField from "../../components/fields/DateField";
+import { JsonViewer } from "@textea/json-viewer";
+import schema from "../../components/fields/DateField/schema.json";
+import schemaMin from "../../components/fields/DateField/schema-min.json";
+import schemaMax from "../../components/fields/DateField/schema-max.json";
+import CommonProperties from "./common-properties.mdx";
+import MaterialForms from "@manojadams/metaforms-mui";
+
+# Date field
+
+<DateField />
+
+**Schema:**
+
+<JsonViewer value={schema} />
+
+## Properties
+
+| Name        | Description                                                                                                                | Type    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | ------- |
+| config      | Contains date configuration                                                                                                | Object  |
+| placeholder | The hint shown in the text field                                                                                           | String  |
+| isReadonly  | A readonly field is not editable and value cannot be changed                                                               | Boolean |
+| isDisabled  | Shows the field as disabled.<br/> This is also not editable and value cannot be changed                                    | Boolean |
+| variant     | Contains the field variant to be used. <br/>Allowed values: **standard**, **filled**, **outlined**. Default is _standard_. |
+
+## config
+
+| Name        | Description       | Values                                      | Example                                                                |
+| ----------- | ----------------- | ------------------------------------------- | ---------------------------------------------------------------------- | ------ |
+| views       | Calendar views    | year, month, day                            | ["year"] <br/> OR ["year", "month"] <br /> OR ["year", "month", "day"] |
+| inputFormat | Date input format | All default values supported by javascript. | dd/MM/yyyy                                                             | "yyyy" |
+
+<CommonProperties />
+
+## Min. allowed date
+
+<MaterialForms schema={schemaMin} />
+
+**Schema:**
+
+<JsonViewer value={schemaMin} />
+
+## Max. allowed date
+
+<MaterialForms schema={schemaMax} />
+
+**Schema:**
+
+<JsonViewer value={schemaMax} />

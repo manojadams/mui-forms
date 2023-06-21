@@ -1,0 +1,43 @@
+# Meta API's
+
+To update the `fields` and `form` status from outside of the library, `api's` have been provided:
+
+-   updateField
+-   updateFormField
+-   destroy
+
+## How to update a simple form field
+
+```tsx
+    // import `meta-api`
+    import { metaAPI } from "@manojadams/metaforms-core";
+    // call the `updateFormField` method inside any update function
+    metaAPI.metaForm.updateField(
+        <Name of metaform>,
+        <Field name>,
+        <Field value>
+    );
+```
+
+## How to update a grouped form field
+
+```tsx
+    // import `meta-api`
+    import { metaAPI } from "@manojadams/metaforms-core";
+    // call the `updateFormField` method inside any update function
+    metaAPI.metaForm.updateFormField(
+        <Name of metaform>,
+        <Form section name>,
+        <Field name>,
+        <Field value>
+    );
+```
+
+## Arguments
+
+| Name              | Description                                                                                                                                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name of metaform  | This is the name of the metaforms which must be given as an input property while using metaform. e.g.: `<MaterialForms-mui name="Basic details" schema={schema} />`. <br/> Here the name is **`Basic details`** |
+| Form section name | In a grouped form, this is the name of parent section. For simple forms, it is not applicable                                                                                                                   |
+| Field name        | Name of the field                                                                                                                                                                                               |
+| Field value       | Value of the field that we want to update the field with. Datatype can be `String` or `Number` or `Boolean`                                                                                                     |

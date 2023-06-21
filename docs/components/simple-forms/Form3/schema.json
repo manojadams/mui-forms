@@ -1,0 +1,38 @@
+{
+    "theme": {
+        "type": "mui",
+        "config": {
+            "variant": "filled"
+        }
+    },
+    "fields": [
+        {
+            "name": "first_name",
+            "meta": {
+                "displayType": "text_field",
+                "displayName": "First Name"
+            }
+        },
+        {
+            "name": "last_name",
+            "meta": {
+                "displayType": "text_field",
+                "displayName": "Last Name"
+            }
+        },
+        {
+            "name": "age",
+            "meta": {
+                "displayName": "Age",
+                "displayType": "number"
+            }
+        },
+        {
+            "name": "email",
+            "meta": {
+                "displayName": "Email",
+                "displayType": "email"
+            }
+        }
+    ]
+}

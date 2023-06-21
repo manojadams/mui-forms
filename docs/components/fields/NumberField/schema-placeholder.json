@@ -1,0 +1,12 @@
+{
+    "fields": [
+        {
+            "name": "age",
+            "meta": {
+                "displayName": "Age",
+                "displayType": "number",
+                "placeholder": "Enter your age"
+            }
+        }
+    ]
+}

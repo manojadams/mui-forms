@@ -1,0 +1,174 @@
+{
+    "theme": {
+        "sectionLayout": "tabs",
+        "type": "section",
+        "config": {
+            "variant": "filled"
+        },
+        "tabs": {
+            "variant": "standard",
+            "disableRiple": "true"
+        }
+    },
+    "fields": [
+        {
+            "name": "summary",
+            "meta": {
+                "name": "Basic Details",
+                "type": "section"
+            },
+            "fields": [
+                {
+                    "name": "name_of_company",
+                    "meta": {
+                        "displayName": "Name of Company",
+                        "displayType": "text_field",
+                        "displayProps": {
+                            "md": 6
+                        }
+                    }
+                },
+                {
+                    "name": "date_of_registration",
+                    "meta": {
+                        "displayName": "Date of Registration",
+                        "displayType": "date",
+                        "displayProps": {
+                            "md": 6
+                        }
+                    }
+                },
+                {
+                    "name": "address_header",
+                    "prop": null,
+                    "meta": {
+                        "displayName": "Registered Address",
+                        "displayType": "header",
+                        "displayProps": {
+                            "md": 12
+                        }
+                    }
+                },
+                {
+                    "name": "street_address_1",
+                    "meta": {
+                        "displayName": "Street Address",
+                        "displayType": "text_field"
+                    }
+                },
+                {
+                    "name": "street_address_2",
+                    "meta": {
+                        "displayName": "Street Address 2",
+                        "displayType": "text_field"
+                    }
+                },
+                {
+                    "name": "state",
+                    "meta": {
+                        "displayName": "State",
+                        "displayType": "select",
+                        "options": [
+                            {
+                                "label": "State1",
+                                "value": "state1"
+                            },
+                            {
+                                "label": "State2",
+                                "value": "state2"
+                            }
+                        ],
+                        "displayProps": {
+                            "md": 6
+                        }
+                    }
+                },
+                {
+                    "name": "city",
+                    "meta": {
+                        "displayName": "City",
+                        "displayType": "select",
+                        "options": [
+                            {
+                                "label": "City1",
+                                "value": "city1"
+                            },
+                            {
+                                "label": "City2",
+                                "value": "city2"
+                            }
+                        ],
+                        "displayProps": {
+                            "md": 6
+                        }
+                    }
+                },
+                {
+                    "name": "pinocde",
+                    "meta": {
+                        "displayName": "Pincode",
+                        "displayType": "text_field",
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "validation": {
+                            "required": true,
+                            "pattern": "^[1-9][0-9]{5}$",
+                            "patternDetail": {
+                                "errorMsg": "Pincode is not valid"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "country",
+                    "meta": {
+                        "displayName": "Country",
+                        "displayType": "text_field",
+                        "value": "INDIA",
+                        "isReadonly": true,
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "validation": {
+                            "required": true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "contact_details",
+            "meta": {
+                "displayName": "Contact details",
+                "type": "section"
+            },
+            "fields": [
+                {
+                    "name": "same_address",
+                    "meta": {
+                        "displayName": "Use same address as registered address",
+                        "displayType": "checkbox"
+                    }
+                },
+                {
+                    "name": "correspondence_address",
+                    "meta": {
+                        "displayName": "Address line 1",
+                        "displayType": "text_field"
+                    }
+                },
+                {
+                    "name": "correspondence_address2",
+                    "meta": {
+                        "displayName": "Address line 2",
+                        "displayType": "text_field",
+                        "displayProps": {
+                            "md": 6
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
