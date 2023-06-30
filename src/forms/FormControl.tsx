@@ -1,24 +1,22 @@
-import React, { ChangeEvent, Fragment } from "react";
-import TextField from "@mui/material/TextField";
-import MFormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormLabel from "@mui/material/FormLabel";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import RadioGroup from "@mui/material/RadioGroup";
-import Radio from "@mui/material/Radio";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { BaseFormControl, IRenderField, FormUtils, MSGS } from "@manojadams/metaforms-core";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import enLocale from "date-fns/locale/en-US";
-import { Button, Checkbox, FormGroup, FormHelperText } from "@mui/material";
+import React, { Fragment } from "react";
+import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
+import { Button, FilledInputProps, FormHelperText, InputProps, OutlinedInputProps } from "@mui/material";
 import MuiSearch from "./Search";
-import MandatoryLabel from "./../common/MandatoryLabel";
 import { TVariant } from "./ constants";
-import { CalendarPickerView } from "@mui/x-date-pickers";
-import { Row } from "layout-emotions";
+
+import NumberFormatter from "../components/NumberFormatter";
+import Phone from "../components/Phone";
+import Label from "../components/Label";
+import DateControl from "../components/DateControl";
+import MonthControl from "../components/MonthControl";
+import InputControl from "../components/InputControl";
+import RadioControl from "../components/RadioControl";
+import RadioButtonControl from "../components/RadioButtonControl";
+import CheckboxControl from "../components/CheckboxControl";
+import SelectControl from "../components/SelectControl";
+import MultiSelectControl from "../components/MultiSelectControl";
+import FileControl from "../components/FileControl/FileControl";
+import CustomControl from "../components/CustomControl";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -26,13 +24,14 @@ export default class FormControl extends BaseFormControl {
     constructor(props: IRenderField) {
         super(props);
         this.variant = "standard";
+        this.showValidation = this.showValidation.bind(this);
     }
 
     render(): JSX.Element {
         const muiVariant = this.context.getThemeProp("config", "variant");
-        const muiSize = this.context.getThemeProp("mui", "size");
+        const muiSize = this.context.getThemeProp("config", "size");
         this.variant = muiVariant || "standard";
-        this.size = muiSize;
+        this.size = muiSize || "medium";
         return super.render();
     }
 
@@ -45,225 +44,77 @@ export default class FormControl extends BaseFormControl {
     }
 
     label() {
-        const meta = this.props.form;
-        const wrapperClassName = this.getWrapperClassName();
-        let hasStartIcon = false;
-        let hasEndIcon = false;
-        let startIcon = <Fragment />;
-        let endIcon = <Fragment />;
-        if (this.props.form.icons) {
-            const allIcons = Object.keys(this.props.form.icons);
-            allIcons &&
-                allIcons.forEach((icon) => {
-                    const actualIcon =
-                        this.props.form.icons && this.props.form.icons[icon] ? this.props.form.icons[icon] : undefined;
-                    if (actualIcon?.type === "start") {
-                        hasStartIcon = true;
-                        startIcon = this.context.getIcon(actualIcon.type) || <Fragment />;
-                    }
-                    if ((hasEndIcon = actualIcon?.type === "end")) {
-                        hasEndIcon = true;
-                        endIcon = this.context.getIcon(icon) || <Fragment />;
-                    }
-                });
-        }
         return (
-            <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className="field-label">{meta.displayName}</FormLabel>
-                <span className="field-value">
-                    {hasStartIcon && startIcon}
-                    {meta.value}
-                    {hasEndIcon && endIcon}
-                </span>
-            </MFormControl>
+            <Label
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                size={this.size}
+                variant={this.getVariant()}
+                error={this.state.error}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+            />
         );
     }
 
     date(props?: IRenderField) {
-        const label = this.getDisplayLabel();
-        const dateString = this.props.form?.value ? this.props.form.value + "" : "";
-        const value = this.props.form?.value ? new Date(dateString) : null;
-        const variant = this.getVariant();
-        const min = this.props.form.validation?.min ? new Date(this.props.form.validation.min) : undefined;
-        const max = this.props.form.validation?.max ? new Date(this.props.form.validation.max) : undefined;
-        const openTo: CalendarPickerView = (this.props.form?.config?.openTo as CalendarPickerView | undefined) || "day";
-        const inputFormat = this.props.form?.config?.inputFormat || "dd/MM/yyyy";
-        const views: [CalendarPickerView] = (this.props.form?.config?.views as [CalendarPickerView] | undefined) || [
-            "day"
-        ];
-        const subProps = props || {};
-        let localValue;
-        const wrapperClassName = "meta-form-control-" + this.field.name;
-        const placeholder = this.props.form.placeholder || inputFormat;
         return (
-            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
-                <DatePicker
-                    {...subProps}
-                    disabled={this.props.form.isDisabled}
-                    readOnly={this.props.form.isReadonly}
-                    label={label}
-                    value={localValue || value}
-                    views={views}
-                    openTo={openTo}
-                    inputFormat={inputFormat}
-                    minDate={min}
-                    maxDate={max}
-                    PopperProps={{
-                        className: "meta-form-date-picker"
-                    }}
-                    onChange={(val: Date | null, inputString: string) => {
-                        if (val === null && inputString === undefined) {
-                            // input field is cleared
-                            this.handleChange(null, "");
-                        } else if (inputString === undefined) {
-                            // popup is used
-                            if (val) {
-                                this.handleChange(null, FormUtils.getDateString(val));
-                            } else {
-                                this.handleChange(null, "");
-                            }
-                        } else {
-                            // input field is used
-                            // check input format
-                            if (val && inputString && inputString.length === inputFormat.length) {
-                                const inputDate = Date.parse(inputString);
-                                if (isNaN(inputDate)) {
-                                    this.setError(true, MSGS.ERROR_MSG.DATE_INVALID);
-                                } else {
-                                    this.handleChange(null, FormUtils.getDateString(new Date(inputDate)));
-                                }
-                            } else {
-                                localValue = val;
-                            }
-                        }
-                    }}
-                    // eslint-disable-next-line react/jsx-no-bind
-                    onClose={this.handleValidation}
-                    renderInput={(params) => (
-                        <TextField
-                            {...params}
-                            variant={variant}
-                            className={wrapperClassName}
-                            helperText={this.state.error.errorMsg || undefined}
-                            inputProps={{
-                                ...params.inputProps,
-                                placeholder
-                            }}
-                            // eslint-disable-next-line react/jsx-no-bind
-                            onBlur={this.handleValidation}
-                            size={this.size}
-                            error={this.state.error?.hasError ? true : undefined}
-                            fullWidth
-                        />
-                    )}
-                />
-            </LocalizationProvider>
+            <DateControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                variant={this.getVariant() || ""}
+                size={this.size}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                {...props}
+            />
         );
     }
 
     month() {
-        const dateString = this.props.form?.value ? this.props.form.value + "" : "";
-        const value = this.props.form?.value ? new Date(dateString) : null;
-        const label = this.getDisplayLabel();
-        const variant = this.getVariant();
-        const max = this.props.form.validation?.max ? new Date(this.props.form.validation.max) : undefined;
-        const min = this.props.form.validation?.min ? new Date(this.props.form.validation.min) : undefined;
-        const wrapperClassName = "meta-form-control-" + this.field.name;
-        const inputFormat = "MMM yyyy";
-        const placeholder = this.props.form.placeholder || inputFormat;
-        let localValue;
         return (
-            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
-                <DatePicker
-                    label={label}
-                    openTo="year"
-                    views={["year", "month"]}
-                    value={localValue || value}
-                    inputFormat={inputFormat}
-                    minDate={min}
-                    maxDate={max}
-                    PopperProps={{
-                        className: "meta-form-date-picker"
-                    }}
-                    onChange={(val, inputString) => {
-                        if (inputString) {
-                            if (inputString.length >= 8) {
-                                const dateValue = Date.parse(inputString);
-                                if (!isNaN(dateValue)) {
-                                    const dateString = FormUtils.getDateString(new Date(dateValue));
-                                    this.handleChange(null, dateString);
-                                } else {
-                                    localValue = inputString;
-                                }
-                            } else {
-                                localValue = inputString;
-                            }
-                        } else {
-                            if (val) {
-                                const isNan = isNaN(val.getTime());
-                                if (isNan) {
-                                    localValue = val;
-                                } else {
-                                    localValue = undefined;
-                                    const dateString = FormUtils.getDateString(val);
-                                    this.handleChange(null, dateString);
-                                }
-                            } else {
-                                this.handleChange(null, "");
-                            }
-                        }
-                    }}
-                    onClose={this.handleValidation}
-                    renderInput={(params) => (
-                        <TextField
-                            {...params}
-                            className={wrapperClassName}
-                            variant={variant}
-                            helperText={this.state.error.errorMsg || undefined}
-                            placeholder={this.props.form.placeholder}
-                            inputProps={{
-                                ...params.inputProps,
-                                placeholder: placeholder
-                            }}
-                            onBlur={this.handleValidation}
-                            size={this.size}
-                            error={this.state.error?.hasError ? true : undefined}
-                            fullWidth
-                        />
-                    )}
-                />
-            </LocalizationProvider>
+            <MonthControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                variant={this.getVariant() || ""}
+                size={this.size}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+            />
         );
     }
 
-    input(type: string, props?: any) {
-        const label = this.getDisplayLabel();
-        const variant = this.getVariant();
-        const infoText = this.props.form?.validation?.infoDetail?.infoMsg;
-        const wrapperClassName = "meta-form-control-" + this.field.name;
-        const extraProps = props || {};
-        // const max
+    input(
+        type: string,
+        props?: any,
+        InputProps?: Partial<FilledInputProps> | Partial<OutlinedInputProps> | Partial<InputProps>
+    ) {
         return (
-            <TextField
-                className={wrapperClassName}
-                type={type}
-                label={label}
-                variant={variant}
-                fullWidth
-                disabled={this.props.form.isDisabled}
-                inputProps={{
-                    readOnly: this.props.form.isReadonly,
-                    ...extraProps
-                }}
-                placeholder={this.props.form?.placeholder}
-                value={this.props.form?.value}
-                error={this.state.error?.hasError ? true : undefined}
-                helperText={this.state.error.errorMsg || infoText || undefined}
-                // eslint-disable-next-line react/jsx-no-bind
-                onChange={this.handleChange}
-                // eslint-disable-next-line react/jsx-no-bind
-                onBlur={this.handleValidation}
+            <InputControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                form={this.props.form}
+                field={this.field}
+                error={this.state.error}
                 size={this.size}
+                variant={this.getVariant()}
+                InputProps={InputProps}
+                type={type}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                {...props}
             />
         );
     }
@@ -292,249 +143,93 @@ export default class FormControl extends BaseFormControl {
     }
 
     radio() {
-        const meta = this.props.form;
-        const isRow = this.props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
-        const wrapperClassName =
-            "meta-form-control-" +
-            this.field.name +
-            (this.props.form?.displayProps?.fieldLayout === "row"
-                ? "d-md-flex flex-md-row justify-content-md-between"
-                : "");
-        const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
-        const labelPlacement: any = this.props.form?.labelPlacement;
         return (
-            <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className={fieldLabelClassname}>
-                    {meta.displayName}
-                    {this.validation.required && <MandatoryLabel />}
-                </FormLabel>
-                <RadioGroup
-                    row={isRow}
-                    value={this.props.form?.value}
-                    onChange={(e) => {
-                        const parentLabel = e.target.closest("label");
-                        const datatype = parentLabel ? parentLabel.getAttribute("datatype") : "";
-                        if (datatype) {
-                            switch (datatype) {
-                                case "boolean":
-                                    {
-                                        const val = e.target.value === "true";
-                                        this.handleChange(e, val);
-                                    }
-                                    break;
-                                default:
-                                    this.handleChange(e);
-                            }
-                        } else {
-                            this.handleChange(e);
-                        }
-                    }}
-                >
-                    {meta.options &&
-                        meta.options.map((option, idx) => {
-                            const datatype = typeof option.value;
-                            return (
-                                <FormControlLabel
-                                    datatype={datatype}
-                                    labelPlacement={labelPlacement}
-                                    key={idx}
-                                    value={option.value}
-                                    control={<Radio />}
-                                    label={option.label}
-                                />
-                            );
-                        })}
-                </RadioGroup>
-            </MFormControl>
+            <RadioControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                size={this.size}
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+            />
         );
     }
 
     radioButton(): JSX.Element {
-        const meta = this.props.form;
-        const wrapperClassName =
-            "meta-form-control-" +
-            this.field.name +
-            (this.props.form?.displayProps?.fieldLayout === "row"
-                ? "d-md-flex flex-md-row justify-content-md-between"
-                : "");
-        const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
-        const labelPlacement: any = this.props.form?.labelPlacement;
-
         return (
-            <MFormControl size={this.size} fullWidth className={wrapperClassName}>
-                <FormLabel className={fieldLabelClassname}>
-                    {meta.displayName}
-                    {this.validation.required && <MandatoryLabel />}
-                </FormLabel>
-                <Row
-                    onClick={(e) => {
-                        const button = e.target as HTMLButtonElement;
-                        const datatype = button && button.getAttribute ? button.getAttribute("datatype") : "";
-                        if (datatype) {
-                            switch (datatype) {
-                                case "boolean":
-                                    {
-                                        // eslint-disable-next-line dot-notation
-                                        const val = e.target["value"] === "true";
-                                        this.handleChange(e, val);
-                                    }
-                                    break;
-                                default:
-                                    this.handleChange(e);
-                            }
-                        } else {
-                            this.handleChange(e);
-                        }
-                    }}
-                >
-                    {meta.options &&
-                        meta.options.map((option, idx) => {
-                            const datatype = typeof option.value;
-                            const className = option.value === meta.value ? "selected" : "";
-                            return (
-                                <div className="mcol" key={idx}>
-                                    <Button
-                                        className={className}
-                                        // component={null}
-                                        datatype={datatype}
-                                        value={option.value as string}
-                                        variant={option.value === meta.value ? "contained" : "outlined"}
-                                        size="small"
-                                        fullWidth
-                                    >
-                                        {option.label}
-                                    </Button>
-                                </div>
-                            );
-                        })}
-                </Row>
-            </MFormControl>
+            <RadioButtonControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                size={this.size}
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                showValidation={this.showValidation}
+            />
         );
     }
 
     checkbox(): JSX.Element {
-        const meta = this.props.form;
-        const wrapperClassName = "meta-form-control-" + this.field.name;
         return (
-            <FormGroup>
-                {meta.options &&
-                    meta.options.map((option: { label: string; value: any }) => {
-                        return (
-                            <FormControlLabel
-                                className={wrapperClassName}
-                                key={option.value}
-                                value={option.value}
-                                control={
-                                    <Checkbox
-                                        checked={option.value === this.props.form.value}
-                                        onChange={(e) => {
-                                            const checked = e.target.checked;
-                                            this.handleChange(e, checked ? option.value : "");
-                                            this.handleValidation();
-                                        }}
-                                        disabled={this.props.form.isDisabled}
-                                    />
-                                }
-                                label={option.label}
-                            />
-                        );
-                    })}
-                {this.showValidation()}
-            </FormGroup>
+            <CheckboxControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                size={this.size}
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                showValidation={this.showValidation}
+            />
         );
     }
 
     select() {
-        const meta = this.props.form;
-        const options = this.props.form.options || [];
-        const variant = this.getVariant();
-        const label = this.getDisplayLabel();
-        const wrapperClassName = "meta-form-control-" + this.field.name;
-        const infoText = this.props.form?.validation?.infoDetail?.infoMsg;
         return (
-            <MFormControl
+            <SelectControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
                 size={this.size}
-                fullWidth
-                error={this.state.error.hasError ? true : undefined}
-                variant={variant}
-                className={wrapperClassName}
-            >
-                <InputLabel className="meta-select-label">{label}</InputLabel>
-                <Select
-                    label={meta.displayName}
-                    value={this.props.form?.value}
-                    disabled={this.props.form.isDisabled}
-                    onOpen={() => {
-                        if (this.props.form.events?.open) {
-                            this.handleOpen();
-                        }
-                    }}
-                    onChange={(e) => {
-                        const val = e.target.value;
-                        const ref = options.find((o) => o.value === val);
-                        this.handleChange(e as ChangeEvent, undefined, ref);
-                    }}
-                    onBlur={this.handleValidation}
-                >
-                    {options &&
-                        options.map((option: { label: string; value: string }) => {
-                            const datatype = typeof option.value;
-                            return (
-                                <MenuItem key={option.value} datatype={datatype} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            );
-                        })}
-                </Select>
-                {this.showValidation(infoText)}
-            </MFormControl>
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleOpen={this.handleOpen}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                showValidation={this.showValidation}
+            />
         );
     }
 
     multiselect(): JSX.Element {
-        const meta = this.props.form;
-        const options = this.props.form.options || [];
-        const variant = this.getVariant();
-        const label = this.getDisplayLabel();
-        const wrapperClassName = "meta-form-control-" + this.field.name;
         return (
-            <MFormControl
+            <MultiSelectControl
+                className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
                 size={this.size}
-                fullWidth
-                error={this.state.error.hasError ? true : undefined}
-                variant={variant}
-                className={wrapperClassName}
-            >
-                <InputLabel className="meta-select-label">{label}</InputLabel>
-                <Select
-                    multiple
-                    label={meta.displayName}
-                    value={this.props.form?.value}
-                    disabled={this.props.form.isDisabled}
-                    onOpen={() => {
-                        if (this.props.form.events?.open) {
-                            this.handleOpen();
-                        }
-                    }}
-                    onChange={(e) => {
-                        const val = e.target.value;
-                        const ref = options.find((o) => o.value === val);
-                        this.handleChange(e as ChangeEvent, undefined, ref);
-                    }}
-                    onBlur={this.handleValidation}
-                >
-                    {options &&
-                        options.map((option: { label: string; value: string }) => {
-                            const datatype = typeof option.value;
-                            return (
-                                <MenuItem key={option.value} datatype={datatype} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            );
-                        })}
-                </Select>
-                {this.showValidation()}
-            </MFormControl>
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleOpen={this.handleOpen}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                showValidation={this.showValidation}
+            />
         );
     }
 
@@ -562,83 +257,21 @@ export default class FormControl extends BaseFormControl {
     }
 
     file() {
-        const meta = this.props.form;
-        const fileUploadedIcon = this.context.getIcon("fileUploaded");
-        const fileDeleteIcon = this.context.getIcon("fileDelete");
-        const uploadIcon = this.context.getIcon("uploadIcon");
-        const fileWidthClass = meta.value ? "w-80" : "w-100";
-        const handleFileChange = (e: any) => {
-            let value = e.target.value;
-            if (value) {
-                const valParts = value.split("\\");
-                if (valParts && valParts.length > 0) {
-                    value = valParts[valParts.length - 1];
-                }
-                this.handleChange(e, value);
-                this.context.setFieldProp(this.section, this.field.name, "files", e.target.files);
-                this.handleValidation();
-            }
-        };
         return (
-            <MFormControl
+            <FileControl
                 className={this.getWrapperClassName()}
+                context={this.context}
+                field={this.field}
+                form={this.props.form}
+                error={this.state.error}
+                section={this.section}
                 size={this.size}
-                fullWidth
-                error={this.state.error.hasError ? true : undefined}
-            >
-                <Button
-                    className="meta-file-upload-btn"
-                    variant="outlined"
-                    size="large"
-                    onClick={(e) => {
-                        let target: any;
-                        target = e.target;
-                        const fileInput = target.parentElement.querySelector("input[type=file]");
-                        fileInput && fileInput.click();
-                    }}
-                    sx={{
-                        padding: "1.4rem"
-                    }}
-                    fullWidth
-                >
-                    {meta.value ? (
-                        <div className="d-flex">
-                            {uploadIcon}
-                            <span className="meta-file-value"> {meta.value}</span>
-                            {fileUploadedIcon}
-                            <span
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    // delete file
-                                    this.context.setFieldProp(this.section, this.field.name, "files", "");
-                                    this.handleChange(e, "");
-                                    this.handleValidation();
-                                    // let target: any;
-                                    // target = e.target;
-                                    // const inputElement = FormUtils.createFileInput(fileWidthClass, this.field.name, meta.config?.accept, this.getDisplayLabel(), handleFileChange);
-                                }}
-                            >
-                                {fileDeleteIcon}
-                            </span>
-                        </div>
-                    ) : (
-                        <Fragment>
-                            {uploadIcon}
-                            {this.getDisplayLabel()}
-                        </Fragment>
-                    )}
-                </Button>
-                <input
-                    accept={meta.config?.accept}
-                    className={`position-absolute opacity-0 ${fileWidthClass} h-100`}
-                    type="file"
-                    name={this.field.name}
-                    title={this.getDisplayLabel()}
-                    onChange={handleFileChange}
-                />
-                {this.showValidation()}
-            </MFormControl>
+                variant={this.getVariant()}
+                handleChange={this.handleChange}
+                handleValidation={this.handleValidation}
+                setError={this.setError}
+                showValidation={this.showValidation}
+            />
         );
     }
 
@@ -647,7 +280,57 @@ export default class FormControl extends BaseFormControl {
     }
 
     phone() {
-        return <Fragment />;
+        const meta = this.props.meta;
+        return (
+            <Fragment>
+                <Phone
+                    className={this.getWrapperClassName()}
+                    validate={this.validate}
+                    handleChange={this.handleChange}
+                    validation={meta.validation}
+                    value={meta.value as string}
+                />
+                {this.showValidation()}
+            </Fragment>
+        );
+    }
+
+    currency() {
+        const InputComponent = NumberFormatter;
+        const maxLength = this.props.form.validation?.max || "";
+        const autoComplete = this.props.form?.config?.autocomplete || undefined;
+        let htmlProps = {};
+        if (maxLength || autoComplete) {
+            htmlProps = {
+                maxLength: maxLength,
+                autoComplete
+            };
+        }
+        const extraProps = {
+            inputComponent: InputComponent
+        };
+        return this.input("number", htmlProps, extraProps);
+    }
+
+    templateControl(): JSX.Element {
+        if (this.props.form.displayType) {
+            return (
+                <CustomControl
+                    className={this.getWrapperClassName()}
+                    context={this.context}
+                    field={this.field}
+                    form={this.props.form}
+                    error={this.state.error}
+                    size={this.size}
+                    variant={this.getVariant()}
+                    handleChange={this.handleChange}
+                    handleValidation={this.handleValidation}
+                    setError={this.setError}
+                    showValidation={this.showValidation}
+                />
+            );
+        }
+        return this.text();
     }
 
     showValidation(infoMsg?: string) {
