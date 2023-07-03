@@ -8,34 +8,42 @@ import { IFieldProps } from "../../common/field";
 import { FormUtils, MSGS } from "@manojadams/metaforms-core";
 import { TextField, TextFieldVariants } from "@mui/material";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
+import { DEFAULT_DATE_FORMAT } from "../../forms/ constants";
 
-function DateControl(props: IFieldProps) {
+interface IProps extends IFieldProps {
+    section: string;
+}
+
+function DateControl(props: IProps) {
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const dateString = props.form?.value ? props.form.value + "" : "";
     const value = props.form?.value ? new Date(dateString) : null;
     const variant = props.variant;
     const min = props.form.validation?.min ? new Date(props.form.validation.min) : undefined;
     const max = props.form.validation?.max ? new Date(props.form.validation.max) : undefined;
-    const openTo: CalendarPickerView = (props.form?.config?.openTo as CalendarPickerView | undefined) || "day";
-    const inputFormat = props.form?.config?.inputFormat || "dd/MM/yyyy";
-    const views: [CalendarPickerView] = (props.form?.config?.views as [CalendarPickerView] | undefined) || ["day"];
+    const openTo: CalendarPickerView = (props.form?.config?.openTo as CalendarPickerView | undefined) ?? "day";
+    const inputFormat = props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT;
+    const views: [CalendarPickerView] = (props.form?.config?.views as [CalendarPickerView] | undefined) ?? ["day"];
     const subProps = props || {};
     let localValue;
-    const wrapperClassName = "meta-form-control-" + props.field.name;
-    const placeholder = props.form.placeholder || inputFormat;
+    const placeholder = props.form.placeholder ?? inputFormat;
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
             <DatePicker
                 {...subProps}
+                closeOnSelect
                 disabled={props.form.isDisabled}
                 readOnly={props.form.isReadonly}
                 label={label}
-                value={localValue || value}
+                value={localValue ?? value}
                 views={views}
                 openTo={openTo}
                 inputFormat={inputFormat}
                 minDate={min}
                 maxDate={max}
+                DialogProps={{
+                    className: "meta-form-date-picker"
+                }}
                 PopperProps={{
                     className: "meta-form-date-picker"
                 }}
@@ -54,7 +62,8 @@ function DateControl(props: IFieldProps) {
                         // input field is used
                         // check input format
                         if (val && inputString && inputString.length === inputFormat.length) {
-                            const inputDate = Date.parse(inputString);
+                            const formattedInpputSting = FormUtils.getLocalDateStringFormat(inputString, inputFormat);
+                            const inputDate = Date.parse(formattedInpputSting);
                             if (isNaN(inputDate)) {
                                 props.setError(true, MSGS.ERROR_MSG.DATE_INVALID);
                             } else {
@@ -66,12 +75,21 @@ function DateControl(props: IFieldProps) {
                     }
                 }}
                 // eslint-disable-next-line react/jsx-no-bind
-                onClose={props.handleValidation}
+                onClose={() => {
+                    props.handleValidation();
+                    props.context.emit("$field_close", {
+                        payload: {
+                            section: props.section,
+                            field: props.field.name,
+                            value
+                        }
+                    });
+                }}
                 renderInput={(params) => (
                     <TextField
                         {...params}
                         variant={variant as TextFieldVariants}
-                        className={wrapperClassName}
+                        className={props.className}
                         helperText={props.error.errorMsg || undefined}
                         inputProps={{
                             ...params.inputProps,

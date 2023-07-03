@@ -1,3 +1,3 @@
-import InputControl from "./InputControl"
+import InputControl from "./InputControl";
 
 export default InputControl;

@@ -1,35 +1,32 @@
 import { IValidation } from "@manojadams/metaforms-core";
 import React from "react";
-import PhoneInput from "react-phone-input-2";
+import { MuiTelInput } from "mui-tel-input";
+import { IFieldProps } from "../../common/field";
+import { TVariant } from "../../forms/ constants";
+import MuiFormUtil from "../../Utils/MuiFormUtil";
 
-interface IProps {
-    className?: string;
-    value?: string;
+interface IProps extends IFieldProps {
+    className: string;
     handleChange: (...params: any) => void;
     validate: (phone: string) => void;
     validation?: IValidation;
 }
 
 function Phone(props: IProps) {
+    const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
     return (
-        <PhoneInput
-            containerClass={props.className}
-            country="in"
-            value={props.value}
+        <MuiTelInput
+            className={props.className}
+            label={displayLabel}
+            defaultCountry="IN"
+            fullWidth
+            placeholder={props.form.placeholder || displayLabel}
+            value={props.form.value as string}
+            variant={props.variant as TVariant}
+            size={props.size}
             onChange={(phone: string) => {
                 props.handleChange(null, phone);
                 props.validate(phone);
-            }}
-            isValid={(value, country, countries, hiddenAreaCodes) => {
-                let isValid = false;
-                if (value) {
-                    isValid = value.length === 12;
-                } else {
-                    if (props.validation?.required) {
-                        isValid = false;
-                    }
-                }
-                return isValid;
             }}
         />
     );
