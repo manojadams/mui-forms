@@ -23,20 +23,21 @@ export default class FormControl extends BaseFormControl {
     size: any;
     constructor(props: IRenderField) {
         super(props);
-        this.variant = "standard";
+        this.variant = "filled";
+        this.validate = this.validate.bind(this);
         this.showValidation = this.showValidation.bind(this);
     }
 
     render(): JSX.Element {
         const muiVariant = this.context.getThemeProp("config", "variant");
         const muiSize = this.context.getThemeProp("config", "size");
-        this.variant = muiVariant || "standard";
+        this.variant = muiVariant || this.variant;
         this.size = muiSize || "medium";
         return super.render();
     }
 
     getVariant() {
-        return (this.field.meta?.themeConfig?.variant || this.variant) as TVariant;
+        return (this.field.meta?.themeConfig?.variant ?? this.variant) as TVariant;
     }
 
     getDisplayLabel() {
@@ -68,7 +69,8 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
-                variant={this.getVariant() || ""}
+                variant={this.getVariant() ?? ""}
+                section={this.section}
                 size={this.size}
                 handleChange={this.handleChange}
                 handleValidation={this.handleValidation}
@@ -86,7 +88,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
-                variant={this.getVariant() || ""}
+                variant={this.getVariant() ?? ""}
                 size={this.size}
                 handleChange={this.handleChange}
                 handleValidation={this.handleValidation}
@@ -120,7 +122,7 @@ export default class FormControl extends BaseFormControl {
     }
 
     text() {
-        const maxLength = this.props.form.validation?.max || "";
+        const maxLength = this.props.form.validation?.max ?? "";
         let extraProps;
         if (maxLength) {
             extraProps = {
@@ -285,10 +287,17 @@ export default class FormControl extends BaseFormControl {
             <Fragment>
                 <Phone
                     className={this.getWrapperClassName()}
+                    context={this.context}
+                    error={this.state.error}
+                    field={this.field}
+                    form={this.props.form}
+                    size={this.size}
                     validate={this.validate}
+                    variant={this.getVariant()}
                     handleChange={this.handleChange}
+                    handleValidation={this.handleValidation}
+                    setError={this.setError}
                     validation={meta.validation}
-                    value={meta.value as string}
                 />
                 {this.showValidation()}
             </Fragment>

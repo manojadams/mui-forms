@@ -17,6 +17,33 @@ function RadioButtonControl(props: IProps) {
     const icons = props.form.icons;
     const startIconName = icons ? FormUtils.getIconNameByPosition("start", icons) : "";
     const endIconName = icons ? FormUtils.getIconNameByPosition("end", icons) : "";
+    const handleClick = (e: React.MouseEvent) => {
+        let button = e.target as any;
+        if (button && button.tagName !== "button") {
+            button = button.closest("button");
+        }
+        const datatype =
+            // eslint-disable-next-line dot-notation
+            button && button["getAttribute"] ? button["getAttribute"]("datatype") : "";
+        if (datatype) {
+            switch (datatype) {
+                case "boolean":
+                    {
+                        // eslint-disable-next-line dot-notation
+                        const val = !!e.target["value"];
+                        props.handleChange(e, val);
+                    }
+                    break;
+                default: {
+                    const val2 = button.value;
+                    props.handleChange(e, val2);
+                }
+            }
+        } else {
+            props.handleChange(e);
+        }
+        props.handleValidation();
+    };
 
     return (
         <FormControl size={props.size} fullWidth className={wrapperClassName}>
@@ -24,36 +51,7 @@ function RadioButtonControl(props: IProps) {
                 {props.form.displayName + " "}
                 {props.form?.validation?.required && <MandatoryLabel />}
             </FormLabel>
-            <div
-                className="row"
-                onClick={(e) => {
-                    let button = e.target as any;
-                    if (button && button.tagName !== "button") {
-                        button = button.closest("button");
-                    }
-                    const datatype =
-                        // eslint-disable-next-line dot-notation
-                        button && button["getAttribute"] ? button["getAttribute"]("datatype") : "";
-                    if (datatype) {
-                        switch (datatype) {
-                            case "boolean":
-                                {
-                                    // eslint-disable-next-line dot-notation
-                                    const val = !!e.target["value"];
-                                    props.handleChange(e, val);
-                                }
-                                break;
-                            default: {
-                                const val2 = button.value;
-                                props.handleChange(e, val2);
-                            }
-                        }
-                    } else {
-                        props.handleChange(e);
-                    }
-                    props.handleValidation();
-                }}
-            >
+            <div className="row" onClick={handleClick}>
                 {props.form.options &&
                     props.form.options.map((option) => {
                         const datatype = typeof option.value;
