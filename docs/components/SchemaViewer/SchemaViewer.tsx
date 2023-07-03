@@ -7,7 +7,7 @@ interface IProps {
 }
 
 function SchemaViewer(props: IProps) {
-    return <JsonViewer value={props.value} theme={ocean} />;
+    return <JsonViewer value={props.value} theme={ocean} groupArraysAfterLength={3} />;
 }
 
 export const ocean: NamedColorspace = {
