@@ -4,7 +4,9 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-Update spacing in grouped forms
+- Take theme and rest configuration parameters as input properties (`theme` and `rest` respectively).
+- Set default textfield variant as filled.
+- Added Phone control.
 
 ## Install
 
