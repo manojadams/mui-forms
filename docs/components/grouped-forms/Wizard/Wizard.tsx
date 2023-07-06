@@ -1,10 +1,17 @@
 import React from "react";
 import schema from "./schema.json";
-import Metaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "@manojadams/metaforms-mui";
 
 function Wizard() {
     return (
-        <Metaform
+        <MaterialMetaform
+            theme={{
+                sectionLayout: "wizard",
+                type: "default",
+                config: {
+                    variant: "filled"
+                }
+            }}
             schema={schema}
             onSubmit={() => {
                 // do nothing

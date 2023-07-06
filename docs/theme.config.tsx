@@ -2,7 +2,12 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-    logo: <span>Material forms</span>,
+    logo: (
+        <div className="logo-wrapper">
+            <img className="mf-logo" src="/logos/logo.png" width="52" />
+            <span>Material Forms</span>
+        </div>
+    ),
     project: {
         link: "https://github.com/manojadams/metaforms-mui"
     },

@@ -22,11 +22,11 @@ function DateControl(props: IProps) {
     const min = props.form.validation?.min ? new Date(props.form.validation.min) : undefined;
     const max = props.form.validation?.max ? new Date(props.form.validation.max) : undefined;
     const openTo: CalendarPickerView = (props.form?.config?.openTo as CalendarPickerView | undefined) ?? "day";
-    const inputFormat = props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT;
+    const inputFormat = (props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT) as string;
     const views: [CalendarPickerView] = (props.form?.config?.views as [CalendarPickerView] | undefined) ?? ["day"];
     const subProps = props || {};
     let localValue;
-    const placeholder = props.form.placeholder ?? inputFormat;
+    const placeholder = (props.form.placeholder ?? inputFormat) as string | undefined;
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
             <DatePicker
@@ -95,7 +95,6 @@ function DateControl(props: IProps) {
                             ...params.inputProps,
                             placeholder
                         }}
-                        // eslint-disable-next-line react/jsx-no-bind
                         onBlur={props.handleValidation}
                         size={props.size}
                         error={props.error?.hasError ? true : undefined}

@@ -1,6 +1,6 @@
 import React from "react";
 import { IFieldProps } from "../../common/field";
-import { FormUtils } from "@manojadams/metaforms-core";
+import { FormUtils, IIconConfig } from "@manojadams/metaforms-core";
 import { Button, FormControl, FormLabel } from "@mui/material";
 import MandatoryLabel from "../../common/MandatoryLabel";
 
@@ -14,7 +14,8 @@ function RadioButtonControl(props: IProps) {
         props.className +
         (props.form?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "");
     const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
-    const icons = props.form.icons;
+    const config = props.form.config as Record<string, IIconConfig>;
+    const icons = config?.icons;
     const startIconName = icons ? FormUtils.getIconNameByPosition("start", icons) : "";
     const endIconName = icons ? FormUtils.getIconNameByPosition("end", icons) : "";
     const handleClick = (e: React.MouseEvent) => {

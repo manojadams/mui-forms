@@ -1,11 +1,11 @@
-import { IError, IField, IMeta, IOption, MetaForm } from "@manojadams/metaforms-core";
+import { IError, IField, IFormField, IOption, MetaForm } from "@manojadams/metaforms-core";
 import { TMouseEvent, TValue } from "@manojadams/metaforms-core/dist/constants/types";
 
 export interface IFieldProps {
     className: string;
     context: MetaForm;
     field: IField;
-    form: IMeta;
+    form: IFormField;
     size: "small" | "medium";
     variant?: string;
     error: IError;

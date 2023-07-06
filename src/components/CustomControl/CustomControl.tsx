@@ -6,7 +6,7 @@ interface IProps extends IFieldProps {
 }
 
 function CustomControl(props: IProps) {
-    const template = props.form?.config?.template || "";
+    const template = (props.form?.config?.template || "") as string;
     const control = props.context.getControlElements(template);
     let customComponent: JSX.Element | null = null;
     if (control) {

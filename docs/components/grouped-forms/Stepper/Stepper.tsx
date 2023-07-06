@@ -1,10 +1,17 @@
 import React from "react";
 import schema from "./schema.json";
-import Metaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "@manojadams/metaforms-mui";
 
 function Stepper() {
     return (
-        <Metaform
+        <MaterialMetaform
+            theme={{
+                sectionLayout: "stepper",
+                type: "default",
+                config: {
+                    variant: "filled"
+                }
+            }}
             schema={schema}
             onSubmit={() => {
                 // do nothing

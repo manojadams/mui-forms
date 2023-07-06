@@ -6,16 +6,17 @@ import { IFieldProps } from "../../common/field";
 function Label(props: IFieldProps) {
     const context = props.context;
     const meta = props.form;
-    const wrapperClassName = props.className;
     let hasStartIcon = false;
     let hasEndIcon = false;
     let startIcon = <Fragment />;
     let endIcon = <Fragment />;
-    if (props.form.icons) {
-        const allIcons = Object.keys(props.form.icons);
+    const config = props.form?.config as Record<string, string>;
+    const icons = config?.icons;
+    if (icons) {
+        const allIcons = Object.keys(icons);
         allIcons &&
             allIcons.forEach((icon) => {
-                const actualIcon = props.form.icons && props.form.icons[icon] ? props.form.icons[icon] : undefined;
+                const actualIcon = icons[icon] ? icons[icon] : undefined;
                 if (actualIcon?.type === "start") {
                     hasStartIcon = true;
                     startIcon = context.getIcon(actualIcon.type) || <Fragment />;
@@ -27,7 +28,7 @@ function Label(props: IFieldProps) {
             });
     }
     return (
-        <FormControl size={props.size} fullWidth className={wrapperClassName}>
+        <FormControl size={props.size} fullWidth className={props.className}>
             <FormLabel className="field-label">{meta.displayName}</FormLabel>
             <span className="field-value">
                 {hasStartIcon && startIcon}

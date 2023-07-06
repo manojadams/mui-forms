@@ -22,7 +22,7 @@ function InputControl(props: InputProps) {
     if (isInfoFnExists) {
         const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
         const infoMsgFn = props.context.getFn(infoMsgFnName);
-        infoText = infoMsgFn ? infoMsgFn(props.form) : null;
+        infoText = infoMsgFn ? infoMsgFn(props.form.value, undefined, props.form) : null;
     }
     return (
         <TextField
@@ -41,9 +41,7 @@ function InputControl(props: InputProps) {
             value={props.form?.value}
             error={props.error?.hasError ? true : undefined}
             helperText={props.error.errorMsg || infoText || undefined}
-            // eslint-disable-next-line react/jsx-no-bind
             onChange={props.handleChange}
-            // eslint-disable-next-line react/jsx-no-bind
             onBlur={props.handleValidation}
             size={props.size}
         />

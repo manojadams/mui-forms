@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { ChangeEvent, Fragment } from "react";
 import { IFieldProps } from "../../common/field";
 import { Button, FormControl } from "@mui/material";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
@@ -15,7 +15,7 @@ function FileControl(props: IProps) {
     const uploadIcon = props.context.getIcon("uploadIcon");
     const fileWidthClass = meta.value ? "w-80" : "w-100";
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
-    const handleFileChange = (e: any) => {
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value;
         if (value) {
             const valParts = value.split("\\");
@@ -76,7 +76,7 @@ function FileControl(props: IProps) {
                 )}
             </Button>
             <input
-                accept={meta.config?.accept}
+                accept={meta.config?.accept as string}
                 className={`position-absolute opacity-0 ${fileWidthClass} h-100`}
                 type="file"
                 name={props.field.name}

@@ -1,11 +1,4 @@
 {
-    "theme": {
-        "sectionLayout": "stepper",
-        "type": "default",
-        "config": {
-            "variant": "filled"
-        }
-    },
     "fields": [
         {
             "name": "basic_details",

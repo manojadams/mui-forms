@@ -1,10 +1,4 @@
 {
-    "theme": {
-        "type": "mui",
-        "config": {
-            "variant": "filled"
-        }
-    },
     "fields": [
         {
             "name": "first_name",

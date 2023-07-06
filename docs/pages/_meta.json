@@ -1,5 +1,14 @@
 {
-    "index": "Introduction",
+    "index": {
+        "title": "Home",
+        "type": "page",
+        "theme": {
+            "layout": "full",
+            "footer": false,
+            "toc": false
+        }
+    },
+    "getting-started": "Getting Started",
     "forms": "Forms",
     "simple-forms": "Simple Forms",
     "grouped-forms": "Grouped Forms",

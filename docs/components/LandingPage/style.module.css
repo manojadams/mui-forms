@@ -1,0 +1,108 @@
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    padding-top: 64px;
+}
+
+.gradient {
+    background: linear-gradient(315deg, rgba(60,132,206,5) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(60,132,206,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+.text_block {
+    margin: 120px 0;
+}
+
+.get_started_block {
+    display: flex;
+    padding: 36px 0;
+    justify-content: center;
+}
+
+.main_content {
+    max-width: 90rem;
+    margin: auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card_wrapper {
+    flex: 1;
+    padding-top: 40px;
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12rem;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.wave2 {
+    bottom: -1.25rem;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave3 {
+    bottom: -1.25rem;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+.wave3 {
+
+}
+
+.wave2 {
+    background: rgb(255, 255, 255 / 25%);
+}
+
+.wave3 {
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(1);
+    }
+}

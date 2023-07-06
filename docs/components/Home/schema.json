@@ -1,15 +1,4 @@
 {
-    "theme": {
-        "sectionLayout": "tabs",
-        "type": "section",
-        "config": {
-            "variant": "filled"
-        },
-        "tabs": {
-            "variant": "standard",
-            "disableRiple": "true"
-        }
-    },
     "fields": [
         {
             "name": "summary",

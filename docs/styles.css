@@ -1,4 +1,62 @@
+:root {
+    --primary: rgba(60,132,206,1);
+    --bg-primary: #132F4C;
+}
+
 input[data-focus-visible-added],
 input:focus-visible {
     box-shadow: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.blue {
+    color: #007FFF;
+}
+
+.black {
+    color: black;
+}
+
+.bg-primary {
+    background-color: var(--bg-primary);
+}
+
+.border-24 {
+    border-radius: 24px;
+}
+
+.nextra-nav-container > div {
+    background-color: transparent;
+}
+
+.mf-logo {
+    /* background: linear-gradient(315deg, rgba(60,132,206,5) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(60,132,206,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed; */
+    border-radius: 56px;
+    color: #132f4c;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }

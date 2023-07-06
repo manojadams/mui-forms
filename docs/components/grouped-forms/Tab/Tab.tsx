@@ -1,10 +1,21 @@
 import React from "react";
 import schema from "./schema.json";
-import Metaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "@manojadams/metaforms-mui";
 
 function Tab() {
     return (
-        <Metaform
+        <MaterialMetaform
+            theme={{
+                sectionLayout: "tabs",
+                type: "default",
+                config: {
+                    variant: "filled",
+                    tabs: {
+                        variant: "standard",
+                        disableRiple: "true"
+                    }
+                }
+            }}
             schema={schema}
             onSubmit={() => {
                 // do nothing

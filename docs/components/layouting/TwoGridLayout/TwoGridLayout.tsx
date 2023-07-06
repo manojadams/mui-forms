@@ -1,10 +1,10 @@
 import React from "react";
-import Metaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "@manojadams/metaforms-mui";
 import schema from "./schema.json";
 
 function TwoGridLayout() {
     return (
-        <Metaform
+        <MaterialMetaform
             schema={schema}
             onSubmit={() => {
                 // do nothing

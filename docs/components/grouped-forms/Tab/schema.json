@@ -1,15 +1,4 @@
 {
-    "theme": {
-        "sectionLayout": "tabs",
-        "type": "default",
-        "config": {
-            "variant": "filled",
-            "tabs": {
-                "variant": "standard",
-                "disableRiple": "true"
-            }
-        }
-    },
     "fields": [
         {
             "name": "basic_details",
