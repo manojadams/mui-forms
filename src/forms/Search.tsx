@@ -1,12 +1,12 @@
 import { Autocomplete, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { IError, MetaForm, IConfig, IMeta, IOption, FormUtils } from "@manojadams/metaforms-core";
+import { IError, MetaForm, IConfig, IOption, FormUtils, IFormField } from "@manojadams/metaforms-core";
 import { TVariant } from "./ constants";
 import { TValue } from "@manojadams/metaforms-core/dist/constants/types";
 
 interface IProps {
     name: string;
-    form: IMeta;
+    form: IFormField;
     variant: TVariant;
     config: IConfig;
     label: string;

@@ -76,7 +76,7 @@ function FileControl(props: IProps) {
                 )}
             </Button>
             <input
-                accept={meta.config?.accept}
+                accept={meta.config?.accept as string}
                 className={`position-absolute opacity-0 ${fileWidthClass} h-100`}
                 type="file"
                 name={props.field.name}

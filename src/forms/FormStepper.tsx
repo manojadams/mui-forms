@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { FormFieldRenderer, IField, IEventPayload, BaseFormStepper } from "@manojadams/metaforms-core";
+import { FormFieldRenderer, IField, IEventPayload, BaseFormStepper, IFormField } from "@manojadams/metaforms-core";
 import Stepper, { Orientation } from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
@@ -88,7 +88,13 @@ export class FormStepper extends BaseFormStepper {
         return (
             <Row>
                 {field && (
-                    <FormFieldRenderer {...field} key={field.name} section={field.name} form={form} sync={sync} />
+                    <FormFieldRenderer
+                        {...field}
+                        key={field.name}
+                        section={field.name}
+                        form={form as IFormField}
+                        sync={sync}
+                    />
                 )}
                 {this.footer()}
             </Row>

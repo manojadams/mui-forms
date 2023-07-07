@@ -11,11 +11,12 @@ function Label(props: IFieldProps) {
     let hasEndIcon = false;
     let startIcon = <Fragment />;
     let endIcon = <Fragment />;
-    if (props.form.icons) {
-        const allIcons = Object.keys(props.form.icons);
+    const config = props.form.config as Record<string, any>;
+    if (config?.icons) {
+        const allIcons = Object.keys(config.icons);
         allIcons &&
             allIcons.forEach((icon) => {
-                const actualIcon = props.form.icons && props.form.icons[icon] ? props.form.icons[icon] : undefined;
+                const actualIcon = config.icons && config.icons[icon] ? config.icons[icon] : undefined;
                 if (actualIcon?.type === "start") {
                     hasStartIcon = true;
                     startIcon = context.getIcon(actualIcon.type) || <Fragment />;

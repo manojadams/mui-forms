@@ -2,6 +2,7 @@ import React from "react";
 import { IFieldProps } from "../../common/field";
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 import MandatoryLabel from "../../common/MandatoryLabel";
+import { TLabelPlacement } from "../../forms/ constants";
 
 function RadioControl(props: IFieldProps) {
     const isRow = props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
@@ -10,7 +11,8 @@ function RadioControl(props: IFieldProps) {
         props.field.name +
         (props.form?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "");
     const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
-    const labelPlacement: any = props.form?.labelPlacement;
+    const config = props.form.config as Record<string, TLabelPlacement>;
+    const labelPlacement = config?.labelPlacement;
     return (
         <FormControl size={props.size} fullWidth className={wrapperClassName}>
             <FormLabel className={fieldLabelClassname}>

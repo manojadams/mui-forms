@@ -14,7 +14,8 @@ function RadioButtonControl(props: IProps) {
         props.className +
         (props.form?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "");
     const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
-    const icons = props.form.icons;
+    const config = props.form.config as Record<string, any>;
+    const icons = config?.icons;
     const startIconName = icons ? FormUtils.getIconNameByPosition("start", icons) : "";
     const endIconName = icons ? FormUtils.getIconNameByPosition("end", icons) : "";
     const handleClick = (e: React.MouseEvent) => {
