@@ -5,7 +5,7 @@ const config: DocsThemeConfig = {
     logo: (
         <div className="logo-wrapper">
             <img className="mf-logo" src="/logos/logo.png" width="52" />
-            <span>Material Forms</span>
+            <span>MUI Forms</span>
         </div>
     ),
     project: {
@@ -16,7 +16,7 @@ const config: DocsThemeConfig = {
     },
     docsRepositoryBase: "https://github.com/manojadams/mui.metaform-docs",
     footer: {
-        text: "© Material forms"
+        text: "© MUI forms"
     },
     nextThemes: {
         defaultTheme: "light"
