@@ -1,17 +1,12 @@
-# metaforms-mui
+# mui-forms
 
-> Material UI with metaforms
+> Material UI forms using json based schema
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
-## Change logs
-- Take theme and rest configuration parameters as input properties (`theme` and `rest` respectively).
-- Set default textfield variant as filled.
-- Added Phone control.
 
 ## Install
 
 ```bash
-npm install --save @manojadams/metaforms-mui
+npm install mui-forms
 ```
 
 ## Basic Usage
@@ -34,7 +29,24 @@ const exampleSchema = {
     }]
 }
 ```
-### 2. Schema details
+### 2. Usage
+
+```tsx
+import React, { Component } from 'react'
+
+import MuiForms from 'mui-forms';
+import 'metaforms-mui/dist/index.css';
+
+class Example extends Component {
+  render() {
+    return <MuiForms schema={exampleSchema} onSubmit={(formData) => {
+      // submit data
+    }} />
+  }
+}
+```
+
+### 3. Schema details
 ```typescript
 export interface IUISchema {
     schema: ISchema;
@@ -268,23 +280,6 @@ export type TParam = [string, TParamType];
 
 export interface IFormatterType {
     [key: string]: Function;
-}
-```
-
-### 3. Usage
-
-```tsx
-import React, { Component } from 'react'
-
-import MetaForm from '@manojadams/metaforms-mui'
-import 'metaforms-mui/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MetaForm schema={exampleSchema} onSubmit={(formData) => {
-      // submit data
-    }}/>
-  }
 }
 ```
 

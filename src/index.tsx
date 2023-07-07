@@ -9,7 +9,7 @@ import FormWizard from "./forms/FormWizard";
 /**
  * Dynamically render forms using `metaforms schema` and `mui components`
  */
-class FormRenderer extends React.Component<IFormRenderer> {
+class MuiForms extends React.Component<IFormRenderer> {
     render() {
         return (
             <CoreFormRenderer
@@ -29,4 +29,4 @@ class FormRenderer extends React.Component<IFormRenderer> {
     }
 }
 
-export default FormRenderer;
+export default MuiForms;

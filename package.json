@@ -1,16 +1,23 @@
 {
-  "name": "@manojadams/metaforms-mui",
-  "version": "3.0.1",
-  "description": "Material UI with metaforms",
-  "author": "manojgetwealthy",
+  "name": "mui-forms",
+  "version": "1.0.0",
+  "description": "Material UI forms with json based schema",
+  "author": "manojadams",
   "license": "MIT",
-  "repository": "manojgetwealthy/metaforms-mui",
+  "repository": "manojadams/mui-forms",
+  "homepage": "https://mui-metaform-docs.vercel.app",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "material forms",
+    "mui forms",
+    "dynamic forms",
+    "react forms"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs -css",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
