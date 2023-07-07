@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@emotion/styled':
+    specifier: ^11.11.0
+    version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
   '@manojadams/metaforms-mui':
     specifier: ^3.0.0
     version: 3.0.0(@babel/core@7.22.5)(@mui/system@5.13.5)(react-dom@18.2.0)(react@18.2.0)
