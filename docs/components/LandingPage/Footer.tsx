@@ -6,7 +6,7 @@ function Footer() {
         <Wrapper>
             <InnerWrapper>
                 <div>&copy; Copyright 2023. All rights reserved.</div>
-                <div></div>
+                <div />
             </InnerWrapper>
         </Wrapper>
     );

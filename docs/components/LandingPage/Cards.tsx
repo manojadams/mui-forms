@@ -4,9 +4,7 @@ import React from "react";
 function Cards() {
     return (
         <div className="">
-            <Card>
-
-            </Card>
+            <Card />
         </div>
     );
 }

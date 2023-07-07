@@ -11,8 +11,8 @@ function Home() {
                 config: {
                     variant: "filled",
                     tabs: {
-                        variant: "standard",
-                        disableRiple: "true"
+                        variant: "standard"
+                        // disableRiple: "true"
                     }
                 }
             }}
