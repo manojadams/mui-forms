@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.11.0",
     "@manojadams/metaforms-mui": "^3.0.0",
     "@mui/icons-material": "^5.13.7",
+    "@mui/material": "^5.13.7",
     "@textea/json-viewer": "^3.0.0",
     "next": "^13.4.6",
     "nextra": "^2.7.1",
