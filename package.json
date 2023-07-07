@@ -73,7 +73,6 @@
     "@mui/x-date-pickers": "^5.0.19",
     "date-fns": "^2.29.1",
     "layout-emotions": "^1.0.6",
-    "mui-tel-input": "^3.2.2",
     "react-number-format": "^5.2.2"
   }
 }
