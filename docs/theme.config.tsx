@@ -9,12 +9,12 @@ const config: DocsThemeConfig = {
         </div>
     ),
     project: {
-        link: "https://github.com/manojadams/metaforms-mui"
+        link: "https://github.com/manojadams/mui-forms"
     },
     chat: {
         link: "https://discord.com"
     },
-    docsRepositoryBase: "https://github.com/manojadams/mui.metaform-docs",
+    docsRepositoryBase: "https://github.com/manojadams/mui-forms/tree/docs",
     footer: {
         text: "© MUI forms"
     },
