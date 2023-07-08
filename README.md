@@ -35,7 +35,6 @@ const exampleSchema = {
 import React, { Component } from 'react'
 
 import MuiForms from 'mui-forms';
-import 'metaforms-mui/dist/index.css';
 
 class Example extends Component {
   render() {
