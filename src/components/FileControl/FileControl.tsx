@@ -55,7 +55,7 @@ function FileControl(props: IProps) {
                 fullWidth
             >
                 {meta.value ? (
-                    <div className="d-flex">
+                    <Block>
                         {uploadIcon}
                         <span className="meta-file-value"> {meta.value}</span>
                         {fileUploadedIcon}
@@ -71,7 +71,7 @@ function FileControl(props: IProps) {
                         >
                             {fileDeleteIcon}
                         </span>
-                    </div>
+                    </Block>
                 ) : (
                     <Fragment>
                         {uploadIcon}
@@ -91,6 +91,10 @@ function FileControl(props: IProps) {
         </FormControl>
     );
 }
+
+const Block = styled.div`
+    display: flex;
+`;
 
 const InputControl = styled.input`
     position: absolute;
