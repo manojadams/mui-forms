@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { IFieldProps } from "../../common/field";
 import { Button, FormControl } from "@mui/material";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
+import styled from "@emotion/styled";
 
 interface IProps extends IFieldProps {
     section: string;
@@ -31,13 +32,16 @@ function FileControl(props: IProps) {
         <FormControl
             className={props.className}
             size={props.size}
+            sx={{
+                position: "relative"
+            }}
             fullWidth
             error={props.error.hasError ? true : undefined}
         >
             <Button
                 className="meta-file-upload-btn"
                 variant="outlined"
-                size="large"
+                size={props.size || "medium"}
                 onClick={(e) => {
                     let target: any;
                     // eslint-disable-next-line prefer-const
@@ -75,9 +79,9 @@ function FileControl(props: IProps) {
                     </Fragment>
                 )}
             </Button>
-            <input
+            <InputControl
                 accept={meta.config?.accept as string}
-                className={`position-absolute opacity-0 ${fileWidthClass} h-100`}
+                className="minput-file"
                 type="file"
                 name={props.field.name}
                 title={displayLabel}
@@ -87,5 +91,13 @@ function FileControl(props: IProps) {
         </FormControl>
     );
 }
+
+const InputControl = styled.input`
+    position: absolute;
+    top: 0;
+    left; 0;
+    opacity: 0;
+    height: 100%;
+`;
 
 export default FileControl;
