@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialMetaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "mui-forms";
 import schema from "./schema.json";
 
 function TwoGridLayout() {

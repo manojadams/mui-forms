@@ -1,5 +1,5 @@
 import React from "react";
-import Metaform from "@manojadams/metaforms-mui";
+import Metaform from "mui-forms";
 import schema from "./schema.json";
 
 function PasswordField() {

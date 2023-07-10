@@ -1,6 +1,6 @@
 import React from "react";
 import schema from "./schema.json";
-import MaterialMetaform from "@manojadams/metaforms-mui";
+import MaterialMetaform from "mui-forms";
 
 function Wizard() {
     return (

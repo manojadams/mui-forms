@@ -1,5 +1,5 @@
 import React from "react";
-import Metaforms from "@manojadams/metaforms-mui";
+import Metaforms from "mui-forms";
 import schema from "./schema.json";
 
 function FileField() {

@@ -1,6 +1,6 @@
 import React from "react";
 import schema from "./schema.json";
-import Metaform from "@manojadams/metaforms-mui";
+import Metaform from "mui-forms";
 
 function NumberField() {
     return (
