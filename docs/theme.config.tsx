@@ -12,15 +12,22 @@ const config: DocsThemeConfig = {
         link: "https://github.com/manojadams/mui-forms"
     },
     chat: {
-        link: "https://discord.com"
+        link: "https://discord.com/channels/1118549772446470215/1118549772446470217"
     },
-    docsRepositoryBase: "https://github.com/manojadams/mui-forms/tree/docs",
+    docsRepositoryBase: "https://github.com/manojadams/mui-forms/tree/docs/docs",
     footer: {
-        text: "© MUI forms"
+        text: "© Copyright 2023 MUI forms"
     },
     nextThemes: {
         defaultTheme: "light"
-    }
+    },
+    head: (
+        <>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta property="og:title" content="MuiForms" />
+            <meta property="og:description" content="Create dynamic forms" />
+        </>
+    )
 };
 
 export default config;
