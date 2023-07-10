@@ -9,6 +9,9 @@
 npm install mui-forms
 ```
 
+## Change logs
+Updated file and radio button control
+
 ## Basic Usage
 
 ### 1. Define your json schema
