@@ -8,10 +8,10 @@ import SelectField from "../../components/fields/SelectField";
 
 ## Schema
 
-import { JsonViewer } from "@textea/json-viewer";
+import SchemaViewer from "../../components/SchemaViewer";
 import schema from "../../components/fields/SelectField/schema.json";
 
-<JsonViewer value={schema} />
+<SchemaViewer value={schema} />
 
 ## Field Properties
 
@@ -25,15 +25,29 @@ import schema from "../../components/fields/SelectField/schema.json";
 | isDisabled  | Marks the field as disabled                |
 | isReadonly  | Marks the field as readonly                |
 
-## With url dependency:
+## Config 
+| Name        | Description                                |
+| ----------- | ------------------------------------------ |
+| type | The displayType for this field (`select`)  |
+| url | The base api endpoint url |
+| pathParams | The path parameters |
+| queryParams | List of query parameters|
+| valueKey | The object key of the response from which field value need to be mapped |
+| labelKey | The object key of the response from which field display name needs to be mapped|
+
+
+### An example config that fetches *state options* from a remote api depending on the country field value:
 
 ```json
 "config": {
-        "type": "url_loader",
-        "url": "/pincode/",
-        "pathParams": [["state"]],
-        "queryParams": [["pincode", {"type": "fieldValue", "ref": "pincode"}]],
-        "valueKey": "state#id",
-        "labelKey": "state#name"
-    },
+    "type": "url_loader",
+    "url": "/country/",
+    "pathParams": [["state"]],
+    "queryParams": [["country", {"type": "fieldValue", "ref": "country"}]],
+    "valueKey": "state#id",
+    "labelKey": "state#name"
+}
 ```
+import CommonProperties from "./common-properties.mdx";
+
+<CommonProperties />

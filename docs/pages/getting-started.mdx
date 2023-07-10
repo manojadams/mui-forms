@@ -1,50 +1,19 @@
-## Installation
+import SchemaViewer from "../components/SchemaViewer";
+import schema from "../components/Home/schema.json";
 
-Run following command in your command terminal:
-```bash copy
-npm install mui-forms
-```
+# Introduction
 
-## Usage
+Create dynamic forms effortlessly with mui-forms, a powerful form library built on top of [Material UI](https://mui.com) and JSON Schema.
 
-```tsx copy
-import MuiForms from "mui-forms";
-import schema from "<location_of_schema.json>";
-
-<MuiForms
-    name="myForm"
-    schema={schema}
-    onChange={(...data) => {
-        // handle data on change
-    }}
-    onError={(...fieldData) => {
-        // handle error
-    }}
-    onNext={(formData) => {
-        // handle next
-    }}
-    onSubmit={(formData) => {
-        // handle form submission
-    }}
-/>;
-```
-
-## Properties
-
-| Name       | Description                                                                          | Type      |
-| ---------- | ------------------------------------------------------------------------------------ | --------- |
-| name       | the name of the form                                                                 | Optional  |
-| schema     | json based schema to render the form                                                 | Mandatory |
-| onChange   | handle to be called on field value change                                            | Optional  |
-| onError    | handle to be called on field error                                                   | Optional  |
-| onNext     | handle to be called when user tries to move to next form section (grouped forms)     | Optional  |
-| onPrevious | handle to be called when user tries to move to previous form section (grouped forms) | Optional  |
-| onSubmit   | handle to be called on form submission                                               | Mandatory |
-
-## Examples
+## Basic example
 
 **Account Opening form**
 
 import Home from "../components/Home";
 
 <Home />
+
+## Schema:
+Following is the json schema of a grouped form:
+
+<SchemaViewer value={schema} />

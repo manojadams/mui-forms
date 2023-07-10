@@ -4,3 +4,51 @@ There are mainly two ways to customize and style metaforms:
 
 -   Using css styles
 -   Using `ThemeProvider`
+
+
+## Css Styling
+
+Each field in the *MuiForm* contains a unique classname by default:
+
+```
+    <div class="...meta-form-<field_name>..."
+```
+
+Above css class name can be used for styling.
+For a custom classname, the property **className** can also be used in the json schema.
+
+## Theme provider
+
+This is the standard way of theming Mui components. 
+
+```tsx
+import { createTheme, ThemeProvider } from "@mui/material";
+import MuiForms from "mui-forms";
+
+const THEME = createTheme({
+    palette: {
+        primary: {
+            main: "gray"
+        }
+    },
+    typography: {
+        fontFamily: "Roboto"
+    },
+    components: {
+        MuiTextField: {
+            ...
+        },
+        ...
+    }
+});
+
+function MyForm() {
+    return (
+        <ThemeProvider theme={THEME}>
+            <MuiForms {...props} />
+        </ThemeProvider>
+    )
+}
+```
+
+Check [here](https://mui.com/material-ui/customization/theming/#theme-provider) for more details.

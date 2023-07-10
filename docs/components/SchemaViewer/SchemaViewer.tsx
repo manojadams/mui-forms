@@ -7,22 +7,22 @@ interface IProps {
 }
 
 function SchemaViewer(props: IProps) {
-    return <JsonViewer value={props.value} theme={ocean} groupArraysAfterLength={3} />;
+    return <JsonViewer value={props.value} theme={ocean} groupArraysAfterLength={3} className="mjson-viewer" />;
 }
 
 export const ocean: NamedColorspace = {
     scheme: "Ocean",
     author: "Chris Kempson (http://chriskempson.com)",
-    base00: "#2b303b",
+    base00: "var(--md-theme-bg, rgba(0, 93, 199, 0.05))",
     base01: "#343d46",
     base02: "#4f5b66",
     base03: "#65737e",
     base04: "#a7adba",
     base05: "#c0c5ce",
     base06: "#dfe1e8",
-    base07: "#eff1f5",
+    base07: "var(--md-theme-text, #eff1f5)",
     base08: "#bf616a",
-    base09: "#d08770",
+    base09: "var(--md-theme-text-val, #d08770)",
     base0A: "#ebcb8b",
     base0B: "#a3be8c",
     base0C: "#96b5b4",
@@ -30,5 +30,7 @@ export const ocean: NamedColorspace = {
     base0E: "#b48ead",
     base0F: "#ab7967"
 };
+
+// lab(47.8876% 63.025 42.31)
 
 export default SchemaViewer;

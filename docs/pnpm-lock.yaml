@@ -8,9 +8,6 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
-  '@manojadams/metaforms-mui':
-    specifier: ^3.0.1
-    version: 3.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   '@mui/icons-material':
     specifier: ^5.13.7
     version: 5.13.7(@mui/material@5.13.7)(react@18.2.0)
@@ -20,6 +17,9 @@ dependencies:
   '@textea/json-viewer':
     specifier: ^3.0.0
     version: 3.0.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(react-dom@18.2.0)(react@18.2.0)
+  mui-forms:
+    specifier: ^1.0.1
+    version: 1.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: ^13.4.6
     version: 13.4.6(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
@@ -539,32 +539,6 @@ packages:
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
-    dev: false
-
-  /@manojadams/metaforms-mui@3.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-WNPxfy7gXwYxnewKprrHORLxHfngFRyAF8I5e/sQgCufGYCrHD9EQDZ9gFsHYyfipLh7HPrVEoXVYLPnTi/vEA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^18.0.0
-    dependencies:
-      '@emotion/babel-preset-css-prop': 11.11.0(@babel/core@7.22.8)
-      '@emotion/react': 11.11.1(react@18.2.0)
-      '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
-      '@manojadams/metaforms-core': 3.0.1(react@18.2.0)
-      '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react-dom@18.2.0)(react@18.2.0)
-      '@mui/x-date-pickers': 5.0.20(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@mui/system@5.13.7)(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
-      date-fns: 2.30.0
-      layout-emotions: 1.0.11(@emotion/react@11.11.1)(react@18.2.0)
-      react: 18.2.0
-      react-number-format: 5.2.2(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@mui/system'
-      - '@types/react'
-      - dayjs
-      - luxon
-      - moment
-      - react-dom
     dev: false
 
   /@mdx-js/mdx@2.3.0:
@@ -2845,6 +2819,32 @@ packages:
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+    dev: false
+
+  /mui-forms@1.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-IoX3G7+bu6c0ShcXPeLlK+kM6ZgLOFA2qbloSOmBDSpGf9pXaeINB5rC+eyBkruuJ5Ssnc0+ZZlg8x12XICvmQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@emotion/babel-preset-css-prop': 11.11.0(@babel/core@7.22.8)
+      '@emotion/react': 11.11.1(react@18.2.0)
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
+      '@manojadams/metaforms-core': 3.0.1(react@18.2.0)
+      '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/x-date-pickers': 5.0.20(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@mui/system@5.13.7)(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
+      date-fns: 2.30.0
+      layout-emotions: 1.0.11(@emotion/react@11.11.1)(react@18.2.0)
+      react: 18.2.0
+      react-number-format: 5.2.2(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@mui/system'
+      - '@types/react'
+      - dayjs
+      - luxon
+      - moment
+      - react-dom
     dev: false
 
   /nanoid@3.3.6:

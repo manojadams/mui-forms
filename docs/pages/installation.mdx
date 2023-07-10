@@ -1,0 +1,70 @@
+## Install
+
+```bash copy
+npm install mui-forms
+```
+
+## Peer Dependencies
+
+```json copy
+"peerDependencies": {
+  "react": "^18.0.0"
+}
+```
+
+## Basic Usage
+1. Define your schema:
+
+```json copy
+{
+    "fields": [{
+        "name": "first_name",
+        "meta": {
+            "displayType": "text",
+            "displayName": "First Name"
+        }
+    }, {
+        "name": "last_name",
+        "meta": {
+            "displayType": "text",
+            "displayName": "Last Name"
+        }
+    }]
+}
+```
+
+2. Import and use **MuiForms**:
+
+```tsx copy
+import MuiForms from "mui-forms";
+import schema from "<schema_location.json>";
+
+<MuiForms
+    name="myForm"
+    schema={schema}
+    onChange={(...data) => {
+        // handle data on change
+    }}
+    onError={(...fieldData) => {
+        // handle error
+    }}
+    onNext={(formData) => {
+        // handle next
+    }}
+    onSubmit={(formData) => {
+        // handle form submission
+    }}
+/>;
+```
+
+## Basic Properties
+
+| Name       | Description                                                                          | Type      |
+| ---------- | ------------------------------------------------------------------------------------ | --------- |
+| name       | the name of the form                                                                 | Optional  |
+| schema     | json based schema to render the form                                                 | Mandatory |
+| onChange   | handle to be called on field value change                                            | Optional  |
+| onError    | handle to be called on field error                                                   | Optional  |
+| onNext     | handle to be called when user tries to move to next form section (grouped forms)     | Optional  |
+| onPrevious | handle to be called when user tries to move to previous form section (grouped forms) | Optional  |
+| onSubmit   | handle to be called on form submission                                               | Mandatory |

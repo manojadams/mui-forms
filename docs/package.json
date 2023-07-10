@@ -1,5 +1,5 @@
 {
-  "name": "material-forms-docs",
+  "name": "mui-forms-docs",
   "version": "1.0.0",
   "description": "Docs for material forms",
   "main": "index.js",
@@ -21,7 +21,7 @@
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
     "@textea/json-viewer": "^3.0.0",
-    "mui-forms": "^1.0.0",
+    "mui-forms": "^1.0.1",
     "next": "^13.4.6",
     "nextra": "^2.7.1",
     "nextra-theme-docs": "^2.7.1",

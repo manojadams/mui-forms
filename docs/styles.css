@@ -1,6 +1,9 @@
 :root {
     --primary: rgba(60,132,206,1);
     --bg-primary: #132F4C;
+    --md-theme-bg: rgba(0, 93, 199, 0.05);
+    --md-theme-text: lab(47.8876% 63.025 42.31);
+    --md-theme-text-val: lab(49.1367% -42.0409 31.8582);
 }
 
 input[data-focus-visible-added],
@@ -39,6 +42,10 @@ input:focus-visible {
     background-attachment: fixed; */
     border-radius: 56px;
     color: #132f4c;
+}
+
+.mjson-viewer {
+    padding: 16px;
 }
 
 .logo-wrapper {
