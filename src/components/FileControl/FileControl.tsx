@@ -49,9 +49,6 @@ function FileControl(props: IProps) {
                     const fileInput = target.parentElement.querySelector("input[type=file]");
                     fileInput && fileInput.click();
                 }}
-                sx={{
-                    padding: "1.4rem"
-                }}
                 fullWidth
             >
                 {meta.value ? (

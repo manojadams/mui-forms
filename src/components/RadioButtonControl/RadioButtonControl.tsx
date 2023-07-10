@@ -53,7 +53,7 @@ function RadioButtonControl(props: IProps) {
                 {props.form.displayName + " "}
                 {props.form?.validation?.required && <MandatoryLabel />}
             </FormLabel>
-            <Row className="row" onClick={handleClick}>
+            <Row onClick={handleClick}>
                 {props.form.options &&
                     props.form.options.map((option) => {
                         const datatype = typeof option.value;
@@ -65,11 +65,8 @@ function RadioButtonControl(props: IProps) {
                                     datatype={datatype}
                                     disabled={props.form.isDisabled}
                                     value={option.value as string}
-                                    variant="outlined"
-                                    size="medium"
-                                    sx={{
-                                        padding: "1rem"
-                                    }}
+                                    variant={option.value === props.form.value ? "contained" : "outlined"}
+                                    size={props.size || "medium"}
                                     fullWidth
                                 >
                                     {startIconName && startIconName === option.value
