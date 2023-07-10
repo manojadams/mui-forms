@@ -3,6 +3,7 @@ import { IFieldProps } from "../../common/field";
 import { FormUtils } from "@manojadams/metaforms-core";
 import { Button, FormControl, FormLabel } from "@mui/material";
 import MandatoryLabel from "../../common/MandatoryLabel";
+import { Row } from "layout-emotions";
 
 interface IProps extends IFieldProps {
     showValidation: () => JSX.Element;
@@ -52,13 +53,13 @@ function RadioButtonControl(props: IProps) {
                 {props.form.displayName + " "}
                 {props.form?.validation?.required && <MandatoryLabel />}
             </FormLabel>
-            <div className="row" onClick={handleClick}>
+            <Row className="row" onClick={handleClick}>
                 {props.form.options &&
                     props.form.options.map((option) => {
                         const datatype = typeof option.value;
                         const className = option.value === props.form.value ? "selected" : "";
                         return (
-                            <div className="col" key={option.value as string}>
+                            <div className="mcol" key={option.value as string}>
                                 <Button
                                     className={className}
                                     datatype={datatype}
@@ -82,7 +83,7 @@ function RadioButtonControl(props: IProps) {
                             </div>
                         );
                     })}
-            </div>
+            </Row>
             {props.showValidation()}
         </FormControl>
     );
