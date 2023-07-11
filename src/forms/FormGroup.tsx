@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseFormGroup, Sections, FormUtils, IField, ISchema } from "@manojadams/metaforms-core";
+import { BaseFormGroup, Sections, IField, ISchema } from "@manojadams/metaforms-core";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box } from "@mui/material";
@@ -13,7 +13,7 @@ export default class FormGroup extends BaseFormGroup {
     }
 
     tabs(): JSX.Element {
-        const tabVariant: TTabVariant = FormUtils.getThemeProp("mui", this.context.theme, "variant");
+        const tabVariant: TTabVariant = this.context.formConfig.config?.tabs?.variant as TTabVariant;
         return (
             <Box
                 data-pagenumber={this.state.activeIndex + 1}

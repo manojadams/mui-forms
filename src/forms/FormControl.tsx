@@ -29,8 +29,8 @@ export default class FormControl extends BaseFormControl {
     }
 
     render(): JSX.Element {
-        const muiVariant = this.context.getThemeProp("config", "variant");
-        const muiSize = this.context.getThemeProp("config", "size");
+        const muiVariant = this.context.formConfig.config?.variant;
+        const muiSize = this.context.formConfig.config?.size;
         this.variant = muiVariant || this.variant;
         this.size = muiSize || "medium";
         return super.render();
