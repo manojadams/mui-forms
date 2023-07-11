@@ -9,3 +9,22 @@ import schema from "../../components/grouped-forms/Tab/schema.json";
 ## Schema:
 
 <JsonViewer value={schema} />
+
+## Usage
+
+```tsx
+import React from "react";
+import schema from "./schema.json";
+import MuiForms from "mui-forms";
+
+function MyTab() {
+    return (
+        <MuiForms
+            schema={schema}
+            onSubmit={() => {
+                // do nothing
+            }}
+        />
+    );
+}
+```

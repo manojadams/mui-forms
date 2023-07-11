@@ -1,10 +1,10 @@
 import React from "react";
 import schema from "./schema.json";
-import Metaform from "mui-forms";
+import MuiForms from "mui-forms";
 
 function Form2() {
     return (
-        <Metaform
+        <MuiForms
             config={{
                 variant: "outlined"
             }}

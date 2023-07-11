@@ -11,3 +11,25 @@ import schema from "../../components/simple-forms/Form1/schema.json";
 ## Schema:
 
 <SchemaViewer value={schema} />
+
+## Usage:
+
+```tsx
+import React from "react";
+import schema from "<schema_location>";
+import MuiForms from "mui-forms";
+
+function MySimpleForm() {
+    return (
+        <MuiForms
+            config={{
+                variant: "standard"
+            }}
+            schema={schema}
+            onSubmit={() => {
+                // do nothing
+            }}
+        />
+    );
+}
+```

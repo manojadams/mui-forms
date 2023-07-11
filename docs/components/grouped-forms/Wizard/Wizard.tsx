@@ -1,10 +1,10 @@
 import React from "react";
 import schema from "./schema.json";
-import MaterialMetaform from "mui-forms";
+import MuiForms from "mui-forms";
 
 function Wizard() {
     return (
-        <MaterialMetaform
+        <MuiForms
             sectionLayout="wizard"
             config={{
                 variant: "filled"
