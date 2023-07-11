@@ -8,6 +8,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
+  '@manojadams/metaforms-core':
+    specifier: ^3.0.4
+    version: 3.0.4(react@18.2.0)
   '@mui/icons-material':
     specifier: ^5.13.7
     version: 5.13.7(@mui/material@5.13.7)(react@18.2.0)
@@ -18,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   mui-forms:
-    specifier: ^1.0.1
-    version: 1.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.0.2
+    version: 1.0.2(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: ^13.4.6
     version: 13.4.6(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
@@ -526,8 +529,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: false
 
-  /@manojadams/metaforms-core@3.0.1(react@18.2.0):
-    resolution: {integrity: sha512-6xN9XnifzStF0G7SuHxMQQSV3N+jnPqy9AeGbfNOx7klTyvIikn0i1I4VZURCIVRCbJ8/H4ZHxhQjCDuVydRwQ==}
+  /@manojadams/metaforms-core@3.0.4(react@18.2.0):
+    resolution: {integrity: sha512-Gyg4PYBI6djp2V5+KunC1f3Ksoz+UKzPTRKBOPwkKz9Ek43RDr9zy3oABW+/C5NIKK+/JsrTiEKMbwN3MtEaZQ==}
     engines: {node: '>=12'}
     peerDependencies:
       react: ^18.0.0
@@ -2821,8 +2824,8 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: false
 
-  /mui-forms@1.0.1(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-IoX3G7+bu6c0ShcXPeLlK+kM6ZgLOFA2qbloSOmBDSpGf9pXaeINB5rC+eyBkruuJ5Ssnc0+ZZlg8x12XICvmQ==}
+  /mui-forms@1.0.2(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-agvGywUChNs1yfTuFvcLFA6b17IocOIrtofmAoKSF+tWGU93BJWrMHvnl/UEuq+GnRmWU6VRc1VJgpdxHGbv9g==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18.0.0
@@ -2830,7 +2833,7 @@ packages:
       '@emotion/babel-preset-css-prop': 11.11.0(@babel/core@7.22.8)
       '@emotion/react': 11.11.1(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
-      '@manojadams/metaforms-core': 3.0.1(react@18.2.0)
+      '@manojadams/metaforms-core': 3.0.4(react@18.2.0)
       '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react-dom@18.2.0)(react@18.2.0)
       '@mui/x-date-pickers': 5.0.20(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@mui/system@5.13.7)(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
