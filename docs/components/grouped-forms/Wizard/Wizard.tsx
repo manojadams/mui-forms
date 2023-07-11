@@ -5,12 +5,9 @@ import MaterialMetaform from "mui-forms";
 function Wizard() {
     return (
         <MaterialMetaform
-            theme={{
-                sectionLayout: "wizard",
-                type: "default",
-                config: {
-                    variant: "filled"
-                }
+            sectionLayout="wizard"
+            config={{
+                variant: "filled"
             }}
             schema={schema}
             onSubmit={() => {
