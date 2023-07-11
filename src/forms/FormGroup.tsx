@@ -13,7 +13,7 @@ export default class FormGroup extends BaseFormGroup {
     }
 
     tabs(): JSX.Element {
-        const tabVariant: TTabVariant = this.context.formConfig.config?.tabs?.variant as TTabVariant;
+        const tabVariant: TTabVariant = this.context.formConfig?.config?.tabs?.variant as TTabVariant;
         return (
             <Box
                 data-pagenumber={this.state.activeIndex + 1}

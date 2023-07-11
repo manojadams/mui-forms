@@ -56,7 +56,7 @@ export class FormStepper extends BaseFormStepper {
     }
 
     render() {
-        const stepper = this.context.formConfig.config as Record<string, Orientation>;
+        const stepper = this.context?.formConfig?.config as Record<string, Orientation>;
         this.orientation = stepper?.orientation ?? "horizontal";
         return (
             <Fragment>
