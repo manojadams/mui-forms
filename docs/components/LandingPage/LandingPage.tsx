@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import css from "./style.module.css";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
@@ -11,6 +11,11 @@ interface IProps {
 }
 function LandingPage(props: IProps) {
     const router = useRouter();
+    useEffect(() => {
+        if (router.isReady) {
+            router.prefetch("/getting-started");
+        }
+    }, [router]);
     return (
         <div className={`${css.wrapper} ${css.gradient}`}>
             <div className={css.main_content}>

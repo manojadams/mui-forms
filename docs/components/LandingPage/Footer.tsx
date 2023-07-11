@@ -5,7 +5,7 @@ function Footer() {
     return (
         <Wrapper>
             <InnerWrapper>
-                <div>&copy; Copyright 2023. All rights reserved.</div>
+                <div>&copy; Copyright 2023 MuiForms. All rights reserved.</div>
                 <div />
             </InnerWrapper>
         </Wrapper>
