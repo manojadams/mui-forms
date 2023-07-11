@@ -5,11 +5,8 @@ import Metaform from "mui-forms";
 function Form2() {
     return (
         <Metaform
-            theme={{
-                type: "mui",
-                config: {
-                    variant: "outlined"
-                }
+            config={{
+                variant: "outlined"
             }}
             schema={schema}
             onSubmit={() => {
