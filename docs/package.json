@@ -18,10 +18,11 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
+    "@manojadams/metaforms-core": "^3.0.4",
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
     "@textea/json-viewer": "^3.0.0",
-    "mui-forms": "^1.0.1",
+    "mui-forms": "^1.0.2",
     "next": "^13.4.6",
     "nextra": "^2.7.1",
     "nextra-theme-docs": "^2.7.1",
