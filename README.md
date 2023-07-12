@@ -285,6 +285,15 @@ export interface IFormatterType {
 }
 ```
 
+## Contributions
+
+Open source contribution is very much welcome.
+
+## Note
+
+- Give us a star if you like the library
+- Give us your feedback. 
+
 ## License
 
 MIT © [manojgetwealthy](https://github.com/manojgetwealthy)
