@@ -49,7 +49,7 @@ class Example extends Component {
 ```
 
 ### 3. Schema details
-
+Check out the [file]([typescript-schema.md](https://github.com/manojadams/mui-forms/blob/master/typescript-schema.md))
 
 ## Contributions
 
