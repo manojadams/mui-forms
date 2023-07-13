@@ -32,19 +32,19 @@ const exampleSchema = {
 ### 2. Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import MuiForms from 'mui-forms';
 
-class Example extends Component {
-  render() {
-    return <MuiForms
-        schema={exampleSchema}
-        onSubmit={(formData) => {
-          // submit data
-        }}
-    />
-  }
+export function MyForm() {
+    return (
+        <MuiForms
+            schema={exampleSchema}
+            onSubmit={(formData) => {
+              // submit data
+            }}
+        />
+    );
 }
 ```
 
