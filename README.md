@@ -56,6 +56,4 @@ Open source contribution is welcome.
 
 MIT © [manojgetwealthy](https://github.com/manojgetwealthy)
 
-### Lets work together, lets grow together
-
 ## Give a ⭐️ if you liked this project!
