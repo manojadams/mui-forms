@@ -56,10 +56,12 @@ Open source contribution is very much welcome.
 
 - Give us a star if you like the library
 - Give us your feedback. 
-- Contritions of any kind is welcome.
+- Contributions of any kind is welcome.
 
 ## License
 
 MIT © [manojgetwealthy](https://github.com/manojgetwealthy)
 
 ### Lets work together, lets grow together
+
+## Give a ⭐️ if you liked this project!
