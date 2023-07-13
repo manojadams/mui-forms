@@ -38,9 +38,12 @@ import MuiForms from 'mui-forms';
 
 class Example extends Component {
   render() {
-    return <MuiForms schema={exampleSchema} onSubmit={(formData) => {
-      // submit data
-    }} />
+    return <MuiForms
+        schema={exampleSchema}
+        onSubmit={(formData) => {
+          // submit data
+        }}
+    />
   }
 }
 ```
