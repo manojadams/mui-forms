@@ -18,6 +18,9 @@
 
 .text_block {
     margin: 120px 0;
+    @media (max-width: 576px) {
+        margin: 0;
+    }
 }
 
 .get_started_block {
