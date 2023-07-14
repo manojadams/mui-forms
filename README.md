@@ -279,9 +279,14 @@ import 'metaforms-mui/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MetaForm schema={exampleSchema} onSubmit={(formData) => {
-      // submit data
-    }}/>
+    return (
+        <MetaForm
+            schema={exampleSchema}
+            onSubmit={(formData) => {
+              // submit data
+            }}
+        />
+    );
   }
 }
 ```
