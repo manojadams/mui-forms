@@ -1,0 +1,27 @@
+{
+    "fields": [{
+            "name": "first_name",
+            "meta": {
+                "displayType": "text",
+                "displayName": "First Name"
+            }
+        }, {
+            "name": "last_name",
+            "meta": {
+                "displayType": "text",
+                "displayName": "Last Name"
+            }
+        }, {
+            "name": "email",
+            "meta": {
+                "displayType": "email",
+                "displayName": "Emal"
+            }
+        }, {
+            "name": "password",
+            "meta": {
+                "displayType": "password",
+                "displayName": "Your password"
+            }
+        }]
+    }

@@ -1,0 +1,30 @@
+## Rating Form
+
+import RegistrationForm from "../../components/examples/RatingForm";
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/examples/RatingForm/schema.json";
+
+<RegistrationForm />
+
+## Schema
+
+<SchemaViewer value={schema} />
+
+## Usage
+
+```tsx
+    import React from "react";
+    import MuiForms from "mui-forms";
+    import schema from "./schema.json";
+
+    function RatingForm() {
+        return (
+            <MuiForms
+                schema={schema}
+                onSubmit={() => {
+                    // handle code
+                }}
+            />
+        );
+    }
+```

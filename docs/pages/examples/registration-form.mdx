@@ -1,0 +1,31 @@
+## Registration Form
+
+import RegistrationForm from "../../components/examples/RegistrationForm";
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/examples/RegistrationForm/schema.json";
+
+<RegistrationForm />
+
+## Schema
+
+<SchemaViewer value={schema} />
+
+## Usage
+
+```tsx
+    import React from "react";
+    import MuiForms from "mui-forms";
+    import schema from "./schema.json";
+
+    function RegistrationForm() {
+        return (
+            <MuiForms
+                schema={schema}
+                onSubmit={() => {
+                    // handle code
+                }}
+            />
+        );
+    }
+```
+
