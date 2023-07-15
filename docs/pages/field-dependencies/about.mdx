@@ -1,10 +1,28 @@
-## Dependencies
+# Dependencies
 
 Dependencies use to define relationships and dependencies between different fields
 
-### Properties
+## Properties
 
 | Name         | Description                                        |
 | ------------ | -------------------------------------------------- |
 | exists       | Checks criteria whether to display field in the UI |
-| load_options |                                                    |
+
+### Properties for exists dependency
+
+| Name         | Description                                        |
+| ------------ | -------------------------------------------------- |
+| ref          | It is the reference name of the  dependent field |
+| value        | It is the value of the reference field. <br/>The current field will be displayed only if the reference field has the value specified here | 
+
+## Exists dependency example
+
+import SalariedForm from "../../components/dependencies/SalariedForm";
+import schema from "../../components/dependencies/SalariedForm/schema.json";
+import SchemaViewer from "../../components/SchemaViewer";
+
+<SalariedForm />
+
+## Schema 
+
+<SchemaViewer value={schema} />
