@@ -342,6 +342,12 @@ export default class FormControl extends BaseFormControl {
         return this.text();
     }
 
+    multitext(): JSX.Element {
+        return this.input("text", {
+            multtline: true
+        });
+    }
+
     showValidation(infoMsg?: string) {
         let className = "";
         let icon = <Fragment />;
