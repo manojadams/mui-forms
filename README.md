@@ -3,6 +3,12 @@
 > Material UI forms using json based schema
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Advantages and features
+- Mui Components
+- Built-in layouting
+- Supports custom components
+- Easily define field relationships
+
 ## Install
 
 ```bash
