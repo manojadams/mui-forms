@@ -1,0 +1,70 @@
+# Exists depdendency
+
+## Properties for exists dependency
+
+| Name         | Description                                        |
+| ------------ | -------------------------------------------------- |
+| ref          | It is the reference name of the  dependent field |
+| value        | It is the value of the reference field | 
+| condition    | Used only if value equals special value `$condition`. Check details below |
+| valueFn      | Used onl if the value equals special value '$valueFn`. Check details below | 
+
+### The property `value`
+
+- It can either be a single value or an array of values. 
+- The current field will be displayed only if the reference field has the same value as the value specified here. 
+- In case `value` is array, it will try to check if it contains any value matching the reference field value.
+
+### Special values
+These values are special values which has specific purpose
+
+| Name | Description |
+|------|-------------|
+| $condition | It will parse the condition from the `condition` property and will display the field only if it result is true. |
+| $notempty | It will display current the field only if the reference field value is not empty | 
+| $valueFn | It will execute a function and display the field if result is true. The function name is taken from the property `valueFn` and it must be passed as an input property `fns` from the component |
+
+### Condition
+
+The value of this property should be array. It can contain multiple conditions
+
+A condition is divided into four parts:
+- Operand
+- Operator
+- Value
+- Next condition
+
+Model details:
+
+```typescript
+type Condition = [Operand, Operator, Operand | Value, NextCondition?];
+
+interface Operand {
+    ref: string;
+    section?: string;
+}
+
+type Operator = "===" | ">=" | "<=";
+
+type Value = string | number | boolean | Date | undefined | null;
+
+type NextCondition = "&&" | "||";
+```
+
+### Example
+
+```typescript
+condition: [[{ref:"<field_name>", section: "<section_name>"}, "===", true]]
+```
+
+## Exists dependency example
+
+import SalariedForm from "../../components/dependencies/SalariedForm";
+import schema from "../../components/dependencies/SalariedForm/schema.json";
+import SchemaViewer from "../../components/SchemaViewer";
+
+<SalariedForm />
+
+## Schema 
+
+<SchemaViewer value={schema} />
