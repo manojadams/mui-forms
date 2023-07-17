@@ -1,19 +1,75 @@
 # Dependencies
 
-Dependencies use to define relationships and dependencies between different fields
+Dependencies use to define relationships and dependencies between different fields. 
 
 ## Properties
 
 | Name         | Description                                        |
 | ------------ | -------------------------------------------------- |
-| exists       | Checks criteria whether to display field in the UI |
+| enabled      | Applies dependency only if the reference field is enabled |
+| equals       | Applies depdendency only if the reference field value has same value as current field |
+| exists       | Checks criteria whether to display field in the UI. This dependency is **trasitive** in nature. |
+| pattern_match_url_loader | It calls an api and updates a reference field from the api response if a certain pattern match occurs |
+| load_options | It loads options for a select field for the reference field |
+| prop_update  | Updates field property based on criteria |
+| validation   | It updates validation of the reference field based on some criteria |
 
 ### Properties for exists dependency
 
 | Name         | Description                                        |
 | ------------ | -------------------------------------------------- |
 | ref          | It is the reference name of the  dependent field |
-| value        | It is the value of the reference field. <br/>The current field will be displayed only if the reference field has the value specified here | 
+| value        | It is the value of the reference field | 
+| condition    | Used only if value equals special value `$condition`. Check details below |
+| valueFn      | Used onl if the value equals special value '$valueFn`. Check details below | 
+
+#### The property `value`
+
+- It can either be a single value or an array of values. 
+- The current field will be displayed only if the reference field has the same value as the value specified here. 
+- In case current value is array, it will try to check if it contains any value matching the reference field value.
+
+#### Special values
+These values are special values which has specific purpose
+
+| Name | Description |
+|------|-------------|
+| $condition | It will parse the condition from the `condition` property and will display the field only if it result is true. |
+| $notempty | It will display current the field only if the reference field value is not empty | 
+| $valueFn | It will execute a function and display the field if result is true. The function name is taken from the property `valueFn` and it must be passed as an input property `fns` from the component |
+
+##### Condition
+
+The value of this property should be array. It can contain multiple conditions
+
+A condition is divided into four parts:
+- Operand
+- Operator
+- Value
+- Next condition
+
+Model details:
+
+```typescript
+type TCondition = [IOperand, TOperator, IOperand | TValue, TNextCondition?];
+
+interface Operand {
+    ref: string;
+    section?: string;
+}
+
+type Operator = "===" | ">=" | "<=";
+
+type Value = string | number | boolean | Date | undefined | null;
+
+type NextCondition = "&&" | "||";
+```
+
+##### Example
+
+```typescript
+condition: [[{ref:"<field_name>", section: "<section_name>"}, "===", true]]
+```
 
 ## Exists dependency example
 
