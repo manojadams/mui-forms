@@ -341,8 +341,11 @@ export default class FormControl extends BaseFormControl {
     }
 
     multitext(): JSX.Element {
+        const config = this.props.form.config as Record<string, number | undefined>;
         const textFieldProps: TextFieldProps = {
-            multiline: true
+            multiline: true,
+            minRows: config.minRows ?? 4,
+            maxRows: config.maxRows ?? 4
         };
         return this.input("text", {}, textFieldProps);
     }
