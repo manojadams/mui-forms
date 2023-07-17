@@ -22,7 +22,7 @@
         "name": "product_review",
         "meta": {
             "displayName": "Product Review",
-            "displayType": "text_field",
+            "displayType": "multitext",
             "placeholder": "Example: This is a product review where you should add your honest opnions about the product"
         }
     }, {
