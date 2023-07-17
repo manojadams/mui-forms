@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
-import { Button, FilledInputProps, FormHelperText, InputProps, OutlinedInputProps } from "@mui/material";
+import { Button, FilledInputProps, FormHelperText, InputProps, OutlinedInputProps, TextFieldProps } from "@mui/material";
 import MuiSearch from "./Search";
 import { TVariant } from "./ constants";
 
@@ -97,11 +97,7 @@ export default class FormControl extends BaseFormControl {
         );
     }
 
-    input(
-        type: string,
-        props?: any,
-        InputProps?: Partial<FilledInputProps> | Partial<OutlinedInputProps> | Partial<InputProps>
-    ) {
+    input(type: string, htmlProps?: any, textFieldProps?: TextFieldProps) {
         return (
             <InputControl
                 className={this.getWrapperClassName()}
@@ -111,25 +107,25 @@ export default class FormControl extends BaseFormControl {
                 error={this.state.error}
                 size={this.size}
                 variant={this.getVariant()}
-                InputProps={InputProps}
                 type={type}
                 handleChange={this.handleChange}
                 handleValidation={this.handleValidation}
                 setError={this.setError}
-                {...props}
+                htmlProps={htmlProps}
+                textFieldProps={textFieldProps}
             />
         );
     }
 
     text() {
         const maxLength = this.props.form.validation?.max ?? "";
-        let extraProps;
+        let htmlProps;
         if (maxLength) {
-            extraProps = {
+            htmlProps = {
                 maxLength: maxLength
             };
         }
-        return this.input("text", extraProps);
+        return this.input("text", htmlProps);
     }
 
     password() {
@@ -315,10 +311,12 @@ export default class FormControl extends BaseFormControl {
                 autoComplete
             };
         }
-        const extraProps = {
-            inputComponent: InputComponent
+        const textFieldProps: TextFieldProps = {
+            InputProps: {
+                inputComponent: InputComponent
+            }
         };
-        return this.input("number", htmlProps, extraProps);
+        return this.input("number", htmlProps, textFieldProps);
     }
 
     templateControl(): JSX.Element {
@@ -343,9 +341,10 @@ export default class FormControl extends BaseFormControl {
     }
 
     multitext(): JSX.Element {
-        return this.input("text", {
-            multtline: true
-        });
+        const textFieldProps: TextFieldProps = {
+            multiline: true
+        };
+        return this.input("text", {}, textFieldProps);
     }
 
     showValidation(infoMsg?: string) {

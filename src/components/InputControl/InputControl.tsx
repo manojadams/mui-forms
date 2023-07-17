@@ -1,28 +1,24 @@
-import {
-    FilledInputProps,
-    OutlinedInputProps,
-    InputProps as MuiInputProps,
-    TextField,
-    TextFieldVariants
-} from "@mui/material";
+import { TextField, TextFieldVariants, TextFieldProps, InputBaseProps } from "@mui/material";
 import React from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
 
-interface InputProps extends IFieldProps {
+interface InputControlProps extends IFieldProps {
     type: string;
-    InputProps?: Partial<FilledInputProps> | Partial<OutlinedInputProps> | Partial<MuiInputProps>;
+    htmlProps?: InputBaseProps["inputProps"];
+    textFieldProps?: TextFieldProps;
 }
-function InputControl(props: InputProps) {
+function InputControl(props: InputControlProps) {
     const label = MuiFormUtil.getDisplayLabel(props.form);
-    let infoText: any = props.form?.validation?.infoDetail?.infoMsg;
+    let infoText: string = props.form?.validation?.infoDetail?.infoMsg ?? "";
     const wrapperClassName = "meta-form-control-" + props.field.name;
-    const extraProps = props || {};
+    const htmlProps = props.htmlProps ?? {};
+    const textFieldProps = props.textFieldProps ?? {};
     const isInfoFnExists = infoText?.includes("$");
     if (isInfoFnExists) {
         const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
         const infoMsgFn = props.context.getFn(infoMsgFnName);
-        infoText = infoMsgFn ? infoMsgFn(null, undefined, props.form) : null;
+        infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
     }
     return (
         <TextField
@@ -34,9 +30,9 @@ function InputControl(props: InputProps) {
             disabled={props.form.isDisabled}
             inputProps={{
                 readOnly: props.form.isReadonly,
-                ...extraProps
+                ...htmlProps
             }}
-            InputProps={props.InputProps}
+            InputProps={props.textFieldProps?.InputProps}
             placeholder={props.form?.placeholder}
             value={props.form?.value}
             error={props.error?.hasError ? true : undefined}
@@ -44,6 +40,7 @@ function InputControl(props: InputProps) {
             onChange={props.handleChange}
             onBlur={props.handleValidation}
             size={props.size}
+            {...textFieldProps}
         />
     );
 }
