@@ -51,7 +51,7 @@ A condition is divided into four parts:
 Model details:
 
 ```typescript
-type TCondition = [IOperand, TOperator, IOperand | TValue, TNextCondition?];
+type Condition = [Operand, Operator, Operand | Value, NextCondition?];
 
 interface Operand {
     ref: string;
