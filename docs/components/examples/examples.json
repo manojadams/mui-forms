@@ -1,10 +1,5 @@
 [
     {
-        "title": "Registration Form",
-        "img": "/images/registration-form.png",
-        "href": "/examples/registration-form"
-    },
-    {
         "title": "Customer Feedback Form",
         "img": "/images/customer-feedback-form.png",
         "href": "/examples/customer-feedback-form"
@@ -18,5 +13,10 @@
         "title": "Rating Form",
         "img": "/images/rating-form.png",
         "href": "/examples/rating-form"
+    },
+    {
+        "title": "Account Opening Form",
+        "img": "/images/account-form.png",
+        "href": "/examples/account-form"
     }
 ]

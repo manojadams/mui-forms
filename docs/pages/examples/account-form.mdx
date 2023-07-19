@@ -1,0 +1,31 @@
+## Account Form <sup><small><small><small>[Edit](https://codesandbox.io/s/mui-forms-account-opening-form-z8pgtt?file=/src/App.js)</small></small></small></sup>
+
+import AccountForm from "../../components/examples/AccountForm";
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/examples/AccountForm/schema.json";
+
+<AccountForm />
+
+## Schema <sup><small><small><small>[Edit](https://codesandbox.io/s/mui-forms-account-opening-form-z8pgtt?file=/src/App.js)</small></small></small></sup>
+
+<SchemaViewer value={schema} />
+
+## Usage <sup><small><small><small>[Edit](https://codesandbox.io/s/mui-forms-account-opening-form-z8pgtt?file=/src/App.js)</small></small></small></sup>
+
+```tsx
+    import React from "react";
+    import MuiForms from "mui-forms";
+    import schema from "./schema.json";
+
+    function AccountForm() {
+        return (
+            <MuiForms
+                schema={schema}
+                onSubmit={() => {
+                    // handle code
+                }}
+            />
+        );
+    }
+```
+

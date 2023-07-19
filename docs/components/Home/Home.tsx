@@ -1,15 +1,17 @@
 import React from "react";
 import MuiForms from "mui-forms";
-import schema from "./schema.json";
+import schema from "./../examples/RegistrationForm/schema.json";
 
 function Home() {
     return (
-        <MuiForms
-            schema={schema}
-            onSubmit={() => {
-                // handle submit
-            }}
-        />
+        <>
+            <MuiForms
+                schema={schema}
+                onSubmit={() => {
+                    // handle submit
+                }}
+            />
+        </>
     );
 }
 

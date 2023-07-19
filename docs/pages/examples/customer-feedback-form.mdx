@@ -1,4 +1,4 @@
-## Customer Feedback Form
+## Customer Feedback Form <sup><small><small><small>[Edit](https://codesandbox.io/s/mui-forms-customer-feedback-form-63mlks?file=/src/CustomerFeedbackForm.js)</small></small></small></sup>
 
 import CustomerFeedbackForm from "../../components/examples/CustomerFeedbackForm";
 import SchemaViewer from "../../components/SchemaViewer";
@@ -10,7 +10,7 @@ import schema from "../../components/examples/CustomerFeedbackForm/schema.json";
 
 <SchemaViewer value={schema} />
 
-## Usage
+## Usage <sup><small><small><small>[Edit](https://codesandbox.io/s/mui-forms-customer-feedback-form-63mlks?file=/src/CustomerFeedbackForm.js)</small></small></small></sup>
 
 ```tsx
     import React from "react";
@@ -20,6 +20,10 @@ import schema from "../../components/examples/CustomerFeedbackForm/schema.json";
     function CustomerFeedbackForm() {
         return (
             <MuiForms
+                config={{
+                    variant: "outlined",
+                    size: "small"
+                }}
                 schema={schema}
                 onSubmit={() => {
                     // handle code

@@ -3,7 +3,7 @@
         {
             "name": "summary",
             "meta": {
-                "name": "Basic Details",
+                "displayName": "Basic Details",
                 "type": "section"
             },
             "fields": [
