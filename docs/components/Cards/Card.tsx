@@ -29,9 +29,16 @@ const CardStyled = styled.div`
         opacity: 1;
     }
     cursor: pointer;
+    img {
+        transform: scale(0.9);
+    }
+    &:hover img {
+        transform: rotate(30deg) scale(1.5);
+        transition: transform 0.2s;
+    }
 `;
 
-const BackdropStyled = styled.div`
+const BackdropStyled = styled.h3`
     position: absolute;
     inset: 0;
     color: #fff;
@@ -42,6 +49,7 @@ const BackdropStyled = styled.div`
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s;
+    font-size: 24px;
 `;
 
 export default Card;
