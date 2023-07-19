@@ -10,7 +10,7 @@ interface IProps {
 function Card(props: IProps) {
     return (
         <CardStyled onClick={props.handleClick}>
-            {props.img}
+            <img src={props.img} alt="form" />
             <BackdropStyled className="backdrop">{props.title}</BackdropStyled>
         </CardStyled>
     );

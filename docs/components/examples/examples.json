@@ -1,22 +1,22 @@
 [
     {
         "title": "Registration Form",
-        "img": "",
+        "img": "/images/registration-form.png",
         "href": "/examples/registration-form"
     },
     {
         "title": "Customer Feedback Form",
-        "img": "",
+        "img": "/images/customer-feedback-form.png",
         "href": "/examples/customer-feedback-form"
     },
     {
         "title": "Payment Form",
-        "img": "",
-        "href": "/examples/registration-form"
+        "img": "/images/payment-form.png",
+        "href": "/examples/payment-form"
     },
     {
         "title": "Rating Form",
-        "img": "",
+        "img": "/images/rating-form.png",
         "href": "/examples/rating-form"
     }
 ]
