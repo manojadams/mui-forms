@@ -4,11 +4,12 @@ import styled from "@emotion/styled";
 interface IProps {
     title: string;
     img: string;
+    handleClick: () => void;
 }
 
 function Card(props: IProps) {
     return (
-        <CardStyled>
+        <CardStyled onClick={props.handleClick}>
             {props.img}
             <BackdropStyled className="backdrop">{props.title}</BackdropStyled>
         </CardStyled>
