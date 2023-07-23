@@ -22,6 +22,7 @@ const config: DocsThemeConfig = {
     nextThemes: {
         defaultTheme: "light"
     },
+    darkMode: false,
     head: () => {
         const { frontMatter } = useConfig();
         const { asPath, defaultLocale, locale } = useRouter();
