@@ -31,8 +31,8 @@ const config: DocsThemeConfig = {
             <>
                 {/* <meta property="og:url" content={url} /> */}
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta property="og:title" content={"abc" + frontMatter.title || "MuiForms"} />
-                <meta property="title" content={"bcd" + frontMatter.title || "MuiForms"} />
+                <meta property="og:title" content={frontMatter.title ?? "Mui Forms"} />
+                <meta property="title" content={frontMatter.title ?? "Mui Forms"} />
                 <meta property="og:description" content="Create dynamic forms" />
             </>
         );
