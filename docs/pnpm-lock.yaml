@@ -9,8 +9,8 @@ dependencies:
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
   '@manojadams/metaforms-core':
-    specifier: ^3.0.4
-    version: 3.0.4(react@18.2.0)
+    specifier: ^3.0.8
+    version: 3.0.8(react@18.2.0)
   '@mui/icons-material':
     specifier: ^5.13.7
     version: 5.13.7(@mui/material@5.13.7)(react@18.2.0)
@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   mui-forms:
-    specifier: ^1.0.5
-    version: 1.0.5(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.0.7
+    version: 1.0.7(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: ^13.4.6
     version: 13.4.6(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
@@ -529,8 +529,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: false
 
-  /@manojadams/metaforms-core@3.0.4(react@18.2.0):
-    resolution: {integrity: sha512-Gyg4PYBI6djp2V5+KunC1f3Ksoz+UKzPTRKBOPwkKz9Ek43RDr9zy3oABW+/C5NIKK+/JsrTiEKMbwN3MtEaZQ==}
+  /@manojadams/metaforms-core@3.0.8(react@18.2.0):
+    resolution: {integrity: sha512-uPPmn3crNuuXihsRMDQa60TiCDW2xSquLIl4Tpez1ucs53AfLqKEAnjbW7nEmHPBbbdx3RSt+yO1+a5+D/ZSFw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: ^18.0.0
@@ -538,7 +538,7 @@ packages:
       '@emotion/react': 11.11.1(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
       eventemitter3: 4.0.7
-      layout-emotions: 1.0.11(@emotion/react@11.11.1)(react@18.2.0)
+      layout-emotions: 1.0.13(@emotion/react@11.11.1)(react@18.2.0)
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
@@ -2202,6 +2202,18 @@ packages:
       - '@types/react'
     dev: false
 
+  /layout-emotions@1.0.13(@emotion/react@11.11.1)(react@18.2.0):
+    resolution: {integrity: sha512-zw/Itz+JJADry0rgJFm21NDdp0kHz8Djp08oz/o9onDd/OQ4sQwfg3dIQ3rFsVqh6G6keh1+h1CV1yUEAxHvfw==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
+      react: 18.2.0
+    transitivePeerDependencies:
+      - '@emotion/react'
+      - '@types/react'
+    dev: false
+
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: false
@@ -2831,8 +2843,8 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: false
 
-  /mui-forms@1.0.5(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-iKCX+WdUm6GlT1nfU2+TCimjD/ctaGV66V3pWOUqkSS0qSGk4PzKbHdW0NoNujGm9WAY8zpszAiJ+CmpowWNog==}
+  /mui-forms@1.0.7(@babel/core@7.22.8)(@mui/system@5.13.7)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-n+srEMn7RrcnO7r+eBWv2E4CgO8hD3H0w98jOO/eS58XgaNFQeilLRudTEh8uBhYbF5kvrb9/pT7OsR1qTDHqg==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18.0.0
@@ -2840,7 +2852,7 @@ packages:
       '@emotion/babel-preset-css-prop': 11.11.0(@babel/core@7.22.8)
       '@emotion/react': 11.11.1(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
-      '@manojadams/metaforms-core': 3.0.4(react@18.2.0)
+      '@manojadams/metaforms-core': 3.0.8(react@18.2.0)
       '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react-dom@18.2.0)(react@18.2.0)
       '@mui/x-date-pickers': 5.0.20(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@mui/system@5.13.7)(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
