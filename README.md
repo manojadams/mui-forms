@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- Update core package
+- [fix for invalid setState](https://github.com/manojadams/metaforms-core/issues/6)
   
 ## Advantages and features
 - Mui Components
