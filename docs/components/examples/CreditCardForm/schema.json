@@ -1,0 +1,96 @@
+{
+    "fields": [
+        {
+            "name": "card_type",
+            "meta": {
+                "displayName": "Card Type",
+                "displayType": "select",
+                "options": [
+                    {
+                        "label": "Visa",
+                        "value": "visa"
+                    },
+                    {
+                        "label": "Master Card",
+                        "value": "mastercard"
+                    }
+                ],
+                "validation": {
+                    "required": true
+                }
+            }
+        },
+        {
+            "name": "cardholder_name",
+            "meta": {
+                "displayName": "Cardholder's name",
+                "displayType": "text_field",
+                "validation": {
+                    "required": true,
+                    "pattern": "^(\\w+\\s?)*$",
+                    "patternDetail": {
+                        "allowValidOnly": true,
+                        "errorMsg": "Name is not valid"
+                    }
+                }
+            }
+        },
+        {
+            "name": "card_number",
+            "meta": {
+                "displayName": "Card Number",
+                "displayType": "text_field",
+                "placeholder": "****-****-****-****",
+                "validation": {
+                    "required": true,
+                    "pattern": "^[0-9]{0,16}$",
+                    "min": 16,
+                    "patternDetail": {
+                        "allowValidOnly": true,
+                        "errorMsg": "Please enter a valid number (16 digits)"
+                    }
+                }
+            }
+        },
+        {
+            "name": "expiration_date",
+            "meta": {
+                "displayName": "Expiry",
+                "displayType": "date",
+                "displayProps": {
+                    "md": 6
+                },
+                "validation": {
+                    "required": true,
+                    "min": "06/06/2023"
+                }
+            }
+        },
+        {
+            "name": "cvv",
+            "meta": {
+                "displayName": "CVV",
+                "displayType": "text_field",
+                "displayProps": {
+                    "md": 6
+                },
+                "validation": {
+                    "required": true,
+                    "pattern": "^[0-9]{0,4}$",
+                    "patternDetail": {
+                        "allowValidOnly": true,
+                        "errorMsg": "Please enter a valid CVV (3 - 4 digits)"
+                    }
+                }
+            }
+        }
+    ],
+    "buttons": [
+        {
+            "name": "submit",
+            "meta": {
+                "type": "submit"
+            }
+        }
+    ]
+}
