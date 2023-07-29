@@ -40,7 +40,6 @@ input:focus-visible {
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed; */
-    border-radius: 56px;
     color: #132f4c;
 }
 
@@ -54,6 +53,8 @@ input:focus-visible {
     align-items: center;
     font-size: 1.1rem;
     font-weight: bold;
+    width: 120px;
+    justify-content: center;
 }
 
 @keyframes gradient {

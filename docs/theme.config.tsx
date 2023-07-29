@@ -5,8 +5,7 @@ import { useRouter } from "next/router";
 const config: DocsThemeConfig = {
     logo: (
         <div className="logo-wrapper">
-            {/* <img className="mf-logo" src="/logos/logo.png" width="52" /> */}
-            <span>MUI Forms</span>
+            <img className="mf-logo" src="/logos/logo.png" width="60" />
         </div>
     ),
     project: {
