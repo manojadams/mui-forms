@@ -18,14 +18,26 @@
     "field-events": "Field events",
     "meta-api": "Meta APIs",
     "layouting": "Layouting",
-    "examples": "Examples",
     "styling": "Styling",
     "about": {
         "title": "About",
-        "type": "page"
+        "type": "page",
+        "display": "hidden"
     },
     "json-to-schema": {
         "title": "Json to Schema",
-        "type": "page"
+        "display": "hidden"
+    },
+    "examples": "Examples",
+    "examples2": {
+        "title": "Examples",
+        "type": "page",
+        "href": "/examples"
+    },
+    "feedback": {
+        "title": "Feedback",
+        "type": "page",
+        "href": "https://github.com/manojadams/mui-forms/issues/new?title=Feedback%20for%20%E2%80%9CMui%20Forms%E2%80%9D&labels=feedback",
+        "newWindow": true
     }
 }
