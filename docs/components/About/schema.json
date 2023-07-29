@@ -45,15 +45,65 @@
                   },
                   "validation": {
                     "type": "object",
-                    "description": "Contains field validation parameters"
+                    "description": "Contains field validation parameters",
+                    "properties": {
+                      "required": {
+                        "type": "boolean",
+                        "description": "Makes the field mandatory to be filled"
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "description": "Add patterns (regular expression) accepted in the field"
+                      },
+                      "min": {
+                        "type": "string",
+                        "description": "A minimum value acceptable by the field"
+                      },
+                      "max": {
+                        "type": "string",
+                        "description": "A maximum value acceptable by the field"
+                      }
+                    }
                   },
                   "dependencies": {
                     "type": "object",
-                    "description": "Used to define field dependencies"
+                    "description": "Used to define field dependencies",
+                    "properties": {
+                      "exists": {
+                        "type": "object",
+                        "description": "Field exists when conditions are met"
+                      }
+                    }
                   },
                   "displayProps": {
                     "type": "object",
-                    "description": "Used for layouting fields"
+                    "description": "Used for layouting fields. Uses standard breakpoints similar to bootstrap",
+                    "properties": {
+                      "xxl": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in very very large devices. (Acceptable values range from 1 to 12)"
+                      },
+                      "xl": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in very large devices. (Acceptable values range from 1 to 12)"
+                      },
+                      "lg": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in large devices. (Acceptable values range from 1 to 12)"
+                      },
+                      "md": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in medium devices. (Acceptable values range from 1 to 12)"
+                      },
+                      "sm": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in small devices. (Acceptable values range from 1 to 12)"
+                      },
+                      "xs": {
+                        "type": "string",
+                        "description": "Use this field for field layouting in very small devices. (Acceptable values range from 1 to 12)"
+                      }
+                    }
                   },
                   "events": {
                     "type": "object",
