@@ -24,15 +24,13 @@ const config: DocsThemeConfig = {
     },
     darkMode: false,
     head: () => {
-        const { frontMatter } = useConfig();
-        const { asPath, defaultLocale, locale } = useRouter();
-        // const url = "https://my-app.com" + (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
+        const { title } = useConfig();
         return (
             <>
-                {/* <meta property="og:url" content={url} /> */}
+                <title>{title} - Mui Forms</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta property="og:title" content={frontMatter.title ?? "Mui Forms"} />
-                <meta property="title" content={frontMatter.title ?? "Mui Forms"} />
+                <meta property="og:title" content={title ?? "Mui Forms"} />
+                <meta property="title" content={title ?? "Mui Forms"} />
                 <meta property="og:description" content="Create dynamic forms" />
             </>
         );

@@ -149,14 +149,14 @@ export interface ITheme {
 
 export interface IValidation {
     required?: boolean;
-    required_detail?: IValidationDetail;
+    requiredDetail?: IValidationDetail;
     pattern?: string;
-    pattern_detail?: IPatternValidationDetail;
+    patternDetail?: IPatternValidationDetail;
     min?: number | string;
-    min_detail?: IValidationDetail;
+    minDetail?: IValidationDetail;
     max?: number | string;
-    max_detail?: IValidationDetail;
-    info_detail?: IInfoDetail;
+    maxDetail?: IValidationDetail;
+    infoDetail?: IInfoDetail;
 }
 
 export interface IValidationDetail {

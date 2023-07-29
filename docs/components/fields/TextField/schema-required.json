@@ -8,7 +8,7 @@
                 "value": "",
                 "validation": {
                     "required": true,
-                    "required_detail": {
+                    "requiredDetail": {
                         "errorMsg": "Please enter name"
                     }
                 }
