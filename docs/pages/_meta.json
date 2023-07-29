@@ -23,5 +23,9 @@
     "about": {
         "title": "About",
         "type": "page"
+    },
+    "json-to-schema": {
+        "title": "Json to Schema",
+        "type": "page"
     }
 }
