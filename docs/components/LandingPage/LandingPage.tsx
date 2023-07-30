@@ -20,7 +20,7 @@ function LandingPage(props: IProps) {
     return (
         <>
             <Head>
-                <title>Mui Forms - Create dynamic Forms instantly</title>
+                <title>Mui Forms - Create dynamic forms</title>
             </Head>
             <div className={`${css.wrapper} ${css.gradient}`}>
                 <div className={css.main_content}>

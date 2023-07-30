@@ -1,6 +1,5 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
     logo: (
@@ -30,7 +29,10 @@ const config: DocsThemeConfig = {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta property="og:title" content={title ?? "Mui Forms"} />
                 <meta property="title" content={title ?? "Mui Forms"} />
-                <meta property="og:description" content="Create dynamic forms" />
+                <meta property="og:description" content="Create dynamic react forms" />
+                <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+                <meta name="keywords" content="react, forms, mui-forms, material-forms" />
+                <link rel="manifest" href="/favicon/manifest.json" />
             </>
         );
     }
