@@ -35,6 +35,15 @@ import schema from "../../components/fields/SelectField/schema.json";
 | valueKey | The object key of the response from which field value need to be mapped |
 | labelKey | The object key of the response from which field display name needs to be mapped|
 
+## Common Properties
+[Click here to go to common properties](/fields/common-properties)
+
+## Load a list of countries from a remote api
+
+import SelectWithCountries from "../../components/fields/SelectField/SelectWithCountries";
+
+<SelectWithCountries />
+
 
 ### An example config that fetches *state options* from a remote api depending on the country field value:
 
@@ -48,6 +57,3 @@ import schema from "../../components/fields/SelectField/schema.json";
     "labelKey": "state#name"
 }
 ```
-import CommonProperties from "./common-properties.mdx";
-
-<CommonProperties />

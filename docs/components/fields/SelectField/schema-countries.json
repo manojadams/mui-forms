@@ -1,0 +1,18 @@
+{
+    "fields": [
+        {
+            "name": "countries",
+            "meta": {
+                "config": {
+                    "type": "url_loader",
+                    "url": "/api/countries",
+                    "valueKey": "code",
+                    "labelKey": "name"
+                },
+                "displayName": "Select Country",
+                "displayType": "select",
+                "options": []
+            }
+        }
+    ]
+}
