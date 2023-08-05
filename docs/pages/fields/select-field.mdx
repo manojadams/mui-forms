@@ -26,34 +26,27 @@ import schema from "../../components/fields/SelectField/schema.json";
 | isReadonly  | Marks the field as readonly                |
 
 ## Config 
+The configuration defines how to load dropdown options for the `select` field. Use this to load options from remote api and configure its behaviour.
 | Name        | Description                                |
 | ----------- | ------------------------------------------ |
-| type | The displayType for this field (`select`)  |
-| url | The base api endpoint url |
-| pathParams | The path parameters |
-| queryParams | List of query parameters|
-| valueKey | The object key of the response from which field value need to be mapped |
-| labelKey | The object key of the response from which field display name needs to be mapped|
+| url | The api endpoint to load dropdown options |
+| pathParams | The path parameters of the url. Use this for dynamic path parameters |
+| queryParams | List of query parameters. Use this for dynamic query parameters |
+| valueKey | The key from the response for value of the field |
+| labelKey | The key from the response for display name of the field |
+| responseKey | The key from response which contains the results |
+| lazy | Load options lazily. For example: load the options on opening dropdown |
 
 ## Common Properties
 [Click here to go to common properties](/fields/common-properties)
 
-## Load a list of countries from a remote api
+## How to load options from remote api
 
 import SelectWithCountries from "../../components/fields/SelectField/SelectWithCountries";
+import schemaCountries from "../../components/fields/SelectField/schema-countries.json";
 
 <SelectWithCountries />
 
+## Schema
 
-### An example config that fetches *state options* from a remote api depending on the country field value:
-
-```json
-"config": {
-    "type": "url_loader",
-    "url": "/country/",
-    "pathParams": [["state"]],
-    "queryParams": [["country", {"type": "fieldValue", "ref": "country"}]],
-    "valueKey": "state#id",
-    "labelKey": "state#name"
-}
-```
+<SchemaViewer value={schemaCountries} />

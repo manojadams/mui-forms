@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-const fdTest = (req: NextApiRequest, res: NextApiResponse) => {
+const getCountries = (req: NextApiRequest, res: NextApiResponse) => {
     return res.json(countries);
 };
 
@@ -250,4 +250,4 @@ const countries = [
     { name: "Zimbabwe", code: "ZW" }
 ];
 
-export default fdTest;
+export default getCountries;
