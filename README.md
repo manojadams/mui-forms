@@ -10,7 +10,7 @@
 - Mui Components
 - Built-in layouting
 - Supports custom components
-- Easily define field relationships
+- Easily define field relationships and build advanced forms.
 
 ## Install
 
