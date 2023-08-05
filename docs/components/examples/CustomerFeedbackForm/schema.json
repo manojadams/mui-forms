@@ -62,6 +62,27 @@
         }
       },
       {
+        "name": "country",
+        "meta": {
+          "config": {
+            "url": "/api/countries",
+            "valueKey": "code",
+            "labelKey": "name"
+          },
+          "displayName": "Country",
+          "displayType": "select",
+          "displayProps": {
+            "md": 6,
+            "sm": 6,
+            "xs": 6
+          },
+          "validation": {
+            "max": 30,
+            "required": true
+          }
+        }
+      },
+      {
         "name": "state",
         "meta": {
           "displayName": "State",
@@ -110,22 +131,6 @@
             "md": 6,
             "sm": 6,
             "xs": 6
-          }
-        }
-      },
-      {
-        "name": "country",
-        "meta": {
-          "displayName": "Country",
-          "displayType": "text_field",
-          "displayProps": {
-            "md": 6,
-            "sm": 6,
-            "xs": 6
-          },
-          "validation": {
-            "max": 30,
-            "required": true
           }
         }
       },
