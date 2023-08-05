@@ -33,10 +33,47 @@
         }
       },
       {
+        "name": "provide_address",
+        "meta": {
+          "displayName": "",
+          "displayType": "checkbox",
+          "options": [{
+            "label": "Provide address",
+            "value": true
+          }]
+        }
+      },
+      {
         "name": "header",
         "meta": {
           "displayType": "header",
-          "displayName": "Address"
+          "displayName": "Address",
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            }
+          }
+        }
+      },
+      {
+        "name": "prefill_address",
+        "meta": {
+          "displayName": "",
+          "displayType": "checkbox",
+          "options": [{
+            "label": "Prefill",
+            "value": true
+          }],
+          "displayProps": {
+            "md": 6
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            }
+          }
         }
       },
       {
@@ -47,6 +84,20 @@
           "validation": {
             "max": 30,
             "required": true
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "random street",
+                  "": ""
+              }
+            }
           }
         }
       },
@@ -58,6 +109,20 @@
           "validation": {
             "max": 30,
             "required": true
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "random landmark",
+                  "": ""
+              }
+            }
           }
         }
       },
@@ -79,6 +144,20 @@
           "validation": {
             "max": 30,
             "required": true
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "EC",
+                  "": ""
+              }
+            }
           }
         }
       },
@@ -95,6 +174,20 @@
             "md": 6,
             "sm": 6,
             "xs": 6
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "My State",
+                  "": ""
+              }
+            }
           }
         }
       },
@@ -111,6 +204,20 @@
             "md": 6,
             "sm": 6,
             "xs": 6
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "My City",
+                  "": ""
+              }
+            }
           }
         }
       },
@@ -122,8 +229,9 @@
           "validation": {
             "max": 30,
             "required": true,
-            "pattern": "^[1-9][0-9]{5}$",
+            "pattern": "^[1-9][0-9]{0,5}$",
             "patternDetail": {
+              "allowValidOnly": true,
               "errorMsg": "Invalid pincode"
             }
           },
@@ -131,6 +239,20 @@
             "md": 6,
             "sm": 6,
             "xs": 6
+          },
+          "dependencies": {
+            "exists": {
+              "ref": "provide_address",
+              "value": true
+            },
+            "prop_update": {
+              "ref": "prefill_address",
+              "propName": "value",
+              "valueMap": {
+                  "true": "561011",
+                  "": ""
+              }
+            }
           }
         }
       },
