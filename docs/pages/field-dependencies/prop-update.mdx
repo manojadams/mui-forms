@@ -1,0 +1,29 @@
+# Prop-update dependency
+
+It is generally used to update any property of the field through given criteria.
+
+## Properties for prop-update dependency
+
+| Name         | Description                                        |
+| ------------ | -------------------------------------------------- |
+| ref          | It is the reference name of the  dependent field |
+| propName     | Name of the property which needs to have a depdendency on other field|
+| value        | It is the value of the reference field | 
+| valueMap     | It is a (key, value) map which is used to determine the value of current field property.|
+
+**Note**: The `value` property takes prcedence over `valueMap` propery.
+
+
+### The property `value`
+
+- It can either be a single value or an array of values. 
+- The current field will be displayed only if the reference field has the same value as the value specified here. 
+- In case `value` is array, it will try to check if it contains any value matching the reference field value.
+
+### The property `valueMap`
+- The keys in this config object are searched to match value from `ref` field.
+- If there is a match, the mapped value is used as the value for the property of the field.
+
+## Prop update dependency example
+
+[Please refer here](/examples/customer-feedback-form)
