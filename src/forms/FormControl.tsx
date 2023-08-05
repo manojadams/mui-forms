@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
-import { Button, FilledInputProps, FormHelperText, InputProps, OutlinedInputProps, TextFieldProps } from "@mui/material";
+import { Button, FormHelperText, TextFieldProps } from "@mui/material";
 import MuiSearch from "./Search";
 import { TVariant } from "./ constants";
 
@@ -23,8 +23,7 @@ export default class FormControl extends BaseFormControl {
     size: any;
     constructor(props: IRenderField) {
         super(props);
-        this.variant = "filled";
-        this.validate = this.validate.bind(this);
+        this.variant = "outlined";
         this.showValidation = this.showValidation.bind(this);
     }
 

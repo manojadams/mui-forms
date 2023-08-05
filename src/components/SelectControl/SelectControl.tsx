@@ -30,6 +30,13 @@ function SelectControl(props: IProps) {
                 onOpen={() => {
                     if (props.form.events?.open) {
                         props.handleOpen();
+                    } else {
+                        // check config
+                        if (props.form.config && props.form.config.type === "url") {
+                            if (props.form?.config?.lazy) {
+                                props.handleOpen();
+                            }
+                        }
                     }
                 }}
                 onChange={(e) => {
