@@ -3,13 +3,21 @@
             "name": "first_name",
             "meta": {
                 "displayType": "text",
-                "displayName": "First Name"
+                "displayName": "First Name",
+                "displayProps": {
+                    "md": 6,
+                    "sm": 6
+                }
             }
         }, {
             "name": "last_name",
             "meta": {
                 "displayType": "text",
-                "displayName": "Last Name"
+                "displayName": "Last Name",
+                "displayProps": {
+                    "md": 6,
+                    "sm": 6
+                }
             }
         }, {
             "name": "email",
