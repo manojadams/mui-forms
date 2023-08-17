@@ -1,12 +1,13 @@
 import React, { ChangeEvent } from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, CircularProgress, FormControl, InputLabel, LinearProgress, MenuItem, Select } from "@mui/material";
 import { TVariant } from "../../forms/ constants";
 
 interface IProps extends IFieldProps {
     handleOpen: () => void;
     showValidation: (info?: string) => JSX.Element;
+    loading: boolean;
 }
 
 function SelectControl(props: IProps) {
@@ -45,7 +46,17 @@ function SelectControl(props: IProps) {
                     props.handleChange(e as ChangeEvent, undefined, ref);
                 }}
                 onBlur={props.handleValidation}
+                renderSuffix={() => {
+                    if (props.loading) {
+                        return <span>Loading...</span>
+                    }
+                    return "";
+                }}
             >
+                {
+                    props.loading &&
+                        <CircularProgress />
+                }
                 {options &&
                     options.map((option: { label: string; value: string }) => {
                         const datatype = typeof option.value;
@@ -56,6 +67,11 @@ function SelectControl(props: IProps) {
                         );
                     })}
             </Select>
+            {props.loading &&
+                <Box sx={{ width: '100%' }}>
+                    <LinearProgress />
+                </Box>
+            }
             {props.showValidation(infoText)}
         </FormControl>
     );
