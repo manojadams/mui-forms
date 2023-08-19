@@ -46,17 +46,7 @@ function SelectControl(props: IProps) {
                     props.handleChange(e as ChangeEvent, undefined, ref);
                 }}
                 onBlur={props.handleValidation}
-                renderSuffix={() => {
-                    if (props.loading) {
-                        return <span>Loading...</span>
-                    }
-                    return "";
-                }}
             >
-                {
-                    props.loading &&
-                        <CircularProgress />
-                }
                 {options &&
                     options.map((option: { label: string; value: string }) => {
                         const datatype = typeof option.value;
