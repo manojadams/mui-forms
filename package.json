@@ -1,11 +1,11 @@
 {
   "name": "mui-forms",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Material UI forms with json based schema",
   "author": "manojadams",
   "license": "MIT",
   "repository": "manojadams/mui-forms",
-  "homepage": "https://mui-metaform-docs.vercel.app",
+  "homepage": "https://mui-forms.vercel.app",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.ts",
