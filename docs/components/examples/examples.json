@@ -5,6 +5,11 @@
         "href": "/examples/customer-feedback-form"
     },
     {
+        "title": "Custom Score chart",
+        "img": "/images/score-chart.png",
+        "href": "/examples/score-chart"
+    },
+    {
         "title": "Payment Form",
         "img": "/images/payment-form.png",
         "href": "/examples/payment-form"

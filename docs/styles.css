@@ -68,3 +68,11 @@ input:focus-visible {
         background-position: 0% 0%;
     }
 }
+
+/**
+ * Custom styles  
+ */
+ .pie-container {
+    max-width: 35%;
+    margin: auto;
+ }

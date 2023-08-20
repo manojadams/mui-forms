@@ -22,12 +22,14 @@
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
     "@textea/json-viewer": "^3.0.0",
+    "chart.js": "^4.3.3",
     "framer-motion": "^10.13.1",
     "mui-forms": "^1.0.11",
     "next": "^13.4.6",
     "nextra": "^2.10.0",
     "nextra-theme-docs": "^2.10.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

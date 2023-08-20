@@ -14,6 +14,7 @@
     "simple-forms": "Simple Forms",
     "grouped-forms": "Grouped Forms",
     "fields": "Fields",
+    "custom-fields": "Custom Fields",
     "field-dependencies": "Field relationships",
     "field-events": "Field events",
     "meta-api": "Meta APIs",
