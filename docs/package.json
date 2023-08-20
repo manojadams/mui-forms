@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
-    "@manojadams/metaforms-core": "^3.0.13",
+    "@manojadams/metaforms-core": "^3.0.14",
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
     "@textea/json-viewer": "^3.0.0",

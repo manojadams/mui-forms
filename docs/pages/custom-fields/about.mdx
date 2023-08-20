@@ -1,0 +1,40 @@
+## Custom fields
+
+There are two ways to add custom components:
+- controls
+- components
+
+### Controls
+Controls are custom components whose input properties are customizable.
+
+```typescript
+    import Pie from "<location>";
+    <MuiForms
+        ...
+        controls={{
+            "piechart": <Pie {...props} />
+        }}
+        ... 
+    />
+```
+
+### Components
+Components are also custom components that have fixed input properties.
+
+```typescript
+    import Pie from "<location>";
+    <MuiForms
+        ...
+        components={{
+            "piechart": Pie
+        }}
+        ... 
+    />
+```
+
+#### Properties
+
+| Property | Description |
+|----------|-------------|
+| form     | A map of all form fields and their values | 
+| field    | Properties of the current field |

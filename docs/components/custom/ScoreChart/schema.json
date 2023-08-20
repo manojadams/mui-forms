@@ -26,7 +26,7 @@
             "displayName": "Power",
             "displayType": "number",
             "value": 19,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },
@@ -40,7 +40,7 @@
             "displayName": "Trainings",
             "displayType": "number",
             "value": 1000,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },
@@ -60,7 +60,7 @@
             "displayName": "Power",
             "displayType": "number",
             "value": 12,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },
@@ -74,7 +74,7 @@
             "displayName": "Trainings",
             "displayType": "number",
             "value": 750,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },

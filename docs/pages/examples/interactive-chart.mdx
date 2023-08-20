@@ -1,0 +1,30 @@
+import InteractiveScoreChart from "../../components/custom/InteractiveScoreChart";
+
+## An interactive custom score chart form
+
+<InteractiveScoreChart />
+
+## Schema
+
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/custom/InteractiveScoreChart/schema.json";
+
+<SchemaViewer value={schema} />
+
+## Usage
+```tsx copy
+import MuiForms from "mui-forms";
+import schema from "<schema_location.json>";
+import Bar from "<my_bar_chart_location>";
+
+<MuiForms
+    name="myForm"
+    components={{
+        "piechartbarchart": Bar
+    }}
+    schema={schema}
+    onSubmit={(formData) => {
+        // handle form submission
+    }}
+/>;
+```

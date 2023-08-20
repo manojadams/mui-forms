@@ -8,7 +8,10 @@
     }, {
         "name": "compare_chart",
         "meta": {
-            "displayType": "piechart",
+            "config": {
+                "template": "barchart"
+            },
+            "displayType": "template",
             "className": "pie-container",
             "displayProps": {
                 "md": 12
@@ -26,7 +29,6 @@
             "displayName": "Power",
             "displayType": "number",
             "value": 19,
-            "isReadonly": true,
             "validation": {
                 "required": true
             },
@@ -40,7 +42,7 @@
             "displayName": "Trainings",
             "displayType": "number",
             "value": 1000,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },
@@ -60,7 +62,6 @@
             "displayName": "Power",
             "displayType": "number",
             "value": 12,
-            "isReadonly": true,
             "validation": {
                 "required": true
             },
@@ -74,7 +75,7 @@
             "displayName": "Trainings",
             "displayType": "number",
             "value": 750,
-            "isReadonly": true,
+            "isDisabled": true,
             "validation": {
                 "required": true
             },
