@@ -9,8 +9,8 @@ dependencies:
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
   '@manojadams/metaforms-core':
-    specifier: ^3.0.14
-    version: 3.0.14(react@18.2.0)
+    specifier: ^3.0.16
+    version: 3.0.16(react@18.2.0)
   '@mui/icons-material':
     specifier: ^5.13.7
     version: 5.13.7(@mui/material@5.13.7)(react@18.2.0)
@@ -550,8 +550,8 @@ packages:
     resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
     dev: false
 
-  /@manojadams/metaforms-core@3.0.14(react@18.2.0):
-    resolution: {integrity: sha512-08h2jTfcs3LkGQyAC65ULObaXNKHYJ5Pn7CITDMmU6khbUMhvZ2xY47X7BzLXA6aT4lVdXChtoS/bN5Fcu4lCA==}
+  /@manojadams/metaforms-core@3.0.16(react@18.2.0):
+    resolution: {integrity: sha512-40MPqaeig9iU2AT/MChFQhwvA2xr5/hITALK182ST4kVXB/hJYesScMFC1fxiH0++a3ghdjG0JNZ5i4vNG6dWQ==}
     engines: {node: '>=12'}
     peerDependencies:
       react: ^18.0.0
@@ -2940,7 +2940,7 @@ packages:
       '@emotion/babel-preset-css-prop': 11.11.0(@babel/core@7.22.10)
       '@emotion/react': 11.11.1(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(react@18.2.0)
-      '@manojadams/metaforms-core': 3.0.14(react@18.2.0)
+      '@manojadams/metaforms-core': 3.0.16(react@18.2.0)
       '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react-dom@18.2.0)(react@18.2.0)
       '@mui/x-date-pickers': 5.0.20(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@mui/system@5.14.5)(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
