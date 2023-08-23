@@ -6,14 +6,9 @@ function Heading() {
         <HeadingStyled>
             Make dynamic forms quickly <br />
             using{" "}
-            <a className="underline blue" href="https://mui.com" target="_blank" rel="noreferrer">
-                Material UI
-            </a>{" "}
-            and{" "}
             <a className="underline black" href="https://json-schema.org/" target="_blank" rel="noreferrer">
-                json schema
+                json
             </a>
-            .
         </HeadingStyled>
     );
 }
