@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [added loader for select control](https://github.com/manojadams/mui-forms/issues/2)
+- [added multiple values to be selected for checkbox](https://github.com/manojadams/mui-forms/issues/3)
   
 ## Advantages and features
 - Mui Components
