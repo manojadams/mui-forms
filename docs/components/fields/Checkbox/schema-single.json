@@ -1,0 +1,28 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "meta": {
+                "config": {
+                    "multiple": false
+                },
+                "displayName": "Fruits",
+                "displayType": "checkbox",
+                "options": [
+                    {
+                        "label": "Apple",
+                        "value": "apple"
+                    },
+                    {
+                        "label": "Banana",
+                        "value": "banana"
+                    },
+                    {
+                        "label": "Mango",
+                        "value": "mango"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 function Heading() {
     return (
         <HeadingStyled>
-            Make dynamic forms quickly <br />
+            Material forms 
             using{" "}
             <a className="underline black" href="https://json-schema.org/" target="_blank" rel="noreferrer">
                 json
