@@ -1,0 +1,22 @@
+{
+    "fields": [{
+        "name": "first_name",
+        "meta": {
+            "displayType": "text",
+            "displayName": "First Name"
+        }
+    }, {
+        "name": "dob",
+        "meta": {
+            "displayType": "date",
+            "displayName": "Date of Birth",
+            "value": "2020-11-21",
+            "validation": {
+                "min": "2020-12-21",
+                "min_detail": {
+                    "errorMsg": "Value needs to be greater than min. value"
+                }
+            }
+        }
+    }]
+}
