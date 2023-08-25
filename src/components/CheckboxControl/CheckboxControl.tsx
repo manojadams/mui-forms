@@ -8,16 +8,21 @@ interface IProps extends IFieldProps {
 
 function CheckboxControl(props: IProps) {
     const [values, setValues] = useState<string[]>([]);
-    const isNotMultple = props.form.config?.multiple === false;
+    // by default, multiple config is true (checkbox allows multiple values to be selected)
+    const isMultiple = props.form.config?.multiple ?? true;
     useEffect(() => {
         const value = props.form.value as string ?? "";
-        const values = value.split(",");
-        // if multiple config not defined, then using multiple by default
-        if (isNotMultple && values.length > 1) {
-            // do not allow multiple values
-            setValues([values[0]]);
+        if (value) {
+            const values = value.split(",");
+            // if multiple config not defined, then using multiple by default
+            if (!isMultiple && values.length > 1) {
+                // do not allow multiple values
+                setValues([values[0]]);
+            } else {
+                setValues(values);
+            }
         } else {
-            setValues(values);
+            setValues([]);
         }
     }, [props]);
     return (
@@ -34,7 +39,7 @@ function CheckboxControl(props: IProps) {
                                     checked={values.indexOf(option.value) >= 0}
                                     onChange={(e) => {
                                         const checked = e.target.checked;
-                                        if (!isNotMultple && props.form?.options && props.form?.options.length > 0) {
+                                        if (isMultiple && props.form?.options && props.form?.options.length > 0) {
                                             const currentValue = option.value;
                                             let currentValues = [];
                                             if (checked) {
@@ -42,7 +47,7 @@ function CheckboxControl(props: IProps) {
                                             } else {
                                                 currentValues = values.filter(val => val !== option.value);
                                             }
-                                            props.handleChange(e, currentValues.join(","));
+                                            props.handleChange(e, currentValues.length > 0 ? currentValues.join(",") : "");
                                         } else {
                                             props.handleChange(e, checked ? option.value : "");
                                         }
