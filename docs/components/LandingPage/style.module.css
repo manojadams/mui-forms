@@ -109,3 +109,9 @@
         transform: translateX(1);
     }
 }
+
+@media (max-width: 400px) {
+    .wave {
+        height: 4rem;
+    }
+}

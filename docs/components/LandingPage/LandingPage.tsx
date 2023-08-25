@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Cards from "./Cards";
 import Head from "next/head";
+// import Cube from "../Cube";
 
 interface IProps {
     children: ReactNode;
@@ -42,6 +43,7 @@ function LandingPage(props: IProps) {
                     </div>
                     <div className={css.card_wrapper}>
                         <Cards />
+                        {/* <Cube /> */}
                     </div>
                 </div>
                 <div className={css.wave} />
