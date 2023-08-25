@@ -25,7 +25,7 @@
     "@vercel/analytics": "^1.0.2",
     "chart.js": "^4.3.3",
     "framer-motion": "^10.13.1",
-    "mui-forms": "^1.0.12",
+    "mui-forms": "^1.0.13",
     "next": "^13.4.6",
     "nextra": "^2.10.0",
     "nextra-theme-docs": "^2.10.0",

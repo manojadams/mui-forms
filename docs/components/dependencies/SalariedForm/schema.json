@@ -6,7 +6,7 @@
             "displayType": "checkbox",
             "options": [{
                 "label": "Are you salaried?",
-                "value": true
+                "value": "true"
             }]
         }
     }, {
@@ -17,7 +17,7 @@
             "dependencies": {
                 "exists": {
                     "ref": "salaried",
-                    "value": true
+                    "value": "true"
                 }
             }
         }
@@ -39,7 +39,7 @@
             "dependencies": {
                 "exists": {
                     "ref": "salaried",
-                    "value": true
+                    "value": "true"
                 }
             }
         }

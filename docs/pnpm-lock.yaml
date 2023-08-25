@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.13.1
     version: 10.13.1(react-dom@18.2.0)(react@18.2.0)
   mui-forms:
-    specifier: ^1.0.12
-    version: 1.0.12(@babel/core@7.22.10)(@mui/system@5.14.5)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.0.13
+    version: 1.0.13(@babel/core@7.22.10)(@mui/system@5.14.5)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: ^13.4.6
     version: 13.4.6(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
@@ -2931,8 +2931,8 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: false
 
-  /mui-forms@1.0.12(@babel/core@7.22.10)(@mui/system@5.14.5)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-SQTvpjkUpX5dORc4pr7EU02p5UgJ+GF0TD/V4X5ZuX0mw4kbsd0E23xkIXZXSrnONSoi6OjkXo2WTzu8GT7EcA==}
+  /mui-forms@1.0.13(@babel/core@7.22.10)(@mui/system@5.14.5)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TudVi0r/sfmMu4kU1bAGiw0vbpp7Tty+WONDW57CKN8oUZ7Ydb3d1j0+LQKt2ZS6/WypqqVSU2k52djDIZ/KSA==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18.0.0
