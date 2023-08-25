@@ -1,5 +1,6 @@
 {
     "fields": "About",
+    "general-properties": "General Properties",
     "common-properties": "Common properties",
     "displayType-properties": "DisplayType properties",
     "text-field": "Text Field",

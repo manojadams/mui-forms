@@ -2,7 +2,7 @@
 
 ## Form fields
 
-Following fields are generally associated with forms and contains a value generally
+The following fields are typically associated with forms and typically contain a value:
 
 -   Text field
 -   Number field
@@ -22,7 +22,7 @@ Following fields are generally associated with forms and contains a value genera
 
 ## Display fields
 
-    These following two fields are used for display only and does not contain any value:
+    The following two fields are used for display purposes only and do not contain any value:
 
 -   Header
 -   Label
@@ -33,7 +33,7 @@ Following fields are generally associated with forms and contains a value genera
 
 ## Field Properties
 
-Each field can contain the following properties:
+    Each field can have the following properties or attributes associated with it:
 
 -   name
 -   prop
@@ -53,7 +53,9 @@ Each field can contain the following properties:
 
 | Field  | Type      | Data type                 | Default Value | Description                                                              |
 | ------ | --------- | ------------------------- | ------------- | ------------------------------------------------------------------------ |
-| name   | Mandatory | String                    | N/A           | The name of the field. Should ideally contain letters and underscore     |
-| prop   | Optional  | String or null            | null          | The parent property key it be must be part while submitting form         |
+| name   | Mandatory | String                    | N/A           | This is the name of the field. It should ideally contain letters and underscore(_) and no whitespace     |
+| prop   | Optional  | String or null            | null          | This is the parent property key which is used to group the field while submitting the form       |
 | meta   | Mandatory | Object                    | N/A           | It contain details about the field                                       |
-| fields | Optional  | Array of field properties | None          | It is used in grouped fields to contain the data belonging to each group |
+| fields | Optional  | Array of fields           | None          | It is used in grouped fields to contain the data belonging to each group |
+
+

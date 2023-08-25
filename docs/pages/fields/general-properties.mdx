@@ -1,0 +1,73 @@
+### General property: _prop_
+
+During form submission, all for form fields are grouped together inside a single object (in form of key value pairs with field name and value) and passed to the onSubmit callback function.
+
+#### 1. For example: Consider the following field
+```json
+{
+    "name": "first_name",
+    "meta": {
+        "displayName": "First name",
+        "displayType": "text_field",
+        "value": "Goku"
+    }
+}
+```
+Output of the following field during form submission:
+```
+{
+    "first_name": "Goku"
+}
+```
+
+Now, use the _prop_ field property if the field needs to be grouped in a different field name.
+
+#### 2. For example with _prop_
+
+```json
+{
+    "name": "first_name",
+    "prop": "basic_details",
+    "meta": {
+        "displayName": "First name",
+        "displayType": "text_field",
+        "value": "Goku"
+    }
+}
+```
+
+Output would be:
+```
+{
+    "basic_details": {
+        "first_name": "Goku"
+    }
+}
+```
+
+If a field is required to be grouped in a nested group, then use **#** as a seperator
+
+#### 3. Example with nested _prop_
+
+```json
+{
+    "name": "first_name",
+    "prop": "basic_details#personal_details",
+    "meta": {
+        "displayName": "First name",
+        "displayType": "text_field",
+        "value": "Goku"
+    }
+}
+```
+
+Output 
+```
+{
+    "basic_details": {
+        "personal_details: {
+            "first_name": "Goku"
+        }
+    }
+}
+```
