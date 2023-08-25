@@ -39,7 +39,7 @@
           "displayType": "checkbox",
           "options": [{
             "label": "Provide address",
-            "value": true
+            "value": "true"
           }]
         }
       },
@@ -51,7 +51,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             }
           }
         }
@@ -71,7 +71,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             }
           }
         }
@@ -88,7 +88,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
@@ -113,7 +113,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
@@ -148,7 +148,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
@@ -178,7 +178,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
@@ -208,7 +208,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
@@ -243,7 +243,7 @@
           "dependencies": {
             "exists": {
               "ref": "provide_address",
-              "value": true
+              "value": "true"
             },
             "prop_update": {
               "ref": "prefill_address",
