@@ -63,7 +63,7 @@
           "displayType": "checkbox",
           "options": [{
             "label": "Prefill",
-            "value": true
+            "value": "true"
           }],
           "displayProps": {
             "md": 6
