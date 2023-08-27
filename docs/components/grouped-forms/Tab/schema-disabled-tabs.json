@@ -1,0 +1,51 @@
+{
+    "fields": [
+        {
+            "name": "basic_details",
+            "meta": {
+                "type": "section",
+                "displayName": "Basic Details"
+            },
+            "fields": [
+                {
+                    "name": "first_name",
+                    "meta": {
+                        "displayType": "text_field",
+                        "displayName": "First Name"
+                    }
+                },
+                {
+                    "name": "last_name",
+                    "meta": {
+                        "displayType": "text_field",
+                        "displayName": "Last Name"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "other_details",
+            "meta": {
+                "type": "section",
+                "displayName": "Other Details",
+                "isDisabled": true
+            },
+            "fields": [
+                {
+                    "name": "age",
+                    "meta": {
+                        "displayName": "Age",
+                        "displayType": "number"
+                    }
+                },
+                {
+                    "name": "email",
+                    "meta": {
+                        "displayName": "Email",
+                        "displayType": "email"
+                    }
+                }
+            ]
+        }
+    ]
+}

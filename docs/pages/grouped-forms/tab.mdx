@@ -1,8 +1,8 @@
 # Tabbed forms
 
+import schema from "../../components/grouped-forms/Tab/schema.json";
 import Tab from "../../components/grouped-forms/Tab";
 import { JsonViewer } from "@textea/json-viewer";
-import schema from "../../components/grouped-forms/Tab/schema.json";
 
 <Tab />
 
@@ -28,3 +28,14 @@ function MyTab() {
     );
 }
 ```
+
+## Disable tab navigation
+
+import schemaDisabledTabs from "../../components/grouped-forms/Tab/schema-disabled-tabs.json";
+import DisabledTab from "../../components/grouped-forms/Tab/DisabledTab";
+
+<DisabledTab />
+
+## Schema:
+
+<JsonViewer value={schemaDisabledTabs} />
