@@ -1,49 +1,55 @@
 {
-    "fields": [{
-        "name": "firstName",
-        "meta": {
-            "displayName": "First Name",
-            "displayType": "text_field",
-            "displayProps": {
-                "md": 6
+    "fields": [
+        {
+            "name": "firstName",
+            "meta": {
+                "displayName": "First Name",
+                "displayType": "text_field",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "lastName",
+            "meta": {
+                "displayName": "Last Name",
+                "displayType": "text_field",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "dob",
+            "meta": {
+                "displayName": "Date of Birth",
+                "displayType": "date",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "phone",
+            "meta": {
+                "displayName": "Phone Number",
+                "displayType": "phone",
+                "placeholder": "Phone Number",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "email",
+            "meta": {
+                "displayName": "Email",
+                "displayType": "email",
+                "displayProps": {
+                    "md": 6
+                }
             }
         }
-    }, {
-        "name": "lastName",
-        "meta": {
-            "displayName": "Last Name",
-            "displayType": "text_field",
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "dob",
-        "meta": {
-            "displayName": "Date of Birth",
-            "displayType": "date",
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "phone",
-        "meta": {
-            "displayName": "Phone Number",
-            "displayType": "phone",
-            "placeholder": "Phone Number",
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "email",
-        "meta": {
-            "displayName": "Email",
-            "displayType": "email",
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }]
+    ]
 }

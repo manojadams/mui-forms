@@ -1,44 +1,49 @@
 {
-    "fields": [{
-        "name": "card_number",
-        "meta": {
-            "displayName": "Card Number",
-            "displayType": "number",
-            "placeholder": "Enter Your Card Number Here",
-            "validation": {
-                "max": 3
+    "fields": [
+        {
+            "name": "card_number",
+            "meta": {
+                "displayName": "Card Number",
+                "displayType": "number",
+                "placeholder": "Enter Your Card Number Here",
+                "validation": {
+                    "max": 3
+                }
+            }
+        },
+        {
+            "name": "name_card",
+            "meta": {
+                "displayName": "Enter Your Name On Card",
+                "displayType": "text_field",
+                "placeholder": "Enter Your Name On Card",
+                "validation": {
+                    "max": 30
+                }
+            }
+        },
+        {
+            "name": "expiry_month_year",
+            "meta": {
+                "displayName": "Expriry Month & Year",
+                "displayType": "date",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "card_cvv",
+            "meta": {
+                "displayName": "Card CVV",
+                "displayType": "number",
+                "displayProps": {
+                    "md": 6
+                },
+                "validation": {
+                    "max": 3
+                }
             }
         }
-    }, {
-        "name": "name_card",
-        "meta": {
-            "displayName": "Enter Your Name On Card",
-            "displayType": "text_field",
-            "placeholder": "Enter Your Name On Card",
-            "validation": {
-                "max": 30
-            }
-        }
-    }, {
-        "name": "expiry_month_year",
-        "meta": {
-            "displayName": "Expriry Month & Year",
-            "displayType": "date",
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "card_cvv",
-        "meta": {
-            "displayName": "Card CVV",
-            "displayType": "number",
-            "displayProps": {
-                "md": 6
-            },
-            "validation": {
-                "max": 3
-            }
-        }
-    }]
+    ]
 }

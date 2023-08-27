@@ -5,24 +5,28 @@ import ScoreChart from "../../components/custom/ScoreChart";
 <ScoreChart />
 
 ## Steps
-- Create a custom react component. For example: `<Pie />`
-- Add a name of the component as `displayType` inside schema.json. For example: `piechart`
+
+-   Create a custom react component. For example: `<Pie />`
+-   Add a name of the component as `displayType` inside schema.json. For example: `piechart`
+
 ```json
-    {
-        "name": "custom_field",
-        "meta": {
-            "displayType": "piechart"
-        }
+{
+    "name": "custom_field",
+    "meta": {
+        "displayType": "piechart"
     }
+}
 ```
-- Add your custom component as `controls` inside MuiForms
+
+-   Add your custom component as `controls` inside MuiForms
+
 ```typescript
     <MuiForms
         ...
         controls={{
             "piechart": <Pie />
         }}
-        ... 
+        ...
     />
 ```
 
@@ -34,6 +38,7 @@ import schema from "../../components/custom/ScoreChart/schema.json";
 <SchemaViewer value={schema} />
 
 ## Usage
+
 ```tsx copy
 import MuiForms from "mui-forms";
 import schema from "<schema_location.json>";
@@ -43,7 +48,7 @@ import Bar from "<my_bar_chart_location>";
 <MuiForms
     name="myForm"
     controls={{
-        "piechart": <Pie />
+        piechart: <Pie />
     }}
     schema={schema}
     onSubmit={(formData) => {
@@ -53,5 +58,6 @@ import Bar from "<my_bar_chart_location>";
 ```
 
 ### Note:
-- Following charting library is used here:
-https://react-chartjs-2.js.org/examples/pie-chart
+
+-   Following charting library is used here:
+    https://react-chartjs-2.js.org/examples/pie-chart

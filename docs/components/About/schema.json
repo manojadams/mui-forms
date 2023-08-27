@@ -4,139 +4,130 @@
     "title": "MuiForm Schema",
     "description": "JSON schema definition used in MuiForm",
     "properties": {
-      "fields": {
-        "type": "array",
-        "items": [
-          {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "This is the field name used internally while submitting the form. It should not contain spaces or special characters."
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "Used for defining grouped fields (i.e section) and also used to mark hidden fields"
-                  },
-                  "displayName": {
-                    "type": "string",
-                    "description": "The display name of the field"
-                  },
-                  "displayType": {
-                    "type": "string",
-                    "description": "The form control field to be used. e.g-> text, email, phone, select, radio etc."
-                  },
-                  "options": {
-                    "type": "array",
-                    "description": "Available choices for the given field",
-                    "items": {
-                      "label": {
-                        "type": "string",
-                        "description": "Display name of the choice"
-                      },
-                      "value": {
-                        "type": "string or boolean or number",
-                        "description": "Actual form value of the choice"
-                      }
-                    }
-                  },
-                  "validation": {
+        "fields": {
+            "type": "array",
+            "items": [
+                {
                     "type": "object",
-                    "description": "Contains field validation parameters",
                     "properties": {
-                      "required": {
-                        "type": "boolean",
-                        "description": "Makes the field mandatory to be filled"
-                      },
-                      "pattern": {
-                        "type": "string",
-                        "description": "Add patterns (regular expression) accepted in the field"
-                      },
-                      "min": {
-                        "type": "string",
-                        "description": "A minimum value acceptable by the field"
-                      },
-                      "max": {
-                        "type": "string",
-                        "description": "A maximum value acceptable by the field"
-                      }
-                    }
-                  },
-                  "dependencies": {
-                    "type": "object",
-                    "description": "Used to define field dependencies",
-                    "properties": {
-                      "exists": {
-                        "type": "object",
-                        "description": "Field exists when conditions are met"
-                      }
-                    }
-                  },
-                  "displayProps": {
-                    "type": "object",
-                    "description": "Used for layouting fields. Uses standard breakpoints similar to bootstrap",
-                    "properties": {
-                      "xxl": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in very very large devices. (Acceptable values range from 1 to 12)"
-                      },
-                      "xl": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in very large devices. (Acceptable values range from 1 to 12)"
-                      },
-                      "lg": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in large devices. (Acceptable values range from 1 to 12)"
-                      },
-                      "md": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in medium devices. (Acceptable values range from 1 to 12)"
-                      },
-                      "sm": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in small devices. (Acceptable values range from 1 to 12)"
-                      },
-                      "xs": {
-                        "type": "string",
-                        "description": "Use this field for field layouting in very small devices. (Acceptable values range from 1 to 12)"
-                      }
-                    }
-                  },
-                  "events": {
-                    "type": "object",
-                    "description": "Used to define field events"
-                  },
-                  "config": {
-                    "type": "object",
-                    "description": "Contains field specific definitions"
-                  }
-                },
-                "required": [
-                  "displayName",
-                  "displayType"
-                ]
-              },
-              "fields": {
-                "$ref": "#/properties/fields"
-              },
-              "prop": {
-                "type": "string",
-                "description": "Name of the field inside which current field should added as a property while submitting form"
-              }
-            },
-            "required": [
-              "name",
-              "meta",
-              "fields"
+                        "name": {
+                            "type": "string",
+                            "description": "This is the field name used internally while submitting the form. It should not contain spaces or special characters."
+                        },
+                        "meta": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "description": "Used for defining grouped fields (i.e section) and also used to mark hidden fields"
+                                },
+                                "displayName": {
+                                    "type": "string",
+                                    "description": "The display name of the field"
+                                },
+                                "displayType": {
+                                    "type": "string",
+                                    "description": "The form control field to be used. e.g-> text, email, phone, select, radio etc."
+                                },
+                                "options": {
+                                    "type": "array",
+                                    "description": "Available choices for the given field",
+                                    "items": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Display name of the choice"
+                                        },
+                                        "value": {
+                                            "type": "string or boolean or number",
+                                            "description": "Actual form value of the choice"
+                                        }
+                                    }
+                                },
+                                "validation": {
+                                    "type": "object",
+                                    "description": "Contains field validation parameters",
+                                    "properties": {
+                                        "required": {
+                                            "type": "boolean",
+                                            "description": "Makes the field mandatory to be filled"
+                                        },
+                                        "pattern": {
+                                            "type": "string",
+                                            "description": "Add patterns (regular expression) accepted in the field"
+                                        },
+                                        "min": {
+                                            "type": "string",
+                                            "description": "A minimum value acceptable by the field"
+                                        },
+                                        "max": {
+                                            "type": "string",
+                                            "description": "A maximum value acceptable by the field"
+                                        }
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "object",
+                                    "description": "Used to define field dependencies",
+                                    "properties": {
+                                        "exists": {
+                                            "type": "object",
+                                            "description": "Field exists when conditions are met"
+                                        }
+                                    }
+                                },
+                                "displayProps": {
+                                    "type": "object",
+                                    "description": "Used for layouting fields. Uses standard breakpoints similar to bootstrap",
+                                    "properties": {
+                                        "xxl": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in very very large devices. (Acceptable values range from 1 to 12)"
+                                        },
+                                        "xl": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in very large devices. (Acceptable values range from 1 to 12)"
+                                        },
+                                        "lg": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in large devices. (Acceptable values range from 1 to 12)"
+                                        },
+                                        "md": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in medium devices. (Acceptable values range from 1 to 12)"
+                                        },
+                                        "sm": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in small devices. (Acceptable values range from 1 to 12)"
+                                        },
+                                        "xs": {
+                                            "type": "string",
+                                            "description": "Use this field for field layouting in very small devices. (Acceptable values range from 1 to 12)"
+                                        }
+                                    }
+                                },
+                                "events": {
+                                    "type": "object",
+                                    "description": "Used to define field events"
+                                },
+                                "config": {
+                                    "type": "object",
+                                    "description": "Contains field specific definitions"
+                                }
+                            },
+                            "required": ["displayName", "displayType"]
+                        },
+                        "fields": {
+                            "$ref": "#/properties/fields"
+                        },
+                        "prop": {
+                            "type": "string",
+                            "description": "Name of the field inside which current field should added as a property while submitting form"
+                        }
+                    },
+                    "required": ["name", "meta", "fields"]
+                }
             ]
-          }
-        ]
-      }
+        }
     },
-    "required": [
-      "fields"
-    ]
-  }
+    "required": ["fields"]
+}

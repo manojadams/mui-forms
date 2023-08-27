@@ -1,5 +1,6 @@
 {
-    "fields": [{
+    "fields": [
+        {
             "name": "first_name",
             "meta": {
                 "displayType": "text",
@@ -9,7 +10,8 @@
                     "sm": 6
                 }
             }
-        }, {
+        },
+        {
             "name": "last_name",
             "meta": {
                 "displayType": "text",
@@ -19,17 +21,20 @@
                     "sm": 6
                 }
             }
-        }, {
+        },
+        {
             "name": "email",
             "meta": {
                 "displayType": "email",
                 "displayName": "Emal"
             }
-        }, {
+        },
+        {
             "name": "password",
             "meta": {
                 "displayType": "password",
                 "displayName": "Your password"
             }
-        }]
-    }
+        }
+    ]
+}

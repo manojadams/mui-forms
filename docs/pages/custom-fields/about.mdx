@@ -1,10 +1,12 @@
 ## Custom fields
 
 There are two ways to add custom components:
-- controls
-- components
+
+-   controls
+-   components
 
 ### Controls
+
 Controls are custom components whose input properties are customizable.
 
 ```typescript
@@ -14,11 +16,12 @@ Controls are custom components whose input properties are customizable.
         controls={{
             "piechart": <Pie {...props} />
         }}
-        ... 
+        ...
     />
 ```
 
 ### Components
+
 Components are also custom components that have fixed input properties.
 
 ```typescript
@@ -28,13 +31,13 @@ Components are also custom components that have fixed input properties.
         components={{
             "piechart": Pie
         }}
-        ... 
+        ...
     />
 ```
 
 #### Properties
 
-| Property | Description |
-|----------|-------------|
-| form     | A map of all form fields and their values | 
-| field    | Properties of the current field |
+| Property | Description                               |
+| -------- | ----------------------------------------- |
+| form     | A map of all form fields and their values |
+| field    | Properties of the current field           |

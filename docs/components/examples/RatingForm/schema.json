@@ -1,58 +1,68 @@
 {
-    "fields": [{
-        "name": "title",
-        "meta": {
-            "displayName": "Review TItle",
-            "displayType": "text_field"
-        }
-    }, {
-        "name": "recommend_to_friend",
-        "meta": {
-            "displayName": "Recommend to a friend",
-            "displayType": "radio",
-            "options": [{
-                "label": "Yes",
-                "value": true
-            }, {
-                "label": "No",
-                "value": false
-            }]
-        }
-    }, {
-        "name": "product_review",
-        "meta": {
-            "displayName": "Product Review",
-            "displayType": "multitext",
-            "placeholder": "Example: This is a product review where you should add your honest opnions about the product"
-        }
-    }, {
-        "name": "nickname",
-        "meta": {
-            "displayName": "Nickname",
-            "displayType": "text_field",
-            "displayProps": {
-                "md": 6
+    "fields": [
+        {
+            "name": "title",
+            "meta": {
+                "displayName": "Review TItle",
+                "displayType": "text_field"
             }
-        }
-    }, {
-        "name": "email",
-        "meta": {
-            "displayName": "Email Address",
-            "displayType": "email",
-            "displayProps": {
-                "md": 6
+        },
+        {
+            "name": "recommend_to_friend",
+            "meta": {
+                "displayName": "Recommend to a friend",
+                "displayType": "radio",
+                "options": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
             }
-        }
-    }, {
-        "name": "terms",
-        "meta": {
-            "displayType": "checkbox",
-            "options": [
-                {
-                    "label": "I Accept the terms and conditions",
-                    "value": true
+        },
+        {
+            "name": "product_review",
+            "meta": {
+                "displayName": "Product Review",
+                "displayType": "multitext",
+                "placeholder": "Example: This is a product review where you should add your honest opnions about the product"
+            }
+        },
+        {
+            "name": "nickname",
+            "meta": {
+                "displayName": "Nickname",
+                "displayType": "text_field",
+                "displayProps": {
+                    "md": 6
                 }
-            ]
+            }
+        },
+        {
+            "name": "email",
+            "meta": {
+                "displayName": "Email Address",
+                "displayType": "email",
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "terms",
+            "meta": {
+                "displayType": "checkbox",
+                "options": [
+                    {
+                        "label": "I Accept the terms and conditions",
+                        "value": true
+                    }
+                ]
+            }
         }
-    }]
+    ]
 }

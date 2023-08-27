@@ -1,86 +1,95 @@
 {
-    "fields": [{
-        "name": "chart_header",
-        "meta": {
-            "displayName": "Goku vs Vegeta",
-            "displayType": "header"
-        }
-    }, {
-        "name": "compare_chart",
-        "meta": {
-            "displayType": "piechart",
-            "className": "pie-container",
-            "displayProps": {
-                "md": 12
+    "fields": [
+        {
+            "name": "chart_header",
+            "meta": {
+                "displayName": "Goku vs Vegeta",
+                "displayType": "header"
+            }
+        },
+        {
+            "name": "compare_chart",
+            "meta": {
+                "displayType": "piechart",
+                "className": "pie-container",
+                "displayProps": {
+                    "md": 12
+                }
+            }
+        },
+        {
+            "name": "goku",
+            "meta": {
+                "displayType": "header",
+                "displayName": "Goku"
+            }
+        },
+        {
+            "name": "goku_power",
+            "meta": {
+                "displayName": "Power",
+                "displayType": "number",
+                "value": 19,
+                "isDisabled": true,
+                "validation": {
+                    "required": true
+                },
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "goku_trainings",
+            "meta": {
+                "displayName": "Trainings",
+                "displayType": "number",
+                "value": 1000,
+                "isDisabled": true,
+                "validation": {
+                    "required": true
+                },
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "vegeta",
+            "meta": {
+                "displayName": "Vegeta",
+                "displayType": "header"
+            }
+        },
+        {
+            "name": "vegeta_power",
+            "meta": {
+                "displayName": "Power",
+                "displayType": "number",
+                "value": 12,
+                "isDisabled": true,
+                "validation": {
+                    "required": true
+                },
+                "displayProps": {
+                    "md": 6
+                }
+            }
+        },
+        {
+            "name": "vegeta_trainings",
+            "meta": {
+                "displayName": "Trainings",
+                "displayType": "number",
+                "value": 750,
+                "isDisabled": true,
+                "validation": {
+                    "required": true
+                },
+                "displayProps": {
+                    "md": 6
+                }
             }
         }
-    }, {
-        "name": "goku",
-        "meta": {
-            "displayType": "header",
-            "displayName": "Goku"
-        }
-    }, {
-        "name": "goku_power",
-        "meta": {
-            "displayName": "Power",
-            "displayType": "number",
-            "value": 19,
-            "isDisabled": true,
-            "validation": {
-                "required": true
-            },
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "goku_trainings",
-        "meta": {
-            "displayName": "Trainings",
-            "displayType": "number",
-            "value": 1000,
-            "isDisabled": true,
-            "validation": {
-                "required": true
-            },
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "vegeta",
-        "meta": {
-            "displayName": "Vegeta",
-            "displayType": "header"
-        }
-    }, {
-        "name": "vegeta_power",
-        "meta": {
-            "displayName": "Power",
-            "displayType": "number",
-            "value": 12,
-            "isDisabled": true,
-            "validation": {
-                "required": true
-            },
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }, {
-        "name": "vegeta_trainings",
-        "meta": {
-            "displayName": "Trainings",
-            "displayType": "number",
-            "value": 750,
-            "isDisabled": true,
-            "validation": {
-                "required": true
-            },
-            "displayProps": {
-                "md": 6
-            }
-        }
-    }]
+    ]
 }

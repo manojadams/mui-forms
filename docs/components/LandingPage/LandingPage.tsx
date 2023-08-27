@@ -7,7 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Cards from "./Cards";
 import Head from "next/head";
 import { Row } from "layout-emotions";
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 // import Cube from "../Cube";
 
 interface IProps {
@@ -66,9 +66,7 @@ function LandingPage(props: IProps) {
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">
-                                        Easily define field relationships
-                                    </a>
+                                    <a href="">Easily define field relationships</a>
                                 </li>
                             </ul>
                         </div>

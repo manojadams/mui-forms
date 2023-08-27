@@ -1,125 +1,149 @@
 {
-    "fields": [{
-        "name": "salaried",
-        "meta": {
-            "displayName": "",
-            "displayType": "checkbox",
-            "options": [{
-                "label": "Are you salaried?",
-                "value": "true"
-            }]
-        }
-    }, {
-        "name": "salary",
-        "meta": {
-            "displayName": "Salary",
-            "displayType": "currency",
-            "dependencies": {
-                "exists": {
-                    "ref": "salaried",
-                    "value": "true"
+    "fields": [
+        {
+            "name": "salaried",
+            "meta": {
+                "displayName": "",
+                "displayType": "checkbox",
+                "options": [
+                    {
+                        "label": "Are you salaried?",
+                        "value": "true"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "salary",
+            "meta": {
+                "displayName": "Salary",
+                "displayType": "currency",
+                "dependencies": {
+                    "exists": {
+                        "ref": "salaried",
+                        "value": "true"
+                    }
+                }
+            }
+        },
+        {
+            "name": "salary_source",
+            "meta": {
+                "displayName": "What is your work industry?",
+                "displayType": "select",
+                "options": [
+                    {
+                        "label": "IT",
+                        "value": "IT"
+                    },
+                    {
+                        "label": "Government sector",
+                        "value": "govt"
+                    },
+                    {
+                        "label": "Agriculture",
+                        "value": "agriculture"
+                    }
+                ],
+                "dependencies": {
+                    "exists": {
+                        "ref": "salaried",
+                        "value": "true"
+                    }
+                }
+            }
+        },
+        {
+            "name": "company_name",
+            "meta": {
+                "displayName": "Company Name",
+                "displayType": "text_field",
+                "dependencies": {
+                    "exists": {
+                        "ref": "salary_source",
+                        "value": "IT"
+                    }
+                }
+            }
+        },
+        {
+            "name": "govt_sector",
+            "meta": {
+                "displayName": "Select type",
+                "displayType": "select",
+                "options": [
+                    {
+                        "label": "State Govt.",
+                        "value": "state"
+                    },
+                    {
+                        "label": "Central Govt.",
+                        "value": "central"
+                    }
+                ],
+                "dependencies": {
+                    "exists": {
+                        "ref": "salary_source",
+                        "value": "govt"
+                    }
+                }
+            }
+        },
+        {
+            "name": "agri_export",
+            "meta": {
+                "displayName": "Sector",
+                "displayType": "select",
+                "options": [
+                    {
+                        "label": "Dairy Farming.",
+                        "value": "dairy_farming"
+                    },
+                    {
+                        "label": "Plantation Farming.",
+                        "value": "plantation_farming"
+                    },
+                    {
+                        "label": "Grain Farming",
+                        "value": "grain_farming"
+                    }
+                ],
+                "displayProps": {
+                    "md": 6
+                },
+                "dependencies": {
+                    "exists": {
+                        "ref": "salary_source",
+                        "value": "agriculture"
+                    }
+                }
+            }
+        },
+        {
+            "name": "agri_tractor",
+            "meta": {
+                "displayName": "Have tractor?",
+                "displayType": "radio",
+                "options": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ],
+                "displayProps": {
+                    "md": 6
+                },
+                "dependencies": {
+                    "exists": {
+                        "ref": "salary_source",
+                        "value": "agriculture"
+                    }
                 }
             }
         }
-    }, {
-        "name": "salary_source",
-        "meta": {
-            "displayName": "What is your work industry?",
-            "displayType": "select",
-            "options": [{
-                "label": "IT",
-                "value": "IT"
-            }, {
-                "label": "Government sector",
-                "value": "govt"
-            }, {
-                "label": "Agriculture",
-                "value": "agriculture"
-            }],
-            "dependencies": {
-                "exists": {
-                    "ref": "salaried",
-                    "value": "true"
-                }
-            }
-        }
-    }, {
-        "name": "company_name",
-        "meta": {
-            "displayName": "Company Name",
-            "displayType": "text_field",
-            "dependencies": {
-                "exists": {
-                    "ref": "salary_source",
-                    "value": "IT"
-                }
-            }
-        }
-    }, {
-        "name": "govt_sector",
-        "meta": {
-            "displayName": "Select type",
-            "displayType": "select",
-            "options": [{
-                "label": "State Govt.",
-                "value": "state"
-            }, {
-                "label": "Central Govt.",
-                "value": "central"
-            }],
-            "dependencies": {
-                "exists": {
-                    "ref": "salary_source",
-                    "value": "govt"
-                }
-            }
-        }
-    }, {
-        "name": "agri_export",
-        "meta": {
-            "displayName": "Sector",
-            "displayType": "select",
-            "options": [{
-                "label": "Dairy Farming.",
-                "value": "dairy_farming"
-            }, {
-                "label": "Plantation Farming.",
-                "value": "plantation_farming"
-            }, {
-                "label": "Grain Farming",
-                "value": "grain_farming"
-            }],
-            "displayProps": {
-                "md": 6
-            },
-            "dependencies": {
-                "exists": {
-                    "ref": "salary_source",
-                    "value": "agriculture"
-                }
-            }
-        }
-    }, {
-        "name": "agri_tractor",
-        "meta": {
-            "displayName": "Have tractor?",
-            "displayType": "radio",
-            "options": [{
-                "label": "Yes",
-                "value": true
-            }, {
-                "label": "No",
-                "value": false
-            }],
-            "displayProps": {
-                "md": 6
-            },
-            "dependencies": {
-                "exists": {
-                    "ref": "salary_source",
-                    "value": "agriculture"
-                }
-            }
-        }
-    }]
+    ]
 }

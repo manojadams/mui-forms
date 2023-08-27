@@ -1,33 +1,39 @@
 {
-    "fields": [{
-        "name": "firstName",
-        "meta": {
-            "displayName": "First Name",
-            "displayType": "text_field"
+    "fields": [
+        {
+            "name": "firstName",
+            "meta": {
+                "displayName": "First Name",
+                "displayType": "text_field"
+            }
+        },
+        {
+            "name": "lastName",
+            "meta": {
+                "displayName": "Last Name",
+                "displayType": "text_field"
+            }
+        },
+        {
+            "name": "dob",
+            "meta": {
+                "displayName": "Date of Birth",
+                "displayType": "date"
+            }
+        },
+        {
+            "name": "phone",
+            "meta": {
+                "displayName": "Phone Number",
+                "displayType": "number"
+            }
+        },
+        {
+            "name": "email",
+            "meta": {
+                "displayName": "Email",
+                "displayType": "email"
+            }
         }
-    }, {
-        "name": "lastName",
-        "meta": {
-            "displayName": "Last Name",
-            "displayType": "text_field"
-        }
-    }, {
-        "name": "dob",
-        "meta": {
-            "displayName": "Date of Birth",
-            "displayType": "date"
-        }
-    }, {
-        "name": "phone",
-        "meta": {
-            "displayName": "Phone Number",
-            "displayType": "number"
-        }
-    }, {
-        "name": "email",
-        "meta": {
-            "displayName": "Email",
-            "displayType": "email"
-        }
-    }]
+    ]
 }

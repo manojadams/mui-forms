@@ -7,14 +7,14 @@ function InteractiveScoreChart() {
     return (
         <MuiForms
             components={{
-                "barchart": Bar
+                barchart: Bar
             }}
             schema={schema}
             onSubmit={() => {
                 // to do
             }}
         />
-    )
+    );
 }
 
 export default InteractiveScoreChart;

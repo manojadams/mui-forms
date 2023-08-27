@@ -51,11 +51,9 @@ The following fields are typically associated with forms and typically contain a
 
 ## General properties
 
-| Field  | Type      | Data type                 | Default Value | Description                                                              |
-| ------ | --------- | ------------------------- | ------------- | ------------------------------------------------------------------------ |
-| name   | Mandatory | String                    | N/A           | This is the name of the field. It should ideally contain letters and underscore(_) and no whitespace     |
-| prop   | Optional  | String or null            | null          | This is the parent property key which is used to group the field while submitting the form       |
-| meta   | Mandatory | Object                    | N/A           | It contain details about the field                                       |
-| fields | Optional  | Array of fields           | None          | It is used in grouped fields to contain the data belonging to each group |
-
-
+| Field  | Type      | Data type       | Default Value | Description                                                                                           |
+| ------ | --------- | --------------- | ------------- | ----------------------------------------------------------------------------------------------------- |
+| name   | Mandatory | String          | N/A           | This is the name of the field. It should ideally contain letters and underscore(\_) and no whitespace |
+| prop   | Optional  | String or null  | null          | This is the parent property key which is used to group the field while submitting the form            |
+| meta   | Mandatory | Object          | N/A           | It contain details about the field                                                                    |
+| fields | Optional  | Array of fields | None          | It is used in grouped fields to contain the data belonging to each group                              |

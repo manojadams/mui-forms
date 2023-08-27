@@ -6,17 +6,17 @@ import Pie from "./Pie";
 function ScoreChart() {
     return (
         <div>
-            <MuiForms 
+            <MuiForms
                 controls={{
-                    "piechart": <Pie />
+                    piechart: <Pie />
                 }}
-                schema={schema} 
+                schema={schema}
                 onSubmit={() => {
                     // handle submit
-                }}/>
+                }}
+            />
         </div>
-        
-    )
+    );
 }
 
 export default ScoreChart;

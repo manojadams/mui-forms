@@ -3,6 +3,7 @@
 During form submission, all for form fields are grouped together inside a single object (in form of key value pairs with field name and value) and passed to the onSubmit callback function.
 
 #### 1. For example: Consider the following field
+
 ```json
 {
     "name": "first_name",
@@ -13,7 +14,9 @@ During form submission, all for form fields are grouped together inside a single
     }
 }
 ```
+
 Output of the following field during form submission:
+
 ```
 {
     "first_name": "Goku"
@@ -37,6 +40,7 @@ Now, use the _prop_ field property if the field needs to be grouped in a differe
 ```
 
 Output would be:
+
 ```
 {
     "basic_details": {
@@ -61,7 +65,8 @@ If a field is required to be grouped in a nested group, then use **#** as a sepe
 }
 ```
 
-Output 
+Output
+
 ```
 {
     "basic_details": {
