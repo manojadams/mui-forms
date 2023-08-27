@@ -1,12 +1,22 @@
 import styled from "@emotion/styled";
 import React from "react";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Footer() {
     return (
         <Wrapper>
             <InnerWrapper>
-                <div>&copy; Copyright 2023 MuiForms. All rights reserved.</div>
-                <div />
+                <div>
+                    <p>
+                        <GitHubIcon style={{
+                            marginRight: "8px"
+                        }}/>
+                        <a href="https://github.com/manojadams/mui-forms">
+                            Star us at github & show your support
+                        </a>
+                    </p>
+                </div>
+                <div><p>&copy; Copyright 2023 MuiForms. All rights reserved</p></div>
             </InnerWrapper>
         </Wrapper>
     );
@@ -23,6 +33,8 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled.div`
     max-width: 90rem;
+    display: flex;
+    justify-content: space-between;
 `;
 
 export default Footer;

@@ -62,27 +62,11 @@ function LandingPage(props: IProps) {
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Custom components</a>
+                                    <a href="/custom-fields/about">Custom components</a>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Easily define field relationships</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className={"mcol " + css.features_column}>
-                            <ul>
-                                <li>
-                                    <ArrowRightAltIcon />
-                                    <a href="">Built-in layouting</a>
-                                </li>
-                                <li>
-                                    <ArrowRightAltIcon />
-                                    <a href="">Responsive</a>
-                                </li>
-                                <li>
-                                    <ArrowRightAltIcon />
-                                    <a href="">Load data from API</a>
+                                    <a href="/field-dependencies/about">Easily define field relationships</a>
                                 </li>
                             </ul>
                         </div>
@@ -90,15 +74,15 @@ function LandingPage(props: IProps) {
                             <ul>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Mobile ready</a>
+                                    <a href="/fields/select-field#how-to-load-options-from-remote-api">Load data from API</a>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Extensible</a>
+                                    <a href="/layouting/about">Built-in layouting</a>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Production ready</a>
+                                    <span>Responsive</span>
                                 </li>
                             </ul>
                         </div>
@@ -106,15 +90,31 @@ function LandingPage(props: IProps) {
                             <ul>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Simple forms</a>
+                                    <span>Production ready</span>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Stepper forms</a>
+                                    <span>Mobile ready</span>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="">Wizard forms</a>
+                                    <span>Extensible</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className={"mcol " + css.features_column}>
+                            <ul>
+                                <li>
+                                    <ArrowRightAltIcon />
+                                    <a href="/simple-forms/default">Simple forms</a>
+                                </li>
+                                <li>
+                                    <ArrowRightAltIcon />
+                                    <a href="/grouped-forms/stepper">Stepper forms</a>
+                                </li>
+                                <li>
+                                    <ArrowRightAltIcon />
+                                    <a href="/grouped-forms/wizard">Wizard forms</a>
                                 </li>
                             </ul>
                         </div>

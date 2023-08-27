@@ -273,14 +273,12 @@ export interface IFormatterType {
 
 ```tsx
 import React, { Component } from 'react'
-
-import MetaForm from '@manojadams/metaforms-mui'
-import 'metaforms-mui/dist/index.css'
+import MuiForms from '@manojadams/mui-forms';
 
 class Example extends Component {
   render() {
     return (
-        <MetaForm
+        <MuiForms
             schema={exampleSchema}
             onSubmit={(formData) => {
               // submit data

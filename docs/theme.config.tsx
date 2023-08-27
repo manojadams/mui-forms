@@ -1,5 +1,6 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import Footer from "./components/LandingPage/Footer";
 
 const config: DocsThemeConfig = {
     logo: (
@@ -15,7 +16,8 @@ const config: DocsThemeConfig = {
     },
     docsRepositoryBase: "https://github.com/manojadams/mui-forms/tree/docs/docs",
     footer: {
-        text: "© Copyright 2023 MUI forms"
+        text: "© Copyright 2023 MUI forms",
+        component: Footer
     },
     nextThemes: {
         defaultTheme: "light"
