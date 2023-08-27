@@ -5,7 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
     padding-top: 64px;
 }
 
@@ -42,10 +42,15 @@
     padding-top: 40px;
 }
 
+/* .wave_wrapper {
+    position: relative;
+    height: 160px;
+}
+
 .wave {
     background: rgb(255 255 255 / 25%);
     border-radius: 1000% 1000% 0 0;
-    position: fixed;
+    position: absolute;
     width: 200%;
     height: 12rem;
     animation: wave 10s -3s linear infinite;
@@ -53,31 +58,51 @@
     opacity: 0.8;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: -1;
 }
 
 .wave2 {
     bottom: -1.25rem;
     animation: wave 18s linear reverse infinite;
     opacity: 0.8;
+    z-index: -1;
 }
 
 .wave3 {
     bottom: -1.25rem;
     animation: wave 20s -1s reverse infinite;
     opacity: 0.9;
+    z-index: -1;
 }
 
-.wave3 {
-
-}
 
 .wave2 {
     background: rgb(255, 255, 255 / 25%);
+} */
+
+.features {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    padding: 12px;
+    z-index: 1;
+    font-weight: bold;
 }
 
-.wave3 {
+.features_title {
+    font-size: 32px;
+}
 
+.features_column  {
+    padding: 0 12px;
+    min-width: 220px;
+    margin: 24px 0;
+    text-align: center;
+}
+
+.features_divider {
+    margin-bottom: 12px;
 }
 
 @keyframes gradient {

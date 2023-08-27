@@ -17,6 +17,7 @@ const Wrapper = styled.div`
     padding-right: calc(max(env(safe-area-inset-right), 1.5rem));
     padding-left: calc(max(env(safe-area-inset-left), 1.5rem));
     padding-top: 12px;
+    padding-bottom: 12px;
     font-size: 12px;
 `;
 

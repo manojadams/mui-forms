@@ -5,7 +5,9 @@ function Cards() {
     return (
         <div className="">
             <Card>
-                <img className="form1" src="images/form1.png" alt="Form 1" />
+                <div className="img-wrapper">
+                    <img className="form1" src="images/form1.png" alt="Form 1" />
+                </div>
             </Card>
         </div>
     );
@@ -14,9 +16,13 @@ function Cards() {
 const Card = styled.div`
     width: 90%;
     margin-left: auto;
-    height: 400px;
+    height: 420px;
+    overflow: hidden;
     background: #fff;
     border-radius: 20px 20px 0 0;
+    .img-wrapper {
+        max-height: calc(100% - 12px);
+    }
     .form1 {
         width: 90%;
         margin: auto;
