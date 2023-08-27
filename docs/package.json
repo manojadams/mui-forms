@@ -19,22 +19,22 @@
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@manojadams/metaforms-core": "^3.0.18",
-    "@mui/icons-material": "^5.13.7",
-    "@mui/material": "^5.13.7",
-    "@textea/json-viewer": "^3.0.0",
+    "@mui/icons-material": "^5.14.6",
+    "@mui/material": "^5.14.6",
+    "@textea/json-viewer": "^3.1.1",
     "@vercel/analytics": "^1.0.2",
-    "chart.js": "^4.3.3",
-    "framer-motion": "^10.13.1",
+    "chart.js": "^4.4.0",
+    "framer-motion": "^10.16.1",
     "mui-forms": "^1.0.13",
-    "next": "^13.4.6",
-    "nextra": "^2.10.0",
-    "nextra-theme-docs": "^2.10.0",
+    "next": "^13.4.19",
+    "nextra": "^2.12.2",
+    "nextra-theme-docs": "^2.12.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.11.10",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.5"
   }
 }
