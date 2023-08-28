@@ -12,11 +12,11 @@ function Footer() {
                             marginRight: "8px"
                         }}/>
                         <a href="https://github.com/manojadams/mui-forms">
-                            Star us at github & show your support
+                            Star us at github
                         </a>
                     </p>
                 </div>
-                <div><p>&copy; Copyright 2023 MuiForms. All rights reserved</p></div>
+                <div><p>&copy; Copyright 2023 MuiForms.</p></div>
             </InnerWrapper>
         </Wrapper>
     );
