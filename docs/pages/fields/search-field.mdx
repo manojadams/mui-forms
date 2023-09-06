@@ -1,0 +1,27 @@
+## Search
+
+### Sample form usage with api information:
+
+```tsx
+import MuiForms from "mui-forms";
+
+function Form() {
+    return (
+        <MuiForms 
+            config={{
+                variant: "outlined"
+            }}
+            rest={{
+                "config": {
+                    "apihost": "",
+                    "basepath": "/api/v0/rockets"
+                }
+            }}
+            schema={schema}
+            onSubmit={() => {
+                // handle submit
+            }}
+        />
+    );
+}
+```
