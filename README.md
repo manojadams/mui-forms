@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [Fix for radio button not working](https://github.com/manojadams/mui-forms/issues/9)
+- [Fix month, year to be selectable from calendar](https://github.com/manojadams/mui-forms/issues/11)
   
 ## Advantages and features
 - Mui Components
