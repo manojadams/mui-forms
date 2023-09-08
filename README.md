@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [added multiple values to be selected for checkbox](https://github.com/manojadams/mui-forms/issues/3)
+- [Fix for radio button not working](https://github.com/manojadams/mui-forms/issues/9)
   
 ## Advantages and features
 - Mui Components

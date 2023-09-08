@@ -32,7 +32,7 @@ function RadioButtonControl(props: IProps) {
                 case "boolean":
                     {
                         // eslint-disable-next-line dot-notation
-                        const val = !!e.target["value"];
+                        const val = e.target["value"] === "true" ? true : false;
                         props.handleChange(e, val);
                     }
                     break;
