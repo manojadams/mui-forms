@@ -11,7 +11,14 @@ function CheckboxControl(props: IProps) {
     // by default, multiple config is true (checkbox allows multiple values to be selected)
     const isMultiple = props.form.config?.multiple ?? true;
     useEffect(() => {
-        const value = props.form.value as string ?? "";
+        let value = props.form.value;
+        // convert to string, if not string
+        switch(typeof value) {
+            case 'boolean':
+                value = value.toString();
+            case 'number':
+                value = value.toString();
+        }
         if (value) {
             const values = value.split(",");
             // if multiple config not defined, then using multiple by default
