@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [Feature: material phone control](https://github.com/manojadams/mui-forms/issues/12)
+- [fix: radio button icon not working](https://github.com/manojadams/mui-forms/issues/13)
   
 ## Advantages and features
 - Mui Components
