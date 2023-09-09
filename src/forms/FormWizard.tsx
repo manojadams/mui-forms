@@ -15,7 +15,7 @@ class FormWizard extends BaseFormWizard {
                         key={field.name}
                         section={field.name}
                         sync={fn}
-                        form={form as IFormField}
+                        form={form[field.name]}
                     />
                 )}
             </Row>

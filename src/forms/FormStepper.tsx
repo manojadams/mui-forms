@@ -69,7 +69,7 @@ export class FormStepper extends BaseFormStepper {
     steps() {
         const steps = this.fields.map((field) => (field?.meta?.displayName ? field.meta.displayName : field.name));
         return (
-            <Box data-pagenumber={this.state.activeIndex + 1} sx={{ width: "100%", overflowX: "auto" }}>
+            <Box className="meta-form-stepper" data-pagenumber={this.state.activeIndex + 1} sx={{ width: "100%", overflowX: "auto" }}>
                 <Stepper activeStep={this.state.activeIndex} alternativeLabel orientation={this.orientation}>
                     {steps.map((label) => (
                         <Step key={label}>
@@ -83,21 +83,24 @@ export class FormStepper extends BaseFormStepper {
 
     screens(): JSX.Element {
         const field = this.fields.find((_f, i) => i === this.state.activeIndex);
-        const form = this.context.form[field?.name ? field.name : "default"];
+        const fields = field?.fields || [];
+        const form = this.context.form[field?.name ?? "default"];
         const sync = () => false;
         return (
-            <Row>
-                {field && (
-                    <FormFieldRenderer
-                        {...field}
-                        key={field.name}
-                        section={field.name}
-                        form={form as IFormField}
-                        sync={sync}
-                    />
-                )}
+            <Fragment>
+                <Row>
+                    {fields.map((field) => 
+                        <FormFieldRenderer
+                            {...field}
+                            key={field.name}
+                            section={field.name}
+                            form={form[field.name]}
+                            sync={sync}
+                        />
+                    )}
+                </Row>
                 {this.footer()}
-            </Row>
+            </Fragment>
         );
     }
 
