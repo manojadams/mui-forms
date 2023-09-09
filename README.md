@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [Fix month, year to be selectable from calendar](https://github.com/manojadams/mui-forms/issues/11)
+- [Feature: material phone control](https://github.com/manojadams/mui-forms/issues/12)
   
 ## Advantages and features
 - Mui Components

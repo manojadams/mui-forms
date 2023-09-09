@@ -5,7 +5,7 @@ import MuiSearch from "./Search";
 import { TVariant } from "./ constants";
 
 import NumberFormatter from "../components/NumberFormatter";
-import Phone from "../components/Phone";
+import PhoneControl from "../components/PhoneControl";
 import Label from "../components/Label";
 import DateControl from "../components/DateControl";
 import MonthControl from "../components/MonthControl";
@@ -281,7 +281,7 @@ export default class FormControl extends BaseFormControl {
         const meta = this.props.meta;
         return (
             <Fragment>
-                <Phone
+                <PhoneControl
                     className={this.getWrapperClassName()}
                     context={this.context}
                     error={this.state.error}
