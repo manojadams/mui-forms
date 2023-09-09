@@ -17,6 +17,7 @@ import SelectControl from "../components/SelectControl";
 import MultiSelectControl from "../components/MultiSelectControl";
 import FileControl from "../components/FileControl/FileControl";
 import CustomControl from "../components/CustomControl";
+import { ErrorMsg, InfoMsg } from "../common/styles";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -353,19 +354,22 @@ export default class FormControl extends BaseFormControl {
     showValidation(infoMsg?: string) {
         let className = "";
         let icon = <Fragment />;
+        let element = <Fragment />;
         if (this.state.error.hasError) {
             className = "meta-validation-error";
             icon = this.context.getIcon("error") || <Fragment />;
+            element = <ErrorMsg>{this.state.error.errorMsg}</ErrorMsg>
         } else {
             if (infoMsg) {
                 className = "meta-validation-info";
                 icon = this.context.getIcon("info") || <Fragment />;
+                element = <InfoMsg>{infoMsg}</InfoMsg>
             }
         }
         return (
             <FormHelperText className={className}>
                 {icon}
-                {this.state.error.errorMsg || infoMsg}
+                {element}
             </FormHelperText>
         );
     }
