@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix: radio button icon not working](https://github.com/manojadams/mui-forms/issues/13)
+- fix: stepper not working properly
   
 ## Advantages and features
 - Mui Components
