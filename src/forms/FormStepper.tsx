@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { FormFieldRenderer, IField, IEventPayload, BaseFormStepper, IFormField } from "@manojadams/metaforms-core";
 import Stepper, { Orientation } from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -8,8 +8,20 @@ import { Row } from "layout-emotions";
 
 export class FormStepper extends BaseFormStepper {
     orientation: Orientation | undefined;
+
+    constructor(props: {fields: Array<IField>, theme: string}) {
+        super(props);
+        this.sync = this.sync.bind(this);
+        const stepper = this.context?.formConfig?.config as Record<string, Orientation>;
+        this.orientation = stepper?.orientation ?? "horizontal";
+        const activeIndex = this.context?.page?.pageNumber ? this.context.page.pageNumber - 1 : 1;
+        this.state = {
+            ...this.state,
+            activeIndex
+        };
+    }
+
     componentDidMount() {
-        this.setState({ activeIndex: this.context?.page?.pageNumber ? this.context.page.pageNumber - 1 : 1 });
         this.context.listener("switch", (payload: { payload: string; callback?: () => void }) => {
             switch (payload.payload) {
                 case "next":
@@ -56,12 +68,23 @@ export class FormStepper extends BaseFormStepper {
     }
 
     render() {
-        const stepper = this.context?.formConfig?.config as Record<string, Orientation>;
-        this.orientation = stepper?.orientation ?? "horizontal";
+        const section = this.fields.find((_f, i) => i === this.state.activeIndex);
+        const fields = section?.fields || [];
+        const form = this.context.form[section?.name ?? "default"];
         return (
             <Fragment>
                 {this.steps()}
-                {this.screens()}
+                <Row>
+                    {fields.map((field) => 
+                        <FormFieldRenderer
+                            {...field}
+                            key={field.name}
+                            section={section?.name ?? ""}
+                            form={form[field.name]}
+                            sync={this.sync}
+                        />
+                    )}
+                </Row>
             </Fragment>
         );
     }
@@ -82,26 +105,7 @@ export class FormStepper extends BaseFormStepper {
     }
 
     screens(): JSX.Element {
-        const field = this.fields.find((_f, i) => i === this.state.activeIndex);
-        const fields = field?.fields || [];
-        const form = this.context.form[field?.name ?? "default"];
-        const sync = () => false;
-        return (
-            <Fragment>
-                <Row>
-                    {fields.map((field) => 
-                        <FormFieldRenderer
-                            {...field}
-                            key={field.name}
-                            section={field.name}
-                            form={form[field.name]}
-                            sync={sync}
-                        />
-                    )}
-                </Row>
-                {this.footer()}
-            </Fragment>
-        );
+        return <Fragment />;
     }
 
     footer() {
@@ -122,5 +126,9 @@ export class FormStepper extends BaseFormStepper {
             this.setActiveIndex(this.state.activeIndex + 1);
         }
         e.preventDefault();
+    }
+
+    sync() {
+        this.setState({...this.state});
     }
 }
