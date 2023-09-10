@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IFieldProps } from "../../common/field";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import MuiFormUtil from "../../Utils/MuiFormUtil";
 
 interface IProps extends IFieldProps {
     showValidation: () => JSX.Element;
@@ -9,16 +10,10 @@ interface IProps extends IFieldProps {
 function CheckboxControl(props: IProps) {
     const [values, setValues] = useState<string[]>([]);
     // by default, multiple config is true (checkbox allows multiple values to be selected)
-    const isMultiple = props.form.config?.multiple ?? true;
+    const isMultiple = props.form.config?.multiple ?? (props.form.options ?? []).length > 1;
     useEffect(() => {
-        let value = props.form.value;
         // convert to string, if not string
-        switch(typeof value) {
-            case 'boolean':
-                value = value.toString();
-            case 'number':
-                value = value.toString();
-        }
+        const value = MuiFormUtil.getCheckboxValue(props.form.value);
         if (value) {
             const values = value.split(",");
             // if multiple config not defined, then using multiple by default
@@ -47,7 +42,7 @@ function CheckboxControl(props: IProps) {
                                     onChange={(e) => {
                                         const checked = e.target.checked;
                                         if (isMultiple && props.form?.options && props.form?.options.length > 0) {
-                                            const currentValue = option.value;
+                                            const currentValue = MuiFormUtil.getCheckboxValue(option.value);
                                             let currentValues = [];
                                             if (checked) {
                                                 currentValues = [...values, currentValue];
@@ -56,7 +51,7 @@ function CheckboxControl(props: IProps) {
                                             }
                                             props.handleChange(e, currentValues.length > 0 ? currentValues.join(",") : "");
                                         } else {
-                                            props.handleChange(e, checked ? option.value : "");
+                                            props.handleChange(e, checked ? MuiFormUtil.getCheckboxValue(option.value) : "");
                                         }
                                         props.handleValidation();
                                     }}
