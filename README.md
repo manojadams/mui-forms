@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- (handle errors with boolean checkbox values)[https://github.com/manojadams/mui-forms/issues/14]
+- (fix stepper forms)[https://github.com/manojadams/mui-forms/issues/15]
   
 ## Advantages and features
 - Mui Components
