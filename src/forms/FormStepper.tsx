@@ -14,14 +14,14 @@ export class FormStepper extends BaseFormStepper {
         this.sync = this.sync.bind(this);
         const stepper = this.context?.formConfig?.config as Record<string, Orientation>;
         this.orientation = stepper?.orientation ?? "horizontal";
-        const activeIndex = this.context?.page?.pageNumber ? this.context.page.pageNumber - 1 : 1;
-        this.state = {
-            ...this.state,
-            activeIndex
-        };
     }
 
     componentDidMount() {
+        const activeIndex = this.context?.page?.pageNumber ? this.context.page.pageNumber - 1 : 1;
+        this.setState({
+            ...this.state,
+            activeIndex
+        });
         this.context.listener("switch", (payload: { payload: string; callback?: () => void }) => {
             switch (payload.payload) {
                 case "next":
@@ -74,7 +74,7 @@ export class FormStepper extends BaseFormStepper {
         return (
             <Fragment>
                 {this.steps()}
-                <Row>
+                <Row className="section">
                     {fields.map((field) => 
                         <FormFieldRenderer
                             {...field}
