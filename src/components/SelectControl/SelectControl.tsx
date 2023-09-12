@@ -28,6 +28,7 @@ function SelectControl(props: IProps) {
                 label={props.form.displayName}
                 value={props.form?.value}
                 disabled={props.form.isDisabled}
+                name={props.name}
                 onOpen={() => {
                     if (props.form.events?.open) {
                         props.handleOpen();

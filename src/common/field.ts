@@ -6,6 +6,7 @@ export interface IFieldProps {
     context: MetaForm;
     field: IField;
     form: IFormField;
+    name: string;
     size: "small" | "medium";
     variant?: string;
     error: IError;

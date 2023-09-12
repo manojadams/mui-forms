@@ -51,6 +51,7 @@ export default class FormControl extends BaseFormControl {
                 context={this.context}
                 field={this.field}
                 form={this.props.form}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 error={this.state.error}
@@ -69,6 +70,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 variant={this.getVariant() ?? ""}
                 section={this.section}
                 size={this.size}
@@ -88,6 +90,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 variant={this.getVariant() ?? ""}
                 size={this.size}
                 handleChange={this.handleChange}
@@ -105,6 +108,7 @@ export default class FormControl extends BaseFormControl {
                 form={this.props.form}
                 field={this.field}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 type={type}
@@ -148,6 +152,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -165,6 +170,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -183,6 +189,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -202,6 +209,7 @@ export default class FormControl extends BaseFormControl {
                 form={this.props.form}
                 error={this.state.error}
                 loading={this.state.loading}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -221,6 +229,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -263,6 +272,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 section={this.section}
                 size={this.size}
                 variant={this.getVariant()}
@@ -288,6 +298,7 @@ export default class FormControl extends BaseFormControl {
                     error={this.state.error}
                     field={this.field}
                     form={this.props.form}
+                    name={this.props.name}
                     size={this.size}
                     validate={this.validate}
                     variant={this.getVariant()}
@@ -329,6 +340,7 @@ export default class FormControl extends BaseFormControl {
                     field={this.field}
                     form={this.props.form}
                     error={this.state.error}
+                    name={this.props.name}
                     size={this.size}
                     variant={this.getVariant()}
                     handleChange={this.handleChange}
