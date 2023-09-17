@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix name attribute not coming](https://github.com/manojadams/mui-forms/issues/17)
+- fix size for search field
   
 ## Advantages and features
 - Mui Components
