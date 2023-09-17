@@ -260,6 +260,7 @@ export default class FormControl extends BaseFormControl {
                 section={this.section}
                 error={this.state.error}
                 loading={this.state.loading}
+                size={this.size}
             />
         );
     }

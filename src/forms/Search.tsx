@@ -15,6 +15,7 @@ interface IProps {
     handleValidation: () => void;
     context: MetaForm;
     section: string;
+    size?: "small" | "medium";
     error: IError;
 }
 
@@ -41,10 +42,11 @@ export default function Search(props: IProps) {
 
     return (
         <Autocomplete
+            className={wrapperClassName}
             value={value}
             options={options}
             loading={loading}
-            className={wrapperClassName}
+            size={props.size}
             isOptionEqualToValue={(option, value) => value && value.value === option.value}
             onChange={(e, val) => {
                 const actualValue = val?.value
