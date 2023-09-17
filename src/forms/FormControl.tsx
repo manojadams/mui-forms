@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
 import { Button, FormHelperText, TextFieldProps } from "@mui/material";
-import MuiSearch from "./Search";
+import MuiSearch from "../components/Search/Search";
 import { TVariant } from "./ constants";
 
 import NumberFormatter from "../components/NumberFormatter";
@@ -31,8 +31,8 @@ export default class FormControl extends BaseFormControl {
     render(): JSX.Element {
         const muiVariant = this.context.formConfig?.config?.variant;
         const muiSize = this.context.formConfig?.config?.size;
-        this.variant = muiVariant || this.variant;
-        this.size = muiSize || "medium";
+        this.variant = muiVariant ?? this.variant;
+        this.size = muiSize ?? "medium";
         return super.render();
     }
 
@@ -249,6 +249,7 @@ export default class FormControl extends BaseFormControl {
         const restConfig = this.context.getRestConfig();
         return (
             <MuiSearch
+                className={this.getWrapperClassName()}
                 name={this.field.name}
                 form={this.props.form}
                 label={this.getDisplayLabel() || ""}

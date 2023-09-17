@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- fix size for search field
+- adding loader for search control
   
 ## Advantages and features
 - Mui Components
