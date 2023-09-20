@@ -49,10 +49,10 @@ function SelectControl(props: IProps) {
                 onBlur={props.handleValidation}
             >
                 {options &&
-                    options.map((option: { label: string; value: string }) => {
+                    options.map((option: { label: string; value: string }, idx) => {
                         const datatype = typeof option.value;
                         return (
-                            <MenuItem key={option.value} datatype={datatype} value={option.value}>
+                            <MenuItem key={option.value + idx} datatype={datatype} value={option.value}>
                                 {option.label}
                             </MenuItem>
                         );
