@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- adding loader for search control
+fix #20: form wizard not working with schema
   
 ## Advantages and features
 - Mui Components
