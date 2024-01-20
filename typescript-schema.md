@@ -6,6 +6,7 @@ export interface IUISchema {
 }
 
 export interface ISchema {
+    rest?: IRest;
     fields: Array<IField>;
     buttons?: Array<IField>;
 }

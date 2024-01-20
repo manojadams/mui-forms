@@ -1,0 +1,658 @@
+{
+    "theme": {
+        "type": "mui",
+        "sectionLayout": "tabs",
+        "className": "metaform basic-form",
+        "mui": {
+            "variant": "outlined",
+            "tabs": {
+                "variant": "fullWidth",
+                "disableRiple": true
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "apihost": "https://api.wealthyinsurancedev.in",
+            "basepath": "/insurance-meta/api/v0/fourwheeler",
+            "headers": [
+                {
+                    "key": "",
+                    "value": ""
+                }
+            ]
+        }
+    },
+    "fields": [
+        {
+            "name": "registration",
+            "meta": {
+                "displayName": "Registration Details",
+                "type": "section"
+            },
+            "fields": [
+                {
+                    "name": "source",
+                    "meta": {
+                        "type": "hidden",
+                        "value": ""
+                    }
+                },
+                {
+                    "name": "idv",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "type": "hidden",
+                        "value": 0
+                    }
+                },
+                {
+                    "name": "is_renewal",
+                    "meta": {
+                        "type": "hidden",
+                        "value": false
+                    }
+                },
+                {
+                    "name": "registration_number",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Registration Number",
+                        "displayType": "label",
+                        "isReadonly": true,
+                        "value": "",
+                        "displayProps": {
+                            "fieldLayout": "row"
+                        },
+                        "icons": {
+                            "edit": {
+                                "type": "end"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "rto_id",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Select RTO in the city",
+                        "displayType": "search",
+                        "options": [],
+                        "value": 189,
+                        "config": {
+                            "type": "url",
+                            "url": "/rto/",
+                            "queryParams": [
+                                [
+                                    "rto_location",
+                                    "$input"
+                                ],
+                                [
+                                    "id",
+                                    "$initial"
+                                ]
+                            ],
+                            "labelKey": "name",
+                            "valueKey": "id",
+                            "loadOn": [
+                                "init"
+                            ]
+                        },
+                        "displayProps": {
+                            "md": 6,
+                            "sm": 12,
+                            "offset": "md-3",
+                            "align": "center"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "vehicle_details",
+            "meta": {
+                "type": "section",
+                "displayName": "Vehicle Details",
+                "isDisabled": true
+            },
+            "fields": [
+                {
+                    "name": "model_id",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Car make & model",
+                        "displayType": "search",
+                        "value": "",
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "config": {
+                            "type": "url",
+                            "url": "/model/",
+                            "queryParams": [
+                                [
+                                    "q",
+                                    "$input"
+                                ],
+                                [
+                                    "id",
+                                    "$initial"
+                                ]
+                            ],
+                            "responseKey": "fw_model",
+                            "labelKey": "display_name",
+                            "valueKey": "id",
+                            "loadOn": [
+                                "init"
+                            ]
+                        },
+                        "events": {
+                            "change": [
+                                {
+                                    "type": "setter",
+                                    "ref": "model_name",
+                                    "valueKey": "name"
+                                }
+                            ]
+                        },
+                        "validation": {
+                            "required": true,
+                            "requiredDetail": {
+                                "errorMsg": "This field is required"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "model_name",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "type": "hidden",
+                        "value": ""
+                    }
+                },
+                {
+                    "name": "variant_id",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Car variant",
+                        "displayType": "search",
+                        "value": "",
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "events": {
+                            "change": {
+                                "type": "setter",
+                                "ref": "variant_name",
+                                "valueKey": "name"
+                            }
+                        },
+                        "dependencies": {
+                            "load": {
+                                "type": "options_loader",
+                                "ref": "model_id",
+                                "url": "/variant/",
+                                "queryParams": [
+                                    [
+                                        "model",
+                                        {
+                                            "type": "fieldValue",
+                                            "ref": "model_id"
+                                        }
+                                    ]
+                                ],
+                                "responseKey": "fw_variant",
+                                "labelKey": "display_name",
+                                "valueKey": "id"
+                            }
+                        },
+                        "validation": {
+                            "required": true,
+                            "requiredDetail": {
+                                "erroMsg": "This field is required"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "variant_name",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "type": "hidden",
+                        "value": ""
+                    }
+                },
+                {
+                    "name": "year",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Registration year of the vehicle",
+                        "displayType": "month",
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "value": "",
+                        "validation": {
+                            "max": "2022-07-22",
+                            "required": true,
+                            "requiredDetail": {
+                                "errorMsg": "This field is required"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "ownership_change_last_year",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Was there a change in the Vehicle Ownership in the last year",
+                        "displayType": "radio-button",
+                        "value": false,
+                        "optionsLayout": "row",
+                        "labelPlacement": "start",
+                        "options": [
+                            {
+                                "label": "Yes",
+                                "value": true
+                            },
+                            {
+                                "label": "No",
+                                "value": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "requirements",
+            "meta": {
+                "displayName": "Requirements",
+                "type": "section",
+                "isDisabled": true
+            },
+            "fields": [
+                {
+                    "name": "registration_status",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "displayName": "Registration Type",
+                        "displayType": "radio-button",
+                        "optionsLayout": "row",
+                        "options": [
+                            {
+                                "label": "New",
+                                "value": "new"
+                            },
+                            {
+                                "label": "Renewal",
+                                "value": "renewal"
+                            }
+                        ],
+                        "value": "renewal",
+                        "displayProps": {
+                            "md": 12
+                        },
+                        "events": {
+                            "change": [
+                                {
+                                    "type": "event_emitter",
+                                    "eventType": "$end_of_page",
+                                    "payload": "",
+                                    "value": "new"
+                                },
+                                {
+                                    "type": "event_emitter",
+                                    "eventType": "$reset_end_of_page",
+                                    "payload": "",
+                                    "value": "renewal"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "customer_type",
+                    "prop": "customer_details",
+                    "meta": {
+                        "displayName": "Customer",
+                        "displayType": "radio-button",
+                        "optionsLayout": "row",
+                        "options": [
+                            {
+                                "label": "Individual",
+                                "value": "individual"
+                            },
+                            {
+                                "label": "Corporate",
+                                "value": "corporate"
+                            }
+                        ],
+                        "value": "individual",
+                        "displayProps": {
+                            "md": 12
+                        }
+                    }
+                },
+                {
+                    "name": "policy_type",
+                    "meta": {
+                        "displayName": "Insurance Type",
+                        "displayType": "radio-button",
+                        "options": [
+                            {
+                                "label": "Comprehensive",
+                                "value": "CP"
+                            },
+                            {
+                                "label": "Third party liability",
+                                "value": "TP"
+                            },
+                            {
+                                "label": "Own damage",
+                                "value": "OD"
+                            }
+                        ],
+                        "value": "CP",
+                        "optionsLayout": "row",
+                        "displayProps": {
+                            "md": 12
+                        }
+                    }
+                },
+                {
+                    "name": "third_party_cover",
+                    "prop": null,
+                    "meta": {
+                        "displayType": "checkbox",
+                        "displayName": "",
+                        "options": [
+                            {
+                                "label": "Do you have a valid Third Party insurance cover for the next one year?",
+                                "value": true
+                            }
+                        ],
+                        "dependencies": {
+                            "exists": {
+                                "ref": "policy_type",
+                                "value": "OD"
+                            }
+                        },
+                        "validation": {
+                            "required": true,
+                            "requiredDetail": {
+                                "errorMsg": "Third Party cover is mandatory for Standalone OD. You are advised to opt for Comprehensive cover."
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "purchase_registration_date",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "type": "hidden"
+                    }
+                },
+                {
+                    "name": "has_puc",
+                    "prop": "vehicle_details",
+                    "meta": {
+                        "type": "hidden",
+                        "value": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "previous_policy",
+            "meta": {
+                "displayName": "Previous Policy",
+                "type": "section",
+                "isDisabled": true
+            },
+            "fields": [
+                {
+                    "name": "are_previous_policy_details_available",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "displayName": "Previous policy details available?",
+                        "displayType": "radio-button",
+                        "options": [
+                            {
+                                "label": "Yes",
+                                "value": "yes"
+                            },
+                            {
+                                "label": "No",
+                                "value": "no"
+                            }
+                        ],
+                        "value": "yes",
+                        "optionsLayout": "row",
+                        "dependencies": {
+                            "change": {
+                                "type": "setter",
+                                "ref": "registration_status",
+                                "section": "requirements",
+                                "valueMap": {
+                                    "new": "no",
+                                    "renewal": "yes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "expiry_status",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "displayName": "Expiry Status",
+                        "displayType": "select",
+                        "options": [
+                            {
+                                "label": "Expiring within a week",
+                                "value": 1
+                            },
+                            {
+                                "label": "Expired within 45 days",
+                                "value": 2
+                            },
+                            {
+                                "label": "Expired for not more than 90 days",
+                                "value": 3
+                            },
+                            {
+                                "label": "Expired for more than 90 days",
+                                "value": 4
+                            }
+                        ],
+                        "value": 1,
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "events": {
+                            "change": {
+                                "type": "prop_setter",
+                                "name": "validation#infoDetail#infoMsg",
+                                "valueMap": {
+                                    "1": "",
+                                    "2": "",
+                                    "3": "",
+                                    "4": "Vehicle requires inspection"
+                                }
+                            }
+                        },
+                        "validation": {
+                            "infoDetail": {
+                                "infoMsg": ""
+                            }
+                        },
+                        "dependencies": {
+                            "exists": {
+                                "ref": "are_previous_policy_details_available",
+                                "value": "yes"
+                            },
+                            "equals": {
+                                "ref": "are_previous_policy_details_available",
+                                "value": "no",
+                                "currentValue": ""
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "previous_policy_type",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "displayName": "Previous Policy Type",
+                        "displayType": "select",
+                        "options": [
+                            {
+                                "label": "Comprehensive",
+                                "value": "CP"
+                            },
+                            {
+                                "label": "Third party liability",
+                                "value": "TP"
+                            },
+                            {
+                                "label": "Own damage",
+                                "value": "OD"
+                            }
+                        ],
+                        "value": "CP",
+                        "displayProps": {
+                            "md": 6
+                        },
+                        "dependencies": {
+                            "exists": {
+                                "ref": "expiry_status",
+                                "value": "$notempty"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "is_previous_claim",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "displayName": "Made any claims in the previous year",
+                        "displayType": "radio-button",
+                        "options": [
+                            {
+                                "label": "Yes",
+                                "value": true
+                            },
+                            {
+                                "label": "No",
+                                "value": false
+                            }
+                        ],
+                        "value": false,
+                        "dependencies": {
+                            "exists": {
+                                "ref": "expiry_status",
+                                "value": "$notempty"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "previous_ncb",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "displayName": "No claim bonus (on previous policy)",
+                        "displayType": "select",
+                        "options": [
+                            {
+                                "label": "0 %",
+                                "value": "0"
+                            },
+                            {
+                                "label": "20 %",
+                                "value": "20"
+                            },
+                            {
+                                "label": "25 %",
+                                "value": "25"
+                            },
+                            {
+                                "label": "35 %",
+                                "value": "35"
+                            },
+                            {
+                                "label": "45 %",
+                                "value": "45"
+                            },
+                            {
+                                "label": "50 %",
+                                "value": "50"
+                            }
+                        ],
+                        "value": "0",
+                        "displayProps": {
+                            "md": 12
+                        },
+                        "dependencies": {
+                            "exists": {
+                                "ref": "is_previous_claim",
+                                "value": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "previous_policy_end_date",
+                    "prop": "previous_policy_details",
+                    "meta": {
+                        "type": "hidden"
+                    }
+                },
+                {
+                    "name": "existing_policy_end_date",
+                    "prop": "existing_policy_details",
+                    "meta": {
+                        "type": "hidden",
+                        "value": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "buttons": [
+        {
+            "name": "previous",
+            "meta": {
+                "type": "previous",
+                "displayName": "Previous",
+                "className": "col d-flex justify-content-center"
+            }
+        },
+        {
+            "name": "next",
+            "meta": {
+                "type": "next",
+                "displayName": "Next",
+                "className": "col d-flex justify-content-center",
+                "events": {
+                    "click": {
+                        "type": "emit-event",
+                        "value": "$enable-current-tab"
+                    }
+                }
+            }
+        },
+        {
+            "name": "save",
+            "meta": {
+                "type": "submit",
+                "displayName": "View Quotation",
+                "displayProps": {
+                    "md": 6
+                },
+                "className": "col d-flex justify-content-center"
+            }
+        }
+    ]
+}

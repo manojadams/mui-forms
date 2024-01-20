@@ -10,12 +10,13 @@ function CustomControl(props: IProps) {
     const control = props.context.getControlElements(template);
     let customComponent: JSX.Element | null = null;
     if (control) {
-        customComponent = React.cloneElement(
-            control({
-                field: props.form,
-                form: props.context.form
-            })
-        );
+        const element = control({
+            field: props.form,
+            form: props.context.form
+        });
+        if (React.isValidElement(element)) {
+            customComponent = React.cloneElement(element);
+        }
     }
     if (customComponent) {
         return (

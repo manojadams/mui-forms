@@ -25,6 +25,7 @@ function InputControl(props: InputControlProps) {
             className={wrapperClassName}
             type={props.type}
             label={label}
+            name={props.name}
             variant={props.variant as TextFieldVariants}
             fullWidth
             disabled={props.form.isDisabled}

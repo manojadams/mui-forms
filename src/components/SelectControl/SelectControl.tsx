@@ -1,12 +1,13 @@
 import React, { ChangeEvent } from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, FormControl, InputLabel, LinearProgress, MenuItem, Select } from "@mui/material";
 import { TVariant } from "../../forms/ constants";
 
 interface IProps extends IFieldProps {
     handleOpen: () => void;
     showValidation: (info?: string) => JSX.Element;
+    loading: boolean;
 }
 
 function SelectControl(props: IProps) {
@@ -27,6 +28,7 @@ function SelectControl(props: IProps) {
                 label={props.form.displayName}
                 value={props.form?.value}
                 disabled={props.form.isDisabled}
+                name={props.name}
                 onOpen={() => {
                     if (props.form.events?.open) {
                         props.handleOpen();
@@ -47,15 +49,20 @@ function SelectControl(props: IProps) {
                 onBlur={props.handleValidation}
             >
                 {options &&
-                    options.map((option: { label: string; value: string }) => {
+                    options.map((option: { label: string; value: string }, idx) => {
                         const datatype = typeof option.value;
                         return (
-                            <MenuItem key={option.value} datatype={datatype} value={option.value}>
+                            <MenuItem key={option.value + idx} datatype={datatype} value={option.value}>
                                 {option.label}
                             </MenuItem>
                         );
                     })}
             </Select>
+            {props.loading &&
+                <Box sx={{ width: '100%' }}>
+                    <LinearProgress />
+                </Box>
+            }
             {props.showValidation(infoText)}
         </FormControl>
     );

@@ -1,3 +1,7 @@
-import MuiForms from "./MuiForms";
+import MuiForms, { metaAPI } from "./MuiForms";
 
 export default MuiForms;
+
+export {
+    metaAPI
+};

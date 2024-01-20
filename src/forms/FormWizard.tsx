@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseFormWizard, FormFieldRenderer, IFormField } from "@manojadams/metaforms-core";
+import { BaseFormWizard, FormFieldRenderer } from "@manojadams/metaforms-core";
 import { Row } from "layout-emotions";
 
 class FormWizard extends BaseFormWizard {
@@ -15,7 +15,7 @@ class FormWizard extends BaseFormWizard {
                         key={field.name}
                         section={field.name}
                         sync={fn}
-                        form={form as IFormField}
+                        form={form as any}
                     />
                 )}
             </Row>

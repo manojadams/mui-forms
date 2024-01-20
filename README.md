@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- Updated package to use lazy config option for select field
+Update to latest core library usage (metaforms-core)
   
 ## Advantages and features
 - Mui Components

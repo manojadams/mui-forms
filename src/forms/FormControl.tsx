@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
 import { Button, FormHelperText, TextFieldProps } from "@mui/material";
-import MuiSearch from "./Search";
+import MuiSearch from "../components/Search/Search";
 import { TVariant } from "./ constants";
 
 import NumberFormatter from "../components/NumberFormatter";
-import Phone from "../components/Phone";
+import PhoneControl from "../components/PhoneControl";
 import Label from "../components/Label";
 import DateControl from "../components/DateControl";
 import MonthControl from "../components/MonthControl";
@@ -17,6 +17,7 @@ import SelectControl from "../components/SelectControl";
 import MultiSelectControl from "../components/MultiSelectControl";
 import FileControl from "../components/FileControl/FileControl";
 import CustomControl from "../components/CustomControl";
+import { ErrorMsg, InfoMsg } from "../common/styles";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -30,8 +31,8 @@ export default class FormControl extends BaseFormControl {
     render(): JSX.Element {
         const muiVariant = this.context.formConfig?.config?.variant;
         const muiSize = this.context.formConfig?.config?.size;
-        this.variant = muiVariant || this.variant;
-        this.size = muiSize || "medium";
+        this.variant = muiVariant ?? this.variant;
+        this.size = muiSize ?? "medium";
         return super.render();
     }
 
@@ -50,6 +51,7 @@ export default class FormControl extends BaseFormControl {
                 context={this.context}
                 field={this.field}
                 form={this.props.form}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 error={this.state.error}
@@ -68,6 +70,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 variant={this.getVariant() ?? ""}
                 section={this.section}
                 size={this.size}
@@ -87,6 +90,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 variant={this.getVariant() ?? ""}
                 size={this.size}
                 handleChange={this.handleChange}
@@ -104,6 +108,7 @@ export default class FormControl extends BaseFormControl {
                 form={this.props.form}
                 field={this.field}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 type={type}
@@ -147,6 +152,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -164,6 +170,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -182,6 +189,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -200,6 +208,8 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                loading={this.state.loading}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -219,6 +229,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
                 handleChange={this.handleChange}
@@ -238,6 +249,7 @@ export default class FormControl extends BaseFormControl {
         const restConfig = this.context.getRestConfig();
         return (
             <MuiSearch
+                className={this.getWrapperClassName()}
                 name={this.field.name}
                 form={this.props.form}
                 label={this.getDisplayLabel() || ""}
@@ -249,6 +261,7 @@ export default class FormControl extends BaseFormControl {
                 section={this.section}
                 error={this.state.error}
                 loading={this.state.loading}
+                size={this.size}
             />
         );
     }
@@ -261,6 +274,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                name={this.props.name}
                 section={this.section}
                 size={this.size}
                 variant={this.getVariant()}
@@ -280,12 +294,13 @@ export default class FormControl extends BaseFormControl {
         const meta = this.props.meta;
         return (
             <Fragment>
-                <Phone
+                <PhoneControl
                     className={this.getWrapperClassName()}
                     context={this.context}
                     error={this.state.error}
                     field={this.field}
                     form={this.props.form}
+                    name={this.props.name}
                     size={this.size}
                     validate={this.validate}
                     variant={this.getVariant()}
@@ -327,6 +342,7 @@ export default class FormControl extends BaseFormControl {
                     field={this.field}
                     form={this.props.form}
                     error={this.state.error}
+                    name={this.props.name}
                     size={this.size}
                     variant={this.getVariant()}
                     handleChange={this.handleChange}
@@ -352,19 +368,22 @@ export default class FormControl extends BaseFormControl {
     showValidation(infoMsg?: string) {
         let className = "";
         let icon = <Fragment />;
+        let element = <Fragment />;
         if (this.state.error.hasError) {
             className = "meta-validation-error";
             icon = this.context.getIcon("error") || <Fragment />;
+            element = <ErrorMsg>{this.state.error.errorMsg}</ErrorMsg>
         } else {
             if (infoMsg) {
                 className = "meta-validation-info";
                 icon = this.context.getIcon("info") || <Fragment />;
+                element = <InfoMsg>{infoMsg}</InfoMsg>
             }
         }
         return (
             <FormHelperText className={className}>
                 {icon}
-                {this.state.error.errorMsg || infoMsg}
+                {element}
             </FormHelperText>
         );
     }
