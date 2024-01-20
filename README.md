@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-fix #20: form wizard not working with schema
+Update to latest core library usage (metaforms-core)
   
 ## Advantages and features
 - Mui Components
