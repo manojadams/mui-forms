@@ -16,7 +16,7 @@ function PhoneControl(props: IProps) {
     return (
         <S.Phone>
             <PhoneInput
-                country={config?.country as string ?? "in"}
+                country={(config?.country as string) ?? "in"}
                 value={props.form.value as string}
                 onChange={(phone: string) => {
                     props.handleChange(null, phone);

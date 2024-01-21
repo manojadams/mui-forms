@@ -372,12 +372,12 @@ export default class FormControl extends BaseFormControl {
         if (this.state.error.hasError) {
             className = "meta-validation-error";
             icon = this.context.getIcon("error") || <Fragment />;
-            element = <ErrorMsg>{this.state.error.errorMsg}</ErrorMsg>
+            element = <ErrorMsg>{this.state.error.errorMsg}</ErrorMsg>;
         } else {
             if (infoMsg) {
                 className = "meta-validation-info";
                 icon = this.context.getIcon("info") || <Fragment />;
-                element = <InfoMsg>{infoMsg}</InfoMsg>
+                element = <InfoMsg>{infoMsg}</InfoMsg>;
             }
         }
         return (

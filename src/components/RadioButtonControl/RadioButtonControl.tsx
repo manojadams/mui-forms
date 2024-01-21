@@ -10,7 +10,6 @@ interface IProps extends IFieldProps {
 }
 
 function RadioButtonControl(props: IProps) {
-    const isRow = props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
     const wrapperClassName =
         props.className +
         (props.form?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "");
@@ -19,7 +18,7 @@ function RadioButtonControl(props: IProps) {
     const startIconName = icons ? FormUtils.getIconNameByPosition("start", icons) : "";
     const endIconName = icons ? FormUtils.getIconNameByPosition("end", icons) : "";
     const handleClick = (e: React.MouseEvent) => {
-        let button = e.target as any;
+        let button = e.target as HTMLElement | HTMLButtonElement | null;
         if (button && button.tagName !== "button") {
             button = button.closest("button");
         }
@@ -31,12 +30,12 @@ function RadioButtonControl(props: IProps) {
                 case "boolean":
                     {
                         // eslint-disable-next-line dot-notation
-                        const val = e.target["value"] === "true" ? true : false;
+                        const val = e.target["value"] === "true";
                         props.handleChange(e, val);
                     }
                     break;
                 default: {
-                    const val2 = button.value;
+                    const val2 = (button as HTMLButtonElement)?.value;
                     props.handleChange(e, val2);
                 }
             }

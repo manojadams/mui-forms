@@ -4,6 +4,4 @@ export const ErrorMsg = styled.span`
     color: #d32f2f;
 `;
 
-export const InfoMsg = styled.span`
-    
-`;
+export const InfoMsg = styled.span``;
