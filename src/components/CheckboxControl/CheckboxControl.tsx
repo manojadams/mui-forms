@@ -47,11 +47,17 @@ function CheckboxControl(props: IProps) {
                                             if (checked) {
                                                 currentValues = [...values, currentValue];
                                             } else {
-                                                currentValues = values.filter(val => val !== option.value);
+                                                currentValues = values.filter((val) => val !== option.value);
                                             }
-                                            props.handleChange(e, currentValues.length > 0 ? currentValues.join(",") : "");
+                                            props.handleChange(
+                                                e,
+                                                currentValues.length > 0 ? currentValues.join(",") : ""
+                                            );
                                         } else {
-                                            props.handleChange(e, checked ? MuiFormUtil.getCheckboxValue(option.value) : "");
+                                            props.handleChange(
+                                                e,
+                                                checked ? MuiFormUtil.getCheckboxValue(option.value) : ""
+                                            );
                                         }
                                         props.handleValidation();
                                     }}

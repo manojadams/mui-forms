@@ -8,15 +8,15 @@ class MuiFormUtil {
 
     /**
      * Get checkbox value - checkbox should contain only string values
-     * @param value 
-     * @returns 
+     * @param value
+     * @returns
      */
     static getCheckboxValue(value: Exclude<TValue, Date>) {
         if (value === null || value === undefined) {
             return value;
         }
         let checkboxValue = value;
-        switch(typeof checkboxValue) {
+        switch (typeof checkboxValue) {
             case "boolean":
                 checkboxValue = checkboxValue.toString();
                 break;

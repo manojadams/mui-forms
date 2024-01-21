@@ -90,11 +90,11 @@ export default function Search(props: IProps) {
                     />
                 )}
             />
-            {props.loading &&
-                <Box sx={{ width: '100%' }}>
+            {props.loading && (
+                <Box sx={{ width: "100%" }}>
                     <LinearProgress />
                 </Box>
-            }
+            )}
         </Fragment>
     );
 }

@@ -10,13 +10,7 @@ class FormWizard extends BaseFormWizard {
         return (
             <Row>
                 {field && (
-                    <FormFieldRenderer
-                        {...field}
-                        key={field.name}
-                        section={field.name}
-                        sync={fn}
-                        form={form as any}
-                    />
+                    <FormFieldRenderer {...field} key={field.name} section={field.name} sync={fn} form={form as any} />
                 )}
             </Row>
         );

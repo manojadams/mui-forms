@@ -1,11 +1,10 @@
-import CoreFormRenderer, { IFormRenderer } from "@manojadams/metaforms-core";
+import CoreFormRenderer, { IFormRenderer, metaAPI } from "@manojadams/metaforms-core";
 import React from "react";
 import FormControl from "./forms/FormControl";
 import FormGroup from "./forms/FormGroup";
 import { FormStepper } from "./forms/FormStepper";
 import { Button } from "@mui/material";
 import FormWizard from "./forms/FormWizard";
-import { metaAPI } from "@manojadams/metaforms-core";
 
 /**
  * Dynamically render forms using `metaforms schema` and `mui components`
@@ -30,8 +29,6 @@ class MuiForms extends React.Component<IFormRenderer> {
     }
 }
 
-export {
-    metaAPI
-};
+export { metaAPI };
 
 export default MuiForms;

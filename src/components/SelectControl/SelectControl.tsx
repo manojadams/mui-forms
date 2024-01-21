@@ -58,11 +58,11 @@ function SelectControl(props: IProps) {
                         );
                     })}
             </Select>
-            {props.loading &&
-                <Box sx={{ width: '100%' }}>
+            {props.loading && (
+                <Box sx={{ width: "100%" }}>
                     <LinearProgress />
                 </Box>
-            }
+            )}
             {props.showValidation(infoText)}
         </FormControl>
     );

@@ -23,7 +23,6 @@ describe("t1", () => {
                 onSubmit={() => {
                     // todo
                 }}
-                
             />
         );
         expect(output.getByText("abc")).toBeTruthy();
