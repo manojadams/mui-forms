@@ -4,7 +4,8 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-[https://github.com/manojadams/mui-forms/issues/26](Enhancement: Pass form data on change event)
+- [https://github.com/manojadams/mui-forms/issues/26](Enhancement: Pass form data on change event)
+- update input property `onChangeMode` to `changeResponseMode`
   
 ## Advantages and features
 - Mui Components
