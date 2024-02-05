@@ -74,3 +74,5 @@ import schema from "<schema_location.json>";
 | onNext     | handle to be called when user tries to move to next form section (grouped forms)     | Optional  |
 | onPrevious | handle to be called when user tries to move to previous form section (grouped forms) | Optional  |
 | onSubmit   | handle to be called on form submission                                               | Mandatory |
+| onChangeMode   | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter.| Optional |
+| nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button | Optional |
