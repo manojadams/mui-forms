@@ -4,14 +4,14 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-Update to latest core library usage (metaforms-core)
+[https://github.com/manojadams/mui-forms/issues/26](Enhancement: Pass form data on change event)
   
 ## Advantages and features
 - Mui Components
 - Built-in layouting
 - Supports custom components
 - Easily define field relationships and build advanced forms
-- Load data from remote api
+- Load data from remote API
 
 ## Install
 
