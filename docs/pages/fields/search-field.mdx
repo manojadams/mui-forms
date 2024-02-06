@@ -1,4 +1,65 @@
+import SearchField from "../../components/fields/SearchField";
+import SchemaViewer from "../../components/SchemaViewer";
+import schema from "../../components/fields/SearchField/schema.json";
+
 ## Search
+This field selects an option from a list of options and can also be used to search within the options list.
+
+<br />
+<SearchField />
+
+## Schema
+
+<SchemaViewer value={schema} />
+
+## Field Properties
+
+| Name        | Description                                |
+| ----------- | ------------------------------------------ |
+| displayType | The displayType for this field (`select`)  |
+| displayName | The display name used for this field       |
+| options     | An list of available options for the field |
+| value       | The value used by this field               |
+| placeholder | The hint value used for this field         |
+| isDisabled  | Marks the field as disabled                |
+| isReadonly  | Marks the field as readonly                |
+
+## Config
+
+The configuration defines how to load dropdown options for the `select` field. Use this to load options from remote api and configure its behaviour.
+| Name | Description |
+| ----------- | ------------------------------------------ |
+| url | The api endpoint to load dropdown options |
+| pathParams | The path parameters of the url. Use this for dynamic path parameters |
+| queryParams | List of query parameters. Use this for dynamic query parameters |
+| valueKey | The key from the response for value of the field |
+| labelKey | The key from the response for display name of the field |
+| responseKey | The key from response which contains the results |
+| lazy | Load options lazily. For example: load the options on opening dropdown |
+
+## Query params
+Query params can be used to pass additional data as part of the api url. This data can either be hardcoded or configured to pass data dynamically from other fields.
+
+**Format of query params:**
+It accepts an array/list of query params.
+
+```
+[<QUERY_PARAM1>, <QUERY_PARAM2>,...]
+```
+
+**Format of query param:**
+It accepts name and value in list like format.
+
+```
+[<NAME_OF_QUERY_PARAM>, <VALUE_OF_QUERY_PARAM>]
+```
+
+- NAME_OF_QUERY_PARAM is just a string
+- VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
+  - type: 'fieldValue' indicates the value has to be taken from another field
+  - ref: name of the reference field from where value can be copied
+
+
 
 ### Sample form usage with api information:
 
