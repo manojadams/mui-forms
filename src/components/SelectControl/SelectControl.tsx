@@ -34,10 +34,8 @@ function SelectControl(props: IProps) {
                         props.handleOpen();
                     } else {
                         // check config
-                        if (props.form.config && props.form.config.type === "url") {
-                            if (props.form?.config?.lazy) {
-                                props.handleOpen();
-                            }
+                        if (props.form.config?.url && props.form?.config?.lazy) {
+                            props.handleOpen();
                         }
                     }
                 }}
