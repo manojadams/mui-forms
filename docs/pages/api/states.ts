@@ -19,11 +19,11 @@ const afStates = [{
 function getStates(req: NextApiRequest, res: NextApiResponse) {
     const country = req.query.country;
     if (country === "IN") {
-        return res.json(inStates);
+        return res.json({data:inStates});
     } else if (country === "ZA") {
-        return res.json(afStates);
+        return res.json({data:afStates});
     } else {
-        return res.json([]);
+        return res.json({data:[]});
     }
 }
 
