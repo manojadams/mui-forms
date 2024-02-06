@@ -1,6 +1,6 @@
 ## Events
 
-These define field events and actions.
+It is used to configure custom behaviour for fields with certain events and actions.
 
 ## Properties
 
@@ -35,3 +35,38 @@ This event is emitted whenever there is a change in the value of the field
 | setter          | Used to set the value of the field                         |
 | eventEmitter    | Used to emit a global event                                |
 | setterCondition | Used to set the value of the field based on some condition |
+
+
+### Event Emitter properties
+
+Following is a list of internal events which can be used to implement advanced form behaviours.
+
+| Event Type            | Description                                          |
+| --------------- | ---------------------------------------------------------- |
+| $end_of_page      | Used to set the last page in a group form                |
+| $reset_end_of_page | Used to reset the last page in a group form             |
+
+#### Example usage
+
+```
+ "events": {
+        "change": [
+            {
+                "type": "event_emitter",
+                "eventType": "$end_of_page",
+                "payload": {
+                    "value": 3
+                },
+                "value": "new"
+            },
+            {
+                "type": "event_emitter",
+                "eventType": "$reset_end_of_page",
+                "payload": "",
+                "value": "renewal"
+            }
+        ]
+    }
+```
+
+
