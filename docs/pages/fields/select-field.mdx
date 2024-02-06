@@ -38,6 +38,29 @@ The configuration defines how to load dropdown options for the `select` field. U
 | responseKey | The key from response which contains the results |
 | lazy | Load options lazily. For example: load the options on opening dropdown |
 
+## Query params
+Query params can be used to pass additional data as part of the api url. This data can either be hardcoded or configured to pass data dynamically from other fields.
+
+**Format of query params:**
+It accepts an array/list of query params.
+
+```
+[<QUERY_PARAM1>, <QUERY_PARAM2>,...]
+```
+
+**Format of query param:**
+It accepts name and value in list like format.
+
+```
+[<NAME_OF_QUERY_PARAM>, <VALUE_OF_QUERY_PARAM>]
+```
+
+- NAME_OF_QUERY_PARAM is just a string
+- VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
+  - type: 'fieldValue' indicates the value has to be taken from another field
+  - ref: name of the reference field from where value can be copied
+
+
 ## Common Properties
 
 [Click here to go to common properties](/fields/common-properties)
