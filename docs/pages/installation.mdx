@@ -66,6 +66,7 @@ import schema from "<schema_location.json>";
 | Name       | Description                                                                          | Type      |
 | ---------- | ------------------------------------------------------------------------------------ | --------- |
 | name       | the name of the form                                                                 | Optional  |
+| config     | Configuration options for the form                                                   | Optional  |
 | schema     | json based schema to render the form                                                 | Mandatory |
 | controls   | custom fields                                                                        | Optional  |
 | components | custom interactive fields                                                            | Optional  |
@@ -76,3 +77,11 @@ import schema from "<schema_location.json>";
 | onSubmit   | handle to be called on form submission                                               | Mandatory |
 | changeResponseMode   | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter.| Optional |
 | nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button | Optional |
+
+
+## Config properties
+
+| Name | Values | Default Value | Description | Type |
+|------|---------|---------------|---------------|---------------------|
+| variant | outlined, standard, filled | outlined| Specified the field outlook. | Optional |
+| size | small, medium, large| medium | Specified the field sizes. | Optional |
