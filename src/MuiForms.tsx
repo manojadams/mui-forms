@@ -20,6 +20,11 @@ class MuiForms extends React.Component<IFormRenderer> {
                     cancel: <Button variant="text">Cancel</Button>
                 }}
                 {...this.props}
+                config={{
+                    gapX: 1,
+                    gapY: 1,
+                    ...this.props.config
+                }}
                 baseFormControl={FormControl}
                 baseFormGroup={FormGroup}
                 baseFormStepper={FormStepper}
