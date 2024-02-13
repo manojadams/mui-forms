@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [https://github.com/manojadams/mui-forms/issues/29](fix dynamic data loading for select control)
+- [fix #35: add support for post-api call](https://github.com/manojadams/mui-forms/issues/35)
   
 ## Advantages and features
 - Mui Components
@@ -68,6 +68,6 @@ Open source contribution is welcome.
 
 ## License
 
-MIT © [manojgetwealthy](https://github.com/manojgetwealthy)
+MIT © [manojadams](https://github.com/manojadams)
 
 ## Give a ⭐️ if you liked this project!
