@@ -1,0 +1,46 @@
+# Field Gaps
+
+Config properties like `gapX` and `gapY` can be used to customize field gaps/spacing.
+
+import Spacing from "../components/Spacing";
+
+## Default
+
+<Spacing gapX={1} gapY={1} />
+
+## More gaps
+
+<Spacing gapX={2} gapY={2} />
+
+### Schema
+```
+    <MuiForms
+        config={{
+            gapX: 2,
+            gapY: 2
+        }}
+        schema={schema}
+        onSubmit={formData => {
+            // TO DO
+        }}
+    />
+```
+
+## Large gaps
+
+<Spacing gapX={3} gapY={3} />
+
+### Schema
+```
+    <MuiForms
+        config={{
+            gapX: 3,
+            gapY: 3
+        }}
+        schema={schema}
+        onSubmit={formData => {
+            // TO DO
+        }}
+    />
+```
+

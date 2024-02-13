@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
-    "@manojadams/metaforms-core": "^3.0.18",
+    "@manojadams/metaforms-core": "^3.0.40",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
     "@textea/json-viewer": "^3.1.1",
@@ -26,7 +26,7 @@
     "chart.js": "^4.4.0",
     "framer-motion": "^10.16.1",
     "layout-emotions": "^1.0.13",
-    "mui-forms": "^1.0.13",
+    "mui-forms": "^1.0.35",
     "next": "^13.4.19",
     "nextra": "^2.12.2",
     "nextra-theme-docs": "^2.12.2",
