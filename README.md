@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #35: add support for post-api call](https://github.com/manojadams/mui-forms/issues/35)
+- [fix #37: add support for reading initial form data](https://github.com/manojadams/mui-forms/issues/37)
   
 ## Advantages and features
 - Mui Components
