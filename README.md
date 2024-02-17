@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #37: add support for reading initial form data](https://github.com/manojadams/mui-forms/issues/37)
+- [fix #40: add support for html props in basic form controls](https://github.com/manojadams/mui-forms/issues/40)
   
 ## Advantages and features
 - Mui Components
