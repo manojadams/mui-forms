@@ -73,40 +73,79 @@ import schemaQueryParams from "../../components/fields/SelectField/schema-query-
 
 A sample request body payload for HTTP method 'post' with request body parameters and url.
 
+### Demo
+https://codesandbox.io/p/sandbox/add-to-cart-mui-forms-975cdw?file=%2Fsrc%2FAddToCart.tsx
+
+### Schema example
+
 ```
 {
-    "name": "product_details",
-    "meta": {
-        "config": {
-            "url": "https://dummyjson.com/carts/add",
-            "urlType": "remote",
-            "requestType": "post",
-            "requestBody": {
-                "userId": 1,
-                "products": [{
-                    "id": "$0",
-                    "quantity": 1
-                }, {
-                    "id": "$1",
-                    "quantity": 1
-                }]
-            },
-            "requestBodyParams": [{
-                "type": "fieldValue",
-                "ref": "product1"
+    "fields": [{
+        "name": "product1",
+        "meta": {
+            "displayName": "Product 1",
+            "displayType": "select",
+            "options": [{
+                "label": "Product1",
+                "value": "1"
             }, {
-                "type": "fieldValue",
-                "ref": "product2"
-            }],
-            "responseKey": "products",
-            "labelKey": "title",
-            "valueKey": "total",
-            "lazy": "true"
-        },
-        "displayName": "Product Details",
-        "displayType": "select",
-        "options": []
-    }
+                "label": "Product2",
+                "value": "2"
+            }, {
+                "label": "Product3",
+                "value": "3"
+            }]
+        }
+    }, {
+        "name": "product2",
+        "meta": {
+            "displayName": "Product 2",
+            "displayType": "select",
+            "options": [{
+                "label": "Product1",
+                "value": "1"
+            }, {
+                "label": "Product2",
+                "value": "2"
+            }, {
+                "label": "Product3",
+                "value": "3"
+            }]
+        }
+    }, {
+        "name": "product_details",
+        "meta": {
+            "config": {
+                "url": "https://dummyjson.com/carts/add",
+                "urlType": "remote",
+                "requestType": "post",
+                "requestBody": {
+                    "userId": 1,
+                    "products": [{
+                        "id": "$0",
+                        "quantity": 1
+                    }, {
+                        "id": "$1",
+                        "quantity": 1
+                    }]
+                },
+                "requestBodyParams": [{
+                    "type": "fieldValue",
+                    "ref": "product1"
+                }, {
+                    "type": "fieldValue",
+                    "ref": "product2"
+                }],
+                "responseKey": "products",
+                "labelKey": "title",
+                "valueKey": "total",
+                "lazy": "true"
+            },
+            "displayName": "Product Details",
+            "displayType": "select",
+            "options": []
+        }
+    }]
 }
 ```
 
