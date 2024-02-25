@@ -12,7 +12,6 @@
 - Supports custom components
 - Easily define field relationships and build advanced forms
 - Load data from remote API
-- Load data from remote API
 
 ## Install
 
