@@ -6,7 +6,10 @@
                 "displayName": "Select Country",
                 "displayType": "search",
                 "value": "IN",
-                "options": [{"label": "India", "value": "IN"},{"label": "South Africa", "value": "ZA"}]
+                "options": [
+                    { "label": "India", "value": "IN" },
+                    { "label": "South Africa", "value": "ZA" }
+                ]
             }
         }
     ]

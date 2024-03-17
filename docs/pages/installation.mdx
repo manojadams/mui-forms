@@ -63,28 +63,26 @@ import schema from "<schema_location.json>";
 
 ## Basic Properties
 
-| Name       | Description                                                                          | Type      |
-| ---------- | ------------------------------------------------------------------------------------ | --------- |
-| name       | the name of the form                                                                 | Optional  |
-| config     | Configuration options for the form                                                   | Optional  |
-| schema     | json based schema to render the form                                                 | Mandatory |
-| controls   | custom fields                                                                        | Optional  |
-| components | custom interactive fields                                                            | Optional  |
-| onChange   | handle to be called on field value change                                            | Optional  |
-| onError    | handle to be called on field error                                                   | Optional  |
-| onNext     | handle to be called when user tries to move to next form section (grouped forms)     | Optional  |
-| onPrevious | handle to be called when user tries to move to previous form section (grouped forms) | Optional  |
-| onSubmit   | handle to be called on form submission                                               | Mandatory |
-| changeResponseMode   | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter.| Optional |
-| nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button | Optional |
-
+| Name               | Description                                                                                                                                                                                                                                              | Type      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| name               | the name of the form                                                                                                                                                                                                                                     | Optional  |
+| config             | Configuration options for the form                                                                                                                                                                                                                       | Optional  |
+| schema             | json based schema to render the form                                                                                                                                                                                                                     | Mandatory |
+| controls           | custom fields                                                                                                                                                                                                                                            | Optional  |
+| components         | custom interactive fields                                                                                                                                                                                                                                | Optional  |
+| onChange           | handle to be called on field value change                                                                                                                                                                                                                | Optional  |
+| onError            | handle to be called on field error                                                                                                                                                                                                                       | Optional  |
+| onNext             | handle to be called when user tries to move to next form section (grouped forms)                                                                                                                                                                         | Optional  |
+| onPrevious         | handle to be called when user tries to move to previous form section (grouped forms)                                                                                                                                                                     | Optional  |
+| onSubmit           | handle to be called on form submission                                                                                                                                                                                                                   | Mandatory |
+| changeResponseMode | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter.                  | Optional  |
+| nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button | Optional  |
 
 ## Config properties
 
-| Name | Values | Default Value | Description | Type |
-|------|---------|---------------|---------------|---------------------|
-| variant | outlined, standard, filled | outlined| Specified the field outlook. | Optional |
-| size | small, medium, large| medium | Specified the field sizes. | Optional |
-| gapX | Any number | NA | Adds horizontal spacing between fields. <br /> All units are in rem. | Optional |
-| gapY | Any number | NA | Adds vertical spacing between fields. <br /> All units are in rem. | Optional |
-
+| Name    | Values                     | Default Value | Description                                                          | Type     |
+| ------- | -------------------------- | ------------- | -------------------------------------------------------------------- | -------- |
+| variant | outlined, standard, filled | outlined      | Specified the field outlook.                                         | Optional |
+| size    | small, medium, large       | medium        | Specified the field sizes.                                           | Optional |
+| gapX    | Any number                 | NA            | Adds horizontal spacing between fields. <br /> All units are in rem. | Optional |
+| gapY    | Any number                 | NA            | Adds vertical spacing between fields. <br /> All units are in rem.   | Optional |

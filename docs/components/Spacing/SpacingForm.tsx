@@ -2,8 +2,7 @@ import React from "react";
 import MuiForms from "mui-forms";
 import schema from "./schema.json";
 
-const SpacingForm = ({gapX, gapY}) => {
-
+const SpacingForm = ({ gapX, gapY }) => {
     return (
         <div>
             <MuiForms
@@ -12,12 +11,12 @@ const SpacingForm = ({gapX, gapY}) => {
                     gapY
                 }}
                 schema={schema}
-                onSubmit={formData => {
+                onSubmit={(formData) => {
                     // TO DO
                 }}
             />
         </div>
-    )
-}
+    );
+};
 
 export default SpacingForm;

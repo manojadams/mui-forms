@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import GitHubIcon from '@mui/icons-material/GitHub';
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Footer() {
     return (
@@ -8,15 +8,17 @@ function Footer() {
             <InnerWrapper>
                 <div>
                     <p>
-                        <GitHubIcon style={{
-                            marginRight: "8px"
-                        }}/>
-                        <a href="https://github.com/manojadams/mui-forms">
-                            Star us at github
-                        </a>
+                        <GitHubIcon
+                            style={{
+                                marginRight: "8px"
+                            }}
+                        />
+                        <a href="https://github.com/manojadams/mui-forms">Star us at github</a>
                     </p>
                 </div>
-                <div><p>&copy; Copyright 2023 MuiForms.</p></div>
+                <div>
+                    <p>&copy; Copyright 2023 MuiForms.</p>
+                </div>
             </InnerWrapper>
         </Wrapper>
     );

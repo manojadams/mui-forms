@@ -2,18 +2,18 @@
 
 These are the common properties of a field ( inside `meta` field)
 
-| Field        | Data type                         | Default Value | Description                                                                                                                |
-| ------------ | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| className    | String                            | None          | Pass classname for custom styling or reference                                                                             |
-| displayName  | String                            | None          | It is used to display name of the field in the form                                                                        |
-| displayType  | String                            | None          | It is used to determine the field type to be displayed. Supported options:                                                 |
-| displayProps | Object                            | None          | It is used for field layouting. Refer for details: [DisplayType](/layouting/about)                                         |
+| Field        | Data type                         | Default Value | Description                                                                                                                                                                                                                |
+| ------------ | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| className    | String                            | None          | Pass classname for custom styling or reference                                                                                                                                                                             |
+| displayName  | String                            | None          | It is used to display name of the field in the form                                                                                                                                                                        |
+| displayType  | String                            | None          | It is used to determine the field type to be displayed. Supported options:                                                                                                                                                 |
+| displayProps | Object                            | None          | It is used for field layouting. Refer for details: [DisplayType](/layouting/about)                                                                                                                                         |
 | htmlProps    | Object                            | None          | It is used for setting native html attributes to basic form controls like text_field, select, number, password, email etc. <br /> Example of such attributes would be like `step`, `min`, `max` for displayType **number** |
-| value        | String <br/> Boolean <br/> Number | None          | It is value of the field                                                                                                   |
-| type         | String                            | None          | Used for hidden fields and field section. <br/>Value for hidden field: `hidden`. <br/> Value for section: `section`        |
-| validation   | Object                            |               | For field validation                                                                                                       |
-| dependencies | Object                            |               | Defines relationships and dependencies between various fields. Refer here for details: [Dependencies](/dependencies/about) |
-| events       | Object                            |               | Defines field level events                                                                                                 |
+| value        | String <br/> Boolean <br/> Number | None          | It is value of the field                                                                                                                                                                                                   |
+| type         | String                            | None          | Used for hidden fields and field section. <br/>Value for hidden field: `hidden`. <br/> Value for section: `section`                                                                                                        |
+| validation   | Object                            |               | For field validation                                                                                                                                                                                                       |
+| dependencies | Object                            |               | Defines relationships and dependencies between various fields. Refer here for details: [Dependencies](/dependencies/about)                                                                                                 |
+| events       | Object                            |               | Defines field level events                                                                                                                                                                                                 |
 
 ## Common `validation` properties
 

@@ -6,7 +6,10 @@
                 "displayName": "Select Country",
                 "displayType": "select",
                 "value": "IN",
-                "options": [{"label": "India", "value": "IN"},{"label": "South Africa", "value": "ZA"}],
+                "options": [
+                    { "label": "India", "value": "IN" },
+                    { "label": "South Africa", "value": "ZA" }
+                ],
                 "events": {
                     "change": {
                         "ref": "states",
@@ -15,13 +18,14 @@
                     }
                 }
             }
-        }, {
+        },
+        {
             "name": "states",
             "meta": {
                 "config": {
                     "lazy": "true",
                     "url": "/api/states",
-                    "queryParams": [["country", {"type": "fieldValue", "ref": "countries"}]],
+                    "queryParams": [["country", { "type": "fieldValue", "ref": "countries" }]],
                     "responseKey": "data",
                     "labelKey": "label",
                     "valueKey": "value"

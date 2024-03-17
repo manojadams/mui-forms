@@ -33,8 +33,8 @@ The configuration defines how to load dropdown options for the `select` field. U
 | url | The api endpoint to load dropdown options |
 | pathParams | The path parameters of the url. Use this for dynamic path parameters |
 | queryParams | List of query parameters. Use this for dynamic query parameters |
-| requestType | Represents HTTP method used for url. Options are `get`, `post`, `put`, `delete`. <br /> If none is specified and **url** key is present, then default value is **`get`**| 
-| requestBody | A JSON payload. Parameters are representes as `$0`, `$1` and so forth. <br />Parameters are 0 indexed.| 
+| requestType | Represents HTTP method used for url. Options are `get`, `post`, `put`, `delete`. <br /> If none is specified and **url** key is present, then default value is **`get`**|
+| requestBody | A JSON payload. Parameters are representes as `$0`, `$1` and so forth. <br />Parameters are 0 indexed.|
 | requestBodyParams | List of parameter values of request body. Each index value in the requestBodyParams represents the same index parameter form requestParams |
 | valueKey | The key from the response for value of the field |
 | labelKey | The key from the response for display name of the field |
@@ -42,6 +42,7 @@ The configuration defines how to load dropdown options for the `select` field. U
 | lazy | Load options lazily. For example: load the options on opening dropdown |
 
 ## Query params
+
 Query params can be used to pass additional data as part of the api url. This data can either be hardcoded or configured to pass data dynamically from other fields.
 
 **Format of query params:**
@@ -58,10 +59,10 @@ It accepts name and value in list like format.
 [<NAME_OF_QUERY_PARAM>, <VALUE_OF_QUERY_PARAM>]
 ```
 
-- NAME_OF_QUERY_PARAM is just a string
-- VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
-  - type: 'fieldValue' indicates the value has to be taken from another field
-  - ref: name of the reference field from where value can be copied
+-   NAME_OF_QUERY_PARAM is just a string
+-   VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
+    -   type: 'fieldValue' indicates the value has to be taken from another field
+    -   ref: name of the reference field from where value can be copied
 
 import schemaQueryParams from "../../components/fields/SelectField/schema-query-params.json";
 
@@ -69,11 +70,12 @@ import schemaQueryParams from "../../components/fields/SelectField/schema-query-
 
 <SchemaViewer value={schemaQueryParams} />
 
-## Request Body 
+## Request Body
 
 A sample request body payload for HTTP method 'post' with request body parameters and url.
 
 ### Demo
+
 https://codesandbox.io/p/sandbox/add-to-cart-mui-forms-975cdw?file=%2Fsrc%2FAddToCart.tsx
 
 ### Schema example

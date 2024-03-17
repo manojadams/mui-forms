@@ -3,6 +3,7 @@ import SchemaViewer from "../../components/SchemaViewer";
 import schema from "../../components/fields/SearchField/schema.json";
 
 ## Search
+
 This field selects an option from a list of options and can also be used to search within the options list.
 
 <br />
@@ -38,6 +39,7 @@ The configuration defines how to load dropdown options for the `select` field. U
 | lazy | Load options lazily. For example: load the options on opening dropdown |
 
 ## Query params
+
 Query params can be used to pass additional data as part of the api url. This data can either be hardcoded or configured to pass data dynamically from other fields.
 
 **Format of query params:**
@@ -54,12 +56,10 @@ It accepts name and value in list like format.
 [<NAME_OF_QUERY_PARAM>, <VALUE_OF_QUERY_PARAM>]
 ```
 
-- NAME_OF_QUERY_PARAM is just a string
-- VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
-  - type: 'fieldValue' indicates the value has to be taken from another field
-  - ref: name of the reference field from where value can be copied
-
-
+-   NAME_OF_QUERY_PARAM is just a string
+-   VALUE_OF_QUERY_PARAM can be a hardcoded value or can reference value from another field like this:
+    -   type: 'fieldValue' indicates the value has to be taken from another field
+    -   ref: name of the reference field from where value can be copied
 
 ### Sample form usage with api information:
 
@@ -68,14 +68,14 @@ import MuiForms from "mui-forms";
 
 function Form() {
     return (
-        <MuiForms 
+        <MuiForms
             config={{
                 variant: "outlined"
             }}
             rest={{
-                "config": {
-                    "apihost": "",
-                    "basepath": "/api/v0/rockets"
+                config: {
+                    apihost: "",
+                    basepath: "/api/v0/rockets"
                 }
             }}
             schema={schema}

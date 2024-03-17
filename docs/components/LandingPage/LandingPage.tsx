@@ -11,7 +11,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 // import Cube from "../Cube";
 
 interface IProps {
-    children: ReactNode;
+    children: JSX.Element;
 }
 function LandingPage(props: IProps) {
     const router = useRouter();
@@ -74,7 +74,9 @@ function LandingPage(props: IProps) {
                             <ul>
                                 <li>
                                     <ArrowRightAltIcon />
-                                    <a href="/fields/select-field#how-to-load-options-from-remote-api">Load data from API</a>
+                                    <a href="/fields/select-field#how-to-load-options-from-remote-api">
+                                        Load data from API
+                                    </a>
                                 </li>
                                 <li>
                                     <ArrowRightAltIcon />
