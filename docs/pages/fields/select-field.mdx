@@ -33,6 +33,9 @@ The configuration defines how to load dropdown options for the `select` field. U
 | url | The api endpoint to load dropdown options |
 | pathParams | The path parameters of the url. Use this for dynamic path parameters |
 | queryParams | List of query parameters. Use this for dynamic query parameters |
+| requestType | Represents HTTP method used for url. Options are `get`, `post`, `put`, `delete`. <br /> If none is specified and **url** key is present, then default value is **`get`**| 
+| requestBody | A JSON payload. Parameters are representes as `$0`, `$1` and so forth. <br />Parameters are 0 indexed.| 
+| requestBodyParams | List of parameter values of request body. Each index value in the requestBodyParams represents the same index parameter form requestParams |
 | valueKey | The key from the response for value of the field |
 | labelKey | The key from the response for display name of the field |
 | responseKey | The key from response which contains the results |
@@ -65,6 +68,86 @@ import schemaQueryParams from "../../components/fields/SelectField/schema-query-
 ### Schema example with query params
 
 <SchemaViewer value={schemaQueryParams} />
+
+## Request Body 
+
+A sample request body payload for HTTP method 'post' with request body parameters and url.
+
+### Demo
+https://codesandbox.io/p/sandbox/add-to-cart-mui-forms-975cdw?file=%2Fsrc%2FAddToCart.tsx
+
+### Schema example
+
+```
+{
+    "fields": [{
+        "name": "product1",
+        "meta": {
+            "displayName": "Product 1",
+            "displayType": "select",
+            "options": [{
+                "label": "Product1",
+                "value": "1"
+            }, {
+                "label": "Product2",
+                "value": "2"
+            }, {
+                "label": "Product3",
+                "value": "3"
+            }]
+        }
+    }, {
+        "name": "product2",
+        "meta": {
+            "displayName": "Product 2",
+            "displayType": "select",
+            "options": [{
+                "label": "Product1",
+                "value": "1"
+            }, {
+                "label": "Product2",
+                "value": "2"
+            }, {
+                "label": "Product3",
+                "value": "3"
+            }]
+        }
+    }, {
+        "name": "product_details",
+        "meta": {
+            "config": {
+                "url": "https://dummyjson.com/carts/add",
+                "urlType": "remote",
+                "requestType": "post",
+                "requestBody": {
+                    "userId": 1,
+                    "products": [{
+                        "id": "$0",
+                        "quantity": 1
+                    }, {
+                        "id": "$1",
+                        "quantity": 1
+                    }]
+                },
+                "requestBodyParams": [{
+                    "type": "fieldValue",
+                    "ref": "product1"
+                }, {
+                    "type": "fieldValue",
+                    "ref": "product2"
+                }],
+                "responseKey": "products",
+                "labelKey": "title",
+                "valueKey": "total",
+                "lazy": "true"
+            },
+            "displayName": "Product Details",
+            "displayType": "select",
+            "options": []
+        }
+    }]
+}
+```
 
 ## Common Properties
 
