@@ -1,0 +1,63 @@
+# Footer
+
+The footer section contains the following action buttons:
+- submit
+- next
+- previous
+
+The above footer section is present by default.
+
+## Customize footer buttons
+
+There are two ways to customize footer buttons:
+- Customize default footer buttons for styling and display
+- Using entirely new buttons components
+
+### 1. Customize default buttons
+
+Class names and display name can be customized to existing buttons by modifying the input schema for footer buttons.
+
+#### For example
+
+The following is the input schema section containing only button related custom data with following properties:
+- displayName - for customizing button text
+- className - for adding custom classname to button
+
+```json
+    "buttons": [{
+        "name": "previous",
+        "meta": {
+            "type": "previous",
+            "displayName": "Back"
+        }
+    }, {
+        "name": "next",
+        "meta": {
+            "className": "bg-gray-800",
+            "displayName": "Go to next screen",
+            "type": "next"
+        }
+    }, {
+        "name": "submit",
+        "meta": {
+            "type": "submit",
+            "className": "bg-gray-800"
+        }
+    }]
+```
+
+### 2. Using new button components
+
+New button components can be passed as jsx elements as input properties in the following way:
+
+```jsx
+    <MuiForms 
+        ...
+        ...
+        buttons={{
+            next: <Button variant="contained">Next</Button>, // Button is a third party component or custom button component
+            previous: <Button variant="outlined">Previous</Button>,
+            submit: <Button variant="contained">Login</Button>
+        }}
+    />
+```

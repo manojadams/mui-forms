@@ -11,9 +11,6 @@ const config: DocsThemeConfig = {
     project: {
         link: "https://github.com/manojadams/mui-forms"
     },
-    chat: {
-        link: "https://discord.com/channels/1118549772446470215/1118549772446470217"
-    },
     docsRepositoryBase: "https://github.com/manojadams/mui-forms/tree/docs/docs",
     footer: {
         text: "© Copyright 2023 MUI forms",
