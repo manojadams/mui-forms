@@ -18,6 +18,7 @@ import MultiSelectControl from "../components/MultiSelectControl";
 import FileControl from "../components/FileControl/FileControl";
 import CustomControl from "../components/CustomControl";
 import { ErrorMsg, InfoMsg } from "../common/styles";
+import MuiFormIcon from "../components/MuiFormIcon";
 
 export default class FormControl extends BaseFormControl {
     variant: string;
@@ -42,6 +43,20 @@ export default class FormControl extends BaseFormControl {
 
     getDisplayLabel() {
         return this.props.form.validation?.required ? this.props.form.displayName + " *" : this.props.form.displayName;
+    }
+
+    getIcon() {
+        if (this.props.form.icon || this.props.form.iconName) {
+            const iconPosition = this.props.form.icon?.position ?? "end";
+            return {
+                InputProps: {
+                    [iconPosition === "start" ? "startAdornment" : "endAdornment"]: (
+                        <MuiFormIcon name={this.props.form.iconName} config={this.props.form.icon} />
+                    )
+                }
+            };
+        }
+        return {};
     }
 
     label() {
@@ -129,15 +144,15 @@ export default class FormControl extends BaseFormControl {
                 maxLength: maxLength
             };
         }
-        return this.input("text", htmlProps);
+        return this.input("text", htmlProps, this.getIcon());
     }
 
     password() {
-        return this.input("password");
+        return this.input("password", {}, this.getIcon());
     }
 
     email() {
-        return this.input("email");
+        return this.input("email", {}, this.getIcon());
     }
 
     number() {
