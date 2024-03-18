@@ -4,14 +4,13 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [https://github.com/manojadams/mui-forms/issues/29](fix dynamic data loading for select control)
+- [fix #40: add support for html props in basic form controls](https://github.com/manojadams/mui-forms/issues/40)
   
 ## Advantages and features
 - Mui Components
 - Built-in layouting
 - Supports custom components
 - Easily define field relationships and build advanced forms
-- Load data from remote API
 - Load data from remote API
 
 ## Install
@@ -68,6 +67,6 @@ Open source contribution is welcome.
 
 ## License
 
-MIT © [manojgetwealthy](https://github.com/manojgetwealthy)
+MIT © [manojadams](https://github.com/manojadams)
 
 ## Give a ⭐️ if you liked this project!

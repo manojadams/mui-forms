@@ -137,26 +137,27 @@ export default class FormControl extends BaseFormControl {
     }
 
     text() {
-        const maxLength = this.props.form.validation?.max ?? "";
-        let htmlProps;
+        const maxLength: string = (this.props.form.validation?.max ?? "") as string;
+        let htmlProps = this.props.form.htmlProps ?? {};
         if (maxLength) {
             htmlProps = {
-                maxLength: maxLength
+                ...htmlProps,
+                maxLength
             };
         }
         return this.input("text", htmlProps, this.getIcon());
     }
 
     password() {
-        return this.input("password", {}, this.getIcon());
+        return this.input("password", this.props.form?.htmlProps, this.getIcon());
     }
 
     email() {
-        return this.input("email", {}, this.getIcon());
+        return this.input("email", this.props.form?.htmlProps, this.getIcons());
     }
 
     number() {
-        return this.input("number");
+        return this.input("number", this.props.form?.htmlProps);
     }
 
     radio() {
