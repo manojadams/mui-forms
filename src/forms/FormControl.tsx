@@ -153,7 +153,7 @@ export default class FormControl extends BaseFormControl {
     }
 
     email() {
-        return this.input("email", this.props.form?.htmlProps, this.getIcons());
+        return this.input("email", this.props.form?.htmlProps, this.getIcon());
     }
 
     number() {
