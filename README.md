@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #40: add support for html props in basic form controls](https://github.com/manojadams/mui-forms/issues/40)
+- [fix #49: add support for icons](https://github.com/manojadams/mui-forms/issues/49)
   
 ## Advantages and features
 - Mui Components
