@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { BaseFormControl, IRenderField } from "@manojadams/metaforms-core";
-import { Button, FormHelperText, TextFieldProps } from "@mui/material";
+import { Button, FormHelperText, TextField, TextFieldProps } from "@mui/material";
 import MuiSearch from "../components/Search/Search";
 import { TVariant } from "./ constants";
 
@@ -17,6 +17,7 @@ import SelectControl from "../components/SelectControl";
 import MultiSelectControl from "../components/MultiSelectControl";
 import FileControl from "../components/FileControl/FileControl";
 import CustomControl from "../components/CustomControl";
+import ReactInputMask from "react-input-mask";
 import { ErrorMsg, InfoMsg } from "../common/styles";
 import MuiFormIcon from "../components/MuiFormIcon";
 
@@ -146,6 +147,33 @@ export default class FormControl extends BaseFormControl {
             };
         }
         return this.input("text", htmlProps, this.getIcon());
+    }
+
+    inputMask() {
+        const mask = (this.props.form.config as Record<string, string>)?.mask ?? "";
+        const props = (this.props.form.config as Record<string, string | boolean>) || {};
+        const infoText = this.props.form?.validation?.infoDetail?.infoMsg ?? "";
+
+        return (
+            <ReactInputMask mask={mask} {...props} value={this.props.form.value as string} onChange={this.handleChange}>
+                {(inputProps: TextFieldProps) => (
+                    <TextField
+                        className={"meta-form-control-" + this.props.name}
+                        disabled={this.props.form.isDisabled}
+                        error={this.state.error?.hasError ? true : undefined}
+                        helperText={this.state.error.errorMsg || infoText || undefined}
+                        label={this.getDisplayLabel()}
+                        name={this.props.name}
+                        placeholder={this.props.form?.placeholder}
+                        value={this.props.form.value}
+                        variant={this.getVariant()}
+                        size={this.size}
+                        type="text"
+                        fullWidth
+                    />
+                )}
+            </ReactInputMask>
+        );
     }
 
     password() {
