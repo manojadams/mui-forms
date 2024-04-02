@@ -1,5 +1,15 @@
 import React, { Fragment, useRef, useState } from "react";
-import { Button, ClickAwayListener, FormControl, Icon, MenuItem, MenuList, Paper, Popper, PopperPlacementType } from "@mui/material";
+import {
+    Button,
+    ClickAwayListener,
+    FormControl,
+    Icon,
+    MenuItem,
+    MenuList,
+    Paper,
+    Popper,
+    PopperPlacementType
+} from "@mui/material";
 import styled from "@emotion/styled";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
@@ -19,7 +29,8 @@ function FileControl(props: IProps) {
     const hasFilePreview = (meta.config as Record<string, string>)?.filePreview ?? false;
     const previewHeight = (meta.config as Record<string, string>)?.previewHeight ?? "150px";
     const previewWidth = (meta.config as Record<string, string>)?.previewWidth ?? "auto";
-    const dropdownPlacement = ((meta.config as Record<string, string>)?.dropdownPlacement ?? "bottom-end") as PopperPlacementType;
+    const dropdownPlacement = ((meta.config as Record<string, string>)?.dropdownPlacement ??
+        "bottom-end") as PopperPlacementType;
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
 
     const handleFilePreview = (files: File[]) => {
@@ -32,7 +43,7 @@ function FileControl(props: IProps) {
                 if (fileRef.current?.value) {
                     fileRef.current.value = "";
                 }
-            }
+            };
             reader.readAsDataURL(files[0]);
         }
     };
@@ -50,7 +61,6 @@ function FileControl(props: IProps) {
             props.handleValidation();
         }
     };
-
 
     const handleToggle = () => {
         setOpen(!isOpen);
@@ -84,20 +94,20 @@ function FileControl(props: IProps) {
             fullWidth
             error={props.error.hasError ? true : undefined}
         >
-            {
-                hasFilePreview && filePreview
-                    ? <PreviewContainer className="meta-file-preview-container">
-                        <Image
-                            className="meta-file-preview"
-                            src={filePreview}
-                            alt="File preview"
-                            title={displayLabel}
-                            previewHeight={previewHeight}
-                            previewWidth={previewWidth}
-                        />
-                    </PreviewContainer>
-                    : <Fragment></Fragment>
-            }
+            {hasFilePreview && filePreview ? (
+                <PreviewContainer className="meta-file-preview-container">
+                    <Image
+                        className="meta-file-preview"
+                        src={filePreview}
+                        alt="File preview"
+                        title={displayLabel}
+                        previewHeight={previewHeight}
+                        previewWidth={previewWidth}
+                    />
+                </PreviewContainer>
+            ) : (
+                <Fragment />
+            )}
             <Button
                 className="meta-file-upload-btn"
                 variant="outlined"
@@ -112,10 +122,7 @@ function FileControl(props: IProps) {
                 fullWidth
             >
                 <Icon>cloud_upload</Icon>
-                <DisplayLabel
-                    className="meta-file-value"
-                    active={!!meta.value}
-                >
+                <DisplayLabel className="meta-file-value" active={!!meta.value}>
                     {meta.value || displayLabel}
                 </DisplayLabel>
                 <Icon>arrow_downward</Icon>
@@ -131,26 +138,35 @@ function FileControl(props: IProps) {
             />
             <Popper open={isOpen} anchorEl={anchorRef.current} placement={dropdownPlacement}>
                 <Paper>
-                    <ClickAwayListener onClickAway={(event) => {
-                        if (event.target !== anchorRef.current) {
-                            handleClose();
-                        }
-                    }}
+                    <ClickAwayListener
+                        onClickAway={(event) => {
+                            if (event.target !== anchorRef.current) {
+                                handleClose();
+                            }
+                        }}
                     >
-                        <MenuList sx={{
-                            width: anchorRef.current?.clientWidth ?? 150
-                        }}>
-                            <MenuItem onClick={handleUpload} sx={{
-                                display: "flex",
-                                justifyContent: "space-between"
-                            }}>
+                        <MenuList
+                            sx={{
+                                width: anchorRef.current?.clientWidth ?? 150
+                            }}
+                        >
+                            <MenuItem
+                                onClick={handleUpload}
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between"
+                                }}
+                            >
                                 <span>Upload</span>
                                 <Icon color="info">upload_2</Icon>
                             </MenuItem>
-                            <MenuItem onClick={handleRemove} sx={{
-                                display: "flex",
-                                justifyContent: "space-between"
-                            }}>
+                            <MenuItem
+                                onClick={handleRemove}
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between"
+                                }}
+                            >
                                 <span>Remove</span>
                                 <Icon color="error">close</Icon>
                             </MenuItem>
@@ -169,14 +185,14 @@ const PreviewContainer = styled.div`
     margin-bottom: 12px;
 `;
 
-const Image = styled.img<{previewHeight: string, previewWidth: string}>`
+const Image = styled.img<{ previewHeight: string; previewWidth: string }>`
     border-radius: 8px;
-    width: ${props => props.width};
-    height: ${props => props.previewHeight};
+    width: ${(props) => props.width};
+    height: ${(props) => props.previewHeight};
 `;
 
-const DisplayLabel = styled.span<{active: boolean}>`
-    color: ${props => props.active ? "rgb(0,0,0)" : "rgba(0,0,0,0.56)"};
+const DisplayLabel = styled.span<{ active: boolean }>`
+    color: ${(props) => (props.active ? "rgb(0,0,0)" : "rgba(0,0,0,0.56)")};
 `;
 
 const InputControl = styled.input`
