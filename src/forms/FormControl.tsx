@@ -155,12 +155,7 @@ export default class FormControl extends BaseFormControl {
         const infoText = this.props.form?.validation?.infoDetail?.infoMsg ?? "";
 
         return (
-            <ReactInputMask
-                mask={mask}
-                {...props}
-                value={this.props.form.value as string} 
-                onChange={this.handleChange}
-            >
+            <ReactInputMask mask={mask} {...props} value={this.props.form.value as string} onChange={this.handleChange}>
                 {(inputProps: TextFieldProps) => (
                     <TextField
                         className={"meta-form-control-" + this.props.name}
