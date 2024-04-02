@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import { IFieldProps } from "../../common/field";
-import { Button, FormControl } from "@mui/material";
-import MuiFormUtil from "../../Utils/MuiFormUtil";
+import React, { Fragment, useRef, useState } from "react";
+import { Button, ClickAwayListener, FormControl, Icon, MenuItem, MenuList, Paper, Popper, PopperPlacementType } from "@mui/material";
 import styled from "@emotion/styled";
+import { IFieldProps } from "../../common/field";
+import MuiFormUtil from "../../Utils/MuiFormUtil";
 
 interface IProps extends IFieldProps {
     section: string;
@@ -10,12 +10,33 @@ interface IProps extends IFieldProps {
 }
 
 function FileControl(props: IProps) {
+    const [isOpen, setOpen] = useState(false);
+    const anchorRef = useRef<HTMLButtonElement | null>(null);
+    const fileRef = useRef<HTMLInputElement | null>(null);
+    const [filePreview, setFilePreview] = useState("");
+
     const meta = props.form;
-    const fileUploadedIcon = props.context.getIcon("fileUploaded");
-    const fileDeleteIcon = props.context.getIcon("fileDelete");
-    const uploadIcon = props.context.getIcon("uploadIcon");
-    const fileWidthClass = meta.value ? "w-80" : "w-100";
+    const hasFilePreview = (meta.config as Record<string, string>)?.filePreview ?? false;
+    const previewHeight = (meta.config as Record<string, string>)?.previewHeight ?? "150px";
+    const previewWidth = (meta.config as Record<string, string>)?.previewWidth ?? "auto";
+    const dropdownPlacement = ((meta.config as Record<string, string>)?.dropdownPlacement ?? "bottom-end") as PopperPlacementType;
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
+
+    const handleFilePreview = (files: File[]) => {
+        if (files && files.length > 0) {
+            const reader = new FileReader();
+            reader.onload = (response) => {
+                if (response.target?.result) {
+                    setFilePreview(response.target.result as string);
+                }
+                if (fileRef.current?.value) {
+                    fileRef.current.value = "";
+                }
+            }
+            reader.readAsDataURL(files[0]);
+        }
+    };
+
     const handleFileChange = (e: any) => {
         let value = e.target.value;
         if (value) {
@@ -25,56 +46,79 @@ function FileControl(props: IProps) {
             }
             props.handleChange(e, value);
             props.context.setFieldProp(props.section, props.field.name, "files", e.target.files);
+            handleFilePreview(e.target.files);
             props.handleValidation();
         }
     };
+
+
+    const handleToggle = () => {
+        setOpen(!isOpen);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleUpload = () => {
+        if (fileRef.current) {
+            fileRef.current.click();
+        }
+    };
+
+    const handleRemove = () => {
+        setFilePreview("");
+        props.handleChange(null, "");
+        props.context.setFieldProp(props.section, props.field.name, "files", null);
+        handleClose();
+    };
+
     return (
         <FormControl
             className={props.className}
             size={props.size}
             sx={{
-                position: "relative"
+                position: "relative",
+                height: "100%"
             }}
             fullWidth
             error={props.error.hasError ? true : undefined}
         >
+            {
+                hasFilePreview && filePreview
+                    ? <PreviewContainer className="meta-file-preview-container">
+                        <Image
+                            className="meta-file-preview"
+                            src={filePreview}
+                            alt="File preview"
+                            title={displayLabel}
+                            previewHeight={previewHeight}
+                            previewWidth={previewWidth}
+                        />
+                    </PreviewContainer>
+                    : <Fragment></Fragment>
+            }
             <Button
                 className="meta-file-upload-btn"
                 variant="outlined"
                 size={props.size || "medium"}
-                onClick={(e) => {
-                    let target: any;
-                    // eslint-disable-next-line prefer-const
-                    target = e.target;
-                    const fileInput = target.parentElement.querySelector("input[type=file]");
-                    fileInput && fileInput.click();
+                ref={anchorRef}
+                onClick={handleToggle}
+                sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    height: "100%"
                 }}
                 fullWidth
             >
-                {meta.value ? (
-                    <Block>
-                        {uploadIcon}
-                        <span className="meta-file-value"> {meta.value}</span>
-                        {fileUploadedIcon}
-                        <span
-                            onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                // delete file
-                                props.context.setFieldProp(props.section, props.field.name, "files", "");
-                                props.handleChange(e, "");
-                                props.handleValidation();
-                            }}
-                        >
-                            {fileDeleteIcon}
-                        </span>
-                    </Block>
-                ) : (
-                    <Fragment>
-                        {uploadIcon}
-                        {displayLabel}
-                    </Fragment>
-                )}
+                <Icon>cloud_upload</Icon>
+                <DisplayLabel
+                    className="meta-file-value"
+                    active={!!meta.value}
+                >
+                    {meta.value || displayLabel}
+                </DisplayLabel>
+                <Icon>arrow_downward</Icon>
             </Button>
             <InputControl
                 accept={meta.config?.accept as string}
@@ -82,23 +126,61 @@ function FileControl(props: IProps) {
                 type="file"
                 name={props.field.name}
                 title={displayLabel}
+                ref={fileRef}
                 onChange={handleFileChange}
             />
+            <Popper open={isOpen} anchorEl={anchorRef.current} placement={dropdownPlacement}>
+                <Paper>
+                    <ClickAwayListener onClickAway={(event) => {
+                        if (event.target !== anchorRef.current) {
+                            handleClose();
+                        }
+                    }}
+                    >
+                        <MenuList sx={{
+                            width: anchorRef.current?.clientWidth ?? 150
+                        }}>
+                            <MenuItem onClick={handleUpload} sx={{
+                                display: "flex",
+                                justifyContent: "space-between"
+                            }}>
+                                <span>Upload</span>
+                                <Icon color="info">upload_2</Icon>
+                            </MenuItem>
+                            <MenuItem onClick={handleRemove} sx={{
+                                display: "flex",
+                                justifyContent: "space-between"
+                            }}>
+                                <span>Remove</span>
+                                <Icon color="error">close</Icon>
+                            </MenuItem>
+                        </MenuList>
+                    </ClickAwayListener>
+                </Paper>
+            </Popper>
             {props.showValidation()}
         </FormControl>
     );
 }
 
-const Block = styled.div`
+const PreviewContainer = styled.div`
     display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+`;
+
+const Image = styled.img<{previewHeight: string, previewWidth: string}>`
+    border-radius: 8px;
+    width: ${props => props.width};
+    height: ${props => props.previewHeight};
+`;
+
+const DisplayLabel = styled.span<{active: boolean}>`
+    color: ${props => props.active ? "rgb(0,0,0)" : "rgba(0,0,0,0.56)"};
 `;
 
 const InputControl = styled.input`
-    position: absolute;
-    top: 0;
-    left; 0;
-    opacity: 0;
-    height: 100%;
+    display: none;
 `;
 
 export default FileControl;
