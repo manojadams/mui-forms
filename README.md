@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #49: add support for icons](https://github.com/manojadams/mui-forms/issues/49)
+- [fix #56: add default upload/remove actions for file control along with support for icons](https://github.com/manojadams/mui-forms/issues/56)
   
 ## Advantages and features
 - Mui Components
