@@ -1,6 +1,10 @@
 {
   "name": "mui-forms",
+<<<<<<< Updated upstream
   "version": "1.0.40",
+=======
+  "version": "2.0.0-rc.18",
+>>>>>>> Stashed changes
   "description": "Material UI forms with json based schema",
   "author": "manojadams",
   "license": "MIT",
@@ -78,7 +82,11 @@
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+<<<<<<< Updated upstream
     "@manojadams/metaforms-core": "^3.0.44",
+=======
+    "@manojadams/metaforms-core": "^4.0.0-rc.1",
+>>>>>>> Stashed changes
     "@mui/material": "^5.10.0",
     "@mui/x-date-pickers": "^5.0.19",
     "build": "^0.1.4",
@@ -86,6 +94,7 @@
     "i": "^0.3.7",
     "layout-emotions": "^1.0.18",
     "npm": "^9.8.1",
+    "react-input-mask": "^2.0.4",
     "react-number-format": "^5.2.2",
     "react-phone-input-2": "^2.15.1",
     "run": "^1.4.0"
