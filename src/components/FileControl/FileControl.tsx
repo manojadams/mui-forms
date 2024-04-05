@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import {
     Button,
     ClickAwayListener,
@@ -33,8 +33,14 @@ function FileControl(props: IProps) {
         "bottom-end") as PopperPlacementType;
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
 
-    const handleFilePreview = (files: File[]) => {
-        if (files && files.length > 0) {
+    useEffect(() => {
+        if (hasFilePreview && props.form.file) {
+            handleFilePreview(props.form.file);
+        }
+    }, [hasFilePreview, props.form.file]);
+
+    const handleFilePreview = (file: File) => {
+        if (file !== null) {
             const reader = new FileReader();
             reader.onload = (response) => {
                 if (response.target?.result) {
@@ -44,7 +50,7 @@ function FileControl(props: IProps) {
                     fileRef.current.value = "";
                 }
             };
-            reader.readAsDataURL(files[0]);
+            reader.readAsDataURL(file);
         }
     };
 
@@ -55,9 +61,10 @@ function FileControl(props: IProps) {
             if (valParts && valParts.length > 0) {
                 value = valParts[valParts.length - 1];
             }
+            const file = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
             props.handleChange(e, value);
-            props.context.setFieldProp(props.section, props.field.name, "files", e.target.files);
-            handleFilePreview(e.target.files);
+            props.context.setFieldProp(props.section, props.field.name, "file", file);
+            // handleFilePreview(file);
             props.handleValidation();
         }
     };
@@ -79,7 +86,7 @@ function FileControl(props: IProps) {
     const handleRemove = () => {
         setFilePreview("");
         props.handleChange(null, "");
-        props.context.setFieldProp(props.section, props.field.name, "files", null);
+        props.context.setFieldProp(props.section, props.field.name, "file", null);
         handleClose();
     };
 
