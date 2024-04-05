@@ -4,7 +4,8 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #49: add support for icons](https://github.com/manojadams/mui-forms/issues/49)
+- [fix #56: add default upload/remove actions for file control along with support for icons](https://github.com/manojadams/mui-forms/issues/56)
+- [fix #53: add input mask control](https://github.com/manojadams/mui-forms/issues/53)
   
 ## Advantages and features
 - Mui Components
@@ -21,7 +22,7 @@ npm install mui-forms
 
 ## Basic Usage
 
-### 1. Define your json schema
+### 1. Define your JSON schema
 ```typescript
 const exampleSchema = {
     "fields": [{
