@@ -25,19 +25,20 @@ function FileControl(props: IProps) {
     const fileRef = useRef<HTMLInputElement | null>(null);
     const [filePreview, setFilePreview] = useState("");
 
-    useEffect(() => {
-        if (props.form.file) {
-            handleFilePreview(props.form.file);
-        }
-    }, []);
-
+    
     const meta = props.form;
     const hasFilePreview = (meta.config as Record<string, string>)?.filePreview ?? false;
     const previewHeight = (meta.config as Record<string, string>)?.previewHeight ?? "150px";
     const previewWidth = (meta.config as Record<string, string>)?.previewWidth ?? "auto";
     const dropdownPlacement = ((meta.config as Record<string, string>)?.dropdownPlacement ??
-        "bottom-end") as PopperPlacementType;
+    "bottom-end") as PopperPlacementType;
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
+    
+    useEffect(() => {
+        if (hasFilePreview && props.form.file) {
+            handleFilePreview(props.form.file);
+        }
+    }, [hasFilePreview, props.form.file]);
 
     const handleFilePreview = (file: File) => {
         if (file !== null) {
@@ -64,7 +65,7 @@ function FileControl(props: IProps) {
             const file = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
             props.handleChange(e, value);
             props.context.setFieldProp(props.section, props.field.name, "file", file);
-            handleFilePreview(file);
+            // handleFilePreview(file);
             props.handleValidation();
         }
     };
