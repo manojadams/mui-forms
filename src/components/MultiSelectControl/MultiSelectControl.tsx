@@ -9,12 +9,12 @@ interface IProps extends IFieldProps {
     showValidation: () => JSX.Element;
 }
 
-const renderAsCSV = (selected: Array<string>) => selected.join(', ');
+const renderAsCSV = (selected: Array<string>) => selected.join(", ");
 
 const renderAsChips = (selected: Array<string>) => (
     <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
         {selected.map((value) => (
-        <Chip key={value} label={value} />
+            <Chip key={value} label={value} />
         ))}
     </Box>
 );
@@ -23,7 +23,7 @@ function MultiSelectControl(props: IProps) {
     const options = props.form.options || [];
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const renderValue = (props.form.config as Record<string, string>)?.variant === "chip" ? renderAsChips : renderAsCSV;
-    const value = props.form?.value as string | string[] || [];
+    const value = (props.form?.value as string | string[]) || [];
 
     return (
         <FormControl
