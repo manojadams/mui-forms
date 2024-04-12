@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, Chip, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { TVariant } from "../../forms/ constants";
 
 interface IProps extends IFieldProps {
@@ -9,9 +9,22 @@ interface IProps extends IFieldProps {
     showValidation: () => JSX.Element;
 }
 
+const renderAsCSV = (selected: Array<string>) => selected.join(', ');
+
+const renderAsChips = (selected: Array<string>) => (
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+        {selected.map((value) => (
+        <Chip key={value} label={value} />
+        ))}
+    </Box>
+);
+
 function MultiSelectControl(props: IProps) {
     const options = props.form.options || [];
     const label = MuiFormUtil.getDisplayLabel(props.form);
+    const renderValue = (props.form.config as Record<string, string>)?.variant === "chip" ? renderAsChips : renderAsCSV;
+    const value = props.form?.value as string | string[] || [];
+
     return (
         <FormControl
             size={props.size}
@@ -24,8 +37,9 @@ function MultiSelectControl(props: IProps) {
             <Select
                 multiple
                 label={props.form.displayName}
-                value={props.form?.value}
                 disabled={props.form.isDisabled}
+                renderValue={renderValue}
+                value={value}
                 onOpen={() => {
                     if (props.form.events?.open) {
                         props.handleOpen();
