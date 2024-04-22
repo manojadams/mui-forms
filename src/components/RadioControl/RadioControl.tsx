@@ -50,7 +50,7 @@ function RadioControl(props: IFieldProps) {
                                 labelPlacement={labelPlacement}
                                 key={idx}
                                 value={option.value}
-                                control={<Radio />}
+                                control={<Radio disabled={props.form.isDisabled} size={props.size} />}
                                 label={option.label}
                             />
                         );
