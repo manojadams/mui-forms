@@ -87,6 +87,7 @@ export default function Search(props: IProps) {
                         variant={props.variant}
                         error={props.error.hasError}
                         helperText={props.error.errorMsg}
+                        size={props.size}
                     />
                 )}
             />

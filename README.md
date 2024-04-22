@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #61: Add support for multi-select](https://github.com/manojadams/mui-forms/issues/61)
+- [fix #67: Not able to disable radio field](https://github.com/manojadams/mui-forms/issues/67)
   
 ## Advantages and features
 - Mui Components
