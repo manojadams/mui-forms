@@ -7,6 +7,14 @@ interface IProps extends IFieldProps {
     showValidation: () => JSX.Element;
 }
 
+const isChecked = (values: Array<string>, value: string | boolean) => {
+    if (typeof value === "boolean") {
+        const valueToString = String(value);
+        return values.find((_value) => _value === valueToString) !== undefined;
+    }
+    return values.indexOf(value) >= 0;
+};
+
 function CheckboxControl(props: IProps) {
     const [values, setValues] = useState<string[]>([]);
     // by default, multiple config is true (checkbox allows multiple values to be selected)
@@ -38,7 +46,7 @@ function CheckboxControl(props: IProps) {
                             value={option.value}
                             control={
                                 <Checkbox
-                                    checked={values.indexOf(option.value) >= 0}
+                                    checked={isChecked(values, option.value)}
                                     onChange={(e) => {
                                         const checked = e.target.checked;
                                         if (isMultiple && props.form?.options && props.form?.options.length > 0) {
