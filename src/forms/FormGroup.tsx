@@ -33,7 +33,21 @@ export default class FormGroup extends BaseFormGroup {
                 >
                     {this.state.tabFields.map((tabField: IField, index: number) => {
                         const displayName = tabField?.meta?.displayName ? tabField.meta.displayName : tabField.name;
-                        const isDisabled = tabField?.meta?.isDisabled ? true : undefined;
+                        const disabledTabs = this.context.formConfig.config?.tabs?.disabled;
+                        let isCurrentTabDisabled = false;
+                        if (this.state.activeIndex !== index && disabledTabs && disabledTabs.length > 0) {
+                            for (let i = 0; i < disabledTabs.length; i++) {
+                                const disabledTab = disabledTabs[i];
+                                if (typeof disabledTab === "number" && disabledTab === index) {
+                                    isCurrentTabDisabled = true;
+                                    break;
+                                } else if (typeof disabledTab === "string" && disabledTab === tabField.name) {
+                                    isCurrentTabDisabled = true;
+                                    break;
+                                }
+                            }
+                        }
+                        const isDisabled = tabField?.meta?.isDisabled || isCurrentTabDisabled ? true : undefined;
                         return <Tab key={displayName + index} label={displayName} disabled={isDisabled} />;
                     })}
                 </Tabs>
