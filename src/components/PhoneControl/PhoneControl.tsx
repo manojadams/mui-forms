@@ -16,6 +16,11 @@ function PhoneControl(props: IProps) {
     return (
         <S.Phone>
             <PhoneInput
+                inputProps={{
+                    name: props.name
+                }}
+                specialLabel={props.form.displayName ?? ""}
+                placeholder={props.form.placeholder ?? ""}
                 country={(config?.country as string) ?? "in"}
                 value={props.form.value as string}
                 onChange={(phone: string) => {
