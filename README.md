@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #78: add config to disable tab navigation](https://github.com/manojadams/mui-forms/issues/78)
+- [fix #85: fix phone number display](https://github.com/manojadams/mui-forms/issues/85)
   
 ## Advantages and features
 - Mui Components
