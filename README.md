@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #74: fix checkbox control not working with boolean values](https://github.com/manojadams/mui-forms/issues/74)
+- [fix #78: add config to disable tab navigation](https://github.com/manojadams/mui-forms/issues/78)
   
 ## Advantages and features
 - Mui Components
