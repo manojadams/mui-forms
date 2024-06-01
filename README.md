@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #85: fix phone number display](https://github.com/manojadams/mui-forms/issues/85)
+- [fix #87: Select and radio control not taking custom classnames provided from config](https://github.com/manojadams/mui-forms/issues/87)
   
 ## Advantages and features
 - Mui Components
