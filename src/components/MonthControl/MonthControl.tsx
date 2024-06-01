@@ -15,7 +15,6 @@ function MonthControl(props: IFieldProps) {
     const variant = props.variant;
     const max = props.form.validation?.max ? new Date(props.form.validation.max) : undefined;
     const min = props.form.validation?.min ? new Date(props.form.validation.min) : undefined;
-    const wrapperClassName = "meta-form-control-" + props.field.name;
     const inputFormat = "MMM yyyy";
     const placeholder = props.form.placeholder || inputFormat;
     let localValue;
@@ -64,7 +63,7 @@ function MonthControl(props: IFieldProps) {
                 renderInput={(params) => (
                     <TextField
                         {...params}
-                        className={wrapperClassName}
+                        className={props.className}
                         variant={variant as TextFieldVariants}
                         helperText={props.error.errorMsg || undefined}
                         placeholder={props.form.placeholder}
