@@ -11,7 +11,6 @@ interface InputControlProps extends IFieldProps {
 function InputControl(props: InputControlProps) {
     const label = MuiFormUtil.getDisplayLabel(props.form);
     let infoText: string = props.form?.validation?.infoDetail?.infoMsg ?? "";
-    const wrapperClassName = "meta-form-control-" + props.field.name;
     const htmlProps = props.htmlProps ?? {};
     const textFieldProps = props.textFieldProps ?? {};
     const isInfoFnExists = infoText?.includes("$");
@@ -22,7 +21,7 @@ function InputControl(props: InputControlProps) {
     }
     return (
         <TextField
-            className={wrapperClassName}
+            className={props.className ?? ""}
             type={props.type}
             label={label}
             name={props.name}

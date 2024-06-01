@@ -6,15 +6,11 @@ import { TLabelPlacement } from "../../forms/ constants";
 
 function RadioControl(props: IFieldProps) {
     const isRow = props.form?.displayProps?.optionsLayout === "row" ? true : undefined;
-    const wrapperClassName =
-        "meta-form-control-" +
-        props.field.name +
-        (props.form?.displayProps?.fieldLayout === "row" ? "d-md-flex flex-md-row justify-content-md-between" : "");
-    const fieldLabelClassname = wrapperClassName ? "field-label d-md-flex align-items-md-center" : "field-label";
+    const fieldLabelClassname = "field-label d-md-flex align-items-md-center";
     const config = props.form.config as Record<string, TLabelPlacement>;
     const labelPlacement = config?.labelPlacement;
     return (
-        <FormControl size={props.size} fullWidth className={wrapperClassName}>
+        <FormControl size={props.size} fullWidth className={props.className}>
             <FormLabel className={fieldLabelClassname}>
                 {props.form.displayName}
                 {props.form?.validation?.required && <MandatoryLabel />}

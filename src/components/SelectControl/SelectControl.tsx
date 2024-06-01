@@ -13,7 +13,6 @@ interface IProps extends IFieldProps {
 function SelectControl(props: IProps) {
     const options = props.form.options || [];
     const label = MuiFormUtil.getDisplayLabel(props.form);
-    const wrapperClassName = "meta-form-control-" + props.field.name;
     const infoText = props.form?.validation?.infoDetail?.infoMsg;
     return (
         <FormControl
@@ -21,7 +20,7 @@ function SelectControl(props: IProps) {
             fullWidth
             error={props.error.hasError ? true : undefined}
             variant={props.variant as TVariant}
-            className={wrapperClassName}
+            className={props.className}
         >
             <InputLabel className="meta-select-label">{label}</InputLabel>
             <Select
