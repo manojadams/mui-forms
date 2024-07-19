@@ -23,6 +23,7 @@ function FileControl(props: IProps) {
     const [isOpen, setOpen] = useState(false);
     const anchorRef = useRef<HTMLButtonElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
+    const fileContainerRef = useRef<HTMLDivElement | null>(null);
     const [filePreview, setFilePreview] = useState("");
 
     const meta = props.form;
@@ -61,9 +62,9 @@ function FileControl(props: IProps) {
             if (valParts && valParts.length > 0) {
                 value = valParts[valParts.length - 1];
             }
-            const file = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
+            const files = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
             props.handleChange(e, value);
-            props.context.setFieldProp(props.section, props.field.name, "file", file);
+            props.context.setFieldProp(props.section, props.field.name, "files", files);
             // handleFilePreview(file);
             props.handleValidation();
         }
@@ -94,6 +95,7 @@ function FileControl(props: IProps) {
         <FormControl
             className={props.className}
             size={props.size}
+            ref={fileContainerRef}
             sx={{
                 position: "relative",
                 height: "100%"
@@ -143,7 +145,13 @@ function FileControl(props: IProps) {
                 ref={fileRef}
                 onChange={handleFileChange}
             />
-            <Popper open={isOpen} anchorEl={anchorRef.current} placement={dropdownPlacement}>
+            <Popper
+                open={isOpen}
+                anchorEl={anchorRef.current}
+                placement={dropdownPlacement}
+                container={fileContainerRef.current}
+                sx={{zIndex: 2}}
+            >
                 <Paper>
                     <ClickAwayListener
                         onClickAway={(event) => {
