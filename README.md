@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #87: Select and radio control not taking custom classnames provided from config](https://github.com/manojadams/mui-forms/issues/87)
+- [fix #89: file dropdown not visible inside a popup](https://github.com/manojadams/mui-forms/issues/89)
   
 ## Advantages and features
 - Mui Components
