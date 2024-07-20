@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
     Button,
     ClickAwayListener,
@@ -13,6 +13,7 @@ import {
 import styled from "@emotion/styled";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
+import FilePreviewContainer from "./FilePreviewContainer";
 
 interface IProps extends IFieldProps {
     section: string;
@@ -24,36 +25,13 @@ function FileControl(props: IProps) {
     const anchorRef = useRef<HTMLButtonElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
     const fileContainerRef = useRef<HTMLDivElement | null>(null);
-    const [filePreview, setFilePreview] = useState("");
+    const [filePreviews, setFilePreviews] = useState<string[]>([]);
 
     const meta = props.form;
     const hasFilePreview = (meta.config as Record<string, string>)?.filePreview ?? false;
-    const previewHeight = (meta.config as Record<string, string>)?.previewHeight ?? "150px";
-    const previewWidth = (meta.config as Record<string, string>)?.previewWidth ?? "auto";
     const dropdownPlacement = ((meta.config as Record<string, string>)?.dropdownPlacement ??
         "bottom-end") as PopperPlacementType;
     const displayLabel = MuiFormUtil.getDisplayLabel(props.form);
-
-    useEffect(() => {
-        if (hasFilePreview && props.form.file) {
-            handleFilePreview(props.form.file);
-        }
-    }, [hasFilePreview, props.form.file]);
-
-    const handleFilePreview = (file: File) => {
-        if (file !== null) {
-            const reader = new FileReader();
-            reader.onload = (response) => {
-                if (response.target?.result) {
-                    setFilePreview(response.target.result as string);
-                }
-                if (fileRef.current?.value) {
-                    fileRef.current.value = "";
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    };
 
     const handleFileChange = (e: any) => {
         let value = e.target.value;
@@ -62,10 +40,17 @@ function FileControl(props: IProps) {
             if (valParts && valParts.length > 0) {
                 value = valParts[valParts.length - 1];
             }
-            const files = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
             props.handleChange(e, value);
-            props.context.setFieldProp(props.section, props.field.name, "files", files);
-            // handleFilePreview(file);
+
+            if (meta.config?.multiple) {
+                const files = e.target.files && e.target.files.length > 0 ? e.target.files : null;
+                if (files && files.length > 0) {
+                    props.context.setFieldProp(props.section, props.field.name, "files", Array.from(files));
+                }
+            } else {
+                const file = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
+                props.context.setFieldProp(props.section, props.field.name, "file", file);
+            }
             props.handleValidation();
         }
     };
@@ -85,9 +70,10 @@ function FileControl(props: IProps) {
     };
 
     const handleRemove = () => {
-        setFilePreview("");
+        setFilePreviews([]);
         props.handleChange(null, "");
         props.context.setFieldProp(props.section, props.field.name, "file", null);
+        props.context.setFieldProp(props.section, props.field.name, "files", null);
         handleClose();
     };
 
@@ -103,19 +89,22 @@ function FileControl(props: IProps) {
             fullWidth
             error={props.error.hasError ? true : undefined}
         >
-            {hasFilePreview && filePreview ? (
-                <PreviewContainer className="meta-file-preview-container">
-                    <Image
-                        className="meta-file-preview"
-                        src={filePreview}
-                        alt="File preview"
-                        title={displayLabel}
-                        previewHeight={previewHeight}
-                        previewWidth={previewWidth}
-                    />
-                </PreviewContainer>
-            ) : (
-                <Fragment />
+            {hasFilePreview && (
+                <FilePreviewContainer
+                    file={props.form.file}
+                    files={props.form.files}
+                    filePreviews={filePreviews}
+                    setFilePreviews={setFilePreviews}
+                    multiple={meta.config?.multiple as boolean | undefined}
+                    previewHeight={(meta.config as Record<string, string>)?.previewHeight}
+                    previewWidth={(meta.config as Record<string, string>)?.previewWidth}
+                    title={displayLabel}
+                    resetFileValue={() => {
+                        if (fileRef.current?.value) {
+                            fileRef.current.value = "";
+                        }
+                    }}
+                />
             )}
             <Button
                 className="meta-file-upload-btn"
@@ -132,12 +121,15 @@ function FileControl(props: IProps) {
             >
                 <Icon>cloud_upload</Icon>
                 <DisplayLabel className="meta-file-value" active={!!meta.value}>
-                    {meta.value || displayLabel}
+                    {meta.config?.multiple
+                        ? `${props.form?.files?.length} file(s) selected`
+                        : meta.value || displayLabel}
                 </DisplayLabel>
                 <Icon>arrow_downward</Icon>
             </Button>
             <InputControl
                 accept={meta.config?.accept as string}
+                multiple={meta.config?.multiple as boolean | undefined}
                 className="minput-file"
                 type="file"
                 name={props.field.name}
@@ -150,7 +142,7 @@ function FileControl(props: IProps) {
                 anchorEl={anchorRef.current}
                 placement={dropdownPlacement}
                 container={fileContainerRef.current}
-                sx={{zIndex: 2}}
+                sx={{ zIndex: 2 }}
             >
                 <Paper>
                     <ClickAwayListener
@@ -193,18 +185,6 @@ function FileControl(props: IProps) {
         </FormControl>
     );
 }
-
-const PreviewContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 12px;
-`;
-
-const Image = styled.img<{ previewHeight: string; previewWidth: string }>`
-    border-radius: 8px;
-    width: ${(props) => props.width};
-    height: ${(props) => props.previewHeight};
-`;
 
 const DisplayLabel = styled.span<{ active: boolean }>`
     color: ${(props) => (props.active ? "rgb(0,0,0)" : "rgba(0,0,0,0.56)")};
