@@ -41,11 +41,11 @@ function FileControl(props: IProps) {
                 value = valParts[valParts.length - 1];
             }
             props.handleChange(e, value);
-            
+
             if (meta.config?.multiple) {
                 const files = e.target.files && e.target.files.length > 0 ? e.target.files : null;
                 if (files && files.length > 0) {
-                    props.context.setFieldProp(props.section, props.field.name, "files", Array.from(files));    
+                    props.context.setFieldProp(props.section, props.field.name, "files", Array.from(files));
                 }
             } else {
                 const file = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
@@ -121,7 +121,11 @@ function FileControl(props: IProps) {
             >
                 <Icon>cloud_upload</Icon>
                 <DisplayLabel className="meta-file-value" active={!!meta.value}>
-                    {meta.config?.multiple ? `${props.form?.files?.length} file(s) selected` : meta.value || displayLabel}
+                {
+                    meta.config?.multiple
+                        ? `${props.form?.files?.length} file(s) selected`
+                        : meta.value || displayLabel
+                }
                 </DisplayLabel>
                 <Icon>arrow_downward</Icon>
             </Button>

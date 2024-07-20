@@ -21,7 +21,7 @@ function FilePreviewContainer(props: IProps) {
                 const reader = new FileReader();
                 reader.onload = (response) => {
                     if (response.target?.result) {
-                        _filesData.push(response.target.result as string)
+                        _filesData.push(response.target.result as string);
                     }
                     if (_filesData.length === files.length) {
                         props.setFilePreviews(_filesData);
@@ -43,19 +43,19 @@ function FilePreviewContainer(props: IProps) {
     
     return (
         <div>
-            {
-                props.filePreviews.map((filePreview, idx) => (
-                    <FilePreview 
-                        key={idx}
-                        filePreview={filePreview}
-                        previewHeight={props.previewHeight ?? "150px"}
-                        previewWidth={props.previewWidth ?? "auto"}
-                        title={props.title ?? ""}
-                    />
-                ))
-            }
+        {
+            props.filePreviews.map((filePreview, idx) => (
+                <FilePreview 
+                    key={idx}
+                    filePreview={filePreview}
+                    previewHeight={props.previewHeight ?? "150px"}
+                    previewWidth={props.previewWidth ?? "auto"}
+                    title={props.title ?? ""}
+                />
+            ))
+        }
         </div>
     );
-};
+}
 
 export default FilePreviewContainer;
