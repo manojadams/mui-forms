@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #89: file dropdown not visible inside a popup](https://github.com/manojadams/mui-forms/issues/89)
+- [fix #90: enable multiple file uploads using file control](https://github.com/manojadams/mui-forms/issues/90)
   
 ## Advantages and features
 - Mui Components
