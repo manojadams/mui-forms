@@ -30,7 +30,7 @@ function FilePreviewContainer(props: IProps) {
                 };
                 reader.readAsDataURL(file);
             }
-        })
+        });
     };
 
     useEffect(() => {
@@ -43,16 +43,15 @@ function FilePreviewContainer(props: IProps) {
 
     return (
         <div>
-        {props.filePreviews.map((filePreview, idx) => (
-                <FilePreview 
+            {props.filePreviews.map((filePreview, idx) => (
+                <FilePreview
                     key={idx}
                     filePreview={filePreview}
                     previewHeight={props.previewHeight ?? "150px"}
                     previewWidth={props.previewWidth ?? "auto"}
                     title={props.title ?? ""}
                 />
-            ))
-        }
+            ))}
         </div>
     );
 }
