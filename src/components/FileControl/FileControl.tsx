@@ -121,11 +121,10 @@ function FileControl(props: IProps) {
             >
                 <Icon>cloud_upload</Icon>
                 <DisplayLabel className="meta-file-value" active={!!meta.value}>
-                {
-                    meta.config?.multiple
-                        ? `${props.form?.files?.length} file(s) selected`
-                        : meta.value || displayLabel
-                }
+                    {
+                        meta.config?.multiple
+                            ? `${props.form?.files?.length} file(s) selected` : meta.value || displayLabel
+                    }
                 </DisplayLabel>
                 <Icon>arrow_downward</Icon>
             </Button>

@@ -40,11 +40,10 @@ function FilePreviewContainer(props: IProps) {
             handleFilePreview([props.file]);
         }
     }, [props.file, props.files]);
-    
+
     return (
         <div>
-        {
-            props.filePreviews.map((filePreview, idx) => (
+        {props.filePreviews.map((filePreview, idx) => (
                 <FilePreview 
                     key={idx}
                     filePreview={filePreview}
