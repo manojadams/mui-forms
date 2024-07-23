@@ -1,4 +1,4 @@
-import { IError, IField, IFormField, IMeta, IOption, MetaForm } from "@manojadams/metaforms-core";
+import { IError, IField, IFormField, IOption, MetaForm } from "@manojadams/metaforms-core";
 import { TMouseEvent, TValue } from "@manojadams/metaforms-core/dist/constants/types";
 
 export interface IFieldProps {
