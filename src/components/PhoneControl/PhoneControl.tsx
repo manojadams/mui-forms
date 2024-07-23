@@ -1,5 +1,5 @@
 import { IValidation } from "@manojadams/metaforms-core";
-import React, { Fragment } from "react";
+import React from "react";
 import { IFieldProps } from "../../common/field";
 import PhoneInput from "react-phone-input-2";
 import * as S from "./styles";
@@ -28,7 +28,7 @@ function PhoneControl(props: IProps) {
                     props.validate(phone);
                 }}
                 onBlur={props.handleValidation}
-                isValid={(value, country, countries, hiddenAreaCodes) => {
+                isValid={(value) => {
                     let isValid = false;
                     if (value) {
                         isValid = value.length === 12;

@@ -156,7 +156,7 @@ export default class FormControl extends BaseFormControl {
 
         return (
             <ReactInputMask mask={mask} {...props} value={this.props.form.value as string} onChange={this.handleChange}>
-                {(inputProps: TextFieldProps) => (
+                {() => (
                     <TextField
                         className={"meta-form-control-" + this.props.name}
                         disabled={this.props.form.isDisabled}

@@ -6,22 +6,25 @@ import { FormStepper } from "./forms/FormStepper";
 import { Button, CircularProgress } from "@mui/material";
 import FormWizard from "./forms/FormWizard";
 import ButtonWithLoader from "./components/ButtonWithLoader";
+import { MuiColor } from "./common";
 
 /**
  * Dynamically render forms using `metaforms schema` and `mui components`
  */
 class MuiForms extends React.Component<IFormRenderer> {
     state: {
-        isLoading: boolean
+        isLoading: boolean;
     };
+
     constructor(props: IFormRenderer) {
         super(props);
         this.state = {
             isLoading: false
         };
     }
+
     render() {
-        const loaderColor = this.props.config?.loader?.color as "error" | "inherit" | "primary" | "secondary" | "info" | "success" | "warning";
+        const loaderColor = this.props.config?.loader?.color as MuiColor;
         const isLoaderEnabled = this.props.config?.loader?.enabled === true;
         const configSize = this.props.config?.size as "medium" | "small" | "large" | undefined;
 
@@ -32,7 +35,7 @@ class MuiForms extends React.Component<IFormRenderer> {
                         <ButtonWithLoader
                             isLoading={this.state.isLoading}
                             isLoaderDisabled={!isLoaderEnabled}
-                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />} 
+                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />}
                             size={configSize ?? "medium"}
                             text="Submit"
                         />
@@ -41,7 +44,7 @@ class MuiForms extends React.Component<IFormRenderer> {
                         <ButtonWithLoader
                             isLoading={this.state.isLoading}
                             isLoaderDisabled={!isLoaderEnabled}
-                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />} 
+                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />}
                             size={configSize ?? "medium"}
                             text="Submit"
                         />

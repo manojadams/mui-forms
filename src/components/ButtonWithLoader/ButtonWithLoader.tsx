@@ -12,11 +12,9 @@ interface Props {
 function ButtonWithLoader(props: Props) {
     return (
         <Button variant="contained" size={props.size} sx={{ gap: "12px" }}>
-            {
-                props.isLoading && !props.isLoaderDisabled ? props.loader : props.text
-            }
+            {props.isLoading && !props.isLoaderDisabled ? props.loader : props.text}
         </Button>
-    )
+    );
 }
 
-export default ButtonWithLoader
+export default ButtonWithLoader;
