@@ -1,4 +1,4 @@
-import CoreFormRenderer, { IFormRenderer, metaAPI } from "@manojadams/metaforms-core";
+import CoreFormRenderer, { metaAPI } from "@manojadams/metaforms-core";
 import React from "react";
 import FormControl from "./forms/FormControl";
 import FormGroup from "./forms/FormGroup";
@@ -6,17 +6,17 @@ import { FormStepper } from "./forms/FormStepper";
 import { Button, CircularProgress } from "@mui/material";
 import FormWizard from "./forms/FormWizard";
 import ButtonWithLoader from "./components/ButtonWithLoader";
-import { MuiColor } from "./common";
+import { IMuiFormRendererProps, MuiColor } from "./common";
 
 /**
  * Dynamically render forms using `metaforms schema` and `mui components`
  */
-class MuiForms extends React.Component<IFormRenderer> {
+class MuiForms extends React.Component<IMuiFormRendererProps> {
     state: {
         isLoading: boolean;
     };
 
-    constructor(props: IFormRenderer) {
+    constructor(props: IMuiFormRendererProps) {
         super(props);
         this.state = {
             isLoading: false
@@ -35,7 +35,9 @@ class MuiForms extends React.Component<IFormRenderer> {
                         <ButtonWithLoader
                             isLoading={this.state.isLoading}
                             isLoaderDisabled={!isLoaderEnabled}
-                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />}
+                            loader={
+                                this.props.loader ?? <CircularProgress color={loaderColor ?? "inherit"} size={24} />
+                            }
                             size={configSize ?? "medium"}
                             text="Submit"
                         />
@@ -44,7 +46,9 @@ class MuiForms extends React.Component<IFormRenderer> {
                         <ButtonWithLoader
                             isLoading={this.state.isLoading}
                             isLoaderDisabled={!isLoaderEnabled}
-                            loader={<CircularProgress color={loaderColor ?? "inherit"} size={24} />}
+                            loader={
+                                this.props.loader ?? <CircularProgress color={loaderColor ?? "inherit"} size={24} />
+                            }
                             size={configSize ?? "medium"}
                             text="Submit"
                         />

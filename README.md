@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [fix #90: enable multiple file uploads using file control](https://github.com/manojadams/mui-forms/issues/90)
+- [feature #93: add a loader for api calls on next and submit ](https://github.com/manojadams/mui-forms/issues/93)
   
 ## Advantages and features
 - Mui Components

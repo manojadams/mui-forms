@@ -1,6 +1,6 @@
 {
   "name": "mui-forms",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Material UI forms with json based schema",
   "author": "manojadams",
   "license": "MIT",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-transform-unicode-property-regex": "^7.24.7",
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
