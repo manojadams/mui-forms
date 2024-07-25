@@ -4,7 +4,7 @@
  [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Change logs
-- [feature #93: add a loader for api calls on next and submit ](https://github.com/manojadams/mui-forms/issues/93)
+- [enhancement #97: optimize mui config options](https://github.com/manojadams/mui-forms/issues/97)
   
 ## Advantages and features
 - Mui Components
