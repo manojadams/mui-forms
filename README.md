@@ -72,7 +72,7 @@ export function MyForm() {
 }
 ```
 
-### 3. Input properties
+## Input properties
 | S.No | Name | Description | Type |
 |------|------|-------------|------|
 |1| buttons | Provides custom button components for previous, next and submit actions | Map of buttons names and button components |
@@ -101,7 +101,7 @@ export function MyForm() {
 |24| onSubmtiError| A callback function to be called whenever there is a submit error| function |
 |25| onPopupClose| A callback function to be called when popup's from certain form fields are closed| function |
 
-### 4. Mandatory properties
+## Mandatory properties
 - schema
 - onSubmit
 
