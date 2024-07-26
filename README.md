@@ -105,7 +105,7 @@ export function MyForm() {
 - schema
 - onSubmit
 
-### 5. Schema details
+## Schema details
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
 
 ## Contributions
