@@ -22,7 +22,7 @@
 - Mobile-ready
 - Production-ready
 
-## Install
+## Installation
 
 ```bash
 npm install mui-forms
