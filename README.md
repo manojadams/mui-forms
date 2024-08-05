@@ -1,8 +1,9 @@
-<p align="center">
-  <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="150" height="133" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
-</p>
-
-<h2 align="center">Create advanced material forms</h2>
+<div>
+    <div align="center">
+        <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="80" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
+    </div>
+  <p align="center">Create advanced material forms</p>
+</div>
 
 ## Change logs
 - [enhancement #97: optimize mui config options](https://github.com/manojadams/mui-forms/issues/97)
@@ -69,10 +70,10 @@ export function MyForm() {
 }
 ```
 
-## Input properties
+## Input Properties
 | S.No | Name | Description | Type |
 |------|------|-------------|------|
-|1| buttons | Provides custom button components for previous, next and submit actions | Map of buttons names and button components |
+|1| buttons | Provide custom button components for previous, next and submit actions for footer section| Map of button names and button components |
 |2| className | Sets the value of class attribute of the root component | string|
 |3| changeResponseMode | It configures data passed to onChange event. <a>Available values:</a><ul><li>form-data</li><li> section-data</li></ul> | string|
 |4| components | Custom template components mapped with schema using `displayType` property as `template`. More detail in docs.| Map of template names and components |
