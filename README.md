@@ -5,8 +5,8 @@
   <p align="center">Create advanced material forms</p>
 </div>
 
-## Change logs
-- [enhancement #97: optimize mui config options](https://github.com/manojadams/mui-forms/issues/97)
+## About
+Create beautiful advanced forms with a JSON-based schema
   
 ## Advantages and features
 - Material UI components
@@ -105,6 +105,9 @@ export function MyForm() {
 
 ## Schema details
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
+
+## Change logs
+- [enhancement #97: optimize mui config options](https://github.com/manojadams/mui-forms/issues/97)
 
 ## Contributions
 
