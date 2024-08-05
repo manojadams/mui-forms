@@ -2,10 +2,7 @@
   <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="150" height="133" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
 </p>
 
-<h1 align="center">MUI Forms</h2>
-
-## About
-Create advanced material forms.
+<h2 align="center">Create advanced material forms</h2>
 
 ## Change logs
 - [enhancement #97: optimize mui config options](https://github.com/manojadams/mui-forms/issues/97)
