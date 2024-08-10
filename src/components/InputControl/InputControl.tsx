@@ -15,11 +15,11 @@ function InputControl(props: InputControlProps) {
     const htmlProps = props.htmlProps ?? {};
     const textFieldProps = props.textFieldProps ?? {};
     const isInfoFnExists = infoText?.includes("$");
-    // if (isInfoFnExists) {
-    //     const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
-    //     const infoMsgFn = props.context.getFn(infoMsgFnName);
-    //     infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
-    // }
+    if (isInfoFnExists) {
+        const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
+        const infoMsgFn = props.context.getFn(infoMsgFnName);
+        infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
+    }
     return (
         <TextField
             className={props.className ?? ""}

@@ -19,8 +19,12 @@ function DateControl(props: IProps) {
     const dateString = props.form?.value ? props.form.value + "" : "";
     const value = props.form?.value ? new Date(dateString) : null;
     const variant = props.variant;
-    const min = props.form.validation?.min ? new Date(ValidationUtil.getValidationValue(props.form.validation, "min") as string) : undefined;
-    const max = props.form.validation?.max ? new Date(ValidationUtil.getValidationValue(props.form.validation, "max") as string) : undefined;
+    const min = props.form.validation?.min
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "min") as string)
+        : undefined;
+    const max = props.form.validation?.max
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "max") as string)
+        : undefined;
     const openTo: CalendarPickerView | undefined = props.form?.config?.openTo as CalendarPickerView | undefined;
     const inputFormat = (props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT) as string;
     const views: [CalendarPickerView] | undefined = props.form?.config?.views as [CalendarPickerView] | undefined;

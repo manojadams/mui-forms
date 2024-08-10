@@ -13,8 +13,12 @@ function MonthControl(props: IFieldProps) {
     const value = props.form?.value ? new Date(dateString) : null;
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const variant = props.variant;
-    const max = props.form.validation?.max ? new Date(ValidationUtil.getValidationValue(props.form.validation, "max") as string) : undefined;
-    const min = props.form.validation?.min ? new Date(ValidationUtil.getValidationValue(props.form.validation, "min") as string) : undefined;
+    const max = props.form.validation?.max
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "max") as string)
+        : undefined;
+    const min = props.form.validation?.min
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "min") as string)
+        : undefined;
     const inputFormat = "MMM yyyy";
     const placeholder = props.form.placeholder || inputFormat;
     let localValue;
