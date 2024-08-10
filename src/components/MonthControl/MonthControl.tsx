@@ -1,6 +1,6 @@
 import React from "react";
 import { IFieldProps } from "../../common/field";
-import { FormUtils } from "@manojadams/metaforms-core";
+import { FormUtils, ValidationUtil } from "@manojadams/metaforms-core";
 import { TextField, TextFieldVariants } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -13,8 +13,12 @@ function MonthControl(props: IFieldProps) {
     const value = props.form?.value ? new Date(dateString) : null;
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const variant = props.variant;
-    const max = props.form.validation?.max ? new Date(props.form.validation.max) : undefined;
-    const min = props.form.validation?.min ? new Date(props.form.validation.min) : undefined;
+    const max = props.form.validation?.max
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "max") as string)
+        : undefined;
+    const min = props.form.validation?.min
+        ? new Date(ValidationUtil.getValidationValue(props.form.validation, "min") as string)
+        : undefined;
     const inputFormat = "MMM yyyy";
     const placeholder = props.form.placeholder || inputFormat;
     let localValue;

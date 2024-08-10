@@ -152,7 +152,7 @@ export default class FormControl extends BaseFormControl {
     inputMask() {
         const mask = (this.props.form.config as Record<string, string>)?.mask ?? "";
         const props = (this.props.form.config as Record<string, string | boolean>) || {};
-        const infoText = this.props.form?.validation?.infoDetail?.infoMsg ?? "";
+        const infoText = this.props.form?.validation?.info as string;
 
         return (
             <ReactInputMask mask={mask} {...props} value={this.props.form.value as string} onChange={this.handleChange}>
