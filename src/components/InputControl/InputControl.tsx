@@ -2,6 +2,7 @@ import { TextField, TextFieldVariants, TextFieldProps, InputBaseProps } from "@m
 import React from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
+import { ValidationUtil } from "@manojadams/metaforms-core";
 
 interface InputControlProps extends IFieldProps {
     type: string;
@@ -10,15 +11,15 @@ interface InputControlProps extends IFieldProps {
 }
 function InputControl(props: InputControlProps) {
     const label = MuiFormUtil.getDisplayLabel(props.form);
-    let infoText: string = props.form?.validation?.infoDetail?.infoMsg ?? "";
+    let infoText = (ValidationUtil.getValidationValue(props.form.validation, "info") ?? "") as string;
     const htmlProps = props.htmlProps ?? {};
     const textFieldProps = props.textFieldProps ?? {};
     const isInfoFnExists = infoText?.includes("$");
-    if (isInfoFnExists) {
-        const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
-        const infoMsgFn = props.context.getFn(infoMsgFnName);
-        infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
-    }
+    // if (isInfoFnExists) {
+    //     const infoMsgFnName: string = props.form?.validation?.infoDetail?.infoMsgFn ?? "";
+    //     const infoMsgFn = props.context.getFn(infoMsgFnName);
+    //     infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
+    // }
     return (
         <TextField
             className={props.className ?? ""}

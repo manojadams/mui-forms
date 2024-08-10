@@ -13,7 +13,7 @@ interface IProps extends IFieldProps {
 function SelectControl(props: IProps) {
     const options = props.form.options || [];
     const label = MuiFormUtil.getDisplayLabel(props.form);
-    const infoText = props.form?.validation?.infoDetail?.infoMsg;
+    const infoText = (props.form?.validation?.info ?? "") as string;
     return (
         <FormControl
             size={props.size}
