@@ -1,40 +1,40 @@
 ## Typescript schema
 
 ```typescript
-export interface IUISchema {
+interface IUISchema {
     schema: ISchema;
 }
 
-export interface ISchema {
+interface ISchema {
     rest?: IRest;
     fields: Array<IField>;
     buttons?: Array<IField>;
 }
 
-export interface IRest {
+interface IRest {
     config: IConfig;
 }
 
-export interface IConfig {
+interface IConfig {
     apihost?: string;
     basepath?: string;
     protocol?: string;
     headers?: Array<IConfigParam>;
 }
 
-export interface IConfigParam {
+interface IConfigParam {
     key: string;
     value: string;
 }
 
-export interface IField {
+interface IField {
     name: string;
     prop?: string;
     meta: IMeta;
     fields?: Array<IField>;
 }
 
-export interface IMeta {
+interface IMeta {
     type?: string;
     display?: boolean;
     isArray?: boolean;
@@ -61,13 +61,13 @@ export interface IMeta {
     icons?: IIconConfig;
 }
 
-export interface IOption {
+interface IOption {
     value: string;
     label: string;
     ref?: any;  // reference to original object
 }
 
-export interface IURLLoaderConfig {
+interface IURLLoaderConfig {
     type: string;   // url_loader, lazy_loader
     url: string;
     queryParams?: Array<TParam>; // query params
@@ -80,18 +80,18 @@ export interface IURLLoaderConfig {
     inputFormat?: string;   // for calendar 
     views?: string;         // for calendar
 }
-export interface IIconConfig {
+interface IIconConfig {
     [key: string]: {
         type: string;
         position?: string;
     };
 }
 
-export interface IFieldConfig extends IURLLoaderConfig {
+interface IFieldConfig extends IURLLoaderConfig {
 
 }
 
-export interface IDisplayProps {
+interface IDisplayProps {
     lg?: number;
     md?: number;
     sm?: number;
@@ -104,7 +104,7 @@ export interface IDisplayProps {
     optionsLayout?: string;
 }
 
-export interface ITheme {
+interface ITheme {
     type: string;
     sectionLayout?: string;
     spacing?: string;
@@ -113,31 +113,47 @@ export interface ITheme {
     bootstrap?: IBootstrapTheme;
 }
 
-export interface IValidation {
-    required?: boolean;
-    required_detail?: IValidationDetail;
-    pattern?: string;
-    pattern_detail?: IPatternValidationDetail;
-    min?: number | string;
-    min_detail?: IValidationDetail;
-    max?: number | string;
-    max_detail?: IValidationDetail;
-    info_detail?: IInfoDetail;
+interface IFieldValidation<T>{
+    value: T;
+    errorMsg: string;
 }
 
-export interface IValidationDetail {
-    errorMsg?: string;
-}
-
-export interface IPatternValidationDetail extends IValidationDetail {
+interface IPatternFieldValidation extends IFieldValidation<T> {
+    value: T;
+    errorMsg: string;
     allowValidOnly?: boolean;
 }
 
-export interface IInfoDetail {
+interface IValidation {
+    required?: boolean | IFieldValidation<boolean>;
+    pattern?: string | IPatternFieldValidation<string>;;
+    min?: number | string | IFieldValidation<number | string>;
+    max?: number | string;
+    // @deprecated
+    required_detail?: IValidationDetail;
+    // @deprecated
+    pattern_detail?: IPatternValidationDetail;
+    // @deprecated
+    min_detail?: IValidationDetail;
+    // @deprecated
+    max_detail?: IValidationDetail;
+    // @deprecated
+    info_detail?: IInfoDetail;
+}
+
+interface IValidationDetail {
+    errorMsg?: string;
+}
+
+interface IPatternValidationDetail extends IValidationDetail {
+    allowValidOnly?: boolean;
+}
+
+interface IInfoDetail {
     infoMsg?: string;
 }
 
-export interface IDependency {
+interface IDependency {
     exists?: IExistsDependency;
     enabled?: IEnabledDependency;
     load?: ILoadDependency;
@@ -145,49 +161,49 @@ export interface IDependency {
     displayType?: IDisplayTypeDependency;
 }
 
-export interface IBaseDependency {
+interface IBaseDependency {
     section: string;
     ref: string;    
     value: string;
 }
 
-export interface IExistsDependency extends IBaseDependency {
+interface IExistsDependency extends IBaseDependency {
 
 }
 
-export interface IEnabledDependency extends IBaseDependency {
+interface IEnabledDependency extends IBaseDependency {
 
 }
 
-export interface ILoadDependency extends IBaseDependency {
+interface ILoadDependency extends IBaseDependency {
     url: string;
 }
 
-export interface IEqualsDependency extends IBaseDependency {
+interface IEqualsDependency extends IBaseDependency {
     currentValue: any;
     resetValue: any;
 }
 
-export interface IDisplayTypeDependency extends IBaseDependency {
+interface IDisplayTypeDependency extends IBaseDependency {
     
 }
-export interface ILoader {
+interface ILoader {
 
 }
 
-export interface IFieldChange {
+interface IFieldChange {
     type: string;
     reference: string;
 }
 
-export interface IEvent {
+interface IEvent {
     click?: IClickEvent;
     input?: IInputEvent;
     change?: IChangeEvent | Array<IChangeEvent>;
     open?: IConfig;   // for select
 }
 
-export interface IMUITheme {
+interface IMUITheme {
     variant?: string;
     size?: string;
     tabs?: {
@@ -195,15 +211,15 @@ export interface IMUITheme {
     }
 }
 
-export interface IBootstrapTheme {
+interface IBootstrapTheme {
     
 }
 
-export interface IClickEvent {
+interface IClickEvent {
     type: string; // submit, reset, next, previous, action (custom)
     value?: string;
 }
-export interface IInputEvent {
+interface IInputEvent {
     type: string;
     url: string;
     params: Array<TParam>;
@@ -214,23 +230,23 @@ export interface IInputEvent {
     value?: string;
 }
 
-export interface IChangeEvent {
+interface IChangeEvent {
     type: string;       // setter
     ref: string;
     valueKey: string;
     value: any;
 }
 
-export interface IParamType {
+interface IParamType {
     type?: string;
     ref?: string;       // reference field
     section?: string;   // reference section
 }
 
-export type TParamType = IParamType | string | undefined;
-export type TParam = [string, TParamType];
+type TParamType = IParamType | string | undefined;
+type TParam = [string, TParamType];
 
-export interface IFormatterType {
+interface IFormatterType {
     [key: string]: Function;
 }
 ```
