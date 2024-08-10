@@ -1,6 +1,6 @@
 {
   "name": "mui-forms",
-  "version": "2.0.13",
+  "version": "2.0.16",
   "description": "Material UI forms with json based schema",
   "author": "manojadams",
   "license": "MIT",
@@ -16,7 +16,8 @@
     "material forms",
     "mui forms",
     "dynamic forms",
-    "react forms"
+    "react forms",
+    "advanced material forms"
   ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs -css",
@@ -26,10 +27,7 @@
     "test:build": "run-s build",
     "test:lint": "eslint src/",
     "test:unit": "jest --verbose ./src/__tests__",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
-    "doc": "typedoc src/index.tsx --excludeInternal"
+    "test:watch": "react-scripts test --env=jsdom"
   },
   "peerDependencies": {
     "react": "^18.0.0"
@@ -62,14 +60,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "^5.0.1",
-    "typedoc": "^0.23.25",
     "typescript": "^4.9.5"
   },
   "files": [
@@ -82,14 +78,10 @@
     "@manojadams/metaforms-core": "^4.0.7",
     "@mui/material": "^5.10.0",
     "@mui/x-date-pickers": "^5.0.19",
-    "build": "^0.1.4",
     "date-fns": "^2.29.1",
-    "i": "^0.3.7",
     "layout-emotions": "^1.0.18",
-    "npm": "^9.8.1",
     "react-input-mask": "^2.0.4",
     "react-number-format": "^5.2.2",
-    "react-phone-input-2": "^2.15.1",
-    "run": "^1.4.0"
+    "react-phone-input-2": "^2.15.1"
   }
 }
