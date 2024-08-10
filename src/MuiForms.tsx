@@ -50,7 +50,7 @@ class MuiForms extends React.Component<IMuiFormRendererProps> {
                                 this.props.loader ?? <CircularProgress color={loaderColor ?? "inherit"} size={24} />
                             }
                             size={configSize ?? "medium"}
-                            text="Submit"
+                            text="Next"
                         />
                     ),
                     previous: <Button variant="text">Previous</Button>,
