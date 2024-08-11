@@ -70,24 +70,24 @@ export function MyForm() {
 }
 ```
 
-## Input Properties| Name               | Description                                                                                                                                                                                                                                              | Type      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| className          | Name of class attribute assigned to the root form element 
-| name               | The name of the form                                                                                                                                                                                                                                     | Optional  |
-| config             | Configuration options for the form. [Read more](https://mui-forms.vercel.app/config)                                                                                                                                                                                                                  | Optional  |
-| data               | Contains initial form data values when the form is loaded. [Read more](https://mui-forms.vercel.app/preload-data)                                                                                                                                                                                              | Optional |
-| schema             | JSON-based schema for rendering the form. [Read more](https://mui-forms.vercel.app/schema)                                                                                                                                                                                                                     | Mandatory |
-| controls           | Custom fields. [Read more](https://mui-forms.vercel.app/custom-fields/about)                                                                                                                                                                                                                                | Optional  |
-| components         | Custom template components mapped with schema using displayType property as template. [Read more](https://mui-forms.vercel.app/custom-fields/custom-components)         | Optional  |
-| pageNumber         | The default tab on opening the form (grouped form) |Optional|
-| lastPageNumber     | The last page number will exclude any tabs that appear after the lastPageNumber tab | Optional |
-| onChange           | A function that will be called whenever the value of a field changes. The second parameter provided to this function contains the complete form data. | Optional |                                                                                                                                                                                                                | Optional  |
-| onError            | A function that will be called whenever there is an error with a field.                                                                                                                                                                                                                     | Optional  |
-| onNext             | A function that will be called when when the user attempts to navigate to the next section of a grouped form.                                                                                                                                                                        | Optional  |
-| onPrevious         | A function that will be called when when the user attempts to navigate to the previous section of a grouped form                                                                                                                                                                | Optional  |
-| onSubmit           | A function that will be called when the form is submitted                                                                                                                                                                                                                  | Mandatory |
-| changeResponseMode | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter.                  | Optional  |
-| nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button | Optional  |
+## Input Properties| Name               | Description           |
+| ------------------ | ---------------------------------------- |
+| className          | Name of class attribute assigned to the root form element |
+| name               | The name of the form  |
+| config             | Configuration options for the form. [Read more](https://mui-forms.vercel.app/config)  |
+| data               | Contains initial form data values when the form is loaded. [Read more](https://mui-forms.vercel.app/preload-data)  |
+| schema             | JSON-based schema for rendering the form. [Read more](https://mui-forms.vercel.app/schema)  |
+| controls           | Custom fields. [Read more](https://mui-forms.vercel.app/custom-fields/about)  |
+| components         | Custom template components mapped with schema using displayType property as template. [Read more](https://mui-forms.vercel.app/custom-fields/custom-components)  |
+| pageNumber         | The default tab on opening the form (grouped form) |
+| lastPageNumber     | The last page number will exclude any tabs that appear after the lastPageNumber tab |
+| onChange           | A function that will be called whenever the value of a field changes. The second parameter provided to this function contains the complete form data. |
+| onError            | A function that will be called whenever there is an error with a field. |
+| onNext             | A function that will be called when when the user attempts to navigate to the next section of a grouped form |
+| onPrevious         | A function that will be called when when the user attempts to navigate to the previous section of a grouped form |
+| onSubmit           | A function that will be called when the form is submitted |
+| changeResponseMode | Value: "form-data", "section-data", "default". <br /> **`form-data`**: onChange event will pass all the form data as a second parameter. <br />**`section-data`**: onChange event will pass all the section data as a second parameter |
+| nextResponseMode   | Value: "form-data", "page-data" <br/> **`form-data`**: onNext event will send all the form data (onNext). <br /> **`page-data`**: onNext event will send all the date of the current page. <br/> `Note`: onNext is triggered on click of **Next** button |
 
 
 ## Mandatory properties
