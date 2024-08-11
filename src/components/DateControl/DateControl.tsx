@@ -31,6 +31,7 @@ function DateControl(props: IProps) {
     const subProps = props || {};
     let localValue;
     const placeholder = props.form.placeholder ?? inputFormat;
+    const infoText = (ValidationUtil.getValidationValue(props.form.validation, "info") ?? "") as string;
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
             <DatePicker
@@ -94,7 +95,7 @@ function DateControl(props: IProps) {
                         {...params}
                         variant={variant as TextFieldVariants}
                         className={props.className}
-                        helperText={props.error.errorMsg || undefined}
+                        helperText={props.error.errorMsg || infoText || undefined}
                         inputProps={{
                             ...params.inputProps,
                             placeholder
