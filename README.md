@@ -90,7 +90,6 @@ export function MyForm() {
 |15| rest| API configuration details. More detail in docs|
 |16| schema*| JSON based schema containing all form fields details|
 |17| sectionLayout| Available values: default, stepper, tabs, wizards. More detail in docs| string |
-|18| useNextResponse| It is used to wait for onNext action to be completed in case onNext is async. Default is false| boolean |
 |19| onChange| A callback function called on each form field value change| function |
 |20| onError| A callback function called on each form field error| function |
 |21| onPrevious| A callback function called on click of previous button| function |

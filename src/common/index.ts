@@ -20,7 +20,6 @@ export type IMuiFormProps =
     | "rest"
     | "schema"
     | "sectionLayout"
-    | "useNextResponse"
     | "onChange"
     | "onError"
     | "onPrevious"
