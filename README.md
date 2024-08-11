@@ -105,7 +105,7 @@ export function MyForm() {
 
 ## Contributions
 
-Your contribution is very welcome and highly appreciated. To contribute, you can fork the repo, make your changes and submit a PR/MR to the master branch.
+To contribute, you can fork the repo, make your changes and submit a PR/MR to the master branch.
 
 You can contribute in many ways:
 - Work on features/enhancements
