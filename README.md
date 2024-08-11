@@ -70,7 +70,9 @@ export function MyForm() {
 }
 ```
 
-## Input Properties| Name               | Description           |
+## Input Properties
+
+| Name               | Description           |
 | ------------------ | ---------------------------------------- |
 | className          | Name of class attribute assigned to the root form element |
 | name               | The name of the form  |
