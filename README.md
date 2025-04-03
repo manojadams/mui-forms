@@ -100,8 +100,7 @@ export function MyForm() {
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
 
 ## Change logs
-- [fix #80: preload data not working for fields with no prop](https://github.com/manojadams/metaforms-core/issues/80)
-- [fix #104: fix footer next button text](https://github.com/manojadams/mui-forms/issues/104)
+- [fix #111: auth headers](https://github.com/manojadams/mui-forms/issues/111)
 
 ## Contributions
 
