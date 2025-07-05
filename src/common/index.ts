@@ -11,6 +11,7 @@ export type IMuiFormProps =
     | "controls"
     | "data"
     | "fns"
+    | "footer"
     | "icons"
     | "lastPageNumber"
     | "loader"
