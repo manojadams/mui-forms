@@ -1,1 +1,2 @@
-Add ability to add customize form footer. [Read more](https://github.com/manojadams/mui-forms/issues/113)
+# 2.1.0
+Add ability to add customize form footer.
