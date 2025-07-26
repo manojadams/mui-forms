@@ -101,7 +101,7 @@ export function MyForm() {
 
 ## Change logs
 
-### 2.2-beta.1
+### 2.2.0-beta.1
 - [feature-115: Dynamic select fields](@manojadams/metaforms-core)
 
 ### 2.1.0
