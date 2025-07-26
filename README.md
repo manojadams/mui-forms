@@ -100,6 +100,11 @@ export function MyForm() {
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
 
 ## Change logs
+
+### 2.2-beta.1
+- [feature-115: Dynamic select fields](@manojadams/metaforms-core)
+
+### 2.1.0
 - [fix #111: auth headers](https://github.com/manojadams/mui-forms/issues/111)
 
 ## Contributions
