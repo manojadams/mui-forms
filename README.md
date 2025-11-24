@@ -100,6 +100,11 @@ export function MyForm() {
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
 
 ## Change logs
+
+### 2.1.1
+- [fix #118: fix for condition not working for string values](https://github.com/manojadams/mui-forms/issues/118)
+
+### Previous versions
 - [fix #111: auth headers](https://github.com/manojadams/mui-forms/issues/111)
 
 ## Contributions
