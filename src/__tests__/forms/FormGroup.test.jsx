@@ -4,6 +4,7 @@ import FormGroup from "../../forms/FormGroup";
 
 // Mock the core components
 jest.mock("@manojadams/metaforms-core", () => {
+    const React = require("react");
     return {
         BaseFormGroup: class extends React.Component {
             constructor(props) {

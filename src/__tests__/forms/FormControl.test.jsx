@@ -4,6 +4,7 @@ import FormControl from "../../forms/FormControl";
 
 // Mock the core components
 jest.mock("@manojadams/metaforms-core", () => {
+    const React = require("react");
     return {
         BaseFormControl: class extends React.Component {
             constructor(props) {
