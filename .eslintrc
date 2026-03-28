@@ -33,6 +33,9 @@
     "react/no-unused-prop-types": 0,
     "import/export": 0,
     "@typescript-eslint/explicit-function-return-type": "off",
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4]
     // "@typescript-eslint/interface-name-prefix": [ "error", { "prefixWithI": "always" }]
   }
 }

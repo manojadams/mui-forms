@@ -50,11 +50,7 @@ export default function Search(props: IProps) {
                 size={props.size}
                 isOptionEqualToValue={(option, value) => value && value.value === option.value}
                 onChange={(e, val) => {
-                    const actualValue = val?.value
-                        ? val.value
-                        : inputEv?.value && val && val[inputEv.value]
-                        ? val[inputEv.value]
-                        : "";
+                    const actualValue = val?.value ? val.value : val?.[inputEv?.value] || "";
                     props.handleChange(e, actualValue, val !== null ? val : undefined);
                     props.handleValidation();
                     if (val) {
