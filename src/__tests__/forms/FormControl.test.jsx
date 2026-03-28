@@ -4,7 +4,6 @@ import FormControl from "../../forms/FormControl";
 
 // Mock the core components
 jest.mock("@manojadams/metaforms-core", () => {
-    const React = require("react");
     return {
         BaseFormControl: class extends React.Component {
             constructor(props) {
@@ -17,12 +16,17 @@ jest.mock("@manojadams/metaforms-core", () => {
                     getIcon: jest.fn()
                 };
             }
+
             getWrapperClassName() {
                 return "meta-wrapper";
             }
+
             handleChange() {}
+
             handleValidation() {}
+
             setError() {}
+
             render() {
                 const type = this.field.type;
                 if (type === "text") return this.text();

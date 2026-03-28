@@ -4,7 +4,6 @@ import FormGroup from "../../forms/FormGroup";
 
 // Mock the core components
 jest.mock("@manojadams/metaforms-core", () => {
-    const React = require("react");
     return {
         BaseFormGroup: class extends React.Component {
             constructor(props) {
@@ -14,9 +13,11 @@ jest.mock("@manojadams/metaforms-core", () => {
                     formConfig: { config: { tabs: { variant: "standard" } } }
                 };
             }
+
             setActiveIndex(index) {
                 this.setState({ activeIndex: index });
             }
+
             render() {
                 return (
                     <div>
@@ -51,7 +52,7 @@ describe("FormGroup", () => {
     });
 
     it("should change active tab on click", () => {
-        const { getByText, getByTestId } = render(<FormGroup fields={fields} />);
+        const { getByText } = render(<FormGroup fields={fields} />);
         const tab2 = getByText("Tab 2");
 
         // In MUI Tabs, clicking a tab calls onChange on the Tabs component
