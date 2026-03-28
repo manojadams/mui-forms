@@ -1,3 +1,0 @@
-ignore:
-  - "src/__tests))/*"
-  - "**/*.test.tsx"
