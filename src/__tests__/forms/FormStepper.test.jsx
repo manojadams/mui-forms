@@ -4,6 +4,7 @@ import { FormStepper } from "../../forms/FormStepper";
 
 // Mock the core components
 jest.mock("@manojadams/metaforms-core", () => {
+    const React = require("react");
     return {
         BaseFormStepper: class extends React.Component {
             constructor(props) {
