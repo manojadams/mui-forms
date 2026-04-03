@@ -99,15 +99,6 @@ export function MyForm() {
 ## Schema details
 [Check out details here https://mui-forms.vercel.app/schema](https://mui-forms.vercel.app/schema)
 
-## Change logs
-
-### 2.1.1
-- [feature-115: Dynamic select fields](@manojadams/metaforms-core)
-- [fix #118: fix for condition not working for string values](https://github.com/manojadams/mui-forms/issues/118)
-
-### Previous versions
-- [fix #111: auth headers](https://github.com/manojadams/mui-forms/issues/111)
-
 ## Contributions
 
 To contribute, you can fork the repo, make your changes and submit a PR/MR to the master branch.
