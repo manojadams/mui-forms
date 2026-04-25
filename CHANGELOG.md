@@ -15,13 +15,6 @@
 - Add ability to add customize form footer.
 
 # 2.0.20
-- Updated dependencies and core package for latest improvements
-- Documentation updates
-
-# 2.0.14
-- README updates and improvements
-
-# 2.0.0
 
 ## Major Release - Version 2
 
