@@ -1,13 +1,31 @@
-<div>
-    <div align="center">
-        <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="80" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
-    </div>
-  <p align="center">Create advanced material forms</p>
+<div align="center">
+    <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="80" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
+    <h1>MUI Forms</h1>
+    <p>Create advanced material forms with JSON-based schemas</p>
+    <p>
+        <a href="https://www.npmjs.com/package/mui-forms"><img alt="npm version" src="https://img.shields.io/npm/v/mui-forms.svg?style=flat-square"></a>
+        <a href="https://github.com/manojadams/mui-forms/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/npm/l/mui-forms.svg?style=flat-square"></a>
+        <a href="https://nodejs.org/"><img alt="Node.js >=10" src="https://img.shields.io/node/v/mui-forms.svg?style=flat-square"></a>
+    </p>
 </div>
 
 ## About
 Create beautiful advanced forms with a JSON-based schema
-  
+
+## Table of Contents
+- [Features](#advantages-and-features)
+- [Installation](#installation)
+- [System Requirements](#system-requirements)
+- [Documentation](#documentation)
+- [Basic Usage](#basic-usage)
+- [Input Properties](#input-properties)
+- [Contributions](#contributions)
+
+## System Requirements
+- **Node.js**: >= 10
+- **React**: 18.x or 19.x
+- **Material-UI (MUI)**: Compatible with the latest versions
+
 ## Advantages and features
 - Material UI components
 - Built-in layouting
@@ -29,7 +47,9 @@ npm install mui-forms
 ```
 
 ## Documentation
-Visit the following page for detailed documentation: https://mui-forms.vercel.app
+**Full documentation with examples**: https://mui-forms.vercel.app
+
+For detailed information about schema configuration, custom fields, and advanced usage, visit the [complete documentation](https://mui-forms.vercel.app).
 
 ## Basic Usage
 
@@ -110,9 +130,15 @@ You can contribute in many ways:
 - Improve documentation
 - Add more examples/improve existing example
 - Participate in discussions
-- Provide your valuable feedback/suggestions.
+- Provide your valuable feedback/suggestions
 
-## Give a ⭐️ if you liked this project!
+## Roadmap & Changes
+
+See [CHANGELOG.md](./CHANGELOG.md) for a complete list of changes in each release.
+
+## Show Your Support
+
+Please give this project a star ⭐️ if you find it helpful!
 
 ## License
 
