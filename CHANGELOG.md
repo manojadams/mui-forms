@@ -1,3 +1,6 @@
+# 2.4.0
+- Adding custom validators support
+
 # 2.3.1
 - Use latest lib for validation api updates
 
