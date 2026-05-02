@@ -1,7 +1,7 @@
 <div align="center">
     <a href="https://mui.com/core/" rel="noopener" target="_blank"><img width="80" src="https://mui-forms.vercel.app/logos/logo.png" alt="MUI Forms logo"></a>
     <h1>MUI Forms</h1>
-    <p>Build dynamic, production-ready React forms from JSON and material ui —no repetitive code.</p>
+    <p>Create advanced material forms.</p>
     <p>
         <a href="https://www.npmjs.com/package/mui-forms"><img alt="npm version" src="https://img.shields.io/npm/v/mui-forms.svg?style=flat-square"></a>
         <a href="https://github.com/manojadams/mui-forms/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/npm/l/mui-forms.svg?style=flat-square"></a>
@@ -10,7 +10,7 @@
 </div>
 
 ## About
-Create beautiful advanced forms with a JSON-based schema
+Build dynamic, production-ready React forms from JSON and material ui —no repetitive code.
 
 ## Table of Contents
 - [Features](#advantages-and-features)
