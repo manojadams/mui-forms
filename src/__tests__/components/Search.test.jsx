@@ -32,6 +32,10 @@ describe("Search", () => {
         section: "general"
     };
 
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     it("should render correctly with label and value", () => {
         const { getByLabelText } = render(<Search {...defaultProps} />);
         const input = getByLabelText("Search Country");
@@ -62,5 +66,18 @@ describe("Search", () => {
         };
         const { getByText } = render(<Search {...props} />);
         expect(getByText("Country not found")).toBeTruthy();
+    });
+
+    it("should clear the local value when form value is cleared", async () => {
+        const { getByLabelText, rerender } = render(<Search {...defaultProps} />);
+        const input = getByLabelText("Search Country");
+
+        expect(input.value).toBe("India");
+
+        rerender(<Search {...defaultProps} form={{ ...defaultProps.form, value: null }} />);
+
+        await waitFor(() => {
+            expect(input.value).toBe("");
+        });
     });
 });

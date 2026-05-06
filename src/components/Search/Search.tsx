@@ -30,11 +30,9 @@ export default function Search(props: IProps) {
         if (props.form.options && props.form.options.length > 0) {
             const value = FormUtils.getSearchValue(props.form.options, props.form.value);
             setOptions(props.form.options);
-            if (value) {
-                setValue(value as IOption);
-            }
+            setValue(value ? (value as IOption) : null);
         }
-    }, [props.form.options]);
+    }, [props.form.options, props.form.value]);
 
     useEffect(() => {
         setLoading(props.loading);
@@ -53,11 +51,8 @@ export default function Search(props: IProps) {
                     const actualValue = val?.value ? val.value :
                         inputEv?.value ? (val as any)?.[inputEv?.value] : "";
                     props.handleChange(e, actualValue, val !== null ? val : undefined);
+                    setValue(val);
                     props.handleValidation();
-                    if (val) {
-                        setValue(val);
-                        props.handleValidation();
-                    }
                 }}
                 onBlur={() => props.handleValidation()}
                 onInputChange={(e, val: string) => {
