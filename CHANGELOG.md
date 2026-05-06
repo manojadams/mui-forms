@@ -1,3 +1,7 @@
+# 2.4.2
+- Added lazy loading of data
+- Enabled loader while loading data from API
+
 # 2.4.1
 - [Fix autocomplete clear action not updating the local selected value](https://github.com/manojadams/mui-forms/issues/133)
 
