@@ -19,6 +19,7 @@ describe("MultiSelectControl", () => {
         name: "skills",
         error: { hasError: false, errorMsg: "" },
         context: {},
+        loading: false,
         handleChange: jest.fn(),
         handleValidation: jest.fn(),
         handleOpen: jest.fn(),
@@ -29,6 +30,17 @@ describe("MultiSelectControl", () => {
         const props = {
             ...defaultProps,
             form: { ...defaultProps.form, events: { open: true } }
+        };
+        const { getByRole } = render(<MultiSelectControl {...props} />);
+        const select = getByRole("combobox");
+        fireEvent.mouseDown(select);
+        expect(props.handleOpen).toHaveBeenCalled();
+    });
+
+    it("should call handleOpen when clicked with lazy config", () => {
+        const props = {
+            ...defaultProps,
+            form: { ...defaultProps.form, config: { url: "/api/skills", lazy: true } }
         };
         const { getByRole } = render(<MultiSelectControl {...props} />);
         const select = getByRole("combobox");
@@ -52,6 +64,15 @@ describe("MultiSelectControl", () => {
         const select = getByRole("combobox");
         fireEvent.blur(select);
         expect(defaultProps.handleValidation).toHaveBeenCalled();
+    });
+
+    it("should show progress bar when loading", () => {
+        const props = {
+            ...defaultProps,
+            loading: true
+        };
+        const { getByRole } = render(<MultiSelectControl {...props} />);
+        expect(getByRole("progressbar")).toBeTruthy();
     });
 
     it("should render values as chips when variant is chip", () => {

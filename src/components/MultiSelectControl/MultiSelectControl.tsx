@@ -1,12 +1,13 @@
 import React, { ChangeEvent } from "react";
 import { IFieldProps } from "../../common/field";
 import MuiFormUtil from "../../Utils/MuiFormUtil";
-import { Box, Chip, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, Chip, FormControl, InputLabel, LinearProgress, MenuItem, Select } from "@mui/material";
 import { TVariant } from "../../forms/ constants";
 
 interface IProps extends IFieldProps {
     handleOpen: () => void;
     showValidation: () => JSX.Element;
+    loading: boolean;
 }
 
 const renderAsCSV = (selected: Array<string>) => selected.join(", ");
@@ -43,6 +44,11 @@ function MultiSelectControl(props: IProps) {
                 onOpen={() => {
                     if (props.form.events?.open) {
                         props.handleOpen();
+                    } else {
+                        // check config
+                        if (props.form.config?.url && props.form?.config?.lazy) {
+                            props.handleOpen();
+                        }
                     }
                 }}
                 onChange={(e) => {
@@ -62,6 +68,11 @@ function MultiSelectControl(props: IProps) {
                         );
                     })}
             </Select>
+            {props.loading && (
+                <Box sx={{ width: "100%" }}>
+                    <LinearProgress />
+                </Box>
+            )}
             {props.showValidation()}
         </FormControl>
     );

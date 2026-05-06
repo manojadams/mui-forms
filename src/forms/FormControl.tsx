@@ -273,6 +273,7 @@ export default class FormControl extends BaseFormControl {
                 field={this.field}
                 form={this.props.form}
                 error={this.state.error}
+                loading={this.state.loading}
                 name={this.props.name}
                 size={this.size}
                 variant={this.getVariant()}
