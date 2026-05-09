@@ -10,7 +10,6 @@ export interface IFieldProps {
     size: "small" | "medium";
     error: IError;
     variant?: string;
-    customProps?: Record<string, boolean | string | number>;
     handleChange(e: TMouseEvent, val?: TValue, ref?: IOption): void;
     handleValidation: () => void;
     setError: (hasError: boolean, errorMsg: string) => void;

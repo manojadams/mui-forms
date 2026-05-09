@@ -25,6 +25,7 @@ function MultiSelectControl(props: IProps) {
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const renderValue = (props.form.config as Record<string, string>)?.variant === "chip" ? renderAsChips : renderAsCSV;
     const value = (props.form?.value as string | string[]) || [];
+    const customProps = props.field?.customProps || {};
 
     return (
         <FormControl
@@ -36,6 +37,7 @@ function MultiSelectControl(props: IProps) {
         >
             <InputLabel className="meta-select-label">{label}</InputLabel>
             <Select
+                {...customProps}
                 multiple
                 label={props.form.displayName}
                 disabled={props.form.isDisabled}

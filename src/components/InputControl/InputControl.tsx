@@ -20,8 +20,10 @@ function InputControl(props: InputControlProps) {
         const infoMsgFn = props.context.getFn(infoMsgFnName);
         infoText = infoMsgFn ? (infoMsgFn(null, undefined, props.form) as string) : "";
     }
+    const customProps = props.field?.customProps || {};
     return (
         <TextField
+            {...customProps}
             className={props.className ?? ""}
             type={props.type}
             label={label}

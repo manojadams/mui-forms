@@ -14,6 +14,7 @@ function SelectControl(props: IProps) {
     const options = props.form.options || [];
     const label = MuiFormUtil.getDisplayLabel(props.form);
     const infoText = (props.form?.validation?.info ?? "") as string;
+    const customProps = props.field?.customProps || {};
     return (
         <FormControl
             size={props.size}
@@ -24,6 +25,7 @@ function SelectControl(props: IProps) {
         >
             <InputLabel className="meta-select-label">{label}</InputLabel>
             <Select
+                {...customProps}
                 label={props.form.displayName}
                 value={props.form?.value}
                 disabled={props.form.isDisabled}
