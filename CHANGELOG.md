@@ -1,4 +1,8 @@
 # 2.4.5
+- Enhancement: fix for validator function to also be able to return custom error message.
+- Updated metaAPI methods to be directly accessible
+
+# 2.4.5
 - [Feature: implement custom properties](https://github.com/manojadams/mui-forms/issues/138)
 
 # 2.4.2
