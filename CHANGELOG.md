@@ -1,3 +1,6 @@
+# 2.4.5
+- [Feature: implement custom properties](https://github.com/manojadams/mui-forms/issues/138)
+
 # 2.4.2
 - Added lazy loading of data
 - Enabled loader while loading data from API
