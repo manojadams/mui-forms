@@ -28,14 +28,14 @@ function DateControl(props: IProps) {
     const openTo: CalendarPickerView | undefined = props.form?.config?.openTo as CalendarPickerView | undefined;
     const inputFormat = (props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT) as string;
     const views: [CalendarPickerView] | undefined = props.form?.config?.views as [CalendarPickerView] | undefined;
-    const subProps = props || {};
+    const customProps = props.field?.customProps || {};
     let localValue;
     const placeholder = props.form.placeholder ?? inputFormat;
     const infoText = (ValidationUtil.getValidationValue(props.form.validation, "info") ?? "") as string;
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
             <DatePicker
-                {...subProps}
+                {...customProps}
                 closeOnSelect
                 disabled={props.form.isDisabled}
                 readOnly={props.form.isReadonly}

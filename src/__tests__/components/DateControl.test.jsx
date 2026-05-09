@@ -11,6 +11,9 @@ describe("DateControl", () => {
             placeholder: "Select date",
             config: { inputFormat: "dd/MM/yyyy" }
         },
+        field: {
+            name: "birthday"
+        },
         name: "birthday",
         size: "small",
         variant: "outlined",
@@ -57,5 +60,31 @@ describe("DateControl", () => {
         // The component's onChange will be called by DatePicker
         // We expect handleChange to be called eventually
         expect(defaultProps.handleChange).toHaveBeenCalled();
+    });
+
+    it("should not allow custom props to override renderer controlled picker props", () => {
+        const customHandleChange = jest.fn();
+        const props = {
+            ...defaultProps,
+            field: {
+                ...defaultProps.field,
+                customProps: {
+                    label: "Custom birthday",
+                    value: new Date("2022-01-01"),
+                    inputFormat: "yyyy",
+                    onChange: customHandleChange
+                }
+            }
+        };
+
+        const { getByLabelText } = render(<DateControl {...props} />);
+        const input = getByLabelText("Birthday *");
+
+        expect(input.value).toBe("01/10/2023");
+
+        fireEvent.change(input, { target: { value: "02/10/2023" } });
+
+        expect(defaultProps.handleChange).toHaveBeenCalled();
+        expect(customHandleChange).not.toHaveBeenCalled();
     });
 });
