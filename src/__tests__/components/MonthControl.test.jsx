@@ -10,6 +10,7 @@ describe("MonthControl", () => {
             validation: { required: true },
             placeholder: "Select month"
         },
+        field: {},
         name: "expiry",
         size: "small",
         variant: "outlined",
@@ -49,5 +50,30 @@ describe("MonthControl", () => {
         fireEvent.change(input, { target: { value: "Nov 2023" } });
         // The component's onChange will be called by DatePicker
         expect(defaultProps.handleChange).toHaveBeenCalled();
+    });
+
+    it("should not allow custom props to override renderer controlled picker props", () => {
+        const customHandleChange = jest.fn();
+        const props = {
+            ...defaultProps,
+            field: {
+                customProps: {
+                    label: "Custom expiry",
+                    value: new Date("2022-01-01"),
+                    inputFormat: "yyyy",
+                    onChange: customHandleChange
+                }
+            }
+        };
+
+        const { getByLabelText } = render(<MonthControl {...props} />);
+        const input = getByLabelText("Expiry Date *");
+
+        expect(input.value).toBe("Oct 2023");
+
+        fireEvent.change(input, { target: { value: "Nov 2023" } });
+
+        expect(defaultProps.handleChange).toHaveBeenCalled();
+        expect(customHandleChange).not.toHaveBeenCalled();
     });
 });
