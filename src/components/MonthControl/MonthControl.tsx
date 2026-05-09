@@ -21,10 +21,12 @@ function MonthControl(props: IFieldProps) {
         : undefined;
     const inputFormat = "MMM yyyy";
     const placeholder = props.form.placeholder || inputFormat;
+    const customProps = props.field?.customProps || {};
     let localValue;
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enLocale}>
             <DatePicker
+                {...customProps}
                 label={label}
                 openTo="year"
                 views={["year", "month"]}

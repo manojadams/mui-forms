@@ -9,6 +9,7 @@ function RadioControl(props: IFieldProps) {
     const fieldLabelClassname = "field-label d-md-flex align-items-md-center";
     const config = props.form.config as Record<string, TLabelPlacement>;
     const labelPlacement = config?.labelPlacement;
+    const customProps = props.field?.customProps || {};
     return (
         <FormControl size={props.size} fullWidth className={props.className}>
             <FormLabel className={fieldLabelClassname}>
@@ -16,6 +17,7 @@ function RadioControl(props: IFieldProps) {
                 {props.form?.validation?.required && <MandatoryLabel />}
             </FormLabel>
             <RadioGroup
+                {...customProps}
                 row={isRow}
                 value={props.form?.value}
                 onChange={(e) => {

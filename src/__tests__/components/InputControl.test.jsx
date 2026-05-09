@@ -11,6 +11,7 @@ describe("InputControl", () => {
             isDisabled: false,
             isReadonly: false
         },
+        field: {},
         name: "username",
         type: "text",
         variant: "outlined",
@@ -71,5 +72,49 @@ describe("InputControl", () => {
         };
         const { getByText } = render(<InputControl {...props} />);
         expect(getByText("Enter your username")).toBeTruthy();
+    });
+
+    it("should pass custom props to the text field", () => {
+        const props = {
+            ...defaultProps,
+            field: {
+                customProps: {
+                    "data-testid": "custom-input-control"
+                }
+            }
+        };
+
+        const { getByTestId } = render(<InputControl {...props} />);
+        expect(getByTestId("custom-input-control")).toBeTruthy();
+    });
+
+    it("should not allow custom props to override renderer controlled props", () => {
+        const customHandleChange = jest.fn();
+        const props = {
+            ...defaultProps,
+            form: {
+                ...defaultProps.form,
+                value: "renderer-value"
+            },
+            field: {
+                customProps: {
+                    label: "Custom label",
+                    name: "custom-name",
+                    value: "custom-value",
+                    onChange: customHandleChange
+                }
+            }
+        };
+
+        const { getByLabelText } = render(<InputControl {...props} />);
+        const input = getByLabelText("Username");
+
+        expect(input.name).toBe("username");
+        expect(input.value).toBe("renderer-value");
+
+        fireEvent.change(input, { target: { value: "updated" } });
+
+        expect(defaultProps.handleChange).toHaveBeenCalled();
+        expect(customHandleChange).not.toHaveBeenCalled();
     });
 });
