@@ -28,7 +28,7 @@ function DateControl(props: IProps) {
     const openTo: CalendarPickerView | undefined = props.form?.config?.openTo as CalendarPickerView | undefined;
     const inputFormat = (props.form?.config?.inputFormat ?? DEFAULT_DATE_FORMAT) as string;
     const views: [CalendarPickerView] | undefined = props.form?.config?.views as [CalendarPickerView] | undefined;
-    const subProps = props || {};
+    const subProps = props.customProps || {};
     let localValue;
     const placeholder = props.form.placeholder ?? inputFormat;
     const infoText = (ValidationUtil.getValidationValue(props.form.validation, "info") ?? "") as string;

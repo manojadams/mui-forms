@@ -8,8 +8,9 @@ export interface IFieldProps {
     form: IFormField;
     name: string;
     size: "small" | "medium";
-    variant?: string;
     error: IError;
+    variant?: string;
+    customProps?: Record<string, boolean | string | number>;
     handleChange(e: TMouseEvent, val?: TValue, ref?: IOption): void;
     handleValidation: () => void;
     setError: (hasError: boolean, errorMsg: string) => void;
