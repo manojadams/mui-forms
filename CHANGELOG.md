@@ -1,4 +1,7 @@
-# 2.4.5
+# 2.4.7
+- Enhancement: allow fields to be reset when disabled through enabled dependency
+
+# 2.4.6
 - Enhancement: fix for validator function to also be able to return custom error message.
 - Updated metaAPI methods to be directly accessible
 
