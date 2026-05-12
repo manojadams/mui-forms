@@ -1,3 +1,6 @@
+# 2.4.9
+- Feature: implementing value dependency
+
 # 2.4.7
 - Enhancement: allow fields to be reset when disabled through enabled dependency
 
