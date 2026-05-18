@@ -22,6 +22,7 @@ export type IMuiFormProps =
     | "schema"
     | "sectionLayout"
     | "validators"
+    | "fieldMapper"
     | "onChange"
     | "onError"
     | "onPrevious"
