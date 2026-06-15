@@ -1,3 +1,6 @@
+# 3.0.1-beta.0
+- Feature: adding the support for field mapping
+
 # 2.4.9
 - Feature: implementing value dependency
 
